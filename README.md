@@ -1,5 +1,11 @@
 # Requirements Template
 
+View rendered specification at https://mielvds.github.io/erfgoedpod-usecases/.
+
+
+
+
+
 This is the template for requirements published by Netwerk Digitaal Erfgoed.
 
 Requirements are written in Markdown and transformed to HTML using the

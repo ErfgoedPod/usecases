@@ -1,16 +1,778 @@
 <pre class='metadata'>
-Title: Your Spec Title
-Shortname: your-spec
+Title: Use Cases & Business Processes digital heritage network
+Shortname: erfgoedpod-usecases
 Level: 1
 Status: LS
-URL: http://example.com/url-this-spec-will-live-at
-Editor: Your Name, Your Company http://example.com/your-company, your-email@example.com, http://example.com/your-personal-website
-Abstract: A short description of your spec, one or two sentences.
+URL: https://mielvds.github.io/erfgoedpod-usecases
+Editor: Miel Vander Sande, meemoo http://meemoo.be, miel.vandersande@meemoo.be
+Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
 </pre>
 
-Introduction {#intro}
-=====================
+# Common infrastructure setups of a Cultural Heritage Institution
 
-Introduction here.
+This section attempts to identify software setups that are common within Flemish and Dutch cultural heritage institutions. This sketches the practical context needed to assess where a Solid-based solution should be applied and how it could make a difference.
 
-Test build: d929bb9
+In summary, the day-to-day *digital* operations of a cultural heritage institution are comprised of:
+
+- managing the metadata of physical or digital collections and the objects they contain;
+
+- accompanying these with the audiovisual representations of those objects; and
+
+- disseminating this information to their audiences through websites, platforms and (social media) campaigns, with the institution\'s own website as the most prominent communication channel.
+
+We identified three common types of management systems that are in direct correspondence with these tasks:
+
+## Collections Management System
+
+Software used by the cultural heritage institution to organize, control, and manage collections objects by \"tracking all information related to and about\" those objects. Registrars, collections managers, and curators, use it to record information such as object locations, provenance, curatorial information, conservation reports, and exhibition histories. This information is also accessed and used by other departments systems and from departments.
+
+Example software systems:
+
+- Axiell Collections
+- Adlib (old version of Axiell Collections, but still very much in use)
+- The Museum System (TMS)
+- Keepthinking QI
+- Collective access
+
+## Digital Asset Management System
+
+A centralized system where cultural heritage institutions (efficiently) store, organize, manage, access and distribute their media assets.
+
+Example software systems:
+
+- Filesystem
+- Webserver
+- Dropbox
+- Resource space DAM
+- Zeticon Mediahaven
+
+## Content Management System
+
+Cultural heritage institutions often use a content management system to create, manage, and modify content on their website, because it doesn't require writing all the code from scratch or even having the skills to do so. Their website is the main channel for communicating with their individual audience, e.g., write articles about their collections and run campaigns. Hence, the CMS is a component seldomly shared with others.
+
+Example software systems:
+
+- Drupal
+- CraftCMS
+- Omeka
+- Wordpress
+
+These three management systems are the main building blocks in an institution's infrastructure and occur in different constellations, depending on the institution's size, budget and knowhow. The institution either manages these systems directly or indirectly through an external company or organisation (e.g., a website builder).
+
+:: Issue: These setups originate from the Flemish context and are not yet cross checked with the institutions in The Netherlands.
+
+## Independent setup
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Independent.svg
+</pre>
+
+### What?
+
+The institution has an individual instance of each building block, which can be hosted in-house or with an external service provider. They act as the institution's main sources of information.
+
+### Who?
+
+Flemish certified museums (they have obligations on basic infrastructure)
+
+## Merged setup
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Stretch.svg
+</pre>
+### What?
+
+The function of a single system is 'stretched' to also provide the function of a second system to save costs or because it has specific characteristics, such as support for archeological objects or long-term preservation. Often, it is the Digital Asset Management System that also acts as a Collections Management System, or visa versa. But this can also be archival software that also contains collections or digital asset management features.
+
+### Who?
+
+- Small institutions
+- Flemish regional institutions ('Erfgoedcellen')
+- 'Heemkundige kringen'
+- (Historical) Archives
+- Genealogist
+
+## Shared setup
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Shared.svg
+</pre>
+
+### What?
+
+One or more systems are shared among institutions, often controlled by a governmental or support organisation. For instance, all institutions in a particular city use a single Digital Asset Management System hosted by the city government hosts to retrieve the images of their objects. This can be a strategic or budgetary decision. The management of the digital collection remains with the individual institution.
+
+### Who?
+
+- Flemish certified museums
+- Institutions under jurisdiction of a local government
+
+## Hub setup
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Hub.svg
+</pre>
+
+### What?
+
+A number of institutions share data in a common 'hub', which is additional to their existing infrastructure.
+
+### Who?
+
+- Institutions who share a thematic or strategic interest.
+- Heritage registries
+- Flemish regional institutions ('Erfgoedcellen')
+
+## Centralized setup
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Dump.svg
+</pre>
+
+### What?
+
+A number of institutions share all data managing systems, which are hosted by a governmental or support organisation. In contrast to the "shared setup", the institutions don't do any digital collection management themselves, but offload their datasets to a central organisation/system. The institution\'s website is then built upon these centralized systems.
+
+### Who?
+
+- Small institutions with little in-house knowhow
+- Flemish regional institutions ('Erfgoedcellen')
+
+## Stencil setup
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Stencil.svg
+</pre>
+
+### What?
+
+A supporting organisation provides a group of institutions with an instance of the same software package. This is done to speed up interoperability between institutions's collections.
+
+### Who?
+
+Flemish libraries
+
+## Reflections on a possible role of Solid with respect to infrastructure setups
+
+To a certain extent, Cultural heritage institutions succeed in organising themselves in a decentralized fashion. With varying degrees of automation and in-house systems, every institution manages their own collections and makes them available for reuse. This model recurs in all aforementioned setups. When the time comes to scale-up their operations, multiple institutions decide to disseminate their collections together and spawn a new intermediate layer such as a hub, aggregator or registry in order to appeal to new audiences or increase their domain presence. Note that this is a strategic or political decision, rather than a technical one.
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-P2P.svg
+</pre>
+
+However, these initiatives or solutions are highly unstable. Sooner or later, an intermediate layer inevitably dissolves because of fading funds (eg. political restructuring), knowhow (eg. the person with IT skills quits or retires), or goals (eg. change in priorities, strategy or politics). Here, the solution's technical aspects play an important role in introducing flexibility. The choice in technology and architecture can facilitate a swift reorientation to new co-operations, networks and intermediate layers. Solid can therefore make a difference by integrating institutions' systems in a loose-coupled manner.
+
+<pre class=include>
+path: images/setups/erfgoedinstelling-Solid.svg
+</pre>
+
+# Preliminaries of a Decentralized network
+
+## Digital Heritage Pod (Erfgoedpod)
+
+The Digital Heritage Pod serves an institution's main exchangehub for sharing cultural heritage information with external service providers and other institutions.
+
+We start from the basis Solid design defined in the [Solid specification](https://solid.github.io/specification/).
+
+The basic architecture of a Solid pod consists of:
+
+- Datastore: a file-system and/or database populated by information (eg. datasets, descriptions of datasets, organisation profiles) from the Collections Management System and Digital Asset Management system
+- ACL layer: controls access to the contents of the datastore
+- Inbox: receive Linked Data notifications from other actors
+- LDP API: exposes the data and the inbox layer/file-system
+
+<pre class=include>
+path: images/components/erfgoedpod-Erfgoedpod.svg
+</pre>
+
+## Participating in a decentralized Digital Heritage Network
+
+To actively participate in the network, an certain actor (eg. an institution or a service provider) requires a few extra components complementary to its Digital Heritage Pod that facilitate interaction with other actors.
+
+<pre class=include>
+path: images/components/erfgoedpod-BasicSetup.svg
+</pre>
+
+<pre class='propdef'>
+ Policy: Set of rules that dictates what actions need to be taken when a lifecycle event occurs. These originate from the digital heritage network participation agreement, possibly amended with procedures imposed by the institution, the discipline, or personal preference.
+ Orchestrator: Agent that watches the Data Pod's inbox, and can interpret and execute the Policy. 
+ Dashboard: User interface for users to interact with the contents of the Data Pod. 
+</pre>
+
+## Collection information from a decentralized Digital Heritage Network
+
+Actors retrieve two types of information from the network:
+
+- lifecycle information: given an object, what actions has it been involved in? eg. added to register X, indexed by Y, or archived by Z.
+- descriptive information: given descriptive information, what objects match this description? eg. what Pods have works from Peter Paul Rubens
+
+ | Query index  |  An index that allows for fine-grained search into the contents of the files stored in the Data Pod. |
+ | Collector    | Agent that queries or craws the decentralized network for distributed information targeted by a certain query that needs solving. |
+ | Filters      | Description of the information that needs to be collected. |
+
+<pre class=include>
+path: images/components/erfgoedpod-Collector.svg
+</pre>
+
+# Context Dutch Digital Heritage Network
+
+## Actors in the network
+
+Terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/).
+
++-----+-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     | Term                          | Description                                                                                                  | DERA (NL)                                                                                                                   | OSLO (VL)\                                                                                                                                                  |
+|     |                               |                                                                                                              |                                                                                                                             | [[https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-event]{.ul}](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-event) |
+|     |                               |                                                                                                              | [[https://dera.netwerkdigitaalerfgoed.nl/index.php/Actoren]{.ul}](https://dera.netwerkdigitaalerfgoed.nl/index.php/Actoren) |                                                                                                                                                             |
++=====+===============================+==============================================================================================================+=============================================================================================================================+=============================================================================================================================================================+
+| CHI | Cultural Heritage Institution | Organisation that manages digital heritage information and wants to share this information over the network. | Erfgoedinstelling                                                                                                           | Organisatie                                                                                                                                                 |
++-----+-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| O   | Provider                      | Actor which selects, enriches or transforms cultural heritage information to provide certain services.       | Leverancier                                                                                                                 | Agent                                                                                                                                                       |
++-----+-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| U   | User                          | Anyone that wants to use cultural heritage information                                                       | Gebruiker                                                                                                                   |                                                                                                                                                             |
++-----+-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## Objects in the network
+
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|    | Term                                   | Description                                                                         | DERA [[https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten]{.ul}](https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten) | OSLO (VL)                                                                                                                                                     |
+|    |                                        |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
+|    |                                        |                                                                                     |                                                                                                                                                    | [[https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object]{.ul}](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object) |
++====+========================================+=====================================================================================+====================================================================================================================================================+===============================================================================================================================================================+
+| MI | Metadata Cultural Heritage Institution | A description on the organisation                                                   | (Organisatie profiel)                                                                                                                              | /                                                                                                                                                             |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| O  | Object                                 | Generic representation of an entity                                                 | Business Object                                                                                                                                    | Entiteit                                                                                                                                                      |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CO | Cultural Heritage Object               | Object with cultural heritage value                                                 | Cultuurhistorisch object                                                                                                                           | Informatie Object                                                                                                                                             |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IO | Information Object                     | Self-contained information related to a Cultural Heritage Object                    | Informatieobject                                                                                                                                   |                                                                                                                                                               |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| MC | Metadata                               | Descriptive document about a Cultural Heritage Object                               | Metadata Cultuurhistorisch object                                                                                                                  | /                                                                                                                                                             |
+|    |                                        |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
+|    | Cultural Heritage Object               |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| E  | Enrichment                             | Information that is not explicitly present in the original Cultural Heritage Object | Verrijking                                                                                                                                         | /                                                                                                                                                             |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ME | Metadata                               | Descriptive document about an enrichment                                            | Metadata Verrijkingen                                                                                                                              | /                                                                                                                                                             |
+|    |                                        |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
+|    | Enrichment                             |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| D  | Dataset                                | Collection of Cultural Heritage Objects                                             | Dataset                                                                                                                                            | Collectie                                                                                                                                                     |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| MD | Metadata                               | Descriptive document about a Dataset                                                | Metadata Dataset                                                                                                                                   | /                                                                                                                                                             |
+|    |                                        |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
+|    | Dataset                                |                                                                                     |                                                                                                                                                    |                                                                                                                                                               |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| T  | Term                                   | word or phrase to denote a concept                                                  | Term                                                                                                                                               | /                                                                                                                                                             |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| TS | Term Source                            | Source of controlled sets of terms                                                  | Terminologiebron                                                                                                                                   | /                                                                                                                                                             |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| MT | Metadata Term Source                   | Descriptive document about a Term Source                                            | Metadata Terminologiebron                                                                                                                          | /                                                                                                                                                             |
++----+----------------------------------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## Roles in the network
+
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|    | Term                    |                                                                                                                                                                                | DERA                                                                                                                      | OSLO (VL)                                                                                                                                                     |
+|    |                         |                                                                                                                                                                                |                                                                                                                           |                                                                                                                                                               |
+|    |                         |                                                                                                                                                                                | [[https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen]{.ul}](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen) | [[https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object]{.ul}](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object) |
++====+=========================+================================================================================================================================================================================+===========================================================================================================================+===============================================================================================================================================================+
+| M  | Maintainer              | Person that manages the collections and datasets                                                                                                                               | Bronhouder                                                                                                                |                                                                                                                                                               |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| TM | Term Source Maintainer  | Person that manages and curates the Terms and Term Sources                                                                                                                     | Bronhouder terminologiebron                                                                                               | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OM | Object Maintainer       | Person that manages the collections and datasets                                                                                                                               | Bronhouder metadata cultuurhistorisch object                                                                              | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| EM | Enrichments Maintainer  |                                                                                                                                                                                | Bronhouder metadata verrijkingen                                                                                          | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| C  | Consumer                | Entity that queries the network for cultural heritage information                                                                                                              | Afnemer                                                                                                                   | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| P  | Provider                | Entity that provides a service in the network                                                                                                                                  | Dienstverlener                                                                                                            | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| SP | Service Portal Provider | Entity that provides a Service Portal to end users that selects and displays cultural heritage information from the network                                                    | Portaal Dienstverlener                                                                                                    | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| R  | Registry                | Catalog for metadata about Datasets with cultural heritage information. Can make topic-based selections of datasets and runs enrichments services to improve these selections. | Makelaar                                                                                                                  | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| NT | Network of Terms        | Catalog for metadata on Term Sources. Can make selections of Term Sources based on topic.                                                                                      | Makelaar                                                                                                                  | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| KG | Knowledge Graph         | Catalog for finding relations between terms and objects.                                                                                                                       | Makelaar                                                                                                                  | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| B  | Collector (Browser)     |                                                                                                                                                                                | Browser                                                                                                                   | /                                                                                                                                                             |
++----+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## NDE building blocks
+
+The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
+
+<pre class=include>
+path: images/NDE-overzicht.svg
+</pre>
+
+Former version of this building blocks diagram:
+
+<pre class=include>
+path: https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg
+</pre>
+
+## Decentralized Digital Heritage Network setup
+
+In our decentralized Digital Heritage Network setup, there exist 4 main building blocks:
+
+1. a Metadata Provider (embodied by a Cultural Heritage Institution or Term Source provider)
+2. a Registry
+3. a Network of Terms
+4. a Knowledge Graph
+
+Each building block can have multiple instances, which all share the 5 component setup mentioned in 2.2:
+
+- Digital Heritage Pod
+- Policy
+- Orchestrator
+- Dashboard
+- Query index
+
+<pre class=include>
+path: images/nde-basic-setup.svg
+</pre>
+
+## Business processes
+
+The following scenarios aim at capturing what an architecture based on Decentralized Web should enable for users. In this context, the users are the different stakeholders that are active in the network:
+
+1. the Cultural Heritage Institutions, who provide datasets, and Term Source Providers. A single organization can be both, but not always;
+2. organizations that take up the Registry Function;
+3. organizations that act as a Network of Terms.
+4. organizations that act as a Knowledge Graph.
+
+We use the following template:
+
+  Actors/Roles     *Actors can be people (roles), other systems, or time directly interacting with the process.*
+  ---------------- ---------------------------------------------------------------------------------------------------------------------------------------
+  Goal             *The final successful outcome that completes the process.*
+  Stakeholders     *anybody with an interest or investment in how the system performs.*
+  Preconditions    *the elements that must be true before a use case can occur.*
+  Triggers         *the events that cause the use case to begin*
+  Postconditions   *what the system should have completed by the end of the steps*
+  Procedure        *The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.*
+
+### 3.5.1 Perspective Cultural Heritage Institution - Registry
+
+This section is implements the design of the Register-function outlined in [https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd\#](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
+
+#### (BP1) Adding a Cultural Heritage Institution to the Registry
+
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actors/Roles   | Actors                                                                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Maintainer                                                                                                                                                                                                                                                   |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Registry                                                                                                                                                                                                                                                     |
+|                |                                                                                                                                                                                                                                                                  |
+|                | Components                                                                                                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Dashboard                                                                                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Orchestrator CHI                                                                                                                                                                                                                                             |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Data Pod CHI                                                                                                                                                                                                                                                 |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Inbox CHI                                                                                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Inbox Registry                                                                                                                                                                                                                                               |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Orchestrator Registry                                                                                                                                                                                                                                        |
++================+==================================================================================================================================================================================================================================================================+
+| Goal           | The network is aware of the organization: it can be discovered by exploring or querying the Registry.                                                                                                                                                            |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Browser / Service Portals                                                                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Users of the Knowledge graph                                                                                                                                                                                                                                 |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | -   There exists a Metadata Organization with basic details (eg. identifier, name) with the Cultural Heritage Institution.                                                                                                                                       |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   The Cultural Heritage Institution is not known to the Registry.                                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   The Cultural Heritage Institution can be identified and located using a persistent identifier (URI).                                                                                                                                                         |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.                                                                                                                            |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | A Cultural Heritage Institution wants to join the network                                                                                                                                                                                                        |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | -   Metadata Organization is added to the search query index of the Registry.                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   The Cultural Heritage Institution is aware that it is registered with the Registry                                                                                                                                                                           |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| System         | 1.  The Maintainer uploads or curates the Metadata Organization using the Dashboard. The profile is made available through a URI, which can coincide with the institution's persistent identifier.                                                               |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 2.  A Maintainer of the Cultural Heritage Institution then uses the Dashboard to start registration.                                                                                                                                                             |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 3.  The Orchestrator of the Cultural Heritage Institution detects the registration event and sends a notification on the institution's existence to the Inbox of its preferred Registry(s). It contains the organization's identifier and a link to the profile. |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 4.  When notified, the Orchestrator of the Registry follows the link to the Metadata Organization and attempts to download it.                                                                                                                                   |
+|                |                                                                                                                                                                                                                                                                  |
+|                |     a.  Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Organization in the Data Pod's ACL, it is granted access. Else, the download is refused.                                                   |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 5.  When downloaded, the Orchestrator of the Registry stores the profile in its Data Pod and adds it to the Query Index.                                                                                                                                         |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 6.  After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the registration was successful.                                                                                                                     |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+#### (BP2) Adding a new Dataset to the Registry
+
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actors/Roles   | Actors                                                                                                                                                                                                                                                                                 |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Maintainer                                                                                                                                                                                                                                                                         |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Registry                                                                                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | Components                                                                                                                                                                                                                                                                             |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Collection Management System                                                                                                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Dashboard                                                                                                                                                                                                                                                                          |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Orchestrator                                                                                                                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Data Pod Cultural Heritage Institution                                                                                                                                                                                                                                             |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Inbox Cultural Heritage Institution                                                                                                                                                                                                                                                |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Inbox Registry                                                                                                                                                                                                                                                                     |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Orchestrator Registry                                                                                                                                                                                                                                                              |
++================+========================================================================================================================================================================================================================================================================================+
+| Goal           | The Dataset's location shows up in search results when querying the Registry with dataset-level metadata.                                                                                                                                                                              |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Other Cultural Heritage Institutions                                                                                                                                                                                                                                               |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   Applications, Portals and services                                                                                                                                                                                                                                                 |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   The Knowledge graph                                                                                                                                                                                                                                                                |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | -   The Dataset is not known to the Registry                                                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   The Cultural Heritage Institution is known to the Registry.                                                                                                                                                                                                                        |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.                                                                                                                                                                 |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.                                                                                                                                                  |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | A new Dataset is ready for publication                                                                                                                                                                                                                                                 |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | -   The Metadata Dataset is added to the search query index of the Registry.                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | -   The Cultural Heritage Institution is aware that the Dataset is registered with the Registry, because it has confirmation that the Metadata Dataset was accepted and processed.                                                                                                     |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  A Maintainer of the Cultural Heritage Institution exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.                                                        |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | 2.  Using the Dashboard, the Maintainer creates a 'Metadata Dataset' profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.\                                                                                        |
+|                |     > *In practice, the Collection Management System will adopt the role of Dashboard and the creation of the profile happens transparently.*                                                                                                                                          |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | 3.  The Maintainer uses the Dashboard to start the registration of the Dataset.                                                                                                                                                                                                        |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | 4.  The Orchestrator of the Cultural Heritage Institution detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry's Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | 5.  When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it.                                                                                                                                                              |
+|                |                                                                                                                                                                                                                                                                                        |
+|                |     a.  Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod's ACL, it is granted access. Else, the download is refused.                                                                              |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | 6.  After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset's location to the Query Index for search.                                                                                                                      |
+|                |                                                                                                                                                                                                                                                                                        |
+|                | 7.  After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution's inbox that the Dataset was registered.                                                                                                                                |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+#### (BP3) Updating a Dataset in the Registry
+
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actor          | Actors                                                                                                                                                                   |
+|                |                                                                                                                                                                          |
+|                | -   Maintainer                                                                                                                                                           |
+|                |                                                                                                                                                                          |
+|                | -   Registry                                                                                                                                                             |
+|                |                                                                                                                                                                          |
+|                | Components                                                                                                                                                               |
+|                |                                                                                                                                                                          |
+|                | -   Collection Management System                                                                                                                                         |
+|                |                                                                                                                                                                          |
+|                | -   Dashboard Cultural Heritage Institution                                                                                                                              |
+|                |                                                                                                                                                                          |
+|                | -   Orchestrator Cultural Heritage Institution                                                                                                                           |
+|                |                                                                                                                                                                          |
+|                | -   Data Pod Cultural Heritage Institution                                                                                                                               |
+|                |                                                                                                                                                                          |
+|                | -   Inbox Cultural Heritage Institution                                                                                                                                  |
+|                |                                                                                                                                                                          |
+|                | -   Inbox Registry                                                                                                                                                       |
+|                |                                                                                                                                                                          |
+|                | -   Orchestrator Registry                                                                                                                                                |
++================+==========================================================================================================================================================================+
+| Goal           | Reflect latests changes of a registered Dataset in the query results of the Registry                                                                                     |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Other Cultural Heritage Institutions                                                                                                                                 |
+|                |                                                                                                                                                                          |
+|                | -   Browser / Service Portals                                                                                                                                            |
+|                |                                                                                                                                                                          |
+|                | -   Knowledge Graphs                                                                                                                                                     |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | -   The Cultural Heritage Institution is known to the Registry.                                                                                                          |
+|                |                                                                                                                                                                          |
+|                | -   The Dataset is registered with the Registry                                                                                                                          |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | A new version of a Dataset is ready to be released.                                                                                                                      |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | -   The Registry reflects the latest state of its registered Datasets                                                                                                    |
+|                |                                                                                                                                                                          |
+|                | -   The Cultural Heritage Institution is aware of the last version in the registry                                                                                       |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System.                                |
+|                |                                                                                                                                                                          |
+|                | 2.  The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.\                                                     |
+|                |     > *In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently.*                                             |
+|                |                                                                                                                                                                          |
+|                | 3.  The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry's inbox that the Dataset has been updated. |
+|                |                                                                                                                                                                          |
+|                | 4.  The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.                             |
+|                |                                                                                                                                                                          |
+|                | 5.  After completion, the Orchestrator of the Registry sends a notification to the institution\'s inbox that the update was successful.                                  |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+#### (BP4) Adding a Registry to the ACL of a Data Pod
+
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actor          | Actors                                                                                                                                                                     |
+|                |                                                                                                                                                                            |
+|                | -   Maintainer                                                                                                                                                             |
+|                |                                                                                                                                                                            |
+|                | -   Registry                                                                                                                                                               |
+|                |                                                                                                                                                                            |
+|                | Components                                                                                                                                                                 |
+|                |                                                                                                                                                                            |
+|                | -   Dashboard Cultural Heritage Institution                                                                                                                                |
+|                |                                                                                                                                                                            |
+|                | -   Orchestrator Cultural Heritage Institution                                                                                                                             |
+|                |                                                                                                                                                                            |
+|                | -   Data Pod Cultural Heritage Institution                                                                                                                                 |
+|                |                                                                                                                                                                            |
+|                | -   Inbox Cultural Heritage Institution                                                                                                                                    |
+|                |                                                                                                                                                                            |
+|                | -   Inbox Registry                                                                                                                                                         |
++================+============================================================================================================================================================================+
+| Goal           | The Registry can access the necessary data in the Data Pod                                                                                                                 |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | /                                                                                                                                                                          |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | The Registry does not have access to the Data Pod of the Cultural Heritage Institution                                                                                     |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | The Registry instance is unknown to the Data Pod                                                                                                                           |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | The Registry is added to the ACL list of the Data Pod                                                                                                                      |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  The Maintainer opens the dashboard and adds the instance to the list of relevant Registry's.                                                                           |
+|                |                                                                                                                                                                            |
+|                | 2.  The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset.                                                                          |
+|                |                                                                                                                                                                            |
+|                | 3.  The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry's Inbox to inform it on its access control rights. |
++----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Everything from here on is Work in Progress
+
+#### (BP5) Constructing backlinks between two institutions
+
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actor          | Actors                                                                                                                                                                                                                 |
+|                |                                                                                                                                                                                                                        |
+|                | -   Cultural Heritage Institution A                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                        |
+|                | -   Cultural Heritage Institution B                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                        |
+|                | -   Registry                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                        |
+|                | Components                                                                                                                                                                                                             |
+|                |                                                                                                                                                                                                                        |
+|                | -   Orchestrator Cultural Heritage Institution B                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                        |
+|                | -   Data Pod Cultural Heritage Institution B                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                        |
+|                | -   Inbox Cultural Heritage Institution B                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                        |
+|                | -   Orchestrator Registry                                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                        |
+|                | -   Inbox Registry                                                                                                                                                                                                     |
++================+========================================================================================================================================================================================================================+
+| Goal           | Cultural Heritage Institution B adds links to Objects of Cultural Heritage Institution A after becoming aware of links from Objects of Cultural Heritage Institution A to a Objects of Cultural Heritage Institution B |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Knowledge Graphs                                                                                                                                                                                                   |
+|                |                                                                                                                                                                                                                        |
+|                | -   Browser/ Service Portals                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                        |
+|                | -   Users                                                                                                                                                                                                              |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | -   A Dataset of Cultural Heritage Institution A known to the Registry contains links to objects of Cultural Heritage Institution B                                                                                    |
+|                |                                                                                                                                                                                                                        |
+|                | -   The links have not been processed by the Registry yet.                                                                                                                                                             |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | The Registry has added or updated a Metadata Dataset in its Query Index                                                                                                                                                |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | Cultural Heritage Institution B has enriched its Datasets with links to Objects of Cultural Heritage Institution A                                                                                                     |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links.                                                              |
+|                |                                                                                                                                                                                                                        |
+|                | 2.  Based on the Dataset's origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links.                                                                                      |
+|                |                                                                                                                                                                                                                        |
+|                | 3.  The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod.                         |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+### 3.5.2 Perspective of the Knowledge graph or Service Portal
+
+#### (BP6) Subscribing to a selection of metadata at the Registry
+
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actor          | Actors                                                                                                                                                                                                          |
+|                |                                                                                                                                                                                                                 |
+|                | -   Knowledge Graph                                                                                                                                                                                             |
+|                |                                                                                                                                                                                                                 |
+|                | -   Registry                                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                 |
+|                | Components                                                                                                                                                                                                      |
+|                |                                                                                                                                                                                                                 |
+|                | -   Inbox Registry                                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                 |
+|                | -   Orchestrator Registry                                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                 |
+|                | -   Query Index Registry                                                                                                                                                                                        |
+|                |                                                                                                                                                                                                                 |
+|                | -   Orchestrator Knowledge Graph                                                                                                                                                                                |
+|                |                                                                                                                                                                                                                 |
+|                | -   Inbox Knowledge Graph                                                                                                                                                                                       |
++================+=================================================================================================================================================================================================================+
+| Goal           | A Knowledge Graph will receives metadata updates about a selected topic                                                                                                                                         |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Browser                                                                                                                                                                                                     |
+|                |                                                                                                                                                                                                                 |
+|                | -   Service Portal                                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                 |
+|                | -   User                                                                                                                                                                                                        |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  |                                                                                                                                                                                                                 |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | The presence of data to which                                                                                                                                                                                   |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | A list of Terms that defines the selections has been stored in the Registry's Data Pod                                                                                                                          |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  The Knowledge graph sends a notification to the Registry's Inbox in order to subscribe to a certain selection of datasets. It supplies a list of Terms from the Network of Terms that define the selection. |
+|                |                                                                                                                                                                                                                 |
+|                | 2.  The Orchestrator of the Knowledge Graph stores the list with the location of the Knowledge Graph's inbox in its Data Pod.                                                                                   |
+|                |                                                                                                                                                                                                                 |
+|                | 3.  If successful, the Orchestrator of the Knowledge Graph sends a notification to the Registry\'s inbox about the successful subscription.                                                                     |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+#### (BP7) Consuming a subscribed selection of metadata from the Registry
+
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actor          | Actors                                                                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Knowledge Graph                                                                                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Registry                                                                                                                                                                                                                                                     |
+|                |                                                                                                                                                                                                                                                                  |
+|                | Components                                                                                                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Inbox Registry                                                                                                                                                                                                                                               |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Orchestrator Registry                                                                                                                                                                                                                                        |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Query Index Registry                                                                                                                                                                                                                                         |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Orchestrator Knowledge Graph                                                                                                                                                                                                                                 |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Inbox Knowledge Graph                                                                                                                                                                                                                                        |
++================+==================================================================================================================================================================================================================================================================+
+| Goal           | A Knowledge Graph receives the latest changes to relevant datasets on a subscribed topic                                                                                                                                                                         |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Browser                                                                                                                                                                                                                                                      |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   Service Portal                                                                                                                                                                                                                                               |
+|                |                                                                                                                                                                                                                                                                  |
+|                | -   User                                                                                                                                                                                                                                                         |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | The Knowledge Graph has a subscription with the Registry                                                                                                                                                                                                         |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | Changes have occured to the Datasets in the registry that match the subscription of the Knowledge Graph.                                                                                                                                                         |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | The Knowledge Graph has a recent selections of Datasets relevant to its subscription                                                                                                                                                                             |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  When a new Metadata Dataset or any updates to existing Metadata Dataset arrive, the Orchestrator of the Registry matches the different subscriptions in the Registry's Data Pod. It therefore compares the list of Terms to the registered Metadata Dataset. |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 2.  If a match is found in any of the subscriptions, the Orchestrator of the Registry sends a notification to the Inbox of the Knowledge Graph who made the subscription.                                                                                        |
+|                |                                                                                                                                                                                                                                                                  |
+|                | 3.  When receiving this notification, the Orchestrator of the Knowledge Graph issues a query against the Query Index of the registry to receive the latest list of relevant Datasets .                                                                           |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+####
+
+#### (BP8) Add relations to the Knowledge Graph (WIP!)
+
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Actor          | Software actors                                                                                                                                                                                                                                       |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Registry                                                                                                                                                                                                                                          |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Inbox Registry                                                                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Orchestrator Registry                                                                                                                                                                                                                             |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Query Index Registry                                                                                                                                                                                                                              |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Knowledge Graph                                                                                                                                                                                                                                   |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Orchestrator Knowledge Graph                                                                                                                                                                                                                      |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Inbox Knowledge Graph                                                                                                                                                                                                                             |
++================+=======================================================================================================================================================================================================================================================+
+| Goal           | Relations between the objects and the used terms are queryable in the Knowledge Graph                                                                                                                                                                 |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Stakeholders   | -   Service Portal Provider                                                                                                                                                                                                                           |
+|                |                                                                                                                                                                                                                                                       |
+|                | -   Browser                                                                                                                                                                                                                                           |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preconditions  | The Dataset Profile has to be stored in the Data Pod of the Cultural Heritage institution                                                                                                                                                             |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Triggers       | A Dataset profile is stored in the query index of the Registry                                                                                                                                                                                        |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Postconditions | The relations between the objects and terms are in the query index of the Knowledge Graph                                                                                                                                                             |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Procedure      | 1.  The Orchestrator of the Registry detects that a Dataset profile has been stored and sends a notification on the profile's registration to the Inbox of the Knowledge Graph. It contains a link to the Query Index where the profile is queryable. |
+|                |                                                                                                                                                                                                                                                       |
+|                | 2.  Upon receiving the notification, the Orchestrator of the Knowledge Graph issues a query to retrieve the object identifiers in the profile and stores these in its Data Pod.                                                                       |
+|                |                                                                                                                                                                                                                                                       |
+|                | 3.                                                                                                                                                                                                                                                    |
+|                |                                                                                                                                                                                                                                                       |
+|                | 4.                                                                                                                                                                                                                                                    |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+####
+
+### Perspective of the Network of Terms
+
+#### Adding a Terminology Source to the Network of Terms
+
++----------------+---------------------------------+
+| Actor          | -   Terminology Source Provider |
+|                |                                 |
+|                | -   Network of Terms            |
++================+=================================+
+| Goal           |                                 |
++----------------+---------------------------------+
+| Stakeholders   |                                 |
++----------------+---------------------------------+
+| Preconditions  |                                 |
++----------------+---------------------------------+
+| Triggers       |                                 |
++----------------+---------------------------------+
+| Postconditions |                                 |
++----------------+---------------------------------+
+| Procedure      |                                 |
++----------------+---------------------------------+
