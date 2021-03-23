@@ -1,12 +1,7 @@
 # Requirements Template
 
-View rendered specification at https://mielvds.github.io/erfgoedpod-usecases/.
-
-
-
-
-
-This is the template for requirements published by Netwerk Digitaal Erfgoed.
+This repostiory contains the source files for the uses cases and business processes for the ErfgoedPod project. 
+It uses the template for requirements published by Netwerk Digitaal Erfgoed.
 
 Requirements are written in Markdown and transformed to HTML using the
 [Bikeshed preprocessor](https://tabatkins.github.io/bikeshed/).
