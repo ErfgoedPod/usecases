@@ -3,7 +3,7 @@ Title: Use Cases & Business Processes digital heritage network
 Shortname: erfgoedpod-usecases
 Level: 1
 Status: LS
-URL: https://erfgoedpod.github.io/erfgoedpod-usecases
+URL: https://erfgoedpod.github.io/usecases
 Editor: Miel Vander Sande, meemoo http://meemoo.be, miel.vandersande@meemoo.be
 Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
 </pre>
