@@ -154,7 +154,6 @@ path: images/NDE-overzicht.svg
 </pre>
 
 
-
 ## Decentralized Digital Heritage Network setup
 
 In our decentralized Digital Heritage Network setup, there exist 4 main building blocks:
@@ -196,7 +195,7 @@ We use the following template:
   Postconditions   *what the system should have completed by the end of the steps*
   Procedure        *The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.*
 
-### 3.5.1 Perspective Cultural Heritage Institution - Registry
+### Perspective Cultural Heritage Institution - Registry
 
 This section is implements the design of the Register-function outlined in [https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd\#](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
 
@@ -466,7 +465,7 @@ Everything from here on is Work in Progress
 |                | 3.  The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod.                         |
 +----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-### 3.5.2 Perspective of the Knowledge graph or Service Portal
+### Perspective of the Knowledge graph or Service Portal
 
 #### (BP6) Subscribing to a selection of metadata at the Registry
 
@@ -552,8 +551,6 @@ Everything from here on is Work in Progress
 |                | 3.  When receiving this notification, the Orchestrator of the Knowledge Graph issues a query against the Query Index of the registry to receive the latest list of relevant Datasets .                                                                           |
 +----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-####
-
 #### (BP8) Add relations to the Knowledge Graph (WIP!)
 
 +----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -593,8 +590,6 @@ Everything from here on is Work in Progress
 |                |                                                                                                                                                                                                                                                       |
 |                | 4.                                                                                                                                                                                                                                                    |
 +----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-####
 
 ### Perspective of the Network of Terms
 
