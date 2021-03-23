@@ -3,168 +3,14 @@ Title: Use Cases & Business Processes digital heritage network
 Shortname: erfgoedpod-usecases
 Level: 1
 Status: LS
-URL: https://mielvds.github.io/erfgoedpod-usecases
+URL: https://erfgoedpod.github.io/erfgoedpod-usecases
 Editor: Miel Vander Sande, meemoo http://meemoo.be, miel.vandersande@meemoo.be
 Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
 </pre>
 
-# Common infrastructure setups of a Cultural Heritage Institution
+# Introduction
 
-This section attempts to identify software setups that are common within Flemish and Dutch cultural heritage institutions. This sketches the practical context needed to assess where a Solid-based solution should be applied and how it could make a difference.
-
-In summary, the day-to-day *digital* operations of a cultural heritage institution are comprised of:
-
-- managing the metadata of physical or digital collections and the objects they contain;
-
-- accompanying these with the audiovisual representations of those objects; and
-
-- disseminating this information to their audiences through websites, platforms and (social media) campaigns, with the institution\'s own website as the most prominent communication channel.
-
-We identified three common types of management systems that are in direct correspondence with these tasks:
-
-## Collections Management System
-
-Software used by the cultural heritage institution to organize, control, and manage collections objects by \"tracking all information related to and about\" those objects. Registrars, collections managers, and curators, use it to record information such as object locations, provenance, curatorial information, conservation reports, and exhibition histories. This information is also accessed and used by other departments systems and from departments.
-
-Example software systems:
-
-- Axiell Collections
-- Adlib (old version of Axiell Collections, but still very much in use)
-- The Museum System (TMS)
-- Keepthinking QI
-- Collective access
-
-## Digital Asset Management System
-
-A centralized system where cultural heritage institutions (efficiently) store, organize, manage, access and distribute their media assets.
-
-Example software systems:
-
-- Filesystem
-- Webserver
-- Dropbox
-- Resource space DAM
-- Zeticon Mediahaven
-
-## Content Management System
-
-Cultural heritage institutions often use a content management system to create, manage, and modify content on their website, because it doesn't require writing all the code from scratch or even having the skills to do so. Their website is the main channel for communicating with their individual audience, e.g., write articles about their collections and run campaigns. Hence, the CMS is a component seldomly shared with others.
-
-Example software systems:
-
-- Drupal
-- CraftCMS
-- Omeka
-- Wordpress
-
-These three management systems are the main building blocks in an institution's infrastructure and occur in different constellations, depending on the institution's size, budget and knowhow. The institution either manages these systems directly or indirectly through an external company or organisation (e.g., a website builder).
-
-:: Issue: These setups originate from the Flemish context and are not yet cross checked with the institutions in The Netherlands.
-
-## Independent setup
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Independent.svg
-</pre>
-
-### What?
-
-The institution has an individual instance of each building block, which can be hosted in-house or with an external service provider. They act as the institution's main sources of information.
-
-### Who?
-
-Flemish certified museums (they have obligations on basic infrastructure)
-
-## Merged setup
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Stretch.svg
-</pre>
-### What?
-
-The function of a single system is 'stretched' to also provide the function of a second system to save costs or because it has specific characteristics, such as support for archeological objects or long-term preservation. Often, it is the Digital Asset Management System that also acts as a Collections Management System, or visa versa. But this can also be archival software that also contains collections or digital asset management features.
-
-### Who?
-
-- Small institutions
-- Flemish regional institutions ('Erfgoedcellen')
-- 'Heemkundige kringen'
-- (Historical) Archives
-- Genealogist
-
-## Shared setup
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Shared.svg
-</pre>
-
-### What?
-
-One or more systems are shared among institutions, often controlled by a governmental or support organisation. For instance, all institutions in a particular city use a single Digital Asset Management System hosted by the city government hosts to retrieve the images of their objects. This can be a strategic or budgetary decision. The management of the digital collection remains with the individual institution.
-
-### Who?
-
-- Flemish certified museums
-- Institutions under jurisdiction of a local government
-
-## Hub setup
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Hub.svg
-</pre>
-
-### What?
-
-A number of institutions share data in a common 'hub', which is additional to their existing infrastructure.
-
-### Who?
-
-- Institutions who share a thematic or strategic interest.
-- Heritage registries
-- Flemish regional institutions ('Erfgoedcellen')
-
-## Centralized setup
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Dump.svg
-</pre>
-
-### What?
-
-A number of institutions share all data managing systems, which are hosted by a governmental or support organisation. In contrast to the "shared setup", the institutions don't do any digital collection management themselves, but offload their datasets to a central organisation/system. The institution\'s website is then built upon these centralized systems.
-
-### Who?
-
-- Small institutions with little in-house knowhow
-- Flemish regional institutions ('Erfgoedcellen')
-
-## Stencil setup
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Stencil.svg
-</pre>
-
-### What?
-
-A supporting organisation provides a group of institutions with an instance of the same software package. This is done to speed up interoperability between institutions's collections.
-
-### Who?
-
-Flemish libraries
-
-## Reflections on a possible role of Solid with respect to infrastructure setups
-
-To a certain extent, Cultural heritage institutions succeed in organising themselves in a decentralized fashion. With varying degrees of automation and in-house systems, every institution manages their own collections and makes them available for reuse. This model recurs in all aforementioned setups. When the time comes to scale-up their operations, multiple institutions decide to disseminate their collections together and spawn a new intermediate layer such as a hub, aggregator or registry in order to appeal to new audiences or increase their domain presence. Note that this is a strategic or political decision, rather than a technical one.
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-P2P.svg
-</pre>
-
-However, these initiatives or solutions are highly unstable. Sooner or later, an intermediate layer inevitably dissolves because of fading funds (eg. political restructuring), knowhow (eg. the person with IT skills quits or retires), or goals (eg. change in priorities, strategy or politics). Here, the solution's technical aspects play an important role in introducing flexibility. The choice in technology and architecture can facilitate a swift reorientation to new co-operations, networks and intermediate layers. Solid can therefore make a difference by integrating institutions' systems in a loose-coupled manner.
-
-<pre class=include>
-path: images/setups/erfgoedinstelling-Solid.svg
-</pre>
+:: Issue: TODO: write intro
 
 # Preliminaries of a Decentralized network
 
@@ -181,7 +27,7 @@ The basic architecture of a Solid pod consists of:
 - Inbox: receive Linked Data notifications from other actors
 - LDP API: exposes the data and the inbox layer/file-system
 
-<pre class=include>
+<pre class='include'>
 path: images/components/erfgoedpod-Erfgoedpod.svg
 </pre>
 
@@ -189,15 +35,13 @@ path: images/components/erfgoedpod-Erfgoedpod.svg
 
 To actively participate in the network, an certain actor (eg. an institution or a service provider) requires a few extra components complementary to its Digital Heritage Pod that facilitate interaction with other actors.
 
-<pre class=include>
+<pre class='include'>
 path: images/components/erfgoedpod-BasicSetup.svg
 </pre>
 
-<pre class='propdef'>
- Policy: Set of rules that dictates what actions need to be taken when a lifecycle event occurs. These originate from the digital heritage network participation agreement, possibly amended with procedures imposed by the institution, the discipline, or personal preference.
- Orchestrator: Agent that watches the Data Pod's inbox, and can interpret and execute the Policy. 
- Dashboard: User interface for users to interact with the contents of the Data Pod. 
-</pre>
+- *Policy:* Set of rules that dictates what actions need to be taken when a lifecycle event occurs. These originate from the digital heritage network participation agreement, possibly amended with procedures imposed by the institution, the discipline, or personal preference.
+- *Orchestrator:* Agent that watches the Data Pod's inbox, and can interpret and execute the Policy. 
+- *Dashboard:* User interface for users to interact with the contents of the Data Pod. 
 
 ## Collection information from a decentralized Digital Heritage Network
 
@@ -303,16 +147,13 @@ Terminology originates from the [high level design](https://github.com/netwerk-d
 ## NDE building blocks
 
 The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
+It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg).
 
-<pre class=include>
+<pre class='include'>
 path: images/NDE-overzicht.svg
 </pre>
 
-Former version of this building blocks diagram:
 
-<pre class=include>
-path: https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg
-</pre>
 
 ## Decentralized Digital Heritage Network setup
 
