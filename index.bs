@@ -39,9 +39,12 @@ To actively participate in the network, an certain actor (eg. an institution or 
 path: images/components/erfgoedpod-BasicSetup.svg
 </pre>
 
-- *Policy:* Set of rules that dictates what actions need to be taken when a lifecycle event occurs. These originate from the digital heritage network participation agreement, possibly amended with procedures imposed by the institution, the discipline, or personal preference.
-- *Orchestrator:* Agent that watches the Data Pod's inbox, and can interpret and execute the Policy. 
-- *Dashboard:* User interface for users to interact with the contents of the Data Pod. 
+: Policy
+:: Set of rules that dictates what actions need to be taken when a lifecycle event occurs. These originate from the digital heritage network participation agreement, possibly amended with procedures imposed by the institution, the discipline, or personal preference.
+: Orchestrator
+:: Agent that watches the Data Pod's inbox, and can interpret and execute the Policy. 
+: Dashboard
+:: User interface for users to interact with the contents of the Data Pod. 
 
 ## Collection information from a decentralized Digital Heritage Network
 
@@ -50,9 +53,12 @@ Actors retrieve two types of information from the network:
 - lifecycle information: given an object, what actions has it been involved in? eg. added to register X, indexed by Y, or archived by Z.
 - descriptive information: given descriptive information, what objects match this description? eg. what Pods have works from Peter Paul Rubens
 
- | Query index  |  An index that allows for fine-grained search into the contents of the files stored in the Data Pod. |
- | Collector    | Agent that queries or craws the decentralized network for distributed information targeted by a certain query that needs solving. |
- | Filters      | Description of the information that needs to be collected. |
+: Query index  
+:: An index that allows for fine-grained search into the contents of the files stored in the Data Pod. |
+: Collector    
+:: Agent that queries or craws the decentralized network for distributed information targeted by a certain query that needs solving. |
+: Filters      
+:: Description of the information that needs to be collected. |
 
 <pre class=include>
 path: images/components/erfgoedpod-Collector.svg
