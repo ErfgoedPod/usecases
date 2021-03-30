@@ -364,8 +364,8 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
-      <th>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard <br>Orchestrator CHI<br>Data Pod CHI<br>Inbox CHI<br>Inbox Registry<br>Orchestrator Registry</th>
+      <td>Actors/Roles</td>
+      <td>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard <br>Orchestrator CHI<br>Data Pod CHI<br>Inbox CHI<br>Inbox Registry<br>Orchestrator Registry</td>
     </tr>
     <tr>
       <td>Goal</td>
@@ -399,8 +399,15 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
-      <th>Actors<br>Maintainer<br>Registry<br>Components<br>Collection Management System<br>Dashboard <br>Orchestrator <br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry<br>Orchestrator Registry</th>
+      <td>Actors/Roles</td>
+      <td>
+      - Actors
+      - Maintainer
+      - Registry
+      - Components
+      - Collection Management System
+      - Dashboard
+      - Orchestrator <br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry<br>Orchestrator Registry</th>
     </tr>
     <tr>
       <td>Goal</td>
@@ -434,8 +441,20 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
 <tbody>
   <tr>
-    <th>Actor</th>
-    <th>Actors<br>Maintainer<br>Registry<br>Components<br>Collection Management System<br>Dashboard Cultural Heritage Institution<br>Orchestrator Cultural Heritage Institution<br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry<br>Orchestrator Registry</th>
+    <td>Actor</td>
+    <td>
+      - Actors
+        - Maintainer
+        - Registry
+      - Components
+        - Collection Management System
+        - Dashboard Cultural Heritage Institution
+        - Orchestrator Cultural Heritage Institution
+        - Data Pod Cultural Heritage Institution
+        - Inbox Cultural Heritage Institution
+        - Inbox Registry
+        - Orchestrator Registry
+      </td>
   </tr>
   <tr>
     <td>Goal</td>
@@ -443,11 +462,18 @@ This section is implements the design of the Register-function outlined in [](ht
   </tr>
   <tr>
     <td>Stakeholders</td>
-    <td>Other Cultural Heritage Institutions<br>Browser / Service Portals<br>Knowledge Graphs</td>
+    <td>
+      - Other Cultural Heritage Institutions
+      - Browser / Service Portals
+      - Knowledge Graphs
+    </td>
   </tr>
   <tr>
     <td>Preconditions</td>
-    <td>The Cultural Heritage Institution is known to the Registry. <br>The Dataset is registered with the Registry</td>
+    <td>
+      - The Cultural Heritage Institution is known to the Registry. 
+      - The Dataset is registered with the Registry
+    </td>
   </tr>
   <tr>
     <td>Triggers</td>
@@ -455,11 +481,20 @@ This section is implements the design of the Register-function outlined in [](ht
   </tr>
   <tr>
     <td>Postconditions</td>
-    <td>The Registry reflects the latest state of its registered Datasets<br>The Cultural Heritage Institution is aware of the last version in the registry</td>
+    <td>
+      - The Registry reflects the latest state of its registered Datasets.
+      - The Cultural Heritage Institution is aware of the last version in the registry
+    </td>
   </tr>
   <tr>
     <td>Procedure</td>
-    <td>A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System. <br>The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently. <br>The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.<br>The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.<br>After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the update was successful.</td>
+    <td>
+      1. A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System. 
+      2. The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently. 
+      3. The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.
+      4. The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.
+      5. After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the update was successful.
+    </td>
   </tr>
 </tbody>
 </table>
@@ -468,8 +503,18 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
-      <th>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard Cultural Heritage Institution<br>Orchestrator Cultural Heritage Institution<br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry</th>
+      <td>Actor</td>
+      <td>
+        - Actors
+          - Maintainer
+          - Registry
+        - Components
+          - Dashboard Cultural Heritage Institution
+          - Orchestrator Cultural Heritage Institution
+          - Data Pod Cultural Heritage Institution
+          - Inbox Cultural Heritage Institution
+          - Inbox Registry
+      </td>
     </tr>
     <tr>
       <td>Goal</td>
@@ -493,7 +538,11 @@ This section is implements the design of the Register-function outlined in [](ht
     </tr>
     <tr>
       <td>Procedure</td>
-      <td>The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.<br>The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. <br>The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.</td>
+      <td>
+        1. The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.
+        2. The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. 
+        3. The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -503,8 +552,8 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
-      <th>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry</th>
+      <td>Actor</td>
+      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry</td>
     </tr>
     <tr>
       <td>Goal</td>
