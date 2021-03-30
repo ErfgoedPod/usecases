@@ -10,7 +10,11 @@ Abstract: This specification describes the different use cases for exchanging di
 
 # Introduction
 
-:: Issue: TODO: write intro
+:: Issue: TODO: write intro to this document
+
+# Decentralized Heritage Network
+
+:: Issue: TODO: write intro to the Decentralized heritage network
 
 # Preliminaries of a Decentralized network
 
@@ -364,8 +368,8 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
-      <th>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard <br>Orchestrator CHI<br>Data Pod CHI<br>Inbox CHI<br>Inbox Registry<br>Orchestrator Registry</th>
+      <td>Actors/Roles</td>
+      <td>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard <br>Orchestrator CHI<br>Data Pod CHI<br>Inbox CHI<br>Inbox Registry<br>Orchestrator Registry</td>
     </tr>
     <tr>
       <td>Goal</td>
@@ -399,8 +403,20 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
-      <th>Actors<br>Maintainer<br>Registry<br>Components<br>Collection Management System<br>Dashboard <br>Orchestrator <br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry<br>Orchestrator Registry</th>
+      <td>Actors/Roles</td>
+      <td>
+        - Actors
+          - Maintainer
+          - Registry
+        - Components
+          - Collection Management System
+          - Dashboard
+          - Orchestrator 
+          - Data Pod Cultural Heritage Institution
+          - Inbox Cultural Heritage Institution
+          - Inbox Registry
+          - Orchestrator Registry
+      </td>
     </tr>
     <tr>
       <td>Goal</td>
@@ -408,11 +424,20 @@ This section is implements the design of the Register-function outlined in [](ht
     </tr>
     <tr>
       <td>Stakeholders</td>
-      <td>Other Cultural Heritage Institutions<br>Applications, Portals and services<br>The Knowledge graph</td>
+      <td>
+        - Other Cultural Heritage Institutions
+        - Applications, Portals and services
+        - The Knowledge graph
+      </td>
     </tr>
     <tr>
       <td>Preconditions</td>
-      <td>The Dataset is not known to the Registry<br>The Cultural Heritage Institution is known to the Registry. <br>The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.<br>The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.</td>
+      <td>
+        - The Dataset is not known to the Registry
+        - The Cultural Heritage Institution is known to the Registry. 
+        - The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.
+        - The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.
+      </td>
     </tr>
     <tr>
       <td>Triggers</td>
@@ -420,11 +445,22 @@ This section is implements the design of the Register-function outlined in [](ht
     </tr>
     <tr>
       <td>Postconditions</td>
-      <td>The Metadata Dataset is added to the search query index of the Registry.  <br>The Cultural Heritage Institution is aware that the Dataset is registered with the Registry, because it has confirmation that the Metadata Dataset was accepted and processed.</td>
+      <td>
+        - The Metadata Dataset is added to the search query index of the Registry.
+        - The Cultural Heritage Institution is aware that the Dataset is registered with the Registry, because it has confirmation that the Metadata Dataset was accepted and processed.
+      </td>
     </tr>
     <tr>
       <td>Procedure</td>
-      <td>A Maintainer of the Cultural Heritage Institution exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.<br>Using the Dashboard, the Maintainer creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of Dashboard and the creation of the profile happens transparently. <br>The Maintainer uses the Dashboard to start the registration of the Dataset.<br>The Orchestrator of the Cultural Heritage Institution detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it. <br>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused.<br>After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset’s location to the Query Index for search. <br>After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered.</td>
+      <td>
+        1. A Maintainer of the Cultural Heritage Institution exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.
+        2. Using the Dashboard, the Maintainer creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of Dashboard and the creation of the profile happens transparently. 
+        3. The Maintainer uses the Dashboard to start the registration of the Dataset.
+        4. The Orchestrator of the Cultural Heritage Institution detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it. 
+        5. Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused.
+        6. After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset’s location to the Query Index for search. 
+        7. After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -432,44 +468,83 @@ This section is implements the design of the Register-function outlined in [](ht
 #### (BP3) Updating a Dataset in the Registry
 
 <table>
-<tbody>
-  <tr>
-    <th>Actor</th>
-    <th>Actors<br>Maintainer<br>Registry<br>Components<br>Collection Management System<br>Dashboard Cultural Heritage Institution<br>Orchestrator Cultural Heritage Institution<br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry<br>Orchestrator Registry</th>
-  </tr>
-  <tr>
-    <td>Goal</td>
-    <td>Reflect latests changes of a registered Dataset in the query results of  the Registry</td>
-  </tr>
-  <tr>
-    <td>Stakeholders</td>
-    <td>Other Cultural Heritage Institutions<br>Browser / Service Portals<br>Knowledge Graphs</td>
-  </tr>
-  <tr>
-    <td>Preconditions</td>
-    <td>The Cultural Heritage Institution is known to the Registry. <br>The Dataset is registered with the Registry</td>
-  </tr>
-  <tr>
-    <td>Triggers</td>
-    <td>A new version of a Dataset is ready to be released.</td>
-  </tr>
-  <tr>
-    <td>Postconditions</td>
-    <td>The Registry reflects the latest state of its registered Datasets<br>The Cultural Heritage Institution is aware of the last version in the registry</td>
-  </tr>
-  <tr>
-    <td>Procedure</td>
-    <td>A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System. <br>The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently. <br>The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.<br>The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.<br>After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the update was successful.</td>
-  </tr>
-</tbody>
+  <tbody>
+    <tr>
+      <td>Actor</td>
+      <td>
+        - Actors
+          - Maintainer
+          - Registry
+        - Components
+          - Collection Management System
+          - Dashboard Cultural Heritage Institution
+          - Orchestrator Cultural Heritage Institution
+          - Data Pod Cultural Heritage Institution
+          - Inbox Cultural Heritage Institution
+          - Inbox Registry
+          - Orchestrator Registry
+      </td>
+    </tr>
+    <tr>
+      <td>Goal</td>
+      <td>Reflect latests changes of a registered Dataset in the query results of  the Registry</td>
+    </tr>
+    <tr>
+      <td>Stakeholders</td>
+      <td>
+        - Other Cultural Heritage Institutions
+        - Browser / Service Portals
+        - Knowledge Graphs
+      </td>
+    </tr>
+    <tr>
+      <td>Preconditions</td>
+      <td>
+        - The Cultural Heritage Institution is known to the Registry. 
+        - The Dataset is registered with the Registry
+      </td>
+    </tr>
+    <tr>
+      <td>Triggers</td>
+      <td>A new version of a Dataset is ready to be released.</td>
+    </tr>
+    <tr>
+      <td>Postconditions</td>
+      <td>
+        - The Registry reflects the latest state of its registered Datasets.
+        - The Cultural Heritage Institution is aware of the last version in the registry
+      </td>
+    </tr>
+    <tr>
+      <td>Procedure</td>
+      <td>
+        1. A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System. 
+        2. The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently. 
+        3. The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.
+        4. The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.
+        5. After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the update was successful.
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 #### (BP4) Adding a Registry to the ACL of a Data Pod
 
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
-      <th>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard Cultural Heritage Institution<br>Orchestrator Cultural Heritage Institution<br>Data Pod Cultural Heritage Institution<br>Inbox Cultural Heritage Institution<br>Inbox Registry</th>
+      <td>Actor</td>
+      <td>
+        - Actors
+          - Maintainer
+          - Registry
+        - Components
+          - Dashboard Cultural Heritage Institution
+          - Orchestrator Cultural Heritage Institution
+          - Data Pod Cultural Heritage Institution
+          - Inbox Cultural Heritage Institution
+          - Inbox Registry
+      </td>
     </tr>
     <tr>
       <td>Goal</td>
@@ -493,7 +568,11 @@ This section is implements the design of the Register-function outlined in [](ht
     </tr>
     <tr>
       <td>Procedure</td>
-      <td>The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.<br>The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. <br>The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.</td>
+      <td>
+        1. The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.
+        2. The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. 
+        3. The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -503,8 +582,8 @@ This section is implements the design of the Register-function outlined in [](ht
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
-      <th>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry</th>
+      <td>Actor</td>
+      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry</td>
     </tr>
     <tr>
       <td>Goal</td>
