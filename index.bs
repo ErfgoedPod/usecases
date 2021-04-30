@@ -1,78 +1,36 @@
 <pre class='metadata'>
-Title: Use Cases & Business Processes digital heritage network
+Title: Use Cases & Business Processes
 Shortname: erfgoedpod-usecases
 Level: 1
 Status: LS
 URL: https://erfgoedpod.github.io/usecases
 Editor: Miel Vander Sande, meemoo http://meemoo.be, miel.vandersande@meemoo.be
 Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
+Markup Shorthands: markdown yes
 </pre>
+
+# Set of documents
+
+This document is one of the *Decentralized Digital Heritage Network* specifications produced by the ErfgoedPod project by [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be):
+
+1. [Architecture Decentralized Digital Heritage Network](/architecture/) (this document)
+2. [Use cases & Business processes digital heritage network](/usecases/)
+3. [Common infrastructure setups of a Cultural Heritage Institutions](/common-setups/)
+4. [Orchestrator](/orchestrator/)
 
 # Introduction
 
 :: Issue: TODO: write intro to this document
 
-# Decentralized Heritage Network
-
-:: Issue: TODO: write intro to the Decentralized heritage network
-
-# Preliminaries of a Decentralized network
-
-## Digital Heritage Pod (Erfgoedpod)
-
-The Digital Heritage Pod serves an institution's main exchangehub for sharing cultural heritage information with external service providers and other institutions.
-
-We start from the basis Solid design defined in the <a href="https://solid.github.io/specification/">Solid specification</a>.
-
-The basic architecture of a Solid pod consists of:
-
-: Datastore
-:: a file-system and/or database populated by information (eg. datasets, descriptions of datasets, organisation profiles) from the Collections Management System and Digital Asset Management system
-: ACL layer
-:: controls access to the contents of the datastore
-: Inbox
-:: receive Linked Data notifications from other actors
-: Linked Data Platform (LDP) API
-:: exposes the data and the inbox layer/file-system
-
-<pre class='include'>
-path: images/components/erfgoedpod-Erfgoedpod.svg
-</pre>
-
-## Participating in a decentralized Digital Heritage Network
-
-To actively participate in the network, an certain actor (eg. an institution or a service provider) requires a few extra components complementary to its Digital Heritage Pod that facilitate interaction with other actors.
-
-<pre class='include'>
-path: images/components/erfgoedpod-BasicSetup.svg
-</pre>
-
-: Policy
-:: Set of rules that dictates what actions need to be taken when a lifecycle event occurs. These originate from the digital heritage network participation agreement, possibly amended with procedures imposed by the institution, the discipline, or personal preference.
-: Orchestrator
-:: Agent that watches the Data Pod's inbox, and can interpret and execute the Policy. 
-: Dashboard
-:: User interface for users to interact with the contents of the Data Pod. 
-
-## Collection information from a decentralized Digital Heritage Network
-
-Actors retrieve two types of information from the network:
-
-- lifecycle information: given an object, what actions has it been involved in? eg. added to register X, indexed by Y, or archived by Z.
-- descriptive information: given descriptive information, what objects match this description? eg. what Pods have works from Peter Paul Rubens
-
-: Query index  
-:: An index that allows for fine-grained search into the contents of the files stored in the Data Pod. 
-: Collector    
-:: Agent that queries or craws the decentralized network for distributed information targeted by a certain query that needs solving. 
-: Filters      
-:: Description of the information that needs to be collected.
-
-<pre class=include>
-path: images/components/erfgoedpod-Collector.svg
-</pre>
 
 # Context Dutch Digital Heritage Network
+
+The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
+It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg).
+
+<pre class='include'>
+path: images/NDE-overzicht.svg
+</pre>
 
 ## Actors in the network
 
@@ -302,15 +260,6 @@ Terminology originates from the <a href="https://github.com/netwerk-digitaal-erf
   </tbody>
 </table>
 
-## NDE building blocks
-
-The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
-It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg).
-
-<pre class='include'>
-path: images/NDE-overzicht.svg
-</pre>
-
 
 ## Decentralized Digital Heritage Network setup
 
@@ -333,7 +282,7 @@ Each building block can have multiple instances, which all share the 5 component
 path: images/nde-basic-setup.svg
 </pre>
 
-## Business processes
+# Business processes
 
 The following scenarios aim at capturing what an architecture based on Decentralized Web should enable for users. In this context, the users are the different stakeholders that are active in the network:
 
@@ -359,11 +308,11 @@ We use the following template:
 : Procedure        
 :: The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.
 
-### Perspective Cultural Heritage Institution - Registry
+## Perspective Cultural Heritage Institution - Registry
 
-This section is implements the design of the Register-function outlined in [](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd# using the Solid and ResearcherPod architecture.
+This section implements the design of the [Register-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
 
-#### (BP1) Adding a Cultural Heritage Institution to the Registry
+### (BP1) Adding a Cultural Heritage Institution to the Registry
 
 <table>
   <tbody>
@@ -398,7 +347,7 @@ This section is implements the design of the Register-function outlined in [](ht
   </tbody>
 </table>
 
-#### (BP2) Adding a new Dataset to the Registry
+### (BP2) Adding a new Dataset to the Registry
 
 <table>
   <tbody>
@@ -465,7 +414,7 @@ This section is implements the design of the Register-function outlined in [](ht
   </tbody>
 </table>
 
-#### (BP3) Updating a Dataset in the Registry
+### (BP3) Updating a Dataset in the Registry
 
 <table>
   <tbody>
@@ -528,7 +477,7 @@ This section is implements the design of the Register-function outlined in [](ht
   </tbody>
 </table>
 
-#### (BP4) Adding a Registry to the ACL of a Data Pod
+### (BP4) Adding a Registry to the ACL of a Data Pod
 
 <table>
   <tbody>
@@ -577,7 +526,7 @@ This section is implements the design of the Register-function outlined in [](ht
   </tbody>
 </table>
 
-#### (BP5) Constructing backlinks between two institutions
+### (BP5) Constructing backlinks between two institutions
 
 <table>
   <tbody>
