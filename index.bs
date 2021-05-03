@@ -13,8 +13,8 @@ Markup Shorthands: markdown yes
 
 This document is one of the *Decentralized Digital Heritage Network* specifications produced by the ErfgoedPod project by [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be):
 
-1. [Architecture Decentralized Digital Heritage Network](/architecture/) (this document)
-2. [Use cases & Business processes digital heritage network](/usecases/)
+1. [Architecture Decentralized Digital Heritage Network](/architecture/) 
+2. [Use cases & Business processes digital heritage network](/usecases/) (this document)
 3. [Common infrastructure setups of a Cultural Heritage Institutions](/common-setups/)
 4. [Orchestrator](/orchestrator/)
 
