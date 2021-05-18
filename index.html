@@ -1223,7 +1223,35 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="01a47e6baf78e1ceb31edc9e22143b7472c9f078" name="document-revision">
+  <meta content="18145d807fc2a74eb047e53f4047bdbba4ffeaaf" name="document-revision">
+<style>
+table {
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #005A9C;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+table tr:hover {
+  background: #f4f4f4;
+}
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 12px 35px;
+  border-collapse: collapse;
+}
+table th {
+  background: #005A9C;
+  color: #fff;
+}
+table th.last {
+  border-right: none;
+}
+</style>
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1375,7 +1403,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-03">3 May 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-18">18 May 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1390,7 +1418,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 3 May 2021,
+In addition, as of 18 May 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1441,13 +1469,22 @@ Parts of this work may be from another specification document.  If so, those par
    <p>This document is one of the <em>Decentralized Digital Heritage Network</em> specifications produced by the ErfgoedPod project by <a href="https://netwerkdigitaalerfgoed.nl">Netwerk Digitaal Erfgoed</a>, <a href="https://meemoo.be">meemoo - Flemish Institute for Archiving</a> and <a href="http://idlab.ugent.be">Ghent University - IDLab</a>:</p>
    <ol>
     <li data-md>
-     <p><a href="/architecture/">Architecture Decentralized Digital Heritage Network</a></p>
+     <p><a href="/architecture/">Decentralized Digital Heritage Network architecture</a></p>
     <li data-md>
-     <p><a href="/usecases/">Use cases &amp; Business processes digital heritage network</a> (this document)</p>
+     <p><a href="/usecases/">Use cases &amp; Business processes</a> (this document)</p>
     <li data-md>
-     <p><a href="/common-setups/">Common infrastructure setups of a Cultural Heritage Institutions</a></p>
+     <p><a href="/common-setups/">Common infrastructure in Cultural Heritage Institutions</a></p>
+   </ol>
+   <p>This project also contributes to the following companion specifications of the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project:</p>
+   <ol>
     <li data-md>
-     <p><a href="/orchestrator/">Orchestrator</a></p>
+     <p><a href="https://mellonscholarlycommunication.github.io/spec-orchestrator/">Orchestrator</a></p>
+    <li data-md>
+     <p><a href="https://mellonscholarlycommunication.github.io/spec-datapod/">Data Pod</a></p>
+    <li data-md>
+     <p><a href="https://mellonscholarlycommunication.github.io/spec-rulelanguage/">Rule language</a></p>
+    <li data-md>
+     <p><a href="https://mellonscholarlycommunication.github.io/spec-eventlog/">Artefact Lifecycle Event Log</a></p>
    </ol>
    <h2 class="heading settled" data-level="2" id="introduction"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
    <dl>
