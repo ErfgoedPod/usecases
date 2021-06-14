@@ -1223,14 +1223,13 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="18145d807fc2a74eb047e53f4047bdbba4ffeaaf" name="document-revision">
+  <meta content="8721c5c4bbed3d8c5c14817489538419f2acf778" name="document-revision">
 <style>
 table {
   margin: 25px auto;
   border-collapse: collapse;
   border: 1px solid #eee;
   border-bottom: 2px solid #005A9C;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
 }
 table tr:hover {
   background: #f4f4f4;
@@ -1241,7 +1240,7 @@ table tr:hover td {
 table th, table td {
   color: #999;
   border: 1px solid #eee;
-  padding: 12px 35px;
+  padding: 12px 12px;
   border-collapse: collapse;
 }
 table th {
@@ -1403,14 +1402,13 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-18">18 May 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-06-14">14 June 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://erfgoedpod.github.io/usecases">https://erfgoedpod.github.io/usecases</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/ErfgoedPod/usecases/issues/">GitHub</a>
-     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:miel.vandersande@meemoo.be">Miel Vander Sande</a> (<a class="p-org org" href="http://meemoo.be">meemoo</a>)
     </dl>
@@ -1418,7 +1416,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 18 May 2021,
+In addition, as of 14 June 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1461,12 +1459,11 @@ Parts of this work may be from another specification document.  If so, those par
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
      </ol>
-    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="set-of-documents"><span class="secno">1. </span><span class="content">Set of documents</span><a class="self-link" href="#set-of-documents"></a></h2>
-   <p>This document is one of the <em>Decentralized Digital Heritage Network</em> specifications produced by the ErfgoedPod project by <a href="https://netwerkdigitaalerfgoed.nl">Netwerk Digitaal Erfgoed</a>, <a href="https://meemoo.be">meemoo - Flemish Institute for Archiving</a> and <a href="http://idlab.ugent.be">Ghent University - IDLab</a>:</p>
+   <p>This document is one of the <em>Decentralized Digital Heritage Network</em> specifications produced by the ErfgoedPod project by the <a href="https://netwerkdigitaalerfgoed.nl/en/">Dutch Digital Heritage Network (NDE)</a>, <a href="https://meemoo.be">meemoo - Flemish Institute for Archiving</a> and <a href="http://idlab.ugent.be">Ghent University - IDLab</a>:</p>
    <ol>
     <li data-md>
      <p><a href="/architecture/">Decentralized Digital Heritage Network architecture</a></p>
@@ -1487,10 +1484,21 @@ Parts of this work may be from another specification document.  If so, those par
      <p><a href="https://mellonscholarlycommunication.github.io/spec-eventlog/">Artefact Lifecycle Event Log</a></p>
    </ol>
    <h2 class="heading settled" data-level="2" id="introduction"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
-   <dl>
-    <dd data-md>
-     <p class="issue" id="issue-4f51bef5"><a class="self-link" href="#issue-4f51bef5"></a> TODO: write intro to this document</p>
-   </dl>
+   <p>The <a href="https://netwerkdigitaalerfgoed.nl/bruikbaar/">NDE-Usable</a> programme of the Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/) aims at redesigning the infrastructure with which cultural institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
+This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
+Due to the inflexibility, there are high maintenance costs on the side of the data providing institution and the side of the aggregator. 
+Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
+NDE-Usable envisions a discovery infrastructure that navigates applications to the relevant original data sources, rather than aggregate and republish their data.
+The design integrates applications with institutions’s collection data in a more loose-couple manner, enabling institutions to reorientate their data more easiliy to other services. 
+To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared thesauri (Network of Terms).</p>
+   <p>The network design of NDE-Usable resonate heavily with the principles of Decentralized Web and Solid.
+Hence, this ErfgoedPOD project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
+In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following their own information - are a good basis for implementing a sustainable digital heritage network.
+The main project outcomes are protocols and components for creating generic decentralized artefact exchange networks, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
+Additionally, ErfgoedPOD provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.</p>
+   <p>This document captures the use cases that originate from the NDE-Usable programme.
+To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
+These business processes serve as a basis for a proof-of-concept implementation of  decentralized artefact exchange network in the digital heritage domain.</p>
    <h2 class="heading settled" data-level="3" id="context-dutch-digital-heritage-network"><span class="secno">3. </span><span class="content">Context Dutch Digital Heritage Network</span><a class="self-link" href="#context-dutch-digital-heritage-network"></a></h2>
    <p>The diagram below updates the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
 It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg">original building blocks diagram</a>.</p>
@@ -3008,7 +3016,3 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
-  <div style="counter-reset:issue">
-   <div class="issue"> TODO: write intro to this document<a href="#issue-4f51bef5"> ↵ </a></div>
-  </div>

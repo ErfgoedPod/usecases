@@ -15,7 +15,6 @@ table {
   border-collapse: collapse;
   border: 1px solid #eee;
   border-bottom: 2px solid #005A9C;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
 }
 table tr:hover {
   background: #f4f4f4;
@@ -26,7 +25,7 @@ table tr:hover td {
 table th, table td {
   color: #999;
   border: 1px solid #eee;
-  padding: 12px 35px;
+  padding: 12px 12px;
   border-collapse: collapse;
 }
 table th {
@@ -40,7 +39,7 @@ table th.last {
 
 # Set of documents
 
-This document is one of the *Decentralized Digital Heritage Network* specifications produced by the ErfgoedPod project by [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be):
+This document is one of the *Decentralized Digital Heritage Network* specifications produced by the ErfgoedPod project by the [Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be):
 
 1. [Decentralized Digital Heritage Network architecture](/architecture/) 
 2. [Use cases & Business processes](/usecases/) (this document)
@@ -55,8 +54,23 @@ This project also contributes to the following companion specifications of the [
 
 # Introduction
 
-:: Issue: TODO: write intro to this document
+The [NDE-Usable](https://netwerkdigitaalerfgoed.nl/bruikbaar/) programme of the Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/) aims at redesigning the infrastructure with which cultural institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
+This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
+Due to the inflexibility, there are high maintenance costs on the side of the data providing institution and the side of the aggregator. 
+Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
+NDE-Usable envisions a discovery infrastructure that navigates applications to the relevant original data sources, rather than aggregate and republish their data.
+The design integrates applications with institutions's collection data in a more loose-couple manner, enabling institutions to reorientate their data more easiliy to other services. 
+To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared thesauri (Network of Terms).
 
+The network design of NDE-Usable resonate heavily with the principles of Decentralized Web and Solid.
+Hence, this ErfgoedPOD project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
+In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following their own information - are a good basis for implementing a sustainable digital heritage network.
+The main project outcomes are protocols and components for creating generic decentralized artefact exchange networks, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
+Additionally, ErfgoedPOD provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
+
+This document captures the use cases that originate from the NDE-Usable programme.
+To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
+These business processes serve as a basis for a proof-of-concept implementation of  decentralized artefact exchange network in the digital heritage domain.  
 
 # Context Dutch Digital Heritage Network
 
