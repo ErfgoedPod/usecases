@@ -35,6 +35,9 @@ table th {
 table th.last {
   border-right: none;
 }
+table th a {
+  color: #fff;
+}
 </style>
 
 # Set of documents
@@ -83,42 +86,49 @@ path: images/NDE-overzicht.svg
 
 ## Actors in the network
 
-Terminology originates from the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> and the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">datasets requirements</a>.
+The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network. 
+These can be classified as a type of [[architecture-nde#actor]], which represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
+The list of possible actor types is given below. The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets).
+
 <table>
   <thead>
     <tr>
       <th></th>
       <th>Term</th>
       <th>Description</th>
-      <th>DERA (NL)<br><a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Actoren">https://dera.netwerkdigitaalerfgoed.nl/index.php/Actoren</a></th>
-      <th>OSLO (VL)<a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-event">https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-event</a></th>
+      <th>DERA (NL) [Actoren](https://dera.netwerkdigitaalerfgoed.nl/index.php/Actoren)</th>
+      <th>OSLO (VL) [Cultureel Erfgoed Event](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-event)</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>CHI</td>
-      <td>Cultural Heritage Institution</td>
+      <td><dfn export>Cultural Heritage Institution</dfn></td>
       <td>Organisation that manages digital heritage information and wants to share this information over the network. </td>
       <td>Erfgoedinstelling</td>
       <td>Organisatie</td>
     </tr>
     <tr>
       <td>O</td>
-      <td>Provider</td>
+      <td><dfn export>Provider</dfn></td>
       <td>Actor which selects, enriches or transforms cultural heritage information to provide certain services.</td>
       <td>Leverancier</td>
       <td rowspan="2">Agent</td>
     </tr>
     <tr>
       <td>U</td>
-      <td>User</td>
-      <td>Anyone that wants to use cultural heritage information</td>
+      <td><dfn export>User</dfn></td>
+      <td>Anyone that wants to use cultural heritage information.</td>
       <td>Gebruiker</td>
     </tr>
   </tbody>
 </table>
 
-## Objects in the network
+## Artefacts in the network
+
+Actors can exchange a couple of artefacts on the Digital Heritage Network.
+An [[architecture-nde#artefact]] is the smallest unit that is being exchanged; it is the object of an interaction between actors
+The list of relevant digital heritage artefacts is given below.
 
 <table>
   <thead>
@@ -126,91 +136,91 @@ Terminology originates from the <a href="https://github.com/netwerk-digitaal-erf
       <th></th>
       <th>Term</th>
       <th>Description</th>
-      <th>DERA <a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten">https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten</a></th>
-      <th>OSLO (VL)<br><a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object">https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object</a></th>
+      <th>DERA (NL) [Bedrijfsobjecten](https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten)</th>
+      <th>OSLO (VL) [Cultureel Erfgoed Object](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object)</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>MI</td>
-      <td>Metadata Cultural Heritage Institution</td>
-      <td>A description on the organisation</td>
+      <td><dfn export>Metadata Cultural Heritage Institution</dfn></td>
+      <td>A description on the organisation.</td>
       <td>(Organisatie profiel)</td>
       <td>/</td>
     </tr>
     <tr>
       <td>O</td>
-      <td>Object</td>
-      <td>Generic representation of an entity </td>
+      <td><dfn export>Object</dfn></td>
+      <td>Generic representation of an entity.</td>
       <td>Business Object</td>
       <td>Entiteit</td>
     </tr>
     <tr>
       <td>CO</td>
-      <td>Cultural Heritage Object</td>
-      <td>Object with cultural heritage value</td>
+      <td><dfn export>Cultural Heritage Object</dfn></td>
+      <td>Object with cultural heritage value.</td>
       <td>Cultuurhistorisch object</td>
       <td rowspan="2">Informatie Object</td>
     </tr>
     <tr>
       <td>IO</td>
-      <td>Information Object</td>
-      <td>Self-contained information related to a Cultural Heritage Object</td>
+      <td><dfn export>Information Object</dfn></td>
+      <td>Self-contained information related to a Cultural Heritage Object.</td>
       <td>Informatieobject</td>
     </tr>
     <tr>
       <td>MC</td>
-      <td>Metadata<br>Cultural Heritage Object</td>
-      <td>Descriptive document about a Cultural Heritage Object</td>
+      <td><dfn export>Metadata<br>Cultural Heritage Object</dfn></td>
+      <td>Descriptive document about a Cultural Heritage Object.</td>
       <td>Metadata Cultuurhistorisch object</td>
       <td>/</td>
     </tr>
     <tr>
       <td>E</td>
-      <td>Enrichment</td>
-      <td>Information that is not explicitly present in the original Cultural Heritage Object</td>
+      <td><dfn export>Enrichment</dfn></td>
+      <td>Information that is not explicitly present in the original Cultural Heritage Object.</td>
       <td>Verrijking</td>
       <td>/</td>
     </tr>
     <tr>
       <td>ME</td>
-      <td>Metadata<br>Enrichment</td>
-      <td>Descriptive document about an enrichment</td>
+      <td><dfn export>Metadata<br>Enrichment</dfn></td>
+      <td>Descriptive document about an enrichment.</td>
       <td>Metadata Verrijkingen</td>
       <td>/</td>
     </tr>
     <tr>
       <td>D</td>
-      <td>Dataset</td>
-      <td>Collection of Cultural Heritage Objects</td>
+      <td><dfn export>Dataset</dfn></td>
+      <td>Collection of Cultural Heritage Objects.</td>
       <td>Dataset</td>
       <td>Collectie</td>
     </tr>
     <tr>
       <td>MD</td>
-      <td>Metadata<br>Dataset</td>
-      <td>Descriptive document about a Dataset</td>
+      <td><dfn export>Metadata<br>Dataset</dfn></td>
+      <td>Descriptive document about a Dataset.</td>
       <td>Metadata Dataset</td>
       <td>/</td>
     </tr>
     <tr>
       <td>T</td>
-      <td>Term</td>
-      <td>word or phrase to denote a concept</td>
+      <td><dfn export>Term</dfn></td>
+      <td>word or phrase to denote a concept.</td>
       <td>Term</td>
       <td>/</td>
     </tr>
     <tr>
       <td>TS</td>
-      <td>Term Source </td>
-      <td>Source of controlled sets of terms</td>
+      <td><dfn export>Term Source</dfn></td>
+      <td>Source of controlled sets of terms.</td>
       <td>Terminologiebron</td>
       <td>/</td>
     </tr>
     <tr>
       <td>MT</td>
-      <td>Metadata Term Source</td>
-      <td>Descriptive document about a Term Source</td>
+      <td><dfn export>Metadata Term Source</dfn></td>
+      <td>Descriptive document about a Term Source.</td>
       <td>Metadata Terminologiebron</td>
       <td>/</td>
     </tr>
@@ -219,89 +229,92 @@ Terminology originates from the <a href="https://github.com/netwerk-digitaal-erf
 
 ## Roles in the network
 
+Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that affect the artefact's lifecycle somehow.
+The list of possible roles is given below.
+
 <table>
   <thead>
     <tr>
       <th></th>
       <th>Term</th>
       <th></th>
-      <th>DERA <br><a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen">https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen</a> </th>
-      <th>OSLO (VL)<br><a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object">https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object</a></th>
+      <th>DERA (NL) [Rollen](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen)</th>
+      <th>OSLO (VL) [Cultureel Erfgoed Object](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>M</td>
-      <td>Maintainer </td>
-      <td>Person that manages the collections and datasets</td>
+      <td><dfn export>Maintainer</dfn></td>
+      <td>Person that manages the collections and datasets.</td>
       <td>Bronhouder</td>
       <td></td>
     </tr>
     <tr>
       <td>TM</td>
-      <td>Term Source Maintainer</td>
-      <td>Person that manages and curates the Terms and Term Sources</td>
+      <td><dfn export>Term Source Maintainer</dfn></td>
+      <td>Person that manages and curates the Terms and Term Sources.</td>
       <td>Bronhouder terminologiebron</td>
       <td>/</td>
     </tr>
     <tr>
       <td>OM</td>
-      <td>Object Maintainer</td>
-      <td>Person that manages the collections and datasets</td>
+      <td><dfn export>Object Maintainer</dfn></td>
+      <td>Person that manages the collections and datasets.</td>
       <td>Bronhouder metadata cultuurhistorisch object</td>
       <td rowspan="2">/</td>
     </tr>
     <tr>
       <td>EM</td>
-      <td>Enrichments Maintainer</td>
-      <td></td>
+      <td><dfn export>Enrichments Maintainer</dfn></td>
+      <td>Person that manages an enrichment service (provider).</td>
       <td>Bronhouder metadata verrijkingen</td>
     </tr>
     <tr>
       <td>C</td>
-      <td>Consumer</td>
-      <td>Entity that queries the network for cultural heritage information</td>
+      <td><dfn export>Consumer</dfn></td>
+      <td>Entity that queries the network for cultural heritage information.</td>
       <td>Afnemer</td>
       <td>/</td>
     </tr>
     <tr>
       <td>P</td>
-      <td>Provider</td>
-      <td>Entity that provides a service in the network </td>
+      <td><dfn export>Service Provider</dfn></td>
+      <td>Entity that provides a service in the network.</dfn></td>
       <td>Dienstverlener</td>
       <td>/</td>
     </tr>
     <tr>
       <td>SP</td>
-      <td>Service Portal Provider</td>
-      <td>Entity that provides a Service Portal to end users that selects and displays cultural heritage information from the network </td>
+      <td><dfn export>Service Portal Provider</dfn></td>
+      <td>Entity that provides a Service Portal to end users that selects and displays cultural heritage information from the network.</td>
       <td>Portaal Dienstverlener</td>
       <td>/</td>
     </tr>
     <tr>
       <td>R</td>
-      <td>Registry</td>
+      <td><dfn export>Registry</dfn></td>
       <td>Catalog for metadata about Datasets with cultural heritage information. Can make topic-based selections of datasets and runs enrichments services to improve these selections.</td>
       <td>Makelaar</td>
       <td>/</td>
     </tr>
     <tr>
       <td>NT</td>
-      <td>Network of Terms </td>
+      <td><dfn export>Network of Terms</dfn></td>
       <td>Catalog for metadata on Term Sources. Can make selections of Term Sources based on topic.</td>
       <td>Makelaar</td>
       <td>/</td>
     </tr>
     <tr>
       <td>KG</td>
-      <td>Knowledge Graph</td>
+      <td><dfn export>Knowledge Graph</dfn></td>
       <td>Catalog for finding relations between terms and objects.</td>
       <td>Makelaar</td>
       <td>/</td>
     </tr>
     <tr>
       <td>B</td>
-      <td>Collector (Browser)</td>
+      <td><dfn export>Collector (Browser)</dfn></td>
       <td></td>
       <td>Browser</td>
       <td>/</td>
@@ -330,6 +343,8 @@ Each building block can have multiple instances, which all share the 5 component
 <pre class=include>
 path: images/nde-basic-setup.svg
 </pre>
+
+Issue: include mapping to concepts in the generic architecture
 
 # Business processes
 
@@ -610,3 +625,63 @@ This section implements the design of the [Register-function](https://docs.googl
   </tbody>
 </table>
 
+<pre class=biblio>
+{
+	"solid-oidc": {
+		"authors": [
+			"Aaron Coburn (Inrupt)",
+			"elf Pavlik",
+			"Dmitri Zagidulin" 
+		],
+		"href": "https://solid.github.io/authentication-panel/solid-oidc/",
+		"title": "SOLID-OIDC",
+		"status": "Editor’s Draft",
+		"publisher": "Solid project",
+		"deliveredBy": [
+			"https://www.w3.org/community/solid/"
+		]
+	},
+	"solid-protocol": {
+		"authors": [
+			"Sarven Capadisli",
+			"Tim Berners-Lee",
+			"Ruben Verborgh",
+			"Kjetil Kjernsmo",
+			"Justin Bingham",
+			"Dmitri Zagidulin"
+		],
+		"href": "https://solidproject.org/TR/protocol/",
+		"title": "The Solid Protocol",
+		"status": "Editor’s Draft",
+		"publisher": "Solid project",
+		"deliveredBy": [
+			"https://www.w3.org/community/solid/"
+		]
+	},
+	"requirements-datasets": {
+		"authors": [
+			"David de Boer",
+			"Bob Coret"
+		],
+		"href": "https://netwerk-digitaal-erfgoed.github.io/requirements-datasets",
+		"title": "Requirements for Datasets",
+		"status": "Living Standard",
+		"publisher": "Netwerk Digitaal Erfgoed",
+		"deliveredBy": [
+			"https://netwerkdigitaalerfgoed.nl"
+		]
+	},
+	"architecture-nde": {
+		"authors": [
+			"Miel Vander Sande"
+		],
+		"href": "https://netwerk-digitaal-erfgoed.github.io/requirements-datasets",
+		"title": "Architecture Decentralized Digital Heritage Network",
+		"status": "Living Standard",
+		"publisher": "Netwerk Digitaal Erfgoed & meemoo",
+		"deliveredBy": [
+			"https://netwerkdigitaalerfgoed.nl"
+		]
+	}
+}
+</pre>
