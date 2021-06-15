@@ -2,7 +2,7 @@
 Title: Use Cases & Business Processes
 Shortname: erfgoedpod-usecases
 Level: 1
-Status: LS
+Status: LD
 URL: https://erfgoedpod.github.io/usecases
 Editor: Miel Vander Sande, meemoo http://meemoo.be, miel.vandersande@meemoo.be
 Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
@@ -84,7 +84,7 @@ It extends the [original building blocks diagram](https://raw.githubusercontent.
 path: images/NDE-overzicht.svg
 </pre>
 
-## Actors in the network
+## Actors in the network ## {#actors}
 
 The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network. 
 These can be classified as a type of [[architecture-nde#actor]], which represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
@@ -124,7 +124,7 @@ The list of possible actor types is given below. The terminology originates from
   </tbody>
 </table>
 
-## Artefacts in the network
+## Artefacts in the network ## {#artefacts}
 
 Actors can exchange a couple of artefacts on the Digital Heritage Network.
 An [[architecture-nde#artefact]] is the smallest unit that is being exchanged; it is the object of an interaction between actors
@@ -227,7 +227,7 @@ The list of relevant digital heritage artefacts is given below.
   </tbody>
 </table>
 
-## Roles in the network
+## Roles in the network ## {#roles}
 
 Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that affect the artefact's lifecycle somehow.
 The list of possible roles is given below.
@@ -294,14 +294,14 @@ The list of possible roles is given below.
     <tr>
       <td>R</td>
       <td><dfn export>Registry</dfn></td>
-      <td>Catalog for metadata about Datasets with cultural heritage information. Can make topic-based selections of datasets and runs enrichments services to improve these selections.</td>
+      <td>Catalog for metadata about [=Datasets=] with cultural heritage information. Can make topic-based selections of [=datasets=] and runs enrichments services to improve these selections.</td>
       <td>Makelaar</td>
       <td>/</td>
     </tr>
     <tr>
       <td>NT</td>
       <td><dfn export>Network of Terms</dfn></td>
-      <td>Catalog for metadata on Term Sources. Can make selections of Term Sources based on topic.</td>
+      <td>Catalog for metadata on [=Term Sources=]. Can make selections of [=Term Sources=] based on topic.</td>
       <td>Makelaar</td>
       <td>/</td>
     </tr>
@@ -315,36 +315,37 @@ The list of possible roles is given below.
     <tr>
       <td>B</td>
       <td><dfn export>Collector (Browser)</dfn></td>
-      <td></td>
+      <td>Entity that crawls the network in a targeted fashion in order to collect data that matches a query. It it used to construct [=Knowledge Graphs=].</td>
       <td>Browser</td>
       <td>/</td>
     </tr>
   </tbody>
 </table>
 
+## Basic setup for Decentralized Digital Heritage Network
 
-## Decentralized Digital Heritage Network setup
+The ErfgoedPOD project provides a number of components in [[architecture-nde#components]].
+These components can be applied to the NDE context, 
+positioning the [[#actors]], [[#artefacts]] and [[#roles]] in a decentralized Digital Heritage Network setup.
+All metadata providers, which includes the [=Cultural Heritage Institutions=] and [=Term Source providers=]),
+deploy a [[architecture-nde#digital-heritage-pod]] their exchange hub for artefact data.
 
-In our decentralized Digital Heritage Network setup, there exist 4 main building blocks:
+The three main roles [=Registry=], [=Network of Terms=], and [=Knowledge Graph=] each serve as a [[architecture-nde#service-hub]].
+Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
+Unlike the metadata providers, it is up to the instance how the service is implemented.
+However, if a service hub would provide data to other actors, it needs to adopt a [[architecture-nde#digital-heritage-pod]].
 
-1. a Metadata Provider (embodied by a Cultural Heritage Institution or Term Source provider)
-2. a Registry
-3. a Network of Terms
-4. a Knowledge Graph
+All Digital Heritage Pod and Digital Heritage Service Hub are enhanced with the remaining components: 
+- an `Inbox` resource to receive Linked Data Notifications [[ldn]] ([[architecture-nde#pod]]);
+- a `Dashboard` and an `Orchestrator` with `Policy` to participate in the network ([[architecture-nde#participate)
+- a `Query index` and a [[architecture-nde#artefact-lifecycle-event-log]] to allow their infomation to be collected by others ([[architecture-nde#collection-information-from-a-decentralized-digital-heritage-network]])
 
-Each building block can have multiple instances, which all share the 5 component setup mentioned in 2.2:
-
-- Digital Heritage Pod
-- Policy
-- Orchestrator
-- Dashboard
-- Query index
+The complete setup can be summarized in a component blueprint, which can be used to implement any component in the Decentralized Digital Heritage Network.
+An overview is illustrated in the figure below.
 
 <pre class=include>
 path: images/nde-basic-setup.svg
 </pre>
-
-Issue: include mapping to concepts in the generic architecture
 
 # Business processes
 
@@ -372,9 +373,21 @@ Scenarios are noted in the following template:
 : Procedure        
 :: The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.
 
+## Perspective Cultural Heritage Institution - Data Pod
+
+### (BP0) Initialize a Cultural Heritage Pod
+
+![init erfgoedpod](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/init-erfgoedpod.puml)
+
+### (BP1) Register an Orchestrator for a Cultural Heritage Pod
+
+![register with orchestrator](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/register-with-orchestrator.puml)
+
 ## Perspective Cultural Heritage Institution - Registry
 
 This section implements the design of the [Register-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
+
+
 
 ### (BP1) Adding a Cultural Heritage Institution to the Registry
 
@@ -410,6 +423,11 @@ This section implements the design of the [Register-function](https://docs.googl
     </tr>
   </tbody>
 </table>
+
+
+#### HTTP Sequence
+
+![new organisation registry](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-organisation-registry.puml)
 
 ### (BP2) Adding a new Dataset to the Registry
 
@@ -478,6 +496,10 @@ This section implements the design of the [Register-function](https://docs.googl
   </tbody>
 </table>
 
+#### HTTP Sequence
+
+![new dataset](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-dataset.puml)
+
 ### (BP3) Updating a Dataset in the Registry
 
 <table>
@@ -540,6 +562,10 @@ This section implements the design of the [Register-function](https://docs.googl
     </tr>
   </tbody>
 </table>
+
+#### HTTP Sequence
+
+![update dataset](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/update-dataset.puml)
 
 ### (BP4) Adding a Registry to the ACL of a Data Pod
 
@@ -624,6 +650,7 @@ This section implements the design of the [Register-function](https://docs.googl
     </tr>
   </tbody>
 </table>
+
 
 <pre class=biblio>
 {

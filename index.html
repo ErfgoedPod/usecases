@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="04574cb77407cf2cf7457cb6faf91645d2ba93ae" name="document-revision">
+  <meta content="e4e3ce6d61fda2bdb0f1a3a4164f7bded4a7775d" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1345,6 +1345,43 @@ figcaption {
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
 }</style>
+<style>/* style-dfn-panel */
+
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    height: auto;
+    width: -webkit-fit-content;
+    width: fit-content;
+    max-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: #DDDDDD;
+    color: black;
+    border: outset 0.2em;
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: black; }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0; }
+.dfn-panel li { list-style: inside; }
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled { cursor: pointer; }
+</style>
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1405,14 +1442,13 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-06-15">15 June 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-06-15">15 June 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://erfgoedpod.github.io/usecases">https://erfgoedpod.github.io/usecases</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/ErfgoedPod/usecases/issues/">GitHub</a>
-     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:miel.vandersande@meemoo.be">Miel Vander Sande</a> (<a class="p-org org" href="http://meemoo.be">meemoo</a>)
     </dl>
@@ -1439,22 +1475,40 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#context-dutch-digital-heritage-network"><span class="secno">3</span> <span class="content">Context Dutch Digital Heritage Network</span></a>
      <ol class="toc">
-      <li><a href="#actors-in-the-network"><span class="secno">3.1</span> <span class="content">Actors in the network</span></a>
-      <li><a href="#artefacts-in-the-network"><span class="secno">3.2</span> <span class="content">Artefacts in the network</span></a>
-      <li><a href="#roles-in-the-network"><span class="secno">3.3</span> <span class="content">Roles in the network</span></a>
-      <li><a href="#decentralized-digital-heritage-network-setup"><span class="secno">3.4</span> <span class="content">Decentralized Digital Heritage Network setup</span></a>
+      <li><a href="#actors"><span class="secno">3.1</span> <span class="content">Actors in the network</span></a>
+      <li><a href="#artefacts"><span class="secno">3.2</span> <span class="content">Artefacts in the network</span></a>
+      <li><a href="#roles"><span class="secno">3.3</span> <span class="content">Roles in the network</span></a>
+      <li><a href="#basic-setup-for-decentralized-digital-heritage-network"><span class="secno">3.4</span> <span class="content">Basic setup for Decentralized Digital Heritage Network</span></a>
      </ol>
     <li>
      <a href="#business-processes"><span class="secno">4</span> <span class="content">Business processes</span></a>
      <ol class="toc">
       <li>
-       <a href="#perspective-cultural-heritage-institution---registry"><span class="secno">4.1</span> <span class="content">Perspective Cultural Heritage Institution - Registry</span></a>
+       <a href="#perspective-cultural-heritage-institution---data-pod"><span class="secno">4.1</span> <span class="content">Perspective Cultural Heritage Institution - Data Pod</span></a>
        <ol class="toc">
-        <li><a href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">4.1.1</span> <span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span></a>
-        <li><a href="#-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">4.1.2</span> <span class="content">(BP2) Adding a new Dataset to the Registry</span></a>
-        <li><a href="#-bp3-updating-a-dataset-in-the-registry"><span class="secno">4.1.3</span> <span class="content">(BP3) Updating a Dataset in the Registry</span></a>
-        <li><a href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">4.1.4</span> <span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span></a>
-        <li><a href="#-bp5-constructing-backlinks-between-two-institutions"><span class="secno">4.1.5</span> <span class="content">(BP5) Constructing backlinks between two institutions</span></a>
+        <li><a href="#-bp0-initialize-a-cultural-heritage-pod"><span class="secno">4.1.1</span> <span class="content">(BP0) Initialize a Cultural Heritage Pod</span></a>
+        <li><a href="#-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"><span class="secno">4.1.2</span> <span class="content">(BP1) Register an Orchestrator for a Cultural Heritage Pod</span></a>
+       </ol>
+      <li>
+       <a href="#perspective-cultural-heritage-institution---registry"><span class="secno">4.2</span> <span class="content">Perspective Cultural Heritage Institution - Registry</span></a>
+       <ol class="toc">
+        <li>
+         <a href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">4.2.1</span> <span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span></a>
+         <ol class="toc">
+          <li><a href="#http-sequence"><span class="secno">4.2.1.1</span> <span class="content">HTTP Sequence</span></a>
+         </ol>
+        <li>
+         <a href="#-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">4.2.2</span> <span class="content">(BP2) Adding a new Dataset to the Registry</span></a>
+         <ol class="toc">
+          <li><a href="#http-sequence①"><span class="secno">4.2.2.1</span> <span class="content">HTTP Sequence</span></a>
+         </ol>
+        <li>
+         <a href="#-bp3-updating-a-dataset-in-the-registry"><span class="secno">4.2.3</span> <span class="content">(BP3) Updating a Dataset in the Registry</span></a>
+         <ol class="toc">
+          <li><a href="#http-sequence②"><span class="secno">4.2.3.1</span> <span class="content">HTTP Sequence</span></a>
+         </ol>
+        <li><a href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">4.2.4</span> <span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span></a>
+        <li><a href="#-bp5-constructing-backlinks-between-two-institutions"><span class="secno">4.2.5</span> <span class="content">(BP5) Constructing backlinks between two institutions</span></a>
        </ol>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
@@ -1467,8 +1521,8 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
-    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
@@ -1779,7 +1833,7 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
      </a>
     </switch>
    </svg>
-   <h3 class="heading settled" data-level="3.1" id="actors-in-the-network"><span class="secno">3.1. </span><span class="content">Actors in the network</span><a class="self-link" href="#actors-in-the-network"></a></h3>
+   <h3 class="heading settled" data-level="3.1" id="actors"><span class="secno">3.1. </span><span class="content">Actors in the network</span><a class="self-link" href="#actors"></a></h3>
    <p>The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
 These can be classified as a type of <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#actor">Architecture Decentralized Digital Heritage Network §actor</a>, which represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
 The list of possible actor types is given below. The terminology originates from the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> and the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">datasets requirements</a>.</p>
@@ -1794,7 +1848,7 @@ The list of possible actor types is given below. The terminology originates from
     <tbody>
      <tr>
       <td>CHI
-      <td><dfn data-dfn-type="dfn" data-export id="cultural-heritage-institution">Cultural Heritage Institution<a class="self-link" href="#cultural-heritage-institution"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="cultural-heritage-institution">Cultural Heritage Institution</dfn>
       <td>Organisation that manages digital heritage information and wants to share this information over the network. 
       <td>Erfgoedinstelling
       <td>Organisatie
@@ -1810,7 +1864,7 @@ The list of possible actor types is given below. The terminology originates from
       <td>Anyone that wants to use cultural heritage information.
       <td>Gebruiker
    </table>
-   <h3 class="heading settled" data-level="3.2" id="artefacts-in-the-network"><span class="secno">3.2. </span><span class="content">Artefacts in the network</span><a class="self-link" href="#artefacts-in-the-network"></a></h3>
+   <h3 class="heading settled" data-level="3.2" id="artefacts"><span class="secno">3.2. </span><span class="content">Artefacts in the network</span><a class="self-link" href="#artefacts"></a></h3>
    <p>Actors can exchange a couple of artefacts on the Digital Heritage Network.
 An <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#artefact">Architecture Decentralized Digital Heritage Network §artefact</a> is the smallest unit that is being exchanged; it is the object of an interaction between actors
 The list of relevant digital heritage artefacts is given below.</p>
@@ -1866,7 +1920,7 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>/
      <tr>
       <td>D
-      <td><dfn data-dfn-type="dfn" data-export id="dataset">Dataset<a class="self-link" href="#dataset"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dataset">Dataset</dfn>
       <td>Collection of Cultural Heritage Objects.
       <td>Dataset
       <td>Collectie
@@ -1884,7 +1938,7 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>/
      <tr>
       <td>TS
-      <td><dfn data-dfn-type="dfn" data-export id="term-source">Term Source<a class="self-link" href="#term-source"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="term-source">Term Source</dfn>
       <td>Source of controlled sets of terms.
       <td>Terminologiebron
       <td>/
@@ -1895,7 +1949,7 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>Metadata Terminologiebron
       <td>/
    </table>
-   <h3 class="heading settled" data-level="3.3" id="roles-in-the-network"><span class="secno">3.3. </span><span class="content">Roles in the network</span><a class="self-link" href="#roles-in-the-network"></a></h3>
+   <h3 class="heading settled" data-level="3.3" id="roles"><span class="secno">3.3. </span><span class="content">Roles in the network</span><a class="self-link" href="#roles"></a></h3>
    <p>Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that affect the artefact’s lifecycle somehow.
 The list of possible roles is given below.</p>
    <table>
@@ -1950,56 +2004,51 @@ The list of possible roles is given below.</p>
       <td>/
      <tr>
       <td>R
-      <td><dfn data-dfn-type="dfn" data-export id="registry">Registry<a class="self-link" href="#registry"></a></dfn>
-      <td>Catalog for metadata about Datasets with cultural heritage information. Can make topic-based selections of datasets and runs enrichments services to improve these selections.
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="registry">Registry</dfn>
+      <td>Catalog for metadata about <a data-link-type="dfn" href="#dataset" id="ref-for-dataset">Datasets</a> with cultural heritage information. Can make topic-based selections of <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①">datasets</a> and runs enrichments services to improve these selections.
       <td>Makelaar
       <td>/
      <tr>
       <td>NT
-      <td><dfn data-dfn-type="dfn" data-export id="network-of-terms">Network of Terms<a class="self-link" href="#network-of-terms"></a></dfn>
-      <td>Catalog for metadata on Term Sources. Can make selections of Term Sources based on topic.
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="network-of-terms">Network of Terms</dfn>
+      <td>Catalog for metadata on <a data-link-type="dfn" href="#term-source" id="ref-for-term-source">Term Sources</a>. Can make selections of <a data-link-type="dfn" href="#term-source" id="ref-for-term-source①">Term Sources</a> based on topic.
       <td>Makelaar
       <td>/
      <tr>
       <td>KG
-      <td><dfn data-dfn-type="dfn" data-export id="knowledge-graph">Knowledge Graph<a class="self-link" href="#knowledge-graph"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="knowledge-graph">Knowledge Graph</dfn>
       <td>Catalog for finding relations between terms and objects.
       <td>Makelaar
       <td>/
      <tr>
       <td>B
       <td><dfn data-dfn-type="dfn" data-export id="collector-browser">Collector (Browser)<a class="self-link" href="#collector-browser"></a></dfn>
-      <td>
+      <td>Entity that crawls the network in a targeted fashion in order to collect data that matches a query. It it used to construct <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph">Knowledge Graphs</a>.
       <td>Browser
       <td>/
    </table>
-   <h3 class="heading settled" data-level="3.4" id="decentralized-digital-heritage-network-setup"><span class="secno">3.4. </span><span class="content">Decentralized Digital Heritage Network setup</span><a class="self-link" href="#decentralized-digital-heritage-network-setup"></a></h3>
-   <p>In our decentralized Digital Heritage Network setup, there exist 4 main building blocks:</p>
-   <ol>
-    <li data-md>
-     <p>a Metadata Provider (embodied by a Cultural Heritage Institution or Term Source provider)</p>
-    <li data-md>
-     <p>a Registry</p>
-    <li data-md>
-     <p>a Network of Terms</p>
-    <li data-md>
-     <p>a Knowledge Graph</p>
-   </ol>
-   <p>Each building block can have multiple instances, which all share the 5 component setup mentioned in 2.2:</p>
+   <h3 class="heading settled" data-level="3.4" id="basic-setup-for-decentralized-digital-heritage-network"><span class="secno">3.4. </span><span class="content">Basic setup for Decentralized Digital Heritage Network</span><a class="self-link" href="#basic-setup-for-decentralized-digital-heritage-network"></a></h3>
+   <p>The ErfgoedPOD project provides a number of components in <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#components">Architecture Decentralized Digital Heritage Network §components</a>.
+These components can be applied to the NDE context, 
+positioning the <a href="#actors">§ 3.1 Actors in the network</a>, <a href="#artefacts">§ 3.2 Artefacts in the network</a> and <a href="#roles">§ 3.3 Roles in the network</a> in a decentralized Digital Heritage Network setup.
+All metadata providers, which includes the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution">Cultural Heritage Institutions</a> and <a data-link-type="dfn">Term Source providers</a>),
+deploy a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#digital-heritage-pod">Architecture Decentralized Digital Heritage Network §digital-heritage-pod</a> their exchange hub for artefact data.</p>
+   <p>The three main roles <a data-link-type="dfn" href="#registry" id="ref-for-registry">Registry</a>, <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms">Network of Terms</a>, and <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph①">Knowledge Graph</a> each serve as a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#service-hub">Architecture Decentralized Digital Heritage Network §service-hub</a>.
+Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
+Unlike the metadata providers, it is up to the instance how the service is implemented.
+However, if a service hub would provide data to other actors, it needs to adopt a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#digital-heritage-pod">Architecture Decentralized Digital Heritage Network §digital-heritage-pod</a>.</p>
+   <p>All Digital Heritage Pod and Digital Heritage Service Hub are enhanced with the remaining components:</p>
    <ul>
     <li data-md>
-     <p>Digital Heritage Pod</p>
+     <p>an <code>Inbox</code> resource to receive Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[ldn]</a> (<a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#pod">Architecture Decentralized Digital Heritage Network §pod</a>);</p>
     <li data-md>
-     <p>Policy</p>
+     <p>a <code>Dashboard</code> and an <code>Orchestrator</code> with <code>Policy</code> to participate in the network ([[architecture-nde#participate)</p>
     <li data-md>
-     <p>Orchestrator</p>
-    <li data-md>
-     <p>Dashboard</p>
-    <li data-md>
-     <p>Query index</p>
+     <p>a <code>Query index</code> and a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#artefact-lifecycle-event-log">Architecture Decentralized Digital Heritage Network §artefact-lifecycle-event-log</a> to allow their infomation to be collected by others (<a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#collection-information-from-a-decentralized-digital-heritage-network">Architecture Decentralized Digital Heritage Network §collection-information-from-a-decentralized-digital-heritage-network</a>)</p>
    </ul>
-   <p></p>
-   <svg content="<mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2021-03-16T11:27:28.276Z&quot; agent=&quot;5.0 (Macintosh)&quot; etag=&quot;0As7XUA0fiUSBq1mf10Z&quot; version=&quot;14.4.8&quot; type=&quot;google&quot;><diagram id=&quot;Jt4S_Lmd8eU92Lqd1AJ5&quot; name=&quot;Page-1&quot;>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</diagram></mxfile>" height="542px" style="background-color: rgb(255, 255, 255);" version="1.1" viewBox="-0.5 -0.5 785 542" width="785px" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <p>The complete setup can be summarized in a component blueprint, which can be used to implement any component in the Decentralized Digital Heritage Network.
+An overview is illustrated in the figure below.</p>
+   <svg content="<mxfile><diagram id=&quot;Jt4S_Lmd8eU92Lqd1AJ5&quot; name=&quot;Page-1&quot;>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</diagram></mxfile>" height="542px" version="1.1" viewBox="-0.5 -0.5 785 542" width="785px" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <defs></defs>
     <g>
      <rect fill="#ffffff" height="230" pointer-events="all" stroke="#000000" stroke-dasharray="3 3" width="340" x="391" y="70"></rect>
@@ -2085,63 +2134,82 @@ The list of possible roles is given below.</p>
       </switch>
      </g>
      <image height="50" preserveAspectRatio="none" width="50" x="265.5" y="227" href="data:image/png;base64,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"></image>
-     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="60" x="31" y="208.75"></rect>
-     <path d="M 31 208.75 M 91 208.75 L 91 251.25 L 31 251.25 L 31 208.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
+     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="40" x="31" y="208.75"></rect>
+     <path d="M 31 208.75 M 71 208.75 L 71 251.25 L 31 251.25 L 31 208.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 230px; margin-left: 32px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 230px; margin-left: 32px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Inbox</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="61" y="234">Inbox</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="51" y="234">Inbox</text>
       </switch>
      </g>
-     <path d="M 111 215 L 130 215 L 136 221 L 136 245 L 111 245 L 111 215 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
-     <path d="M 130 215 L 130 221 L 136 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 130 215 L 130 221 L 136 221" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 161 215 L 180 215 L 186 221 L 186 245 L 161 245 L 161 215 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 180 215 L 180 221 L 186 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 180 215 L 180 221 L 186 221" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 112px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 162px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">DP</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="124" y="234">DP</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="174" y="234">DP</text>
       </switch>
      </g>
-     <path d="M 148.5 215 L 167.5 215 L 173.5 221 L 173.5 245 L 148.5 245 L 148.5 215 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
-     <path d="M 167.5 215 L 167.5 221 L 173.5 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 167.5 215 L 167.5 221 L 173.5 221" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 198.5 215 L 217.5 215 L 223.5 221 L 223.5 245 L 198.5 245 L 198.5 215 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 217.5 215 L 217.5 221 L 223.5 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 217.5 215 L 217.5 221 L 223.5 221" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 150px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 200px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">DP</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="161" y="234">DP</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="211" y="234">DP</text>
       </switch>
      </g>
-     <path d="M 191 215 L 210 215 L 216 221 L 216 245 L 191 245 L 191 215 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
-     <path d="M 210 215 L 210 221 L 216 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 210 215 L 210 221 L 216 221" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 241 215 L 260 215 L 266 221 L 266 245 L 241 245 L 241 215 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 260 215 L 260 221 L 266 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 260 215 L 260 221 L 266 221" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 192px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 242px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">DP</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="204" y="234">DP</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="254" y="234">DP</text>
+      </switch>
+     </g>
+     <path d="M 81 208.75 L 127 208.75 L 141 222.75 L 141 256.25 L 81 256.25 L 81 208.75 Z" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 127 208.75 L 127 222.75 L 141 222.75 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 127 208.75 L 127 222.75 L 141 222.75" fill="none" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <g transform="translate(-0.5 -0.5)">
+      <switch>
+       <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 233px; margin-left: 82px;" xmlns="http://www.w3.org/1999/xhtml">
+         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+          <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+           <div style="font-size: 12px">Artefact</div>
+           <div style="font-size: 12px">Lifecycle</div>
+           <div style="font-size: 12px">Event Log<br style="font-size: 12px"></div>
+          </div>
+         </div>
+        </div>
+       </foreignObject>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="111" y="236">Artefact...</text>
       </switch>
      </g>
      <rect fill="#f8cecc" height="170" pointer-events="all" stroke="#b85450" stroke-width="2" width="320" x="1" y="370"></rect>
@@ -2214,18 +2282,18 @@ The list of possible roles is given below.</p>
       </switch>
      </g>
      <image height="50" preserveAspectRatio="none" width="50" x="265.5" y="477" href="data:image/png;base64,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"></image>
-     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="60" x="31" y="458.75"></rect>
-     <path d="M 31 458.75 M 91 458.75 L 91 501.25 L 31 501.25 L 31 458.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
+     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="40" x="31" y="458.75"></rect>
+     <path d="M 31 458.75 M 71 458.75 L 71 501.25 L 31 501.25 L 31 458.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 480px; margin-left: 32px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 480px; margin-left: 32px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Inbox</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="61" y="484">Inbox</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="51" y="484">Inbox</text>
       </switch>
      </g>
      <ellipse cx="757" cy="390" fill="#ffffff" pointer-events="all" rx="7.5" ry="7.5" stroke="#000000"></ellipse>
@@ -2312,18 +2380,18 @@ The list of possible roles is given below.</p>
       </switch>
      </g>
      <image height="50" preserveAspectRatio="none" width="50" x="667.5" y="477" href="data:image/png;base64,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"></image>
-     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="60" x="433" y="458.75"></rect>
-     <path d="M 433 458.75 M 493 458.75 L 493 501.25 L 433 501.25 L 433 458.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
+     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="38" x="433" y="458.75"></rect>
+     <path d="M 433 458.75 M 471 458.75 L 471 501.25 L 433 501.25 L 433 458.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 480px; margin-left: 434px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 36px; height: 1px; padding-top: 480px; margin-left: 434px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Inbox</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="463" y="484">Inbox</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="452" y="484">Inbox</text>
       </switch>
      </g>
      <path d="M 757 412.5 L 722 412.5 L 723 412.5 L 709.37 412.5" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
@@ -2398,151 +2466,151 @@ The list of possible roles is given below.</p>
       </switch>
      </g>
      <image height="50" preserveAspectRatio="none" width="50" x="667.5" y="227" href="data:image/png;base64,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"></image>
-     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="60" x="433" y="208.75"></rect>
-     <path d="M 433 208.75 M 493 208.75 L 493 251.25 L 433 251.25 L 433 208.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
+     <rect fill="#fff2cc" height="42.5" pointer-events="all" stroke="none" width="38" x="433" y="208.75"></rect>
+     <path d="M 433 208.75 M 471 208.75 L 471 251.25 L 433 251.25 L 433 208.75" fill="none" pointer-events="all" stroke="#d6b656" stroke-miterlimit="10" stroke-width="3"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 230px; margin-left: 434px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 36px; height: 1px; padding-top: 230px; margin-left: 434px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Inbox</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="463" y="234">Inbox</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="452" y="234">Inbox</text>
       </switch>
      </g>
-     <path d="M 98.5 465 L 117.5 465 L 123.5 471 L 123.5 495 L 98.5 495 L 98.5 465 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
-     <path d="M 117.5 465 L 117.5 471 L 123.5 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 117.5 465 L 117.5 471 L 123.5 471" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 161 465 L 180 465 L 186 471 L 186 495 L 161 495 L 161 465 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 180 465 L 180 471 L 186 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 180 465 L 180 471 L 186 471" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 100px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 162px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">TD</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="111" y="484">TD</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="174" y="484">TD</text>
       </switch>
      </g>
-     <path d="M 511 469 C 511 466.79 515.48 465 521 465 C 523.65 465 526.2 465.42 528.07 466.17 C 529.95 466.92 531 467.94 531 469 L 531 491 C 531 493.21 526.52 495 521 495 C 515.48 495 511 493.21 511 491 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
-     <path d="M 531 469 C 531 471.21 526.52 473 521 473 C 515.48 473 511 471.21 511 469" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 574.5 469 C 574.5 466.79 578.98 465 584.5 465 C 587.15 465 589.7 465.42 591.57 466.17 C 593.45 466.92 594.5 467.94 594.5 469 L 594.5 491 C 594.5 493.21 590.02 495 584.5 495 C 578.98 495 574.5 493.21 574.5 491 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 594.5 469 C 594.5 471.21 590.02 473 584.5 473 C 578.98 473 574.5 471.21 574.5 469" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 492px; margin-left: 512px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 492px; margin-left: 576px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">T</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="521" y="492">T</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="585" y="492">T</text>
       </switch>
      </g>
-     <path d="M 541 469 C 541 466.79 545.48 465 551 465 C 553.65 465 556.2 465.42 558.07 466.17 C 559.95 466.92 561 467.94 561 469 L 561 491 C 561 493.21 556.52 495 551 495 C 545.48 495 541 493.21 541 491 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
-     <path d="M 561 469 C 561 471.21 556.52 473 551 473 C 545.48 473 541 471.21 541 469" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 604.5 469 C 604.5 466.79 608.98 465 614.5 465 C 617.15 465 619.7 465.42 621.57 466.17 C 623.45 466.92 624.5 467.94 624.5 469 L 624.5 491 C 624.5 493.21 620.02 495 614.5 495 C 608.98 495 604.5 493.21 604.5 491 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 624.5 469 C 624.5 471.21 620.02 473 614.5 473 C 608.98 473 604.5 471.21 604.5 469" fill="none" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 492px; margin-left: 542px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 492px; margin-left: 606px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">D</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="551" y="492">D</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="615" y="492">D</text>
       </switch>
      </g>
-     <path d="M 511 215 L 530 215 L 536 221 L 536 245 L 511 245 L 511 215 Z" fill="#dae8fc" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
-     <path d="M 530 215 L 530 221 L 536 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 530 215 L 530 221 L 536 221" fill="none" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
+     <path d="M 562 215 L 581 215 L 587 221 L 587 245 L 562 245 L 562 215 Z" fill="#dae8fc" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
+     <path d="M 581 215 L 581 221 L 587 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 581 215 L 581 221 L 587 221" fill="none" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 512px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 563px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">T-O</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="524" y="234">T-O</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="575" y="234">T-O</text>
       </switch>
      </g>
-     <path d="M 549.5 215 L 568.5 215 L 574.5 221 L 574.5 245 L 549.5 245 L 549.5 215 Z" fill="#dae8fc" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
-     <path d="M 568.5 215 L 568.5 221 L 574.5 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 568.5 215 L 568.5 221 L 574.5 221" fill="none" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
+     <path d="M 600.5 215 L 619.5 215 L 625.5 221 L 625.5 245 L 600.5 245 L 600.5 215 Z" fill="#dae8fc" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
+     <path d="M 619.5 215 L 619.5 221 L 625.5 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 619.5 215 L 619.5 221 L 625.5 221" fill="none" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 551px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 602px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">T-O</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="562" y="234">T-O</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="613" y="234">T-O</text>
       </switch>
      </g>
-     <path d="M 591 215 L 610 215 L 616 221 L 616 245 L 591 245 L 591 215 Z" fill="#dae8fc" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
-     <path d="M 610 215 L 610 221 L 616 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 610 215 L 610 221 L 616 221" fill="none" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
+     <path d="M 642 215 L 661 215 L 667 221 L 667 245 L 642 245 L 642 215 Z" fill="#dae8fc" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
+     <path d="M 661 215 L 661 221 L 667 221 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 661 215 L 661 221 L 667 221" fill="none" pointer-events="all" stroke="#6c8ebf" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 592px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 230px; margin-left: 643px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">T-O</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="604" y="234">T-O</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="655" y="234">T-O</text>
       </switch>
      </g>
-     <path d="M 136 465 L 155 465 L 161 471 L 161 495 L 136 495 L 136 465 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
-     <path d="M 155 465 L 155 471 L 161 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 155 465 L 155 471 L 161 471" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 198.5 465 L 217.5 465 L 223.5 471 L 223.5 495 L 198.5 495 L 198.5 465 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 217.5 465 L 217.5 471 L 223.5 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 217.5 465 L 217.5 471 L 223.5 471" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 137px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 200px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">TD</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="149" y="484">TD</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="211" y="484">TD</text>
       </switch>
      </g>
-     <path d="M 178.5 465 L 197.5 465 L 203.5 471 L 203.5 495 L 178.5 495 L 178.5 465 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
-     <path d="M 197.5 465 L 197.5 471 L 203.5 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 197.5 465 L 197.5 471 L 203.5 471" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 241 465 L 260 465 L 266 471 L 266 495 L 241 495 L 241 465 Z" fill="#ffe6cc" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
+     <path d="M 260 465 L 260 471 L 266 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 260 465 L 260 471 L 266 471" fill="none" pointer-events="all" stroke="#d79b00" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 180px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 242px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">TD</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="191" y="484">TD</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="254" y="484">TD</text>
       </switch>
      </g>
-     <path d="M 574.5 465 L 593.5 465 L 599.5 471 L 599.5 495 L 574.5 495 L 574.5 465 Z" fill="#f5f5f5" pointer-events="all" stroke="#666666" stroke-miterlimit="10"></path>
-     <path d="M 593.5 465 L 593.5 471 L 599.5 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
-     <path d="M 593.5 465 L 593.5 471 L 599.5 471" fill="none" pointer-events="all" stroke="#666666" stroke-miterlimit="10"></path>
+     <path d="M 638 465 L 657 465 L 663 471 L 663 495 L 638 495 L 638 465 Z" fill="#f5f5f5" pointer-events="all" stroke="#666666" stroke-miterlimit="10"></path>
+     <path d="M 657 465 L 657 471 L 663 471 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 657 465 L 657 471 L 663 471" fill="none" pointer-events="all" stroke="#666666" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 576px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 23px; height: 1px; padding-top: 480px; margin-left: 639px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">ORP</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#333333" font-family="Helvetica" font-size="12px" text-anchor="middle" x="587" y="484">ORP</text>
+       <text fill="#333333" font-family="Helvetica" font-size="12px" text-anchor="middle" x="651" y="484">ORP</text>
       </switch>
      </g>
      <path d="M 757 30 L 561 30 L 561 63.63" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
@@ -2561,6 +2629,63 @@ The list of possible roles is given below.</p>
        <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="757" y="79">User</text>
       </switch>
      </g>
+     <path d="M 81 456.25 L 127 456.25 L 141 470.25 L 141 503.75 L 81 503.75 L 81 456.25 Z" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 127 456.25 L 127 470.25 L 141 470.25 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 127 456.25 L 127 470.25 L 141 470.25" fill="none" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <g transform="translate(-0.5 -0.5)">
+      <switch>
+       <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 480px; margin-left: 82px;" xmlns="http://www.w3.org/1999/xhtml">
+         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+          <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+           <div style="font-size: 12px">Artefact</div>
+           <div style="font-size: 12px">Lifecycle</div>
+           <div style="font-size: 12px">Event Log<br style="font-size: 12px"></div>
+          </div>
+         </div>
+        </div>
+       </foreignObject>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="111" y="484">Artefact...</text>
+      </switch>
+     </g>
+     <path d="M 483 206.25 L 529 206.25 L 543 220.25 L 543 253.75 L 483 253.75 L 483 206.25 Z" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 529 206.25 L 529 220.25 L 543 220.25 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 529 206.25 L 529 220.25 L 543 220.25" fill="none" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <g transform="translate(-0.5 -0.5)">
+      <switch>
+       <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 230px; margin-left: 484px;" xmlns="http://www.w3.org/1999/xhtml">
+         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+          <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+           <div style="font-size: 12px">Artefact</div>
+           <div style="font-size: 12px">Lifecycle</div>
+           <div style="font-size: 12px">Event Log<br style="font-size: 12px"></div>
+          </div>
+         </div>
+        </div>
+       </foreignObject>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="513" y="234">Artefact...</text>
+      </switch>
+     </g>
+     <path d="M 483 455 L 529 455 L 543 469 L 543 502.5 L 483 502.5 L 483 455 Z" fill="#ffffff" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 529 455 L 529 469 L 543 469 Z" fill="#000000" fill-opacity="0.05" pointer-events="all" stroke="none"></path>
+     <path d="M 529 455 L 529 469 L 543 469" fill="none" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <g transform="translate(-0.5 -0.5)">
+      <switch>
+       <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 479px; margin-left: 484px;" xmlns="http://www.w3.org/1999/xhtml">
+         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+          <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+           <div style="font-size: 12px">Artefact</div>
+           <div style="font-size: 12px">Lifecycle</div>
+           <div style="font-size: 12px">Event Log<br style="font-size: 12px"></div>
+          </div>
+         </div>
+        </div>
+       </foreignObject>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="513" y="482">Artefact...</text>
+      </switch>
+     </g>
     </g>
     <switch>
      <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"></g>
@@ -2569,7 +2694,6 @@ The list of possible roles is given below.</p>
      </a>
     </switch>
    </svg>
-   <p class="issue" id="issue-4843268f"><a class="self-link" href="#issue-4843268f"></a> include mapping to concepts in the generic architecture</p>
    <h2 class="heading settled" data-level="4" id="business-processes"><span class="secno">4. </span><span class="content">Business processes</span><a class="self-link" href="#business-processes"></a></h2>
    <p>The following scenarios aim at capturing what an architecture based on Decentralized Web should enable for users. In this context, the users are the different stakeholders that are active in the network:</p>
    <ol>
@@ -2606,9 +2730,14 @@ The list of possible roles is given below.</p>
     <dd data-md>
      <p>The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.</p>
    </dl>
-   <h3 class="heading settled" data-level="4.1" id="perspective-cultural-heritage-institution---registry"><span class="secno">4.1. </span><span class="content">Perspective Cultural Heritage Institution - Registry</span><a class="self-link" href="#perspective-cultural-heritage-institution---registry"></a></h3>
+   <h3 class="heading settled" data-level="4.1" id="perspective-cultural-heritage-institution---data-pod"><span class="secno">4.1. </span><span class="content">Perspective Cultural Heritage Institution - Data Pod</span><a class="self-link" href="#perspective-cultural-heritage-institution---data-pod"></a></h3>
+   <h4 class="heading settled" data-level="4.1.1" id="-bp0-initialize-a-cultural-heritage-pod"><span class="secno">4.1.1. </span><span class="content">(BP0) Initialize a Cultural Heritage Pod</span><a class="self-link" href="#-bp0-initialize-a-cultural-heritage-pod"></a></h4>
+   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/init-erfgoedpod.puml">init erfgoedpod</a></p>
+   <h4 class="heading settled" data-level="4.1.2" id="-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"><span class="secno">4.1.2. </span><span class="content">(BP1) Register an Orchestrator for a Cultural Heritage Pod</span><a class="self-link" href="#-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"></a></h4>
+   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/register-with-orchestrator.puml">register with orchestrator</a></p>
+   <h3 class="heading settled" data-level="4.2" id="perspective-cultural-heritage-institution---registry"><span class="secno">4.2. </span><span class="content">Perspective Cultural Heritage Institution - Registry</span><a class="self-link" href="#perspective-cultural-heritage-institution---registry"></a></h3>
    <p>This section implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Register-function</a> using the Solid and ResearcherPod architecture.</p>
-   <h4 class="heading settled" data-level="4.1.1" id="-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">4.1.1. </span><span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span><a class="self-link" href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"></a></h4>
+   <h4 class="heading settled" data-level="4.2.1" id="-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">4.2.1. </span><span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span><a class="self-link" href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -2633,7 +2762,9 @@ The list of possible roles is given below.</p>
       <td>System
       <td>The Maintainer uploads or curates the Metadata Organization using the Dashboard. The profile is made available through a URI, which can coincide with the institution’s persistent identifier. <br>A Maintainer of the Cultural Heritage Institution then uses the Dashboard to start registration. <br>The Orchestrator of the  Cultural Heritage Institution detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred Registry(s). It contains the organization’s identifier and a link to the profile.<br>When notified, the Orchestrator of the Registry follows the link to the Metadata Organization and attempts to download it. <br>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Organization in the Data Pod’s ACL, it is granted access. Else, the download is refused.<br>When downloaded, the Orchestrator of the Registry stores the profile in its Data Pod and adds it to the Query Index. <br>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the registration was successful.
    </table>
-   <h4 class="heading settled" data-level="4.1.2" id="-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">4.1.2. </span><span class="content">(BP2) Adding a new Dataset to the Registry</span><a class="self-link" href="#-bp2-adding-a-new-dataset-to-the-registry"></a></h4>
+   <h5 class="heading settled" data-level="4.2.1.1" id="http-sequence"><span class="secno">4.2.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence"></a></h5>
+   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-organisation-registry.puml">new organisation registry</a></p>
+   <h4 class="heading settled" data-level="4.2.2" id="-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">4.2.2. </span><span class="content">(BP2) Adding a new Dataset to the Registry</span><a class="self-link" href="#-bp2-adding-a-new-dataset-to-the-registry"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -2722,7 +2853,9 @@ The list of possible roles is given below.</p>
          <p>After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered.</p>
        </ol>
    </table>
-   <h4 class="heading settled" data-level="4.1.3" id="-bp3-updating-a-dataset-in-the-registry"><span class="secno">4.1.3. </span><span class="content">(BP3) Updating a Dataset in the Registry</span><a class="self-link" href="#-bp3-updating-a-dataset-in-the-registry"></a></h4>
+   <h5 class="heading settled" data-level="4.2.2.1" id="http-sequence①"><span class="secno">4.2.2.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence①"></a></h5>
+   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-dataset.puml">new dataset</a></p>
+   <h4 class="heading settled" data-level="4.2.3" id="-bp3-updating-a-dataset-in-the-registry"><span class="secno">4.2.3. </span><span class="content">(BP3) Updating a Dataset in the Registry</span><a class="self-link" href="#-bp3-updating-a-dataset-in-the-registry"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -2803,7 +2936,9 @@ The list of possible roles is given below.</p>
          <p>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the update was successful.</p>
        </ol>
    </table>
-   <h4 class="heading settled" data-level="4.1.4" id="-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">4.1.4. </span><span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
+   <h5 class="heading settled" data-level="4.2.3.1" id="http-sequence②"><span class="secno">4.2.3.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence②"></a></h5>
+   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/update-dataset.puml">update dataset</a></p>
+   <h4 class="heading settled" data-level="4.2.4" id="-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">4.2.4. </span><span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -2856,7 +2991,7 @@ The list of possible roles is given below.</p>
          <p>The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.</p>
        </ol>
    </table>
-   <h4 class="heading settled" data-level="4.1.5" id="-bp5-constructing-backlinks-between-two-institutions"><span class="secno">4.1.5. </span><span class="content">(BP5) Constructing backlinks between two institutions</span><a class="self-link" href="#-bp5-constructing-backlinks-between-two-institutions"></a></h4>
+   <h4 class="heading settled" data-level="4.2.5" id="-bp5-constructing-backlinks-between-two-institutions"><span class="secno">4.2.5. </span><span class="content">(BP5) Constructing backlinks between two institutions</span><a class="self-link" href="#-bp5-constructing-backlinks-between-two-institutions"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -3064,7 +3199,101 @@ The list of possible roles is given below.</p>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
-  <div style="counter-reset:issue">
-   <div class="issue"> include mapping to concepts in the generic architecture<a href="#issue-4843268f"> ↵ </a></div>
-  </div>
+  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <dl>
+   <dt id="biblio-ldn">[LDN]
+   <dd>Sarven Capadisli; Amy Guy. <a href="https://www.w3.org/TR/ldn/">Linked Data Notifications</a>. 2 May 2017. REC. URL: <a href="https://www.w3.org/TR/ldn/">https://www.w3.org/TR/ldn/</a>
+  </dl>
+  <aside class="dfn-panel" data-for="cultural-heritage-institution">
+   <b><a href="#cultural-heritage-institution">#cultural-heritage-institution</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-cultural-heritage-institution">3.4. Basic setup for Decentralized Digital Heritage Network</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dataset">
+   <b><a href="#dataset">#dataset</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dataset">3.3. Roles in the network</a> <a href="#ref-for-dataset①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-source">
+   <b><a href="#term-source">#term-source</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-term-source">3.3. Roles in the network</a> <a href="#ref-for-term-source①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="registry">
+   <b><a href="#registry">#registry</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-registry">3.4. Basic setup for Decentralized Digital Heritage Network</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="network-of-terms">
+   <b><a href="#network-of-terms">#network-of-terms</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-network-of-terms">3.4. Basic setup for Decentralized Digital Heritage Network</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="knowledge-graph">
+   <b><a href="#knowledge-graph">#knowledge-graph</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-knowledge-graph">3.3. Roles in the network</a>
+    <li><a href="#ref-for-knowledge-graph①">3.4. Basic setup for Decentralized Digital Heritage Network</a>
+   </ul>
+  </aside>
+<script>/* script-dfn-panel */
+
+document.body.addEventListener("click", function(e) {
+    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+    // Find the dfn element or panel, if any, that was clicked on.
+    var el = e.target;
+    var target;
+    var hitALink = false;
+    while(el.parentElement) {
+        if(el.tagName == "A") {
+            // Clicking on a link in a <dfn> shouldn't summon the panel
+            hitALink = true;
+        }
+        if(el.classList.contains("dfn-paneled")) {
+            target = "dfn";
+            break;
+        }
+        if(el.classList.contains("dfn-panel")) {
+            target = "dfn-panel";
+            break;
+        }
+        el = el.parentElement;
+    }
+    if(target != "dfn-panel") {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+            el.classList.remove("on");
+            el.classList.remove("activated");
+        });
+    }
+    if(target == "dfn" && !hitALink) {
+        // open the panel
+        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+        if(dfnPanel) {
+            dfnPanel.classList.add("on");
+            var rect = el.getBoundingClientRect();
+            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+            dfnPanel.style.top = window.scrollY + rect.top + "px";
+            var panelRect = dfnPanel.getBoundingClientRect();
+            var panelWidth = panelRect.right - panelRect.left;
+            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                // Reposition, because the panel is overflowing
+                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+            }
+        } else {
+            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+        }
+    } else if(target == "dfn-panel") {
+        // Switch it to "activated" state, which pins it.
+        el.classList.add("activated");
+        el.style.left = null;
+        el.style.top = null;
+    }
+
+});
+</script>
