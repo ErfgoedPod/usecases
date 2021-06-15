@@ -2,7 +2,7 @@
 Title: Use Cases & Business Processes
 Shortname: erfgoedpod-usecases
 Level: 1
-Status: LS
+Status: LD
 URL: https://erfgoedpod.github.io/usecases
 Editor: Miel Vander Sande, meemoo http://meemoo.be, miel.vandersande@meemoo.be
 Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
@@ -373,9 +373,21 @@ Scenarios are noted in the following template:
 : Procedure        
 :: The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.
 
+## Perspective Cultural Heritage Institution - Data Pod
+
+### (BP0) Initialize a Cultural Heritage Pod
+
+![init erfgoedpod](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/init-erfgoedpod.puml)
+
+### (BP1) Register an Orchestrator for a Cultural Heritage Pod
+
+![register with orchestrator](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/register-with-orchestrator.puml)
+
 ## Perspective Cultural Heritage Institution - Registry
 
 This section implements the design of the [Register-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
+
+
 
 ### (BP1) Adding a Cultural Heritage Institution to the Registry
 
@@ -411,6 +423,11 @@ This section implements the design of the [Register-function](https://docs.googl
     </tr>
   </tbody>
 </table>
+
+
+#### HTTP Sequence
+
+![new organisation registry](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-organisation-registry.puml)
 
 ### (BP2) Adding a new Dataset to the Registry
 
@@ -479,6 +496,10 @@ This section implements the design of the [Register-function](https://docs.googl
   </tbody>
 </table>
 
+#### HTTP Sequence
+
+![new dataset](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-dataset.puml)
+
 ### (BP3) Updating a Dataset in the Registry
 
 <table>
@@ -541,6 +562,10 @@ This section implements the design of the [Register-function](https://docs.googl
     </tr>
   </tbody>
 </table>
+
+#### HTTP Sequence
+
+![update dataset](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/update-dataset.puml)
 
 ### (BP4) Adding a Registry to the ACL of a Data Pod
 
@@ -625,6 +650,7 @@ This section implements the design of the [Register-function](https://docs.googl
     </tr>
   </tbody>
 </table>
+
 
 <pre class=biblio>
 {
