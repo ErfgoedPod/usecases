@@ -377,11 +377,11 @@ Scenarios are noted in the following template:
 
 ### (BP0) Initialize a Cultural Heritage Pod
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="300"  />
 
 ### (BP1) Register an Orchestrator for a Cultural Heritage Pod
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="300"  />
 
 ## Perspective Cultural Heritage Institution - Registry
 
@@ -427,7 +427,7 @@ This section implements the design of the [Register-function](https://docs.googl
 
 #### HTTP Sequence
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="300"  />
 
 ### (BP2) Adding a new Dataset to the Registry
 
@@ -498,7 +498,7 @@ This section implements the design of the [Register-function](https://docs.googl
 
 #### HTTP Sequence
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-dataset.puml" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-dataset.puml" width="300"  />
 
 ### (BP3) Updating a Dataset in the Registry
 
@@ -565,7 +565,7 @@ This section implements the design of the [Register-function](https://docs.googl
 
 #### HTTP Sequence
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="300" />
 
 ### (BP4) Adding a Registry to the ACL of a Data Pod
 
