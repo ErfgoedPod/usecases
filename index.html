@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="b740d4a82a22f19d030367c5008d8f0cc5d83c68" name="document-revision">
+  <meta content="05daf52d9d5489119da62b09e796d109b0ef1bf0" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -2732,9 +2732,9 @@ An overview is illustrated in the figure below.</p>
    </dl>
    <h3 class="heading settled" data-level="4.1" id="perspective-cultural-heritage-institution---data-pod"><span class="secno">4.1. </span><span class="content">Perspective Cultural Heritage Institution - Data Pod</span><a class="self-link" href="#perspective-cultural-heritage-institution---data-pod"></a></h3>
    <h4 class="heading settled" data-level="4.1.1" id="-bp0-initialize-a-cultural-heritage-pod"><span class="secno">4.1.1. </span><span class="content">(BP0) Initialize a Cultural Heritage Pod</span><a class="self-link" href="#-bp0-initialize-a-cultural-heritage-pod"></a></h4>
-   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/init-erfgoedpod.puml">init erfgoedpod</a></p>
+   <p>!<a href="https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml">init erfgoedpod</a></p>
    <h4 class="heading settled" data-level="4.1.2" id="-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"><span class="secno">4.1.2. </span><span class="content">(BP1) Register an Orchestrator for a Cultural Heritage Pod</span><a class="self-link" href="#-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"></a></h4>
-   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/register-with-orchestrator.puml">register with orchestrator</a></p>
+   <p>!<a href="https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml">register with orchestrator</a></p>
    <h3 class="heading settled" data-level="4.2" id="perspective-cultural-heritage-institution---registry"><span class="secno">4.2. </span><span class="content">Perspective Cultural Heritage Institution - Registry</span><a class="self-link" href="#perspective-cultural-heritage-institution---registry"></a></h3>
    <p>This section implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Register-function</a> using the Solid and ResearcherPod architecture.</p>
    <h4 class="heading settled" data-level="4.2.1" id="-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">4.2.1. </span><span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span><a class="self-link" href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"></a></h4>
@@ -2763,7 +2763,7 @@ An overview is illustrated in the figure below.</p>
       <td>The Maintainer uploads or curates the Metadata Organization using the Dashboard. The profile is made available through a URI, which can coincide with the institution’s persistent identifier. <br>A Maintainer of the Cultural Heritage Institution then uses the Dashboard to start registration. <br>The Orchestrator of the  Cultural Heritage Institution detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred Registry(s). It contains the organization’s identifier and a link to the profile.<br>When notified, the Orchestrator of the Registry follows the link to the Metadata Organization and attempts to download it. <br>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Organization in the Data Pod’s ACL, it is granted access. Else, the download is refused.<br>When downloaded, the Orchestrator of the Registry stores the profile in its Data Pod and adds it to the Query Index. <br>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the registration was successful.
    </table>
    <h5 class="heading settled" data-level="4.2.1.1" id="http-sequence"><span class="secno">4.2.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence"></a></h5>
-   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-organisation-registry.puml">new organisation registry</a></p>
+   <p>!<a href="https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml">new organisation registry</a></p>
    <h4 class="heading settled" data-level="4.2.2" id="-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">4.2.2. </span><span class="content">(BP2) Adding a new Dataset to the Registry</span><a class="self-link" href="#-bp2-adding-a-new-dataset-to-the-registry"></a></h4>
    <table>
     <tbody>
@@ -2937,7 +2937,7 @@ An overview is illustrated in the figure below.</p>
        </ol>
    </table>
    <h5 class="heading settled" data-level="4.2.3.1" id="http-sequence②"><span class="secno">4.2.3.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence②"></a></h5>
-   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/update-dataset.puml">update dataset</a></p>
+   <p>!<a href="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml">update dataset</a></p>
    <h4 class="heading settled" data-level="4.2.4" id="-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">4.2.4. </span><span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
    <table>
     <tbody>

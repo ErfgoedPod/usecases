@@ -377,11 +377,11 @@ Scenarios are noted in the following template:
 
 ### (BP0) Initialize a Cultural Heritage Pod
 
-![init erfgoedpod](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/init-erfgoedpod.puml)
+![init erfgoedpod](https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml)
 
 ### (BP1) Register an Orchestrator for a Cultural Heritage Pod
 
-![register with orchestrator](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/register-with-orchestrator.puml)
+![register with orchestrator](https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml)
 
 ## Perspective Cultural Heritage Institution - Registry
 
@@ -427,7 +427,7 @@ This section implements the design of the [Register-function](https://docs.googl
 
 #### HTTP Sequence
 
-![new organisation registry](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-organisation-registry.puml)
+![new organisation registry](https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml)
 
 ### (BP2) Adding a new Dataset to the Registry
 
@@ -565,7 +565,7 @@ This section implements the design of the [Register-function](https://docs.googl
 
 #### HTTP Sequence
 
-![update dataset](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/update-dataset.puml)
+![update dataset](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml)
 
 ### (BP4) Adding a Registry to the ACL of a Data Pod
 
