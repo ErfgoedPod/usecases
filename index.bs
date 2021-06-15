@@ -23,7 +23,7 @@ table tr:hover td {
   color: #555;
 }
 table th, table td {
-  color: #999;
+  color: #000;
   border: 1px solid #eee;
   padding: 12px 12px;
   border-collapse: collapse;
@@ -35,7 +35,7 @@ table th {
 table th.last {
   border-right: none;
 }
-table th a {
+table th a[href] {
   color: #fff;
 }
 </style>
@@ -355,7 +355,7 @@ The following scenarios aim at capturing what an architecture based on Decentral
 3. organizations that act as a Network of Terms.
 4. organizations that act as a Knowledge Graph.
 
-We use the following template:
+Scenarios are noted in the following template:
 
 : Actors/Roles     
 :: Actors can be people (roles), other systems, or time directly interacting with the process.
