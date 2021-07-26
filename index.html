@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="37b2889b2f18da06c49a50532c966042460cba16" name="document-revision">
+  <meta content="45a19841be17ce788b3d8e4bc6da923c698e4398" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1480,15 +1480,23 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#roles"><span class="secno">3.3</span> <span class="content">Roles in the network</span></a>
       <li><a href="#basic-setup-for-decentralized-digital-heritage-network"><span class="secno">3.4</span> <span class="content">Basic setup for Decentralized Digital Heritage Network</span></a>
      </ol>
-    <li><a href="#pilod-use-cases"><span class="secno">4</span> <span class="content">Pilod Use Cases</span></a>
+    <li><a href="#usecases"><span class="secno">4</span> <span class="content">Pilod Use Cases</span></a>
     <li>
-     <a href="#business-processes"><span class="secno">5</span> <span class="content">Business processes {#business-processes}</span></a>
+     <a href="#businessprocesses"><span class="secno">5</span> <span class="content">Business processes</span></a>
      <ol class="toc">
       <li>
        <a href="#perspective-cultural-heritage-institution---data-pod"><span class="secno">5.1</span> <span class="content">Perspective Cultural Heritage Institution - Data Pod</span></a>
        <ol class="toc">
-        <li><a href="#-bp0-initialize-a-cultural-heritage-pod"><span class="secno">5.1.1</span> <span class="content">(BP0) Initialize a Cultural Heritage Pod</span></a>
-        <li><a href="#-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"><span class="secno">5.1.2</span> <span class="content">(BP1) Register an Orchestrator for a Cultural Heritage Pod</span></a>
+        <li>
+         <a href="#-bp0-initialize-a-digital-heritage-pod"><span class="secno">5.1.1</span> <span class="content">(BP0) Initialize a Digital Heritage Pod</span></a>
+         <ol class="toc">
+          <li><a href="#http-sequence"><span class="secno">5.1.1.1</span> <span class="content">HTTP Sequence</span></a>
+         </ol>
+        <li>
+         <a href="#-bp1-register-an-orchestrator-for-a-digital-heritage-pod"><span class="secno">5.1.2</span> <span class="content">(BP1) Register an Orchestrator for a Digital Heritage Pod</span></a>
+         <ol class="toc">
+          <li><a href="#http-sequence①"><span class="secno">5.1.2.1</span> <span class="content">HTTP Sequence</span></a>
+         </ol>
        </ol>
       <li>
        <a href="#perspective-cultural-heritage-institution---registry"><span class="secno">5.2</span> <span class="content">Perspective Cultural Heritage Institution - Registry</span></a>
@@ -1496,20 +1504,25 @@ Parts of this work may be from another specification document.  If so, those par
         <li>
          <a href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1</span> <span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span></a>
          <ol class="toc">
-          <li><a href="#http-sequence"><span class="secno">5.2.1.1</span> <span class="content">HTTP Sequence</span></a>
+          <li><a href="#http-sequence②"><span class="secno">5.2.1.1</span> <span class="content">HTTP Sequence</span></a>
          </ol>
         <li>
          <a href="#-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">5.2.2</span> <span class="content">(BP2) Adding a new Dataset to the Registry</span></a>
          <ol class="toc">
-          <li><a href="#http-sequence①"><span class="secno">5.2.2.1</span> <span class="content">HTTP Sequence</span></a>
+          <li><a href="#http-sequence③"><span class="secno">5.2.2.1</span> <span class="content">HTTP Sequence</span></a>
          </ol>
         <li>
          <a href="#-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3</span> <span class="content">(BP3) Updating a Dataset in the Registry</span></a>
          <ol class="toc">
-          <li><a href="#http-sequence②"><span class="secno">5.2.3.1</span> <span class="content">HTTP Sequence</span></a>
+          <li><a href="#http-sequence④"><span class="secno">5.2.3.1</span> <span class="content">HTTP Sequence</span></a>
          </ol>
         <li><a href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4</span> <span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span></a>
         <li><a href="#-bp5-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5</span> <span class="content">(BP5) Constructing backlinks between two institutions</span></a>
+       </ol>
+      <li>
+       <a href="#perspective-registry---service-portal"><span class="secno">5.3</span> <span class="content">Perspective Registry - Service Portal</span></a>
+       <ol class="toc">
+        <li><a href="#-bp6-getting-relevant-dataset-links"><span class="secno">5.3.1</span> <span class="content">(BP6) Getting relevant dataset links</span></a>
        </ol>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
@@ -1835,8 +1848,8 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
    </svg>
    <h3 class="heading settled" data-level="3.1" id="actors"><span class="secno">3.1. </span><span class="content">Actors in the network</span><a class="self-link" href="#actors"></a></h3>
    <p>The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
-In <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a>, these parties are defined as <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#actor">Actors</a>.
-An <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#actor">actor</a> represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
+In <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a>, these parties are defined as <a href="https://erfgoedpod.github.io/architecture#actor">Actors</a>.
+An <a href="https://erfgoedpod.github.io/architecture#actor">actor</a> represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
 The list of possible actor types is given below. The terminology originates from the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> and the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">datasets requirements</a>.</p>
    <table>
     <thead>
@@ -1867,7 +1880,7 @@ The list of possible actor types is given below. The terminology originates from
    </table>
    <h3 class="heading settled" data-level="3.2" id="artefacts"><span class="secno">3.2. </span><span class="content">Artefacts in the network</span><a class="self-link" href="#artefacts"></a></h3>
    <p>Actors can exchange a couple of data objects on the Digital Heritage Network, which are denoted by the <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a> as artefacts.
-An <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#artefact">Artefact</a> is the smallest unit that is being exchanged; it is the object of an interaction between actors
+An <a href="https://erfgoedpod.github.io/architecture#artefact">Artefact</a> is the smallest unit that is being exchanged; it is the object of an interaction between actors
 The list of relevant digital heritage artefacts is given below.</p>
    <table>
     <thead>
@@ -1964,7 +1977,7 @@ The list of possible roles is given below.</p>
     <tbody>
      <tr>
       <td>M
-      <td><dfn data-dfn-type="dfn" data-export id="maintainer">Maintainer<a class="self-link" href="#maintainer"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="maintainer">Maintainer</dfn>
       <td>Person that manages the collections and datasets.
       <td>Bronhouder
       <td>
@@ -2029,23 +2042,23 @@ The list of possible roles is given below.</p>
       <td>/
    </table>
    <h3 class="heading settled" data-level="3.4" id="basic-setup-for-decentralized-digital-heritage-network"><span class="secno">3.4. </span><span class="content">Basic setup for Decentralized Digital Heritage Network</span><a class="self-link" href="#basic-setup-for-decentralized-digital-heritage-network"></a></h3>
-   <p>The ErfgoedPod project provides a number of components in <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#components">Architecture Decentralized Digital Heritage Network §components</a>.
+   <p>The ErfgoedPod project provides a number of components in <a href="https://erfgoedpod.github.io/architecture#components">Architecture Decentralized Digital Heritage Network §components</a>.
 These components can be applied to the NDE context, 
 positioning the <a href="#actors">§ 3.1 Actors in the network</a>, <a href="#artefacts">§ 3.2 Artefacts in the network</a> and <a href="#roles">§ 3.3 Roles in the network</a> in a decentralized Digital Heritage Network setup.
 All metadata providers, which includes the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution">Cultural Heritage Institutions</a> and <a data-link-type="dfn" href="#term-source-maintainer" id="ref-for-term-source-maintainer">Term Source maintainers</a>),
-deploy a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#digital-heritage-pod">Architecture Decentralized Digital Heritage Network §digital-heritage-pod</a> their exchange hub for artefact data.</p>
-   <p>The three main roles <a data-link-type="dfn" href="#registry" id="ref-for-registry">Registry</a>, <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms">Network of Terms</a>, and <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph①">Knowledge Graph</a> each serve as a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#service-hub">Architecture Decentralized Digital Heritage Network §service-hub</a>.
+deploy a <a href="https://erfgoedpod.github.io/architecture#digital-heritage-pod">Architecture Decentralized Digital Heritage Network §digital-heritage-pod</a> their exchange hub for artefact data.</p>
+   <p>The three main roles <a data-link-type="dfn" href="#registry" id="ref-for-registry">Registry</a>, <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms">Network of Terms</a>, and <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph①">Knowledge Graph</a> each serve as a <a href="https://erfgoedpod.github.io/architecture#service-hub">Architecture Decentralized Digital Heritage Network §service-hub</a>.
 Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
 Unlike the metadata providers, it is up to the instance how the service is implemented.
-However, if a service hub would provide data to other actors, it has to adopt a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#digital-heritage-pod">Digital Heritage Pod</a>.</p>
+However, if a service hub would provide data to other actors, it has to adopt a <a href="https://erfgoedpod.github.io/architecture#digital-heritage-pod">Digital Heritage Pod</a>.</p>
    <p>All Digital Heritage Pod and Digital Heritage Service Hub are enhanced with the remaining components:</p>
    <ul>
     <li data-md>
-     <p>an <code>Inbox</code> resource to receive <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications</a> (<a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#pod">Architecture Decentralized Digital Heritage Network §pod</a>);</p>
+     <p>an <code>Inbox</code> resource to receive <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications</a> (<a href="https://erfgoedpod.github.io/architecture#pod">Architecture Decentralized Digital Heritage Network §pod</a>);</p>
     <li data-md>
-     <p>a <code>Dashboard</code> and an <code>Orchestrator</code> with <code>Rulebook</code> to participate in the network (<a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#participate">Architecture Decentralized Digital Heritage Network §participate</a>)</p>
+     <p>a <code>Dashboard</code> and an <code>Orchestrator</code> with <code>Rulebook</code> to participate in the network (<a href="https://erfgoedpod.github.io/architecture#participate">Architecture Decentralized Digital Heritage Network §participate</a>)</p>
     <li data-md>
-     <p>a <code>Query index</code> and a <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a> to allow their infomation to be collected by others (<a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets#collection-information-from-a-decentralized-digital-heritage-network">Architecture Decentralized Digital Heritage Network §collection-information-from-a-decentralized-digital-heritage-network</a>)</p>
+     <p>a <code>Query index</code> and a <a href="https://erfgoedpod.github.io/architecture#artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a> to allow their infomation to be collected by others (<a href="https://erfgoedpod.github.io/architecture#collection-information-from-a-decentralized-digital-heritage-network">Architecture Decentralized Digital Heritage Network §collection-information-from-a-decentralized-digital-heritage-network</a>)</p>
    </ul>
    <p>The complete setup can be summarized in a component blueprint, which can be used to implement any component in the Decentralized Digital Heritage Network.
 An overview is illustrated in the figure below.</p>
@@ -2695,10 +2708,10 @@ An overview is illustrated in the figure below.</p>
      </a>
     </switch>
    </svg>
-   <h2 class="heading settled" data-level="4" id="pilod-use-cases"><span class="secno">4. </span><span class="content">Pilod Use Cases</span><a class="self-link" href="#pilod-use-cases"></a></h2>
+   <h2 class="heading settled" data-level="4" id="usecases"><span class="secno">4. </span><span class="content">Pilod Use Cases</span><a class="self-link" href="#usecases"></a></h2>
    <p>This section documents a selection of use cases from three Dutch Digital Heritage Network members: <a href="https://vangoghworldwide.org">Van Gogh Worldwide</a>, <a href="https://www.brabantserfgoed.nl">Brabants Erfgoed</a> and <a href="https://www.brabantserfgoed.nl">Oorlogsbronnen</a>.
 They help constructing a reference set of business processes that are common in a network of digital heritage stakeholders.
-The result is described in <a href="#business-processes">§ 5 Business processes {#business-processes}</a>.</p>
+The result is described in <a href="#businessprocesses">§ 5 Business processes</a>.</p>
    <p>Because ErfgoedPod project attempts at making digital heritage more usable, the selected use cases deliberately take the perspective of the end-user applications or <a data-link-type="dfn">Service Portal</a>.
 Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider">Service Portal Providers</a> were consulted with the following three questions:</p>
    <ol>
@@ -2759,7 +2772,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
     Stimulate the detailed description of datasets.
     Alert the portals when discovering metadata in a certain timeperiod. 
    </table>
-   <h2 class="heading settled" data-level="5" id="business-processes"><span class="secno">5. </span><span class="content">Business processes {#business-processes}</span><a class="self-link" href="#business-processes"></a></h2>
+   <h2 class="heading settled" data-level="5" id="businessprocesses"><span class="secno">5. </span><span class="content">Business processes</span><a class="self-link" href="#businessprocesses"></a></h2>
    <p>The following scenarios aim at capturing what an architecture based on Decentralized Web should enable for users. In this context, the users are the different stakeholders that are active in the network:</p>
    <ol>
     <li data-md>
@@ -2776,6 +2789,9 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
     <dt data-md>Actors/Roles
     <dd data-md>
      <p>Actors can be people (roles), other systems, or time directly interacting with the process.</p>
+    <dt data-md>Components
+    <dd data-md>
+     <p>The <a href="https://erfgoedpod.github.io/architecture#components">architectural components</a> that are involved.</p>
     <dt data-md>Goal
     <dd data-md>
      <p>The final successful outcome that completes the process.</p>
@@ -2796,12 +2812,81 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
      <p>The process and steps taken to reach the end goal, including the necessary functional requirements and their anticipated behaviors.</p>
    </dl>
    <h3 class="heading settled" data-level="5.1" id="perspective-cultural-heritage-institution---data-pod"><span class="secno">5.1. </span><span class="content">Perspective Cultural Heritage Institution - Data Pod</span><a class="self-link" href="#perspective-cultural-heritage-institution---data-pod"></a></h3>
-   <h4 class="heading settled" data-level="5.1.1" id="-bp0-initialize-a-cultural-heritage-pod"><span class="secno">5.1.1. </span><span class="content">(BP0) Initialize a Cultural Heritage Pod</span><a class="self-link" href="#-bp0-initialize-a-cultural-heritage-pod"></a></h4>
+   <p>This section takes an internal perspective on the Cultural Heritage Institution.
+This includes business processes that only affect actors inside a single institution and are often of preparational or operational nature such as setting up a software component.</p>
+   <h4 class="heading settled" data-level="5.1.1" id="-bp0-initialize-a-digital-heritage-pod"><span class="secno">5.1.1. </span><span class="content">(BP0) Initialize a Digital Heritage Pod</span><a class="self-link" href="#-bp0-initialize-a-digital-heritage-pod"></a></h4>
+   <table>
+    <tbody>
+     <tr>
+      <th>Actors/Roles
+      <td>Maintainer
+     <tr>
+      <th> Components 
+      <td> Components<br> Dashboard<br> Digital Heritage Pod 
+     <tr>
+      <th>Goal
+      <td>The organization has an operational Digital Heritage Pod.
+     <tr>
+      <th>Stakeholders
+      <td> Registry’s<br> Other institutions
+     <tr>
+      <th>Preconditions
+      <td> There are a Maintainer and a reachable running Solid Data Pod within the Cultural Heritage Institution.<br> 
+     <tr>
+      <th>Triggers
+      <td>A Cultural Heritage Institution wants to share metadata with Solid networks.
+     <tr>
+      <th>Postconditions
+      <td>A Solid Pod has been initialized as Digital Heritage Pod. It is running and is reachable by other actors in the Decentralized Digital Heritage Network.
+     <tr>
+      <th>System
+      <td>
+       <ul>
+        <li>The Maintainer logs in into the Dashboard and enters the base URL of a Solid Data Pod. 
+        <li>The Dashboard discovers the location of the <code>inbox</code> resource by requesting the pod’s base URL. If authorization is required, the Dashboard requests access to the inbox. 
+        <li>The Dashboard creates an eventlog resource inside the Solid Data Pod and stores the URI. 
+        <li>If the event log was created successfully, the <a data-link-type="dfn">Dashboard</a> informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer">Maintainer</a> that the initialization is complete. 
+       </ul>
+   </table>
+   <h5 class="heading settled" data-level="5.1.1.1" id="http-sequence"><span class="secno">5.1.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence"></a></h5>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="300"></p>
-   <h4 class="heading settled" data-level="5.1.2" id="-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"><span class="secno">5.1.2. </span><span class="content">(BP1) Register an Orchestrator for a Cultural Heritage Pod</span><a class="self-link" href="#-bp1-register-an-orchestrator-for-a-cultural-heritage-pod"></a></h4>
+   <h4 class="heading settled" data-level="5.1.2" id="-bp1-register-an-orchestrator-for-a-digital-heritage-pod"><span class="secno">5.1.2. </span><span class="content">(BP1) Register an Orchestrator for a Digital Heritage Pod</span><a class="self-link" href="#-bp1-register-an-orchestrator-for-a-digital-heritage-pod"></a></h4>
+   <table>
+    <tbody>
+     <tr>
+      <th>Actors/Roles
+      <td>Maintainer
+     <tr>
+      <th> Components 
+      <td> Components<br> Dashboard<br> Digital Heritage Pod<br> Orchestrator 
+     <tr>
+      <th>Goal
+      <td>The organization has an operational Orchestrator connected to its Digital Heritage Pod.
+     <tr>
+      <th>Stakeholders
+      <td> Service Hubs<br> Other institutions
+     <tr>
+      <th>Preconditions
+      <td> There are a Maintainer and a reachable running Solid Data Pod within the Cultural Heritage Institution.<br> 
+     <tr>
+      <th>Triggers
+      <td>A Cultural Heritage Institution wants to share metadata with Solid networks.
+     <tr>
+      <th>Postconditions
+      <td>An orchestrator is running and is reachable by the institution.
+     <tr>
+      <th>System
+      <td>
+       <ul>
+        <li>The Maintainer logs ... 
+       </ul>
+   </table>
+   <h5 class="heading settled" data-level="5.1.2.1" id="http-sequence①"><span class="secno">5.1.2.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence①"></a></h5>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="300"></p>
    <h3 class="heading settled" data-level="5.2" id="perspective-cultural-heritage-institution---registry"><span class="secno">5.2. </span><span class="content">Perspective Cultural Heritage Institution - Registry</span><a class="self-link" href="#perspective-cultural-heritage-institution---registry"></a></h3>
-   <p>This section implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Register-function</a> using the Solid and ResearcherPod architecture.</p>
+   <p>This section takes the perspective of an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②">Cultural Heritage Institution</a> interacting with a <a data-link-type="dfn" href="#registry" id="ref-for-registry②">Registry</a> Service, which implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Register-function</a> using the Solid and ResearcherPod architecture.
+This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the <a data-link-type="dfn" href="#registry" id="ref-for-registry③">Registry</a> responding to that request.
+The latter includes the possible outcome of the performed service.</p>
    <h4 class="heading settled" data-level="5.2.1" id="-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1. </span><span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span><a class="self-link" href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"></a></h4>
    <table>
     <tbody>
@@ -2827,7 +2912,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
       <td>System
       <td>The Maintainer uploads or curates the Metadata Organization using the Dashboard. The profile is made available through a URI, which can coincide with the institution’s persistent identifier. <br>A Maintainer of the Cultural Heritage Institution then uses the Dashboard to start registration. <br>The Orchestrator of the  Cultural Heritage Institution detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred Registry(s). It contains the organization’s identifier and a link to the profile.<br>When notified, the Orchestrator of the Registry follows the link to the Metadata Organization and attempts to download it. <br>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Organization in the Data Pod’s ACL, it is granted access. Else, the download is refused.<br>When downloaded, the Orchestrator of the Registry stores the profile in its Data Pod and adds it to the Query Index. <br>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the registration was successful.
    </table>
-   <h5 class="heading settled" data-level="5.2.1.1" id="http-sequence"><span class="secno">5.2.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence"></a></h5>
+   <h5 class="heading settled" data-level="5.2.1.1" id="http-sequence②"><span class="secno">5.2.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence②"></a></h5>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.2.2" id="-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">5.2.2. </span><span class="content">(BP2) Adding a new Dataset to the Registry</span><a class="self-link" href="#-bp2-adding-a-new-dataset-to-the-registry"></a></h4>
    <table>
@@ -2918,7 +3003,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
          <p>After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered.</p>
        </ol>
    </table>
-   <h5 class="heading settled" data-level="5.2.2.1" id="http-sequence①"><span class="secno">5.2.2.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence①"></a></h5>
+   <h5 class="heading settled" data-level="5.2.2.1" id="http-sequence③"><span class="secno">5.2.2.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence③"></a></h5>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/main/diagrams/new-dataset.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.2.3" id="-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3. </span><span class="content">(BP3) Updating a Dataset in the Registry</span><a class="self-link" href="#-bp3-updating-a-dataset-in-the-registry"></a></h4>
    <table>
@@ -3001,7 +3086,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
          <p>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the update was successful.</p>
        </ol>
    </table>
-   <h5 class="heading settled" data-level="5.2.3.1" id="http-sequence②"><span class="secno">5.2.3.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence②"></a></h5>
+   <h5 class="heading settled" data-level="5.2.3.1" id="http-sequence④"><span class="secno">5.2.3.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence④"></a></h5>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.2.4" id="-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4. </span><span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
    <table>
@@ -3048,15 +3133,41 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
       <td>Procedure
       <td>
        <ol>
-        <li data-md>
-         <p>The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.</p>
-        <li data-md>
-         <p>The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset.</p>
-        <li data-md>
-         <p>The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.</p>
+        <li>The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s. 
+        <li>The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. 
+        <li>The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights. 
        </ol>
    </table>
    <h4 class="heading settled" data-level="5.2.5" id="-bp5-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5. </span><span class="content">(BP5) Constructing backlinks between two institutions</span><a class="self-link" href="#-bp5-constructing-backlinks-between-two-institutions"></a></h4>
+   <table>
+    <tbody>
+     <tr>
+      <td>Actor
+      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry
+     <tr>
+      <td>Goal
+      <td>Cultural Heritage Institution B adds links to Objects of Cultural Heritage Institution A after becoming aware of links from Objects of Cultural Heritage Institution A to a Objects of Cultural Heritage Institution B
+     <tr>
+      <td>Stakeholders
+      <td>Knowledge Graphs<br>Browser/ Service Portals<br>Users
+     <tr>
+      <td>Preconditions
+      <td>A Dataset of Cultural Heritage Institution A known to the Registry contains links to objects of Cultural Heritage Institution B<br>The links have not been processed by the Registry yet.
+     <tr>
+      <td>Triggers
+      <td>The Registry has added or updated a Metadata Dataset in its Query Index
+     <tr>
+      <td>Postconditions
+      <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of Cultural Heritage Institution A
+     <tr>
+      <td>Procedure
+      <td>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. <br>Based on the Dataset’s origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links.<br>The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod.
+   </table>
+   <h3 class="heading settled" data-level="5.3" id="perspective-registry---service-portal"><span class="secno">5.3. </span><span class="content">Perspective Registry - Service Portal</span><a class="self-link" href="#perspective-registry---service-portal"></a></h3>
+   <p>This section takes the perspective of the <a data-link-type="dfn" href="#registry" id="ref-for-registry④">Registry</a> Service and the <a data-link-type="dfn">Service Portal</a> application interacting.
+This entails business processes where both services notify eachother about important events. 
+Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry).</p>
+   <h4 class="heading settled" data-level="5.3.1" id="-bp6-getting-relevant-dataset-links"><span class="secno">5.3.1. </span><span class="content">(BP6) Getting relevant dataset links</span><a class="self-link" href="#-bp6-getting-relevant-dataset-links"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -3267,7 +3378,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-architecture-nde">[ARCHITECTURE-NDE]
-   <dd>Miel Vander Sande. <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">Architecture Decentralized Digital Heritage Network</a>. Living Standard. URL: <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">https://netwerk-digitaal-erfgoed.github.io/requirements-datasets</a>
+   <dd>Miel Vander Sande. <a href="https://erfgoedpod.github.io/architecture">Architecture Decentralized Digital Heritage Network</a>. Living Standard. URL: <a href="https://erfgoedpod.github.io/architecture">https://erfgoedpod.github.io/architecture</a>
    <dt id="biblio-ldn">[LDN]
    <dd>Sarven Capadisli; Amy Guy. <a href="https://www.w3.org/TR/ldn/">Linked Data Notifications</a>. 2 May 2017. REC. URL: <a href="https://www.w3.org/TR/ldn/">https://www.w3.org/TR/ldn/</a>
   </dl>
@@ -3276,6 +3387,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
    <ul>
     <li><a href="#ref-for-cultural-heritage-institution">3.4. Basic setup for Decentralized Digital Heritage Network</a>
     <li><a href="#ref-for-cultural-heritage-institution①">4. Pilod Use Cases</a>
+    <li><a href="#ref-for-cultural-heritage-institution②">5.2. Perspective Cultural Heritage Institution - Registry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dataset">
@@ -3288,6 +3400,12 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
    <b><a href="#term-source">#term-source</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-term-source">3.3. Roles in the network</a> <a href="#ref-for-term-source①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="maintainer">
+   <b><a href="#maintainer">#maintainer</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-maintainer">5.1.1. (BP0) Initialize a Digital Heritage Pod</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-source-maintainer">
@@ -3307,6 +3425,8 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
    <ul>
     <li><a href="#ref-for-registry">3.4. Basic setup for Decentralized Digital Heritage Network</a>
     <li><a href="#ref-for-registry①">4. Pilod Use Cases</a>
+    <li><a href="#ref-for-registry②">5.2. Perspective Cultural Heritage Institution - Registry</a> <a href="#ref-for-registry③">(2)</a>
+    <li><a href="#ref-for-registry④">5.3. Perspective Registry - Service Portal</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="network-of-terms">

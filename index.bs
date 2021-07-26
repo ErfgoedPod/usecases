@@ -55,7 +55,8 @@ This project also contributes to the following companion specifications of the [
 3. [Rule language](https://mellonscholarlycommunication.github.io/spec-rulelanguage/)
 4. [Artefact Lifecycle Event Log](https://mellonscholarlycommunication.github.io/spec-eventlog/)
 
-# Introduction
+Introduction
+=======================================================
 
 The [NDE-Usable](https://netwerkdigitaalerfgoed.nl/bruikbaar/) programme of the [Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/) aims at redesigning the infrastructure with which cultural institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
 This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
@@ -348,11 +349,12 @@ An overview is illustrated in the figure below.
 path: images/nde-basic-setup.svg
 </pre>
 
-# Pilod Use Cases
+Pilod Use Cases {#usecases}
+=======================================================
 
 This section documents a selection of use cases from three Dutch Digital Heritage Network members: [Van Gogh Worldwide](https://vangoghworldwide.org), [Brabants Erfgoed](https://www.brabantserfgoed.nl) and [Oorlogsbronnen](https://www.brabantserfgoed.nl).
 They help constructing a reference set of business processes that are common in a network of digital heritage stakeholders.
-The result is described in [[#business-processes]].
+The result is described in [[#businessprocesses]].
 
 Because ErfgoedPod project attempts at making digital heritage more usable, the selected use cases deliberately take the perspective of the end-user applications or [=Service Portal=].
 Therefore, the [=Service Portal Providers=] were consulted with the following three questions:
@@ -419,7 +421,8 @@ Therefore, the [=Service Portal Providers=] were consulted with the following th
     Alert the portals when discovering metadata in a certain timeperiod. 
 </table>
 
-# Business processes {#business-processes}
+Business processes {#businessprocesses}
+=======================================================
 
 The following scenarios aim at capturing what an architecture based on Decentralized Web should enable for users. In this context, the users are the different stakeholders that are active in the network:
 
@@ -432,6 +435,8 @@ Scenarios are noted in the following template:
 
 : Actors/Roles     
 :: Actors can be people (roles), other systems, or time directly interacting with the process.
+: Components
+:: The [[architecture-nde#components|architectural components]] that are involved.
 : Goal             
 :: The final successful outcome that completes the process.
 : Stakeholders     
@@ -447,19 +452,126 @@ Scenarios are noted in the following template:
 
 ## Perspective Cultural Heritage Institution - Data Pod
 
-### (BP0) Initialize a Cultural Heritage Pod
+This section takes an internal perspective on the Cultural Heritage Institution.
+This includes business processes that only affect actors inside a single institution and are often of preparational or operational nature such as setting up a software component. 
+
+### (BP0) Initialize a Digital Heritage Pod
+
+<table>
+  <tbody>
+    <tr>
+      <th>Actors/Roles</th>
+      <td>Maintainer</td>
+    <tr>
+      <th>
+      Components
+      </th>  
+      <td>
+        Components<br>
+        Dashboard<br>
+        Digital Heritage Pod
+      </td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td>The organization has an operational Digital Heritage Pod.</td>
+    </tr>
+    <tr>
+      <th>Stakeholders</th>
+      <td>
+      Registry’s<br>
+      Other institutions</td>
+    </tr>
+    <tr>
+      <th>Preconditions</th>
+      <td>
+      There are a Maintainer and a reachable running Solid Data Pod within the Cultural Heritage Institution.<br>
+    </tr>
+    <tr>
+      <th>Triggers</th>
+      <td>A Cultural Heritage Institution wants to share metadata with Solid networks.</td>
+    </tr>
+    <tr>
+      <th>Postconditions</th>
+      <td>A Solid Pod has been initialized as Digital Heritage Pod. It is running and is reachable by other actors in the Decentralized Digital Heritage Network.</td>
+    </tr>
+    <tr>
+      <th>System</th>
+      <td>
+      <ul>
+      <li>The Maintainer logs in into the Dashboard and enters the base URL of a Solid Data Pod.
+      <li>The Dashboard discovers the location of the `inbox` resource by requesting the pod's base URL. If authorization is required, the Dashboard requests access to the inbox.
+      <li>The Dashboard creates an eventlog resource inside the Solid Data Pod and stores the URI.
+      <li>If the event log was created successfully, the [=Dashboard=] informs the [=Maintainer=] that the initialization is complete.
+      </ul>
+      </tr>
+  </tbody>
+</table>
+
+#### HTTP Sequence
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="300"  />
 
-### (BP1) Register an Orchestrator for a Cultural Heritage Pod
+### (BP1) Register an Orchestrator for a Digital Heritage Pod
+
+<table>
+  <tbody>
+    <tr>
+      <th>Actors/Roles</th>
+      <td>Maintainer</td>
+    <tr>
+      <th>
+      Components
+      </th>  
+      <td>
+        Components<br>
+        Dashboard<br>
+        Digital Heritage Pod<br>
+        Orchestrator
+      </td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td>The organization has an operational Orchestrator connected to its Digital Heritage Pod.</td>
+    </tr>
+    <tr>
+      <th>Stakeholders</th>
+      <td>
+      Service Hubs<br>
+      Other institutions</td>
+    </tr>
+    <tr>
+      <th>Preconditions</th>
+      <td>
+      There are a Maintainer and a reachable running Solid Data Pod within the Cultural Heritage Institution.<br>
+    </tr>
+    <tr>
+      <th>Triggers</th>
+      <td>A Cultural Heritage Institution wants to share metadata with Solid networks.</td>
+    </tr>
+    <tr>
+      <th>Postconditions</th>
+      <td>An orchestrator is running and is reachable by the institution.</td>
+    </tr>
+    <tr>
+      <th>System</th>
+      <td>
+      <ul>
+      <li>The Maintainer logs ... 
+      </ul>
+      </tr>
+  </tbody>
+</table>
+
+#### HTTP Sequence
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="300"  />
 
 ## Perspective Cultural Heritage Institution - Registry
 
-This section implements the design of the [Register-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
-
-
+This section takes the perspective of an [=Cultural Heritage Institution=] interacting with a [=Registry=] Service, which implements the design of the [Register-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
+This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the [=Registry=] responding to that request.
+The latter includes the possible outcome of the performed service.
 
 ### (BP1) Adding a Cultural Heritage Institution to the Registry
 
@@ -680,9 +792,11 @@ This section implements the design of the [Register-function](https://docs.googl
     <tr>
       <td>Procedure</td>
       <td>
-        1. The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.
-        2. The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. 
-        3. The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
+      <ol>
+        <li>The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s.
+        <li>The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. 
+        <li>The Orchestrator of the Cultural Heritage Institution picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
+      </ol>
       </td>
     </tr>
   </tbody>
@@ -723,6 +837,47 @@ This section implements the design of the [Register-function](https://docs.googl
   </tbody>
 </table>
 
+
+## Perspective Registry - Service Portal
+
+This section takes the perspective of the [=Registry=] Service and the [=Service Portal=] application interacting.
+This entails business processes where both services notify eachother about important events. 
+Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry). 
+
+### (BP6) Getting relevant dataset links
+
+<table>
+  <tbody>
+    <tr>
+      <td>Actor</td>
+      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry</td>
+    </tr>
+    <tr>
+      <td>Goal</td>
+      <td>Cultural Heritage Institution B adds links to Objects of Cultural Heritage Institution A after becoming aware of links from Objects of Cultural Heritage Institution A to a Objects of Cultural Heritage Institution B</td>
+    </tr>
+    <tr>
+      <td>Stakeholders</td>
+      <td>Knowledge Graphs<br>Browser/ Service Portals<br>Users</td>
+    </tr>
+    <tr>
+      <td>Preconditions</td>
+      <td>A Dataset of Cultural Heritage Institution A known to the Registry contains links to objects of Cultural Heritage Institution B<br>The links have not been processed by the Registry yet.</td>
+    </tr>
+    <tr>
+      <td>Triggers</td>
+      <td>The Registry has added or updated a Metadata Dataset in its Query Index</td>
+    </tr>
+    <tr>
+      <td>Postconditions</td>
+      <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of Cultural Heritage Institution A</td>
+    </tr>
+    <tr>
+      <td>Procedure</td>
+      <td>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. <br>Based on the Dataset’s origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links.<br>The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod.</td>
+    </tr>
+  </tbody>
+</table>
 
 <pre class=biblio>
 {
@@ -774,7 +929,7 @@ This section implements the design of the [Register-function](https://docs.googl
 		"authors": [
 			"Miel Vander Sande"
 		],
-		"href": "https://netwerk-digitaal-erfgoed.github.io/requirements-datasets",
+		"href": "https://erfgoedpod.github.io/architecture",
 		"title": "Architecture Decentralized Digital Heritage Network",
 		"status": "Living Standard",
 		"publisher": "Netwerk Digitaal Erfgoed & meemoo",
