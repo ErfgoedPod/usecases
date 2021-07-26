@@ -57,7 +57,7 @@ This project also contributes to the following companion specifications of the [
 
 # Introduction
 
-The [NDE-Usable](https://netwerkdigitaalerfgoed.nl/bruikbaar/) programme of the Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/) aims at redesigning the infrastructure with which cultural institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
+The [NDE-Usable](https://netwerkdigitaalerfgoed.nl/bruikbaar/) programme of the [Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/) aims at redesigning the infrastructure with which cultural institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
 This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
 Due to the inflexibility, there are high maintenance costs on the side of the data providing institution and the side of the aggregator. 
 Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
@@ -66,10 +66,10 @@ The design integrates applications with institutions's collection data in a more
 To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared thesauri (Network of Terms).
 
 The network design of NDE-Usable resonate heavily with the principles of Decentralized Web and Solid.
-Hence, this ErfgoedPOD project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
+Hence, this ErfgoedPod project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
 In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following their own information - are a good basis for implementing a sustainable digital heritage network.
 The main project outcomes are protocols and components for creating generic decentralized artefact exchange networks, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
-Additionally, ErfgoedPOD provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
+Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
 
 This document captures the use cases that originate from the NDE-Usable programme.
 To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
@@ -86,8 +86,9 @@ path: images/NDE-overzicht.svg
 
 ## Actors in the network ## {#actors}
 
-The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network. 
-These can be classified as a type of [[architecture-nde#actor]], which represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
+The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
+In [[architecture-nde|Decentralized Digital Heritage Network architecture]], these parties are defined as [[architecture-nde#actor|Actors]].
+An [[architecture-nde#actor|actor]] represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
 The list of possible actor types is given below. The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets).
 
 <table>
@@ -126,8 +127,8 @@ The list of possible actor types is given below. The terminology originates from
 
 ## Artefacts in the network ## {#artefacts}
 
-Actors can exchange a couple of artefacts on the Digital Heritage Network.
-An [[architecture-nde#artefact]] is the smallest unit that is being exchanged; it is the object of an interaction between actors
+Actors can exchange a couple of data objects on the Digital Heritage Network, which are denoted by the [[architecture-nde|Decentralized Digital Heritage Network architecture]] as artefacts.
+An [[architecture-nde#artefact|Artefact]] is the smallest unit that is being exchanged; it is the object of an interaction between actors
 The list of relevant digital heritage artefacts is given below.
 
 <table>
@@ -206,7 +207,7 @@ The list of relevant digital heritage artefacts is given below.
     <tr>
       <td>T</td>
       <td><dfn export>Term</dfn></td>
-      <td>word or phrase to denote a concept.</td>
+      <td>Word or phrase to denote a concept.</td>
       <td>Term</td>
       <td>/</td>
     </tr>
@@ -229,7 +230,7 @@ The list of relevant digital heritage artefacts is given below.
 
 ## Roles in the network ## {#roles}
 
-Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that affect the artefact's lifecycle somehow.
+Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that in some way affect the artefact's lifecycle.
 The list of possible roles is given below.
 
 <table>
@@ -324,21 +325,21 @@ The list of possible roles is given below.
 
 ## Basic setup for Decentralized Digital Heritage Network
 
-The ErfgoedPOD project provides a number of components in [[architecture-nde#components]].
+The ErfgoedPod project provides a number of components in [[architecture-nde#components]].
 These components can be applied to the NDE context, 
 positioning the [[#actors]], [[#artefacts]] and [[#roles]] in a decentralized Digital Heritage Network setup.
-All metadata providers, which includes the [=Cultural Heritage Institutions=] and [=Term Source providers=]),
+All metadata providers, which includes the [=Cultural Heritage Institutions=] and [=Term Source maintainers=]),
 deploy a [[architecture-nde#digital-heritage-pod]] their exchange hub for artefact data.
 
 The three main roles [=Registry=], [=Network of Terms=], and [=Knowledge Graph=] each serve as a [[architecture-nde#service-hub]].
 Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
 Unlike the metadata providers, it is up to the instance how the service is implemented.
-However, if a service hub would provide data to other actors, it needs to adopt a [[architecture-nde#digital-heritage-pod]].
+However, if a service hub would provide data to other actors, it has to adopt a [[architecture-nde#digital-heritage-pod|Digital Heritage Pod]].
 
 All Digital Heritage Pod and Digital Heritage Service Hub are enhanced with the remaining components: 
-- an `Inbox` resource to receive Linked Data Notifications [[ldn]] ([[architecture-nde#pod]]);
-- a `Dashboard` and an `Orchestrator` with `Policy` to participate in the network ([[architecture-nde#participate)
-- a `Query index` and a [[architecture-nde#artefact-lifecycle-event-log]] to allow their infomation to be collected by others ([[architecture-nde#collection-information-from-a-decentralized-digital-heritage-network]])
+- an `Inbox` resource to receive [[ldn|Linked Data Notifications]] ([[architecture-nde#pod]]);
+- a `Dashboard` and an `Orchestrator` with `Rulebook` to participate in the network ([[architecture-nde#participate]])
+- a `Query index` and a [[architecture-nde#artefact-lifecycle-event-log|Artefact Lifecycle Event Log]] to allow their infomation to be collected by others ([[architecture-nde#collection-information-from-a-decentralized-digital-heritage-network]])
 
 The complete setup can be summarized in a component blueprint, which can be used to implement any component in the Decentralized Digital Heritage Network.
 An overview is illustrated in the figure below.
@@ -347,7 +348,78 @@ An overview is illustrated in the figure below.
 path: images/nde-basic-setup.svg
 </pre>
 
-# Business processes
+# Pilod Use Cases
+
+This section documents a selection of use cases from three Dutch Digital Heritage Network members: [Van Gogh Worldwide](https://vangoghworldwide.org), [Brabants Erfgoed](https://www.brabantserfgoed.nl) and [Oorlogsbronnen](https://www.brabantserfgoed.nl).
+They help constructing a reference set of business processes that are common in a network of digital heritage stakeholders.
+The result is described in [[#business-processes]].
+
+Because ErfgoedPod project attempts at making digital heritage more usable, the selected use cases deliberately take the perspective of the end-user applications or [=Service Portal=].
+Therefore, the [=Service Portal Providers=] were consulted with the following three questions:
+
+1. How do they discover datasets?
+2. How do they decide which of these datasets are relevant for their portal?
+3. How can the Dutch Digital Heritage Network design, in particular the [=Registry=], [=Knowledge Graph=], and [=Network of Terms=] actor roles, help this process?
+
+<table>
+<thead>
+  <tr>
+    <th>Use Case
+    <th>Discovery method
+    <th>relevancy criteria
+    <th>How can NDE support?
+  <tbody>
+  <tr>
+    <th> 
+    Van Gogh Worldwide
+    <td>
+    Manual effort by the [=Service Portal Provider =] based on a fixed list of [=cultural heritage institutions=]. 
+    <td>
+      <ul>
+      <li>Content: certified **artworks** of Vincent Van Gogh
+      <li>License: CC0
+      <li>Origin: known institutions registered with Van Gogh Worldwide
+      <li>Format: RDF using [Linked Art](https://linked.art/model/index.html)
+      </ul>
+    <td>
+    Automating the discovery and delivery of metadata on relevant artworks.
+    This includes enabling portals to select data using their relevancy criteria.
+  <tr>
+    <th> 
+    Brabants Erfgoed
+    <td>
+    Automatically via a regional aggregation platform Brabant Cloud, but without a discovery process.
+    <td>
+    Criteria are defined by the Brabant Cloud platform:
+      <ul>
+        <li>Content: cultural heritage objects or digital representations (eg., photos) of things located in the Brabant region.
+        <li>Origin: fixed list of known institutions. These are mostly located in the Noord-Brabant region and registered with Brabant Cloud, but they can also be situated outside.
+        <li>License: any license that allows dissemination through the platform.
+        <li>Data quality: datasets must reach a certain quality standard.
+      </ul>
+    <td>
+    Enabling the portal to find and select data using their relevancy criteria.
+  <tr>
+    <th> 
+    Oorlogsbronnen
+    <td>
+    <ul>
+        <li>Active: approaching organisations who have data on blind spots in the collection.
+        <li>Reactive: they are approached with datasets by their organisations in their partner network who seek exposure. 
+    <td>
+      <ul>
+        <li>Content: broad range of object surrounding the WWII time period. Based on theme, time or thesaurus references.
+        <li>Origin: fixed list of known institutions. These are mostly located in the Noord-Brabant region and registered with Brabant Cloud, but they can also be situated outside.
+        <li>License: any license that allows dissemination through the platform.
+        <li>Data quality: datasets must reach a certain quality standard.
+      </ul>
+    <td>
+    Performing a full-text analysis of datasets to identify terms from the WWII thesaurus.
+    Stimulate the detailed description of datasets.
+    Alert the portals when discovering metadata in a certain timeperiod. 
+</table>
+
+# Business processes {#business-processes}
 
 The following scenarios aim at capturing what an architecture based on Decentralized Web should enable for users. In this context, the users are the different stakeholders that are active in the network:
 
@@ -498,7 +570,7 @@ This section implements the design of the [Register-function](https://docs.googl
 
 #### HTTP Sequence
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/erfgoedpod/usecases/main/diagrams/new-dataset.puml" width="300"  />
+<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/main/diagrams/new-dataset.puml" width="300"  />
 
 ### (BP3) Updating a Dataset in the Registry
 
