@@ -26,12 +26,12 @@ autonumber resume
 D -> Pod : HEAD /\nAuthorization: <credentials>
 D <-- Pod: 200 OK\nLink: <pod.kb.nl/inbox>;\nrel="http://www.w3.org/ns/ldp#inbox"
 
-== Initalize Cultural Heritage Pod == 
+== Initalize Digital Heritage Pod == 
 
 D -> Pod : PUT /eventlog\nContent-Type: text/ldpatch\nAuthorization: <credentials>\n{ }
 D <-- Pod : 204 No Content\n Content-Location: pod.kb.nl/eventlog
 
 autonumber stop
-D -[#0000FF]> Maintainer : Show user that pod\nis initialization
+D -[#0000FF]> Maintainer : Show user that pod\nis initialized
 
 @enduml
