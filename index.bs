@@ -758,7 +758,7 @@ The latter includes the possible outcome of the performed service.
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-dataset.puml" width="800"  />
 
-### (BP3) Updating a Dataset in the Registry
+### (BP5) Updating a Dataset in the Registry
 
 <table>
   <tbody>
@@ -840,12 +840,12 @@ The latter includes the possible outcome of the performed service.
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
 
-### (BP4) Adding a Registry to the ACL of a Data Pod
+### (BP6) Adding a Registry to the ACL of a Data Pod
 
 <table>
   <tbody>
     <tr>
-      <td>Actor</td>
+      <th>Actor</th>
       <td>
       <ul>
           <li>Maintainer
@@ -899,7 +899,11 @@ The latter includes the possible outcome of the performed service.
   </tbody>
 </table>
 
-### (BP5) Constructing backlinks between two institutions
+**HTTP Sequence**
+
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
+
+### (BP7) Constructing backlinks between two institutions
 
 <table>
   <tbody>
@@ -951,55 +955,218 @@ The latter includes the possible outcome of the performed service.
   </tbody>
 </table>
 
+**HTTP Sequence**
 
-## Perspective Registry - Service Portal
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
+
+## Perspective Service Portal / Network Of Terms - Registry
 
 This section takes the perspective of the [=Registry=] Service and the [=Service Portal=] application interacting.
 This entails business processes where both services notify eachother about important events. 
 Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry). 
 
-### (BP6) Getting relevant dataset links
+### (BP8) Subscribing to a topic
 
 <table>
   <tbody>
     <tr>
       <th>Actor</th>
-      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry
-      
-      <br>Components<br>Orchestrator [=Cultural Heritage Institution=] B<br>Data Pod [=Cultural Heritage Institution=] B<br>Inbox [=Cultural Heritage Institution=] B<br>Orchestrator Registry<br>Inbox Registry</td>
+      <td>
+      <ul>
+        <li>Service Portal Provider
+        <li>Network of Terms
+        <li>Registry
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Components</th>
+      <td>
+      <ul>
+        <li>Service Portal
+        <li>Inbox [=Service Portal=] / [=Network Of Terms=]
+        <li>Inbox [=Registry=]
+      </ul>
+      </td>
     </tr>
     <tr>
       <th>Goal</th>
-      <td>Cultural Heritage Institution B adds links to Objects of [=Cultural Heritage Institution=] A after becoming aware of links from Objects of [=Cultural Heritage Institution=] A to a Objects of [=Cultural Heritage Institution=] B</td>
+      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic at a [=Registry=], 
+      of which it wants to receive notifications about related artefacts.</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
-      <td>Knowledge Graphs<li>Browser/ Service Portals<li>Users</td>
+      <td>
+        <ul>
+        <li>Users
+        </ul>
+      </td>
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td>A Dataset of [=Cultural Heritage Institution=] A known to the Registry contains links to objects of [=Cultural Heritage Institution=] B<li>The links have not been processed by the Registry yet.</td>
+      <td></td>
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>The Registry has added or updated a Metadata Dataset in its Query Index</td>
+      <td>A [=Service Portal=] wants to subscribe to artefacts or a certain topic.</td>
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of [=Cultural Heritage Institution=] A</td>
+      <td>The [=Service Portal=] is subscribed to a dataset topic in the Registry.</td>
     </tr>
     <tr>
       <th>Procedure</th>
       <td>
         <ol>
-          <li>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
-          <li>Based on the Dataset’s origin, it sends a notification to the Inbox of [=Cultural Heritage Institution=] B about the found links.
-          <li>The Orchestrator of the [=Cultural Heritage Institution=] B picks up this change and generates new backlinks to [=Cultural Heritage Institution=] A, which it stores as a linkset in its Data Pod.
+          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
+          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the Registry creates it.
+          <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
         </ol>  
       </td>
     </tr>
   </tbody>
 </table>
+
+**HTTP Sequence**
+
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
+
+
+### (BP9) Discovering a dataset related to a subscribed topic
+
+<table>
+  <tbody>
+    <tr>
+      <th>Actor</th>
+      <td>
+      <ul>
+        <li>Service Portal Provider
+        <li>Network of Terms
+        <li>Registry
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Components</th>
+      <td>
+      <ul>
+        <li>Service Portal
+        <li>Inbox [=Service Portal=]
+        <li>Inbox [=Registry=]
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic at a [=Registry=], 
+      of which it wants to receive notifications about related artefacts.</td>
+    </tr>
+    <tr>
+      <th>Stakeholders</th>
+      <td>
+        <ul>
+        <li>Users
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Preconditions</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Triggers</th>
+      <td>The Registry has added or updated a Metadata Dataset in its Query Index.</td>
+    </tr>
+    <tr>
+      <th>Postconditions</th>
+      <td>The [=Service Portal=] is subscribed to a dataset topic in the Registry.</td>
+    </tr>
+    <tr>
+      <th>Procedure</th>
+      <td>
+        <ol>
+          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
+          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the Registry creates it.
+          <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
+        </ol>  
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+**HTTP Sequence**
+
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
+
+
+
+### (BP10) Discovering a Term source
+
+<table>
+  <tbody>
+    <tr>
+      <th>Actor</th>
+      <td>
+      <ul>
+        <li>Service Portal Provider
+        <li>Network of Terms
+        <li>Registry
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Components</th>
+      <td>
+      <ul>
+        <li>Service Portal
+        <li>Inbox [=Network Of Terms=]
+        <li>Inbox [=Registry=]
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic at a [=Registry=], 
+      of which it wants to receive notifications about related artefacts.</td>
+    </tr>
+    <tr>
+      <th>Stakeholders</th>
+      <td>
+        <ul>
+        <li>Users
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Preconditions</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Triggers</th>
+      <td>A [=Service Portal=] wants to subscribe to artefacts or a certain topic.</td>
+    </tr>
+    <tr>
+      <th>Postconditions</th>
+      <td>The [=Service Portal=] is subscribed to a dataset topic in the Registry.</td>
+    </tr>
+    <tr>
+      <th>Procedure</th>
+      <td>
+        <ol>
+          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
+          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the Registry creates it.
+          <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
+        </ol>  
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+**HTTP Sequence**
+
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
+
+
 
 <pre class=biblio>
 {
