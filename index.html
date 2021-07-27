@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="c566ff8c575e5e54ca75e1ab34f921504cae8045" name="document-revision">
+  <meta content="3b20674e160ccbb60cbf3d6fbcf99d5f551b4431" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1495,14 +1495,16 @@ Parts of this work may be from another specification document.  If so, those par
        <ol class="toc">
         <li><a href="#-bp3-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1</span> <span class="content">(BP3) Adding a Cultural Heritage Institution to the Registry</span></a>
         <li><a href="#-bp4-adding-a-new-dataset-to-the-registry"><span class="secno">5.2.2</span> <span class="content">(BP4) Adding a new Dataset to the Registry</span></a>
-        <li><a href="#-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3</span> <span class="content">(BP3) Updating a Dataset in the Registry</span></a>
-        <li><a href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4</span> <span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span></a>
-        <li><a href="#-bp5-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5</span> <span class="content">(BP5) Constructing backlinks between two institutions</span></a>
+        <li><a href="#-bp5-updating-a-dataset-in-the-registry"><span class="secno">5.2.3</span> <span class="content">(BP5) Updating a Dataset in the Registry</span></a>
+        <li><a href="#-bp6-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4</span> <span class="content">(BP6) Adding a Registry to the ACL of a Data Pod</span></a>
+        <li><a href="#-bp7-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5</span> <span class="content">(BP7) Constructing backlinks between two institutions</span></a>
        </ol>
       <li>
-       <a href="#perspective-registry---service-portal"><span class="secno">5.3</span> <span class="content">Perspective Registry - Service Portal</span></a>
+       <a href="#perspective-service-portal-network-of-terms---registry"><span class="secno">5.3</span> <span class="content">Perspective Service Portal / Network Of Terms - Registry</span></a>
        <ol class="toc">
-        <li><a href="#-bp6-getting-relevant-dataset-links"><span class="secno">5.3.1</span> <span class="content">(BP6) Getting relevant dataset links</span></a>
+        <li><a href="#-bp8-subscribing-to-a-topic"><span class="secno">5.3.1</span> <span class="content">(BP8) Subscribing to a topic</span></a>
+        <li><a href="#-bp9-discovering-a-dataset-related-to-a-subscribed-topic"><span class="secno">5.3.2</span> <span class="content">(BP9) Discovering a dataset related to a subscribed topic</span></a>
+        <li><a href="#-bp10-discovering-a-term-source"><span class="secno">5.3.3</span> <span class="content">(BP10) Discovering a Term source</span></a>
        </ol>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
@@ -1926,7 +1928,7 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>/
      <tr>
       <td>T
-      <td><dfn data-dfn-type="dfn" data-export id="term">Term<a class="self-link" href="#term"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="term">Term</dfn>
       <td>Word or phrase to denote a concept.
       <td>Term
       <td>/
@@ -3027,7 +3029,7 @@ The latter includes the possible outcome of the performed service.</p>
    </table>
    <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-dataset.puml" width="800"></p>
-   <h4 class="heading settled" data-level="5.2.3" id="-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3. </span><span class="content">(BP3) Updating a Dataset in the Registry</span><a class="self-link" href="#-bp3-updating-a-dataset-in-the-registry"></a></h4>
+   <h4 class="heading settled" data-level="5.2.3" id="-bp5-updating-a-dataset-in-the-registry"><span class="secno">5.2.3. </span><span class="content">(BP5) Updating a Dataset in the Registry</span><a class="self-link" href="#-bp5-updating-a-dataset-in-the-registry"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -3090,11 +3092,11 @@ The latter includes the possible outcome of the performed service.</p>
    </table>
    <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800"></p>
-   <h4 class="heading settled" data-level="5.2.4" id="-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4. </span><span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
+   <h4 class="heading settled" data-level="5.2.4" id="-bp6-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4. </span><span class="content">(BP6) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp6-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
    <table>
     <tbody>
      <tr>
-      <td>Actor
+      <th>Actor
       <td>
        <ul>
         <li>Maintainer 
@@ -3134,7 +3136,9 @@ The latter includes the possible outcome of the performed service.</p>
         <li>The Orchestrator of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤⓪">Cultural Heritage Institution</a> picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights. 
        </ol>
    </table>
-   <h4 class="heading settled" data-level="5.2.5" id="-bp5-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5. </span><span class="content">(BP5) Constructing backlinks between two institutions</span><a class="self-link" href="#-bp5-constructing-backlinks-between-two-institutions"></a></h4>
+   <p><strong>HTTP Sequence</strong></p>
+   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800"></p>
+   <h4 class="heading settled" data-level="5.2.5" id="-bp7-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5. </span><span class="content">(BP7) Constructing backlinks between two institutions</span><a class="self-link" href="#-bp7-constructing-backlinks-between-two-institutions"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -3179,48 +3183,159 @@ The latter includes the possible outcome of the performed service.</p>
         <li>The Orchestrator of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥①">Cultural Heritage Institution</a> B picks up this change and generates new backlinks to <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥②">Cultural Heritage Institution</a> A, which it stores as a linkset in its Data Pod. 
        </ol>
    </table>
-   <h3 class="heading settled" data-level="5.3" id="perspective-registry---service-portal"><span class="secno">5.3. </span><span class="content">Perspective Registry - Service Portal</span><a class="self-link" href="#perspective-registry---service-portal"></a></h3>
+   <p><strong>HTTP Sequence</strong></p>
+   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800"></p>
+   <h3 class="heading settled" data-level="5.3" id="perspective-service-portal-network-of-terms---registry"><span class="secno">5.3. </span><span class="content">Perspective Service Portal / Network Of Terms - Registry</span><a class="self-link" href="#perspective-service-portal-network-of-terms---registry"></a></h3>
    <p>This section takes the perspective of the <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑤">Registry</a> Service and the <a data-link-type="dfn">Service Portal</a> application interacting.
 This entails business processes where both services notify eachother about important events. 
 Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry).</p>
-   <h4 class="heading settled" data-level="5.3.1" id="-bp6-getting-relevant-dataset-links"><span class="secno">5.3.1. </span><span class="content">(BP6) Getting relevant dataset links</span><a class="self-link" href="#-bp6-getting-relevant-dataset-links"></a></h4>
-   <p></p>
+   <h4 class="heading settled" data-level="5.3.1" id="-bp8-subscribing-to-a-topic"><span class="secno">5.3.1. </span><span class="content">(BP8) Subscribing to a topic</span><a class="self-link" href="#-bp8-subscribing-to-a-topic"></a></h4>
    <table>
     <tbody>
      <tr>
       <th>Actor
       <td>
-       Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry 
-       <p><br>Components<br>Orchestrator <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥③">Cultural Heritage Institution</a> B<br>Data Pod <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥④">Cultural Heritage Institution</a> B<br>Inbox <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑤">Cultural Heritage Institution</a> B<br>Orchestrator Registry<br>Inbox Registry</p>
+       <ul>
+        <li>Service Portal Provider 
+        <li>Network of Terms 
+        <li>Registry 
+       </ul>
+     <tr>
+      <th>Components
+      <td>
+       <ul>
+        <li>Service Portal 
+        <li>Inbox <a data-link-type="dfn">Service Portal</a> / <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms②">Network Of Terms</a> 
+        <li>Inbox <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑥">Registry</a> 
+       </ul>
      <tr>
       <th>Goal
-      <td>Cultural Heritage Institution B adds links to Objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑥">Cultural Heritage Institution</a> A after becoming aware of links from Objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑦">Cultural Heritage Institution</a> A to a Objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑧">Cultural Heritage Institution</a> B
+      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider①">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms③">Network of Terms</a> subscribes to a topic at a <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑦">Registry</a>, 
+      of which it wants to receive notifications about related artefacts.
      <tr>
       <th>Stakeholders
       <td>
-       Knowledge Graphs
-       <li>Browser/ Service Portals
-       <li>Users
+       <ul>
+        <li>Users 
+       </ul>
      <tr>
       <th>Preconditions
       <td>
-       A Dataset of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑨">Cultural Heritage Institution</a> A known to the Registry contains links to objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦⓪">Cultural Heritage Institution</a> B
-       <li>The links have not been processed by the Registry yet.
      <tr>
       <th>Triggers
-      <td>The Registry has added or updated a Metadata Dataset in its Query Index
+      <td>A <a data-link-type="dfn">Service Portal</a> wants to subscribe to artefacts or a certain topic.
      <tr>
       <th>Postconditions
-      <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦①">Cultural Heritage Institution</a> A
+      <td>The <a data-link-type="dfn">Service Portal</a> is subscribed to a dataset topic in the Registry.
      <tr>
       <th>Procedure
       <td>
        <ol>
-        <li>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
-        <li>Based on the Dataset’s origin, it sends a notification to the Inbox of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦②">Cultural Heritage Institution</a> B about the found links. 
-        <li>The Orchestrator of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦③">Cultural Heritage Institution</a> B picks up this change and generates new backlinks to <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦④">Cultural Heritage Institution</a> A, which it stores as a linkset in its Data Pod. 
+        <li>A <a data-link-type="dfn">Service Portal</a> sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑧">Registry</a> requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of <a data-link-type="dfn" href="#term" id="ref-for-term">Terms</a> and the inbox of the Service Portal. 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑨">Registry</a> adds the <a data-link-type="dfn">Service Portal</a>'s inbox URL to an index per <a data-link-type="dfn" href="#term" id="ref-for-term①">term</a>]. If an index does not exist, the Registry creates it. 
+        <li>When the indexing is completed, the <a data-link-type="dfn" href="#registry" id="ref-for-registry③⓪">Registry</a> sends a notification to the <a data-link-type="dfn">Service Portal</a>'s inbox to confirm the subscription. 
        </ol>
    </table>
+   <p><strong>HTTP Sequence</strong></p>
+   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800"></p>
+   <h4 class="heading settled" data-level="5.3.2" id="-bp9-discovering-a-dataset-related-to-a-subscribed-topic"><span class="secno">5.3.2. </span><span class="content">(BP9) Discovering a dataset related to a subscribed topic</span><a class="self-link" href="#-bp9-discovering-a-dataset-related-to-a-subscribed-topic"></a></h4>
+   <table>
+    <tbody>
+     <tr>
+      <th>Actor
+      <td>
+       <ul>
+        <li>Service Portal Provider 
+        <li>Network of Terms 
+        <li>Registry 
+       </ul>
+     <tr>
+      <th>Components
+      <td>
+       <ul>
+        <li>Service Portal 
+        <li>Inbox <a data-link-type="dfn">Service Portal</a> 
+        <li>Inbox <a data-link-type="dfn" href="#registry" id="ref-for-registry③①">Registry</a> 
+       </ul>
+     <tr>
+      <th>Goal
+      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider②">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms④">Network of Terms</a> subscribes to a topic at a <a data-link-type="dfn" href="#registry" id="ref-for-registry③②">Registry</a>, 
+      of which it wants to receive notifications about related artefacts.
+     <tr>
+      <th>Stakeholders
+      <td>
+       <ul>
+        <li>Users 
+       </ul>
+     <tr>
+      <th>Preconditions
+      <td>
+     <tr>
+      <th>Triggers
+      <td>The Registry has added or updated a Metadata Dataset in its Query Index.
+     <tr>
+      <th>Postconditions
+      <td>The <a data-link-type="dfn">Service Portal</a> is subscribed to a dataset topic in the Registry.
+     <tr>
+      <th>Procedure
+      <td>
+       <ol>
+        <li>A <a data-link-type="dfn">Service Portal</a> sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry③③">Registry</a> requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of <a data-link-type="dfn" href="#term" id="ref-for-term②">Terms</a> and the inbox of the Service Portal. 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry③④">Registry</a> adds the <a data-link-type="dfn">Service Portal</a>'s inbox URL to an index per <a data-link-type="dfn" href="#term" id="ref-for-term③">term</a>]. If an index does not exist, the Registry creates it. 
+        <li>When the indexing is completed, the <a data-link-type="dfn" href="#registry" id="ref-for-registry③⑤">Registry</a> sends a notification to the <a data-link-type="dfn">Service Portal</a>'s inbox to confirm the subscription. 
+       </ol>
+   </table>
+   <p><strong>HTTP Sequence</strong></p>
+   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800"></p>
+   <h4 class="heading settled" data-level="5.3.3" id="-bp10-discovering-a-term-source"><span class="secno">5.3.3. </span><span class="content">(BP10) Discovering a Term source</span><a class="self-link" href="#-bp10-discovering-a-term-source"></a></h4>
+   <table>
+    <tbody>
+     <tr>
+      <th>Actor
+      <td>
+       <ul>
+        <li>Service Portal Provider 
+        <li>Network of Terms 
+        <li>Registry 
+       </ul>
+     <tr>
+      <th>Components
+      <td>
+       <ul>
+        <li>Service Portal 
+        <li>Inbox <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑤">Network Of Terms</a> 
+        <li>Inbox <a data-link-type="dfn" href="#registry" id="ref-for-registry③⑥">Registry</a> 
+       </ul>
+     <tr>
+      <th>Goal
+      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider③">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑥">Network of Terms</a> subscribes to a topic at a <a data-link-type="dfn" href="#registry" id="ref-for-registry③⑦">Registry</a>, 
+      of which it wants to receive notifications about related artefacts.
+     <tr>
+      <th>Stakeholders
+      <td>
+       <ul>
+        <li>Users 
+       </ul>
+     <tr>
+      <th>Preconditions
+      <td>
+     <tr>
+      <th>Triggers
+      <td>A <a data-link-type="dfn">Service Portal</a> wants to subscribe to artefacts or a certain topic.
+     <tr>
+      <th>Postconditions
+      <td>The <a data-link-type="dfn">Service Portal</a> is subscribed to a dataset topic in the Registry.
+     <tr>
+      <th>Procedure
+      <td>
+       <ol>
+        <li>A <a data-link-type="dfn">Service Portal</a> sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry③⑧">Registry</a> requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of <a data-link-type="dfn" href="#term" id="ref-for-term④">Terms</a> and the inbox of the Service Portal. 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry③⑨">Registry</a> adds the <a data-link-type="dfn">Service Portal</a>'s inbox URL to an index per <a data-link-type="dfn" href="#term" id="ref-for-term⑤">term</a>]. If an index does not exist, the Registry creates it. 
+        <li>When the indexing is completed, the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⓪">Registry</a> sends a notification to the <a data-link-type="dfn">Service Portal</a>'s inbox to confirm the subscription. 
+       </ol>
+   </table>
+   <p><strong>HTTP Sequence</strong></p>
+   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800"></p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -3422,10 +3537,9 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-cultural-heritage-institution①②">5.2. Perspective Cultural Heritage Institution - Registry</a>
     <li><a href="#ref-for-cultural-heritage-institution①③">5.2.1. (BP3) Adding a Cultural Heritage Institution to the Registry</a> <a href="#ref-for-cultural-heritage-institution①④">(2)</a> <a href="#ref-for-cultural-heritage-institution①⑤">(3)</a> <a href="#ref-for-cultural-heritage-institution①⑥">(4)</a> <a href="#ref-for-cultural-heritage-institution①⑦">(5)</a> <a href="#ref-for-cultural-heritage-institution①⑧">(6)</a> <a href="#ref-for-cultural-heritage-institution①⑨">(7)</a> <a href="#ref-for-cultural-heritage-institution②⓪">(8)</a> <a href="#ref-for-cultural-heritage-institution②①">(9)</a> <a href="#ref-for-cultural-heritage-institution②②">(10)</a> <a href="#ref-for-cultural-heritage-institution②③">(11)</a> <a href="#ref-for-cultural-heritage-institution②④">(12)</a>
     <li><a href="#ref-for-cultural-heritage-institution②⑤">5.2.2. (BP4) Adding a new Dataset to the Registry</a> <a href="#ref-for-cultural-heritage-institution②⑥">(2)</a> <a href="#ref-for-cultural-heritage-institution②⑦">(3)</a> <a href="#ref-for-cultural-heritage-institution②⑧">(4)</a> <a href="#ref-for-cultural-heritage-institution②⑨">(5)</a> <a href="#ref-for-cultural-heritage-institution③⓪">(6)</a> <a href="#ref-for-cultural-heritage-institution③①">(7)</a> <a href="#ref-for-cultural-heritage-institution③②">(8)</a> <a href="#ref-for-cultural-heritage-institution③③">(9)</a> <a href="#ref-for-cultural-heritage-institution③④">(10)</a> <a href="#ref-for-cultural-heritage-institution③⑤">(11)</a>
-    <li><a href="#ref-for-cultural-heritage-institution③⑥">5.2.3. (BP3) Updating a Dataset in the Registry</a> <a href="#ref-for-cultural-heritage-institution③⑦">(2)</a> <a href="#ref-for-cultural-heritage-institution③⑧">(3)</a> <a href="#ref-for-cultural-heritage-institution③⑨">(4)</a> <a href="#ref-for-cultural-heritage-institution④⓪">(5)</a> <a href="#ref-for-cultural-heritage-institution④①">(6)</a> <a href="#ref-for-cultural-heritage-institution④②">(7)</a> <a href="#ref-for-cultural-heritage-institution④③">(8)</a> <a href="#ref-for-cultural-heritage-institution④④">(9)</a>
-    <li><a href="#ref-for-cultural-heritage-institution④⑤">5.2.4. (BP4) Adding a Registry to the ACL of a Data Pod</a> <a href="#ref-for-cultural-heritage-institution④⑥">(2)</a> <a href="#ref-for-cultural-heritage-institution④⑦">(3)</a> <a href="#ref-for-cultural-heritage-institution④⑧">(4)</a> <a href="#ref-for-cultural-heritage-institution④⑨">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤⓪">(6)</a>
-    <li><a href="#ref-for-cultural-heritage-institution⑤①">5.2.5. (BP5) Constructing backlinks between two institutions</a> <a href="#ref-for-cultural-heritage-institution⑤②">(2)</a> <a href="#ref-for-cultural-heritage-institution⑤③">(3)</a> <a href="#ref-for-cultural-heritage-institution⑤④">(4)</a> <a href="#ref-for-cultural-heritage-institution⑤⑤">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤⑥">(6)</a> <a href="#ref-for-cultural-heritage-institution⑤⑦">(7)</a> <a href="#ref-for-cultural-heritage-institution⑤⑧">(8)</a> <a href="#ref-for-cultural-heritage-institution⑤⑨">(9)</a> <a href="#ref-for-cultural-heritage-institution⑥⓪">(10)</a> <a href="#ref-for-cultural-heritage-institution⑥①">(11)</a> <a href="#ref-for-cultural-heritage-institution⑥②">(12)</a>
-    <li><a href="#ref-for-cultural-heritage-institution⑥③">5.3.1. (BP6) Getting relevant dataset links</a> <a href="#ref-for-cultural-heritage-institution⑥④">(2)</a> <a href="#ref-for-cultural-heritage-institution⑥⑤">(3)</a> <a href="#ref-for-cultural-heritage-institution⑥⑥">(4)</a> <a href="#ref-for-cultural-heritage-institution⑥⑦">(5)</a> <a href="#ref-for-cultural-heritage-institution⑥⑧">(6)</a> <a href="#ref-for-cultural-heritage-institution⑥⑨">(7)</a> <a href="#ref-for-cultural-heritage-institution⑦⓪">(8)</a> <a href="#ref-for-cultural-heritage-institution⑦①">(9)</a> <a href="#ref-for-cultural-heritage-institution⑦②">(10)</a> <a href="#ref-for-cultural-heritage-institution⑦③">(11)</a> <a href="#ref-for-cultural-heritage-institution⑦④">(12)</a>
+    <li><a href="#ref-for-cultural-heritage-institution③⑥">5.2.3. (BP5) Updating a Dataset in the Registry</a> <a href="#ref-for-cultural-heritage-institution③⑦">(2)</a> <a href="#ref-for-cultural-heritage-institution③⑧">(3)</a> <a href="#ref-for-cultural-heritage-institution③⑨">(4)</a> <a href="#ref-for-cultural-heritage-institution④⓪">(5)</a> <a href="#ref-for-cultural-heritage-institution④①">(6)</a> <a href="#ref-for-cultural-heritage-institution④②">(7)</a> <a href="#ref-for-cultural-heritage-institution④③">(8)</a> <a href="#ref-for-cultural-heritage-institution④④">(9)</a>
+    <li><a href="#ref-for-cultural-heritage-institution④⑤">5.2.4. (BP6) Adding a Registry to the ACL of a Data Pod</a> <a href="#ref-for-cultural-heritage-institution④⑥">(2)</a> <a href="#ref-for-cultural-heritage-institution④⑦">(3)</a> <a href="#ref-for-cultural-heritage-institution④⑧">(4)</a> <a href="#ref-for-cultural-heritage-institution④⑨">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤⓪">(6)</a>
+    <li><a href="#ref-for-cultural-heritage-institution⑤①">5.2.5. (BP7) Constructing backlinks between two institutions</a> <a href="#ref-for-cultural-heritage-institution⑤②">(2)</a> <a href="#ref-for-cultural-heritage-institution⑤③">(3)</a> <a href="#ref-for-cultural-heritage-institution⑤④">(4)</a> <a href="#ref-for-cultural-heritage-institution⑤⑤">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤⑥">(6)</a> <a href="#ref-for-cultural-heritage-institution⑤⑦">(7)</a> <a href="#ref-for-cultural-heritage-institution⑤⑧">(8)</a> <a href="#ref-for-cultural-heritage-institution⑤⑨">(9)</a> <a href="#ref-for-cultural-heritage-institution⑥⓪">(10)</a> <a href="#ref-for-cultural-heritage-institution⑥①">(11)</a> <a href="#ref-for-cultural-heritage-institution⑥②">(12)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dataset">
@@ -3433,7 +3547,15 @@ Hence, these processes are often initiated by the completion of another business
    <ul>
     <li><a href="#ref-for-dataset">3.3. Roles in the network</a> <a href="#ref-for-dataset①">(2)</a>
     <li><a href="#ref-for-dataset②">5.2.2. (BP4) Adding a new Dataset to the Registry</a> <a href="#ref-for-dataset③">(2)</a>
-    <li><a href="#ref-for-dataset④">5.2.3. (BP3) Updating a Dataset in the Registry</a> <a href="#ref-for-dataset⑤">(2)</a> <a href="#ref-for-dataset⑥">(3)</a>
+    <li><a href="#ref-for-dataset④">5.2.3. (BP5) Updating a Dataset in the Registry</a> <a href="#ref-for-dataset⑤">(2)</a> <a href="#ref-for-dataset⑥">(3)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term">
+   <b><a href="#term">#term</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-term">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-term①">(2)</a>
+    <li><a href="#ref-for-term②">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-term③">(2)</a>
+    <li><a href="#ref-for-term④">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-term⑤">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-source">
@@ -3460,6 +3582,9 @@ Hence, these processes are often initiated by the completion of another business
    <b><a href="#service-portal-provider">#service-portal-provider</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-service-portal-provider">4. Pilod Use Cases</a>
+    <li><a href="#ref-for-service-portal-provider①">5.3.1. (BP8) Subscribing to a topic</a>
+    <li><a href="#ref-for-service-portal-provider②">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a>
+    <li><a href="#ref-for-service-portal-provider③">5.3.3. (BP10) Discovering a Term source</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="registry">
@@ -3472,8 +3597,11 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-registry④">5.2. Perspective Cultural Heritage Institution - Registry</a> <a href="#ref-for-registry⑤">(2)</a>
     <li><a href="#ref-for-registry⑥">5.2.1. (BP3) Adding a Cultural Heritage Institution to the Registry</a> <a href="#ref-for-registry⑦">(2)</a> <a href="#ref-for-registry⑧">(3)</a> <a href="#ref-for-registry⑨">(4)</a> <a href="#ref-for-registry①⓪">(5)</a> <a href="#ref-for-registry①①">(6)</a> <a href="#ref-for-registry①②">(7)</a>
     <li><a href="#ref-for-registry①③">5.2.2. (BP4) Adding a new Dataset to the Registry</a> <a href="#ref-for-registry①④">(2)</a> <a href="#ref-for-registry①⑤">(3)</a> <a href="#ref-for-registry①⑥">(4)</a> <a href="#ref-for-registry①⑦">(5)</a> <a href="#ref-for-registry①⑧">(6)</a> <a href="#ref-for-registry①⑨">(7)</a>
-    <li><a href="#ref-for-registry②⓪">5.2.3. (BP3) Updating a Dataset in the Registry</a> <a href="#ref-for-registry②①">(2)</a> <a href="#ref-for-registry②②">(3)</a> <a href="#ref-for-registry②③">(4)</a> <a href="#ref-for-registry②④">(5)</a>
-    <li><a href="#ref-for-registry②⑤">5.3. Perspective Registry - Service Portal</a>
+    <li><a href="#ref-for-registry②⓪">5.2.3. (BP5) Updating a Dataset in the Registry</a> <a href="#ref-for-registry②①">(2)</a> <a href="#ref-for-registry②②">(3)</a> <a href="#ref-for-registry②③">(4)</a> <a href="#ref-for-registry②④">(5)</a>
+    <li><a href="#ref-for-registry②⑤">5.3. Perspective Service Portal / Network Of Terms - Registry</a>
+    <li><a href="#ref-for-registry②⑥">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-registry②⑦">(2)</a> <a href="#ref-for-registry②⑧">(3)</a> <a href="#ref-for-registry②⑨">(4)</a> <a href="#ref-for-registry③⓪">(5)</a>
+    <li><a href="#ref-for-registry③①">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-registry③②">(2)</a> <a href="#ref-for-registry③③">(3)</a> <a href="#ref-for-registry③④">(4)</a> <a href="#ref-for-registry③⑤">(5)</a>
+    <li><a href="#ref-for-registry③⑥">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-registry③⑦">(2)</a> <a href="#ref-for-registry③⑧">(3)</a> <a href="#ref-for-registry③⑨">(4)</a> <a href="#ref-for-registry④⓪">(5)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="network-of-terms">
@@ -3481,6 +3609,9 @@ Hence, these processes are often initiated by the completion of another business
    <ul>
     <li><a href="#ref-for-network-of-terms">3.4. Basic setup for Decentralized Digital Heritage Network</a>
     <li><a href="#ref-for-network-of-terms①">4. Pilod Use Cases</a>
+    <li><a href="#ref-for-network-of-terms②">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-network-of-terms③">(2)</a>
+    <li><a href="#ref-for-network-of-terms④">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a>
+    <li><a href="#ref-for-network-of-terms⑤">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-network-of-terms⑥">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="knowledge-graph">
