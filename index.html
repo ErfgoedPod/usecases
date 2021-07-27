@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="45a19841be17ce788b3d8e4bc6da923c698e4398" name="document-revision">
+  <meta content="e19446d040bdf2e078a463a331831ef4e446d0ec" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1442,7 +1442,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-07-26">26 July 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-07-27">27 July 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1456,7 +1456,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 26 July 2021,
+In addition, as of 27 July 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1487,35 +1487,15 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#perspective-cultural-heritage-institution---data-pod"><span class="secno">5.1</span> <span class="content">Perspective Cultural Heritage Institution - Data Pod</span></a>
        <ol class="toc">
-        <li>
-         <a href="#-bp0-initialize-a-digital-heritage-pod"><span class="secno">5.1.1</span> <span class="content">(BP0) Initialize a Digital Heritage Pod</span></a>
-         <ol class="toc">
-          <li><a href="#http-sequence"><span class="secno">5.1.1.1</span> <span class="content">HTTP Sequence</span></a>
-         </ol>
-        <li>
-         <a href="#-bp1-register-an-orchestrator-for-a-digital-heritage-pod"><span class="secno">5.1.2</span> <span class="content">(BP1) Register an Orchestrator for a Digital Heritage Pod</span></a>
-         <ol class="toc">
-          <li><a href="#http-sequence①"><span class="secno">5.1.2.1</span> <span class="content">HTTP Sequence</span></a>
-         </ol>
+        <li><a href="#-bp0-initialize-a-digital-heritage-pod"><span class="secno">5.1.1</span> <span class="content">(BP0) Initialize a Digital Heritage Pod</span></a>
+        <li><a href="#-bp1-register-an-orchestrator-for-a-digital-heritage-pod"><span class="secno">5.1.2</span> <span class="content">(BP1) Register an Orchestrator for a Digital Heritage Pod</span></a>
        </ol>
       <li>
        <a href="#perspective-cultural-heritage-institution---registry"><span class="secno">5.2</span> <span class="content">Perspective Cultural Heritage Institution - Registry</span></a>
        <ol class="toc">
-        <li>
-         <a href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1</span> <span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span></a>
-         <ol class="toc">
-          <li><a href="#http-sequence②"><span class="secno">5.2.1.1</span> <span class="content">HTTP Sequence</span></a>
-         </ol>
-        <li>
-         <a href="#-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">5.2.2</span> <span class="content">(BP2) Adding a new Dataset to the Registry</span></a>
-         <ol class="toc">
-          <li><a href="#http-sequence③"><span class="secno">5.2.2.1</span> <span class="content">HTTP Sequence</span></a>
-         </ol>
-        <li>
-         <a href="#-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3</span> <span class="content">(BP3) Updating a Dataset in the Registry</span></a>
-         <ol class="toc">
-          <li><a href="#http-sequence④"><span class="secno">5.2.3.1</span> <span class="content">HTTP Sequence</span></a>
-         </ol>
+        <li><a href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1</span> <span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span></a>
+        <li><a href="#-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">5.2.2</span> <span class="content">(BP2) Adding a new Dataset to the Registry</span></a>
+        <li><a href="#-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3</span> <span class="content">(BP3) Updating a Dataset in the Registry</span></a>
         <li><a href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4</span> <span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span></a>
         <li><a href="#-bp5-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5</span> <span class="content">(BP5) Constructing backlinks between two institutions</span></a>
        </ol>
@@ -2819,19 +2799,31 @@ This includes business processes that only affect actors inside a single institu
     <tbody>
      <tr>
       <th>Actors/Roles
-      <td>Maintainer
+      <td>
+       <ul>
+        <li><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②">Cultural Heritage Institution</a>
+        <li><a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer">Maintainer</a>
+       </ul>
      <tr>
       <th> Components 
-      <td> Components<br> Dashboard<br> Digital Heritage Pod 
+      <td>
+       <ul>
+        <li>Dashboard 
+        <li>Digital Heritage Pod 
+       </ul>
      <tr>
       <th>Goal
       <td>The organization has an operational Digital Heritage Pod.
      <tr>
       <th>Stakeholders
-      <td> Registry’s<br> Other institutions
+      <td>
+       <ul>
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry②">Registry’s</a> 
+        <li>Other <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution③">Cultural Heritage Institutions</a> 
+       </ul>
      <tr>
       <th>Preconditions
-      <td> There are a Maintainer and a reachable running Solid Data Pod within the Cultural Heritage Institution.<br> 
+      <td> There are a <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①">Maintainer</a> and a reachable running Solid Data Pod within the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution④">Cultural Heritage Institution</a>. 
      <tr>
       <th>Triggers
       <td>A Cultural Heritage Institution wants to share metadata with Solid networks.
@@ -2841,36 +2833,49 @@ This includes business processes that only affect actors inside a single institu
      <tr>
       <th>System
       <td>
-       <ul>
+       <ol>
         <li>The Maintainer logs in into the Dashboard and enters the base URL of a Solid Data Pod. 
         <li>The Dashboard discovers the location of the <code>inbox</code> resource by requesting the pod’s base URL. If authorization is required, the Dashboard requests access to the inbox. 
         <li>The Dashboard creates an eventlog resource inside the Solid Data Pod and stores the URI. 
-        <li>If the event log was created successfully, the <a data-link-type="dfn">Dashboard</a> informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer">Maintainer</a> that the initialization is complete. 
-       </ul>
+        <li>If the event log was created successfully, the <a data-link-type="dfn">Dashboard</a> informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer②">Maintainer</a> that the initialization is complete. 
+       </ol>
    </table>
-   <h5 class="heading settled" data-level="5.1.1.1" id="http-sequence"><span class="secno">5.1.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence"></a></h5>
+   <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.1.2" id="-bp1-register-an-orchestrator-for-a-digital-heritage-pod"><span class="secno">5.1.2. </span><span class="content">(BP1) Register an Orchestrator for a Digital Heritage Pod</span><a class="self-link" href="#-bp1-register-an-orchestrator-for-a-digital-heritage-pod"></a></h4>
    <table>
     <tbody>
      <tr>
       <th>Actors/Roles
-      <td>Maintainer
+      <td>
+       <ul>
+        <li><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤">Cultural Heritage Institution</a>
+        <li><a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer③">Maintainer</a>
+       </ul>
      <tr>
       <th> Components 
-      <td> Components<br> Dashboard<br> Digital Heritage Pod<br> Orchestrator 
+      <td>
+       <ul>
+        <li>Dashboard 
+        <li>Digital Heritage Pod 
+        <li>Orchestrator 
+       </ul>
      <tr>
       <th>Goal
       <td>The organization has an operational Orchestrator connected to its Digital Heritage Pod.
      <tr>
       <th>Stakeholders
-      <td> Service Hubs<br> Other institutions
+      <td>
+       <ul>
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry③">Registry’s</a> 
+        <li>Other <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥">Cultural Heritage Institutions</a> 
+       </ul>
      <tr>
       <th>Preconditions
-      <td> There are a Maintainer and a reachable running Solid Data Pod within the Cultural Heritage Institution.<br> 
+      <td> There is a reachable Digital Heritage Pod within the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦">Cultural Heritage Institution</a>.
      <tr>
       <th>Triggers
-      <td>A Cultural Heritage Institution wants to share metadata with Solid networks.
+      <td>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑧">Cultural Heritage Institution</a> wants to share metadata with Solid networks.
      <tr>
       <th>Postconditions
       <td>An orchestrator is running and is reachable by the institution.
@@ -2878,215 +2883,215 @@ This includes business processes that only affect actors inside a single institu
       <th>System
       <td>
        <ul>
-        <li>The Maintainer logs ... 
+        <li>The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer④">Maintainer</a> logs into the Dashboard and starts the registration of a new orchestrator service. 
+        <li>The Dashboard starts an Orchestrator process locally or uses an Orchestrator service. Once complete, it returns the location of the Orchestrator’s <code>inbox</code> resource. 
+        <li>The Dashboard supplies a location of an <code>inbox</code> resource, most likely that of a Digital Heritage Pod, to the Orchestrator by sending a notification to its inbox. The orchstrator now watches the supplied <code>inbox</code> resources for incoming notifications. 
+        <li>The Dashboard informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑤">Maintainer</a> that the Orchestrator service is up and running. 
+        <li>Next, the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑥">Maintainer</a> configures a list of <a data-link-type="dfn">rulebook</a> file locations, which is used by the Dashboard to initialize the Orchestrator. 
+        <li>The Orchestrator acknowledges that the <a data-link-type="dfn">rulebooks</a> are now active. The Dashboard informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑦">Maintainer</a> that this completes the initialization. 
        </ul>
    </table>
-   <h5 class="heading settled" data-level="5.1.2.1" id="http-sequence①"><span class="secno">5.1.2.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence①"></a></h5>
+   <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="300"></p>
    <h3 class="heading settled" data-level="5.2" id="perspective-cultural-heritage-institution---registry"><span class="secno">5.2. </span><span class="content">Perspective Cultural Heritage Institution - Registry</span><a class="self-link" href="#perspective-cultural-heritage-institution---registry"></a></h3>
-   <p>This section takes the perspective of an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②">Cultural Heritage Institution</a> interacting with a <a data-link-type="dfn" href="#registry" id="ref-for-registry②">Registry</a> Service, which implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Register-function</a> using the Solid and ResearcherPod architecture.
-This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the <a data-link-type="dfn" href="#registry" id="ref-for-registry③">Registry</a> responding to that request.
+   <p>This section takes the perspective of an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑨">Cultural Heritage Institution</a> interacting with a <a data-link-type="dfn" href="#registry" id="ref-for-registry④">Registry</a> Service, which implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Register-function</a> using the Solid and ResearcherPod architecture.
+This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤">Registry</a> responding to that request.
 The latter includes the possible outcome of the performed service.</p>
    <h4 class="heading settled" data-level="5.2.1" id="-bp1-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1. </span><span class="content">(BP1) Adding a Cultural Heritage Institution to the Registry</span><a class="self-link" href="#-bp1-adding-a-cultural-heritage-institution-to-the-registry"></a></h4>
    <table>
     <tbody>
      <tr>
-      <td>Actors/Roles
-      <td>Actors<br>Maintainer<br>Registry<br>Components<br>Dashboard <br>Orchestrator CHI<br>Data Pod CHI<br>Inbox CHI<br>Inbox Registry<br>Orchestrator Registry
+      <th>Actors/Roles
+      <td>
+       <ul>
+        <li>Maintainer 
+        <li>Registry 
+       </ul>
      <tr>
-      <td>Goal
+      <th>Components
+      <td>
+       <ul>
+        <li>Dashboard 
+        <li>Orchestrator <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⓪">Cultural Heritage Institution</a> 
+        <li>Data Pod <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①①">Cultural Heritage Institution</a> 
+        <li>Inbox <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①②">Cultural Heritage Institution</a> 
+        <li>Inbox Registry 
+        <li>Orchestrator Registry 
+       </ul>
+     <tr>
+      <th>Goal
       <td>The network is aware of the organization: it can be discovered by exploring or querying the Registry.
      <tr>
-      <td>Stakeholders
-      <td>Browser / Service Portals<br>Users of the Knowledge graph
+      <th>Stakeholders
+      <td>
+       <ul>
+        <li>Browser / Service Portals 
+        <li>Users of the Knowledge graph 
+       </ul>
      <tr>
-      <td>Preconditions
-      <td>There exists a Metadata Organization with basic details (eg. identifier, name) with the Cultural Heritage Institution.<br>The Cultural Heritage Institution is not known to the Registry. <br>The Cultural Heritage Institution can be identified and located using a persistent identifier (URI). <br>The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.<br>The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.
+      <th>Preconditions
+      <td>
+       <ul>
+        <li>There exists a Metadata Organization with basic details (eg. identifier, name) with the Cultural Heritage Institution.
+        <li>The Cultural Heritage Institution is not known to the Registry. 
+        <li>The Cultural Heritage Institution can be identified and located using a persistent identifier (URI). 
+        <li>The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.
+        <li>The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.
+       </ul>
      <tr>
-      <td>Triggers
+      <th>Triggers
       <td>A Cultural Heritage Institution wants to join the network
      <tr>
-      <td>Postconditions
+      <th>Postconditions
       <td>Metadata Organization is added to the search query index of the Registry. <br>The Cultural Heritage Institution is aware that it is registered with the Registry
      <tr>
-      <td>System
-      <td>The Maintainer uploads or curates the Metadata Organization using the Dashboard. The profile is made available through a URI, which can coincide with the institution’s persistent identifier. <br>A Maintainer of the Cultural Heritage Institution then uses the Dashboard to start registration. <br>The Orchestrator of the  Cultural Heritage Institution detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred Registry(s). It contains the organization’s identifier and a link to the profile.<br>When notified, the Orchestrator of the Registry follows the link to the Metadata Organization and attempts to download it. <br>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Organization in the Data Pod’s ACL, it is granted access. Else, the download is refused.<br>When downloaded, the Orchestrator of the Registry stores the profile in its Data Pod and adds it to the Query Index. <br>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the registration was successful.
+      <th>System
+      <td>
+       <ol>
+        <li>The Maintainer uploads or curates the Metadata Organization using the Dashboard. The profile is made available through a URI, which can coincide with the institution’s persistent identifier. 
+        <li>A Maintainer of the Cultural Heritage Institution then uses the Dashboard to start registration. 
+        <li>The Orchestrator of the  Cultural Heritage Institution detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred Registry(s). It contains the organization’s identifier and a link to the profile. 
+        <li>When notified, the Orchestrator of the Registry follows the link to the Metadata Organization and attempts to download it. 
+        <li>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Organization in the Data Pod’s ACL, it is granted access. Else, the download is refused. 
+        <li>When downloaded, the Orchestrator of the Registry stores the profile in its Data Pod and adds it to the Query Index. 
+        <li>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the registration was successful. 
+       </ol>
    </table>
-   <h5 class="heading settled" data-level="5.2.1.1" id="http-sequence②"><span class="secno">5.2.1.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence②"></a></h5>
+   <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.2.2" id="-bp2-adding-a-new-dataset-to-the-registry"><span class="secno">5.2.2. </span><span class="content">(BP2) Adding a new Dataset to the Registry</span><a class="self-link" href="#-bp2-adding-a-new-dataset-to-the-registry"></a></h4>
    <table>
     <tbody>
      <tr>
-      <td>Actors/Roles
+      <th>Actors/Roles
       <td>
        <ul>
-        <li data-md>
-         <p>Actors</p>
-        <li data-md>
-         <p>Maintainer</p>
-        <li data-md>
-         <p>Registry</p>
-        <li data-md>
-         <p>Components</p>
-        <li data-md>
-         <p>Collection Management System</p>
-        <li data-md>
-         <p>Dashboard</p>
-        <li data-md>
-         <p>Orchestrator</p>
-        <li data-md>
-         <p>Data Pod Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Inbox Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Inbox Registry</p>
-        <li data-md>
-         <p>Orchestrator Registry</p>
+        <li>Maintainer 
+        <li>Registry 
        </ul>
      <tr>
-      <td>Goal
+      <th> Components 
+      <td>
+       <ul>
+        <li>Collection Management System 
+        <li>Dashboard 
+        <li>Orchestrator 
+        <li>Data Pod Cultural Heritage Institution 
+        <li>Inbox Cultural Heritage Institution 
+        <li>Inbox Registry 
+        <li>Orchestrator Registry 
+       </ul>
+     <tr>
+      <th>Goal
       <td>The Dataset’s location shows up in search results when querying the Registry with dataset-level metadata. 
      <tr>
-      <td>Stakeholders
+      <th>Stakeholders
       <td>
        <ul>
-        <li data-md>
-         <p>Other Cultural Heritage Institutions</p>
-        <li data-md>
-         <p>Applications, Portals and services</p>
-        <li data-md>
-         <p>The Knowledge graph</p>
+        <li>Other Cultural Heritage Institutions 
+        <li>Applications, Portals and services 
+        <li>The Knowledge graph 
        </ul>
      <tr>
-      <td>Preconditions
+      <th>Preconditions
       <td>
        <ul>
-        <li data-md>
-         <p>The Dataset is not known to the Registry</p>
-        <li data-md>
-         <p>The Cultural Heritage Institution is known to the Registry.</p>
-        <li data-md>
-         <p>The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes.</p>
-        <li data-md>
-         <p>The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions.</p>
+        <li>The Dataset is not known to the Registry 
+        <li>The Cultural Heritage Institution is known to the Registry. 
+        <li>The Cultural Heritage Institution has a curated list of preferred Registry instances with a link to their inboxes. 
+        <li>The list of preferred Registry instances is added to the ACL of the Cultural Heritage Institution Data Pod with read permissions. 
        </ul>
      <tr>
-      <td>Triggers
+      <th>Triggers
       <td>A new Dataset is ready for publication
      <tr>
-      <td>Postconditions
+      <th>Postconditions
       <td>
        <ul>
-        <li data-md>
-         <p>The Metadata Dataset is added to the search query index of the Registry.</p>
-        <li data-md>
-         <p>The Cultural Heritage Institution is aware that the Dataset is registered with the Registry, because it has confirmation that the Metadata Dataset was accepted and processed.</p>
+        <li>The Metadata Dataset is added to the search query index of the Registry. 
+        <li>The Cultural Heritage Institution is aware that the Dataset is registered with the Registry, because it has confirmation that the Metadata Dataset was accepted and processed. 
        </ul>
      <tr>
-      <td>Procedure
+      <th>Procedure
       <td>
        <ol>
-        <li data-md>
-         <p>A Maintainer of the Cultural Heritage Institution exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.</p>
-        <li data-md>
-         <p>Using the Dashboard, the Maintainer creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of Dashboard and the creation of the profile happens transparently.</p>
-        <li data-md>
-         <p>The Maintainer uses the Dashboard to start the registration of the Dataset.</p>
-        <li data-md>
-         <p>The Orchestrator of the Cultural Heritage Institution detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it.</p>
-        <li data-md>
-         <p>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused.</p>
-        <li data-md>
-         <p>After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset’s location to the Query Index for search.</p>
-        <li data-md>
-         <p>After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered.</p>
+        <li>A Maintainer of the Cultural Heritage Institution exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible. 
+        <li>Using the Dashboard, the Maintainer creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of Dashboard and the creation of the profile happens transparently. 
+        <li>The Maintainer uses the Dashboard to start the registration of the Dataset. 
+        <li>The Orchestrator of the Cultural Heritage Institution detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it. 
+        <li>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused. 
+        <li>After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset’s location to the Query Index for search. 
+        <li>After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered. 
        </ol>
    </table>
-   <h5 class="heading settled" data-level="5.2.2.1" id="http-sequence③"><span class="secno">5.2.2.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence③"></a></h5>
+   <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/main/diagrams/new-dataset.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.2.3" id="-bp3-updating-a-dataset-in-the-registry"><span class="secno">5.2.3. </span><span class="content">(BP3) Updating a Dataset in the Registry</span><a class="self-link" href="#-bp3-updating-a-dataset-in-the-registry"></a></h4>
+   <li>
+    <ul>
+     <li>Collection Management System 
+     <li>Dashboard Cultural Heritage Institution 
+     <li>Orchestrator Cultural Heritage Institution 
+     <li>Data Pod Cultural Heritage Institution 
+     <li>Inbox Cultural Heritage Institution 
+     <li>Inbox Registry 
+     <li>Orchestrator Registry 
+    </ul>
    <table>
     <tbody>
      <tr>
       <td>Actor
       <td>
        <ul>
-        <li data-md>
-         <p>Actors</p>
-        <li data-md>
-         <p>Maintainer</p>
-        <li data-md>
-         <p>Registry</p>
-        <li data-md>
-         <p>Components</p>
-        <li data-md>
-         <p>Collection Management System</p>
-        <li data-md>
-         <p>Dashboard Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Orchestrator Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Data Pod Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Inbox Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Inbox Registry</p>
-        <li data-md>
-         <p>Orchestrator Registry</p>
+        <li>Actors
+        <li>
+         <ul>
+          <li>Maintainer 
+          <li>Registry 
+         </ul>
        </ul>
      <tr>
-      <td>Goal
+      <th> Components 
+     <tr>
+      <th>Goal
       <td>Reflect latests changes of a registered Dataset in the query results of  the Registry
      <tr>
-      <td>Stakeholders
+      <th>Stakeholders
       <td>
        <ul>
-        <li data-md>
-         <p>Other Cultural Heritage Institutions</p>
-        <li data-md>
-         <p>Browser / Service Portals</p>
-        <li data-md>
-         <p>Knowledge Graphs</p>
+        <li>Other Cultural Heritage Institutions 
+        <li>Browser / Service Portals 
+        <li>Knowledge Graphs 
        </ul>
      <tr>
-      <td>Preconditions
+      <th>Preconditions
       <td>
        <ul>
-        <li data-md>
-         <p>The Cultural Heritage Institution is known to the Registry.</p>
-        <li data-md>
-         <p>The Dataset is registered with the Registry</p>
+        <li>The Cultural Heritage Institution is known to the Registry. 
+        <li>The Dataset is registered with the Registry 
        </ul>
      <tr>
-      <td>Triggers
+      <th>Triggers
       <td>A new version of a Dataset is ready to be released.
      <tr>
-      <td>Postconditions
+      <th>Postconditions
       <td>
        <ul>
-        <li data-md>
-         <p>The Registry reflects the latest state of its registered Datasets.</p>
-        <li data-md>
-         <p>The Cultural Heritage Institution is aware of the last version in the registry</p>
+        <li>The Registry reflects the latest state of its registered Datasets. 
+        <li>The Cultural Heritage Institution is aware of the last version in the registry 
        </ul>
      <tr>
-      <td>Procedure
+      <th>Procedure
       <td>
        <ol>
-        <li data-md>
-         <p>A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System.</p>
-        <li data-md>
-         <p>The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently.</p>
-        <li data-md>
-         <p>The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.</p>
-        <li data-md>
-         <p>The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.</p>
-        <li data-md>
-         <p>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the update was successful.</p>
+        <li>A Maintainer of the Cultural Heritage Institution exports a new version of an existing Dataset from its Collection Management System. 
+        <li>The Maintainer updates the Dataset in the Data Pod using the Dashboard. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of Dashboard and the update happens transparently. 
+        <li>The Orchestrator of the Cultural Heritage Institution picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated. 
+        <li>The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes. 
+        <li>After completion, the Orchestrator of the Registry sends a notification to the institution’s inbox that the update was successful. 
        </ol>
    </table>
-   <h5 class="heading settled" data-level="5.2.3.1" id="http-sequence④"><span class="secno">5.2.3.1. </span><span class="content">HTTP Sequence</span><a class="self-link" href="#http-sequence④"></a></h5>
+   <p><strong>HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="300"></p>
    <h4 class="heading settled" data-level="5.2.4" id="-bp4-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4. </span><span class="content">(BP4) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp4-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
    <table>
@@ -3095,42 +3100,36 @@ The latter includes the possible outcome of the performed service.</p>
       <td>Actor
       <td>
        <ul>
-        <li data-md>
-         <p>Actors</p>
-        <li data-md>
-         <p>Maintainer</p>
-        <li data-md>
-         <p>Registry</p>
-        <li data-md>
-         <p>Components</p>
-        <li data-md>
-         <p>Dashboard Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Orchestrator Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Data Pod Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Inbox Cultural Heritage Institution</p>
-        <li data-md>
-         <p>Inbox Registry</p>
+        <li>Maintainer 
+        <li>Registry 
        </ul>
      <tr>
-      <td>Goal
+      <th> Components 
+      <td>
+       <ul>
+        <li>Dashboard Cultural Heritage Institution 
+        <li>Orchestrator Cultural Heritage Institution 
+        <li>Data Pod Cultural Heritage Institution 
+        <li>Inbox Cultural Heritage Institution 
+        <li>Inbox Registry 
+       </ul>
+     <tr>
+      <th>Goal
       <td>The Registry can access the necessary data in the Data Pod
      <tr>
-      <td>Stakeholders
+      <th>Stakeholders
       <td>/
      <tr>
-      <td>Preconditions
+      <th>Preconditions
       <td>The Registry does not have access to the Data Pod of the Cultural Heritage Institution
      <tr>
-      <td>Triggers
+      <th>Triggers
       <td>The Registry instance is unknown to the Data Pod
      <tr>
-      <td>Postconditions
+      <th>Postconditions
       <td>The Registry is added to the ACL list of the Data Pod
      <tr>
-      <td>Procedure
+      <th>Procedure
       <td>
        <ol>
         <li>The Maintainer opens the dashboard and adds the instance to the list of relevant Registry’s. 
@@ -3142,55 +3141,88 @@ The latter includes the possible outcome of the performed service.</p>
    <table>
     <tbody>
      <tr>
-      <td>Actor
-      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry
+      <th>Actor
+      <td>
+       <ul>
+        <li>Cultural Heritage Institution A 
+        <li>Cultural Heritage Institution B 
+        <li>Registry 
+       </ul>
      <tr>
-      <td>Goal
+      <th>Components
+      <td>
+       <ul>
+        <li>Orchestrator Cultural Heritage Institution B
+        <li>Data Pod Cultural Heritage Institution B
+        <li>Inbox Cultural Heritage Institution B
+        <li>Orchestrator Registry
+        <li>Inbox Registry
+       </ul>
+     <tr>
+      <th>Goal
       <td>Cultural Heritage Institution B adds links to Objects of Cultural Heritage Institution A after becoming aware of links from Objects of Cultural Heritage Institution A to a Objects of Cultural Heritage Institution B
      <tr>
-      <td>Stakeholders
+      <th>Stakeholders
       <td>Knowledge Graphs<br>Browser/ Service Portals<br>Users
      <tr>
-      <td>Preconditions
+      <th>Preconditions
       <td>A Dataset of Cultural Heritage Institution A known to the Registry contains links to objects of Cultural Heritage Institution B<br>The links have not been processed by the Registry yet.
      <tr>
-      <td>Triggers
+      <th>Triggers
       <td>The Registry has added or updated a Metadata Dataset in its Query Index
      <tr>
-      <td>Postconditions
+      <th>Postconditions
       <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of Cultural Heritage Institution A
      <tr>
-      <td>Procedure
-      <td>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. <br>Based on the Dataset’s origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links.<br>The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod.
+      <th>Procedure
+      <td>
+       <ol>
+        <li>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
+        <li>Based on the Dataset’s origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links. 
+        <li>The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod. 
+       </ol>
    </table>
    <h3 class="heading settled" data-level="5.3" id="perspective-registry---service-portal"><span class="secno">5.3. </span><span class="content">Perspective Registry - Service Portal</span><a class="self-link" href="#perspective-registry---service-portal"></a></h3>
-   <p>This section takes the perspective of the <a data-link-type="dfn" href="#registry" id="ref-for-registry④">Registry</a> Service and the <a data-link-type="dfn">Service Portal</a> application interacting.
+   <p>This section takes the perspective of the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥">Registry</a> Service and the <a data-link-type="dfn">Service Portal</a> application interacting.
 This entails business processes where both services notify eachother about important events. 
 Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry).</p>
    <h4 class="heading settled" data-level="5.3.1" id="-bp6-getting-relevant-dataset-links"><span class="secno">5.3.1. </span><span class="content">(BP6) Getting relevant dataset links</span><a class="self-link" href="#-bp6-getting-relevant-dataset-links"></a></h4>
+   <p></p>
    <table>
     <tbody>
      <tr>
-      <td>Actor
-      <td>Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry<br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry
+      <th>Actor
+      <td>
+       Actors<br>Cultural Heritage Institution A<br>Cultural Heritage Institution B<br>Registry 
+       <p><br>Components<br>Orchestrator Cultural Heritage Institution B<br>Data Pod Cultural Heritage Institution B<br>Inbox Cultural Heritage Institution B<br>Orchestrator Registry<br>Inbox Registry</p>
      <tr>
-      <td>Goal
+      <th>Goal
       <td>Cultural Heritage Institution B adds links to Objects of Cultural Heritage Institution A after becoming aware of links from Objects of Cultural Heritage Institution A to a Objects of Cultural Heritage Institution B
      <tr>
-      <td>Stakeholders
-      <td>Knowledge Graphs<br>Browser/ Service Portals<br>Users
+      <th>Stakeholders
+      <td>
+       Knowledge Graphs
+       <li>Browser/ Service Portals
+       <li>Users
      <tr>
-      <td>Preconditions
-      <td>A Dataset of Cultural Heritage Institution A known to the Registry contains links to objects of Cultural Heritage Institution B<br>The links have not been processed by the Registry yet.
+      <th>Preconditions
+      <td>
+       A Dataset of Cultural Heritage Institution A known to the Registry contains links to objects of Cultural Heritage Institution B
+       <li>The links have not been processed by the Registry yet.
      <tr>
-      <td>Triggers
+      <th>Triggers
       <td>The Registry has added or updated a Metadata Dataset in its Query Index
      <tr>
-      <td>Postconditions
+      <th>Postconditions
       <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of Cultural Heritage Institution A
      <tr>
-      <td>Procedure
-      <td>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. <br>Based on the Dataset’s origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links.<br>The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod.
+      <th>Procedure
+      <td>
+       <ol>
+        <li>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
+        <li>Based on the Dataset’s origin, it sends a notification to the Inbox of Cultural Heritage Institution B about the found links. 
+        <li>The Orchestrator of the Cultural Heritage Institution B picks up this change and generates new backlinks to Cultural Heritage Institution A, which it stores as a linkset in its Data Pod. 
+       </ol>
    </table>
   </main>
   <div data-fill-with="conformance">
@@ -3387,7 +3419,10 @@ Hence, these processes are often initiated by the completion of another business
    <ul>
     <li><a href="#ref-for-cultural-heritage-institution">3.4. Basic setup for Decentralized Digital Heritage Network</a>
     <li><a href="#ref-for-cultural-heritage-institution①">4. Pilod Use Cases</a>
-    <li><a href="#ref-for-cultural-heritage-institution②">5.2. Perspective Cultural Heritage Institution - Registry</a>
+    <li><a href="#ref-for-cultural-heritage-institution②">5.1.1. (BP0) Initialize a Digital Heritage Pod</a> <a href="#ref-for-cultural-heritage-institution③">(2)</a> <a href="#ref-for-cultural-heritage-institution④">(3)</a>
+    <li><a href="#ref-for-cultural-heritage-institution⑤">5.1.2. (BP1) Register an Orchestrator for a Digital Heritage Pod</a> <a href="#ref-for-cultural-heritage-institution⑥">(2)</a> <a href="#ref-for-cultural-heritage-institution⑦">(3)</a> <a href="#ref-for-cultural-heritage-institution⑧">(4)</a>
+    <li><a href="#ref-for-cultural-heritage-institution⑨">5.2. Perspective Cultural Heritage Institution - Registry</a>
+    <li><a href="#ref-for-cultural-heritage-institution①⓪">5.2.1. (BP1) Adding a Cultural Heritage Institution to the Registry</a> <a href="#ref-for-cultural-heritage-institution①①">(2)</a> <a href="#ref-for-cultural-heritage-institution①②">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dataset">
@@ -3405,7 +3440,8 @@ Hence, these processes are often initiated by the completion of another business
   <aside class="dfn-panel" data-for="maintainer">
    <b><a href="#maintainer">#maintainer</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-maintainer">5.1.1. (BP0) Initialize a Digital Heritage Pod</a>
+    <li><a href="#ref-for-maintainer">5.1.1. (BP0) Initialize a Digital Heritage Pod</a> <a href="#ref-for-maintainer①">(2)</a> <a href="#ref-for-maintainer②">(3)</a>
+    <li><a href="#ref-for-maintainer③">5.1.2. (BP1) Register an Orchestrator for a Digital Heritage Pod</a> <a href="#ref-for-maintainer④">(2)</a> <a href="#ref-for-maintainer⑤">(3)</a> <a href="#ref-for-maintainer⑥">(4)</a> <a href="#ref-for-maintainer⑦">(5)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-source-maintainer">
@@ -3425,8 +3461,10 @@ Hence, these processes are often initiated by the completion of another business
    <ul>
     <li><a href="#ref-for-registry">3.4. Basic setup for Decentralized Digital Heritage Network</a>
     <li><a href="#ref-for-registry①">4. Pilod Use Cases</a>
-    <li><a href="#ref-for-registry②">5.2. Perspective Cultural Heritage Institution - Registry</a> <a href="#ref-for-registry③">(2)</a>
-    <li><a href="#ref-for-registry④">5.3. Perspective Registry - Service Portal</a>
+    <li><a href="#ref-for-registry②">5.1.1. (BP0) Initialize a Digital Heritage Pod</a>
+    <li><a href="#ref-for-registry③">5.1.2. (BP1) Register an Orchestrator for a Digital Heritage Pod</a>
+    <li><a href="#ref-for-registry④">5.2. Perspective Cultural Heritage Institution - Registry</a> <a href="#ref-for-registry⑤">(2)</a>
+    <li><a href="#ref-for-registry⑥">5.3. Perspective Registry - Service Portal</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="network-of-terms">
