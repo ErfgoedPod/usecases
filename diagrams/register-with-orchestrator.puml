@@ -6,7 +6,7 @@ end title
 
 autonumber "<b>(R0)"
 actor maintainer as M
-participant Dashboard as D
+participant dashboard.kb.nl as D
 participant orchestrator.kb.nl as O
 participant pod.kb.nl as Pod
 participant netwerkdigitaalerfgoed.nl as NDE

@@ -467,7 +467,7 @@ This includes business processes that only affect actors inside a single institu
       <li>[=Maintainer=]</li>
       </ul>
       </td>
-      
+    </tr>  
     <tr>
       <th>
       Components
@@ -520,7 +520,7 @@ This includes business processes that only affect actors inside a single institu
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="300"  />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="600"  />
 
 ### (BP1) Register an Orchestrator for a Digital Heritage Pod
 
@@ -589,7 +589,7 @@ This includes business processes that only affect actors inside a single institu
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="300"  />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="600"  />
 
 ## Perspective Cultural Heritage Institution - Registry
 
@@ -668,7 +668,7 @@ The latter includes the possible outcome of the performed service.
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="300"  />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="600"  />
 
 ### (BP2) Adding a new Dataset to the Registry
 
@@ -755,7 +755,7 @@ The latter includes the possible outcome of the performed service.
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/main/diagrams/new-dataset.puml" width="300"  />
+<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/main/diagrams/new-dataset.puml" width="600"  />
 
 ### (BP3) Updating a Dataset in the Registry
 
@@ -843,7 +843,7 @@ The latter includes the possible outcome of the performed service.
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="300" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="600" />
 
 ### (BP4) Adding a Registry to the ACL of a Data Pod
 
