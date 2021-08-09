@@ -909,7 +909,7 @@ The latter includes the possible outcome of the performed service.
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/acl.puml" width="800" />
 
 ### (BP7) Constructing backlinks between two institutions
 

@@ -1,0 +1,24 @@
+@startuml update-dataset
+
+title
+ Adding a Registry to the ACL of a Data Pod.
+end title
+
+
+autonumber "<b>(R0)"
+actor maintainer as Maintainer 
+participant dashboard.kb.nl as D
+participant pod.kb.nl as Pod
+participant registry.nde.nl as R
+
+autonumber stop
+Maintainer -[#0000FF]> D: Adds registry.nde.nl to list
+Maintainer -[#0000FF]> D: Give registry.nde.nl access to 'dataset-desc.ttl'
+Maintainer -[#0000FF]> D: Give registry.nde.nl access to 'profile.ttl'
+
+D -[#0000FF]> Pod: Add registry.nde.nl to ACL
+
+D -> R: POST /inbox\n{ LDN Access granted to "pod.kb.nl/dataset-desc.ttl" and "pod.kb.nl/profile.ttl" }
+D <-- R: 201 Created\nLocation: registry.nde.nl/inbox/1
+
+@enduml
