@@ -338,7 +338,7 @@ Unlike the metadata providers, it is up to the instance how the service is imple
 However, if a service hub would provide data to other actors, it has to adopt a [[architecture-nde#digital-heritage-pod|Digital Heritage Pod]].
 
 All Digital Heritage Pod and Digital Heritage Service Hub are enhanced with the remaining components: 
-- an `Inbox` resource to receive [[ldn|Linked Data Notifications]] ([[architecture-nde#pod]]);
+- an [=Inbox=] resource to receive [[ldn|Linked Data Notifications]] ([[architecture-nde#pod]]);
 - a `Dashboard` and an `Orchestrator` with `Rulebook` to participate in the network ([[architecture-nde#participate]])
 - a `Query index` and a [[architecture-nde#artefact-lifecycle-event-log|Artefact Lifecycle Event Log]] to allow their infomation to be collected by others ([[architecture-nde#collection-information-from-a-decentralized-digital-heritage-network]])
 
@@ -474,8 +474,8 @@ This includes business processes that only affect actors inside a single institu
       </th>  
       <td>
         <ul>
-      <li>Dashboard
-        <li>Digital Heritage Pod
+      <li>[=Dashboard=]
+        <li>[=Digital Heritage Pod=]
         </ul>
       </td>
     </tr>
@@ -503,14 +503,14 @@ This includes business processes that only affect actors inside a single institu
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>A Solid Pod has been initialized as Digital Heritage Pod. It is running and is reachable by other actors in the Decentralized Digital Heritage Network.</td>
+      <td>A Solid Pod has been initialized as [=Digital Heritage Pod=]. It is running and is reachable by other actors in the Decentralized Digital Heritage Network.</td>
     </tr>
     <tr>
       <th>System</th>
       <td>
       <ol>
       <li>The [=Maintainer=] logs in into the [=Dashboard=] and enters the base URL of a Solid Data Pod.
-      <li>The [=Dashboard=] discovers the location of the `inbox` resource by requesting the pod's base URL. If authorization is required, the [=Dashboard=] requests access to the inbox.
+      <li>The [=Dashboard=] discovers the location of the [=Inbox=] resource by requesting the pod's base URL. If authorization is required, the [=Dashboard=] requests access to the inbox.
       <li>The [=Dashboard=] creates an eventlog resource inside the Solid Data Pod and stores the URI.
       <li>If the event log was created successfully, the [=Dashboard=] informs the [=Maintainer=] that the initialization is complete.
       </ol>
@@ -541,9 +541,9 @@ This includes business processes that only affect actors inside a single institu
       </th>  
       <td>
       <ul>
-        <li>Dashboard
-        <li>Digital Heritage Pod
-        <li>Orchestrator
+        <li>[=Dashboard=]
+        <li>[=Digital Heritage Pod=]
+        <li>[=Orchestrator=]
       </td>
     </tr>
     <tr>
@@ -577,8 +577,8 @@ This includes business processes that only affect actors inside a single institu
       <td>
       <ol>
       <li>The [=Maintainer=] logs into the [=Dashboard=] and starts the registration of a new orchestrator service.
-      <li>The [=Dashboard=] starts an [=Orchestrator=] process locally or uses an [=Orchestrator=] Web service. Once complete, the orchestrator process returns the location of the [=Orchestrator=]'s `inbox` resource.
-      <li>The [=Dashboard=] supplies a location of an `inbox` resource - most likely that of a [=Digital Heritage Pod=] - to the [=Orchestrator=] by sending a notification to its inbox. The [=orchestrator=] now watches the supplied `inbox` resources for incoming notifications.
+      <li>The [=Dashboard=] starts an [=Orchestrator=] process locally or uses an [=Orchestrator=] Web service. Once complete, the orchestrator process returns the location of the [=Orchestrator=]'s [=Inbox=] resource.
+      <li>The [=Dashboard=] supplies a location of an [=Inbox=] resource - most likely that of a [=Digital Heritage Pod=] - to the [=Orchestrator=] by sending a notification to its inbox. The [=orchestrator=] now watches the supplied [=Inbox=] resources for incoming notifications.
       <li>The [=Dashboard=] informs the [=Maintainer=] that the [=Orchestrator=] service is up and running.
       <li>Next, the [=Maintainer=] configures a list of [=rulebook=] file locations, which is used by the [=Dashboard=] to initialize the [=Orchestrator=].
       <li>The [=Orchestrator=] acknowledges that the [=rulebooks=] are now active. The [=Dashboard=] informs the [=Maintainer=] that this completes the initialization. 
@@ -605,8 +605,8 @@ The latter includes the possible outcome of the performed service.
       <th>Actors/Roles</th>
       <td>
         <ul>
-        <li>Maintainer
-        <li>Registry
+        <li>[=Maintainer=]
+        <li>[=Registry=]
         </ul>
       </td>
     </tr>
@@ -614,31 +614,39 @@ The latter includes the possible outcome of the performed service.
       <th>Components</th>  
       <td>
         <ul>
-        <li>Dashboard 
-        <li>Orchestrator [=Cultural Heritage Institution=]
-        <li>Digital Heritage Pod [=Cultural Heritage Institution=]
-        <li>Inbox [=Cultural Heritage Institution=]
-        <li>Inbox [=Registry=]
-        <li>Orchestrator [=Registry=]
+        <li>[=Dashboard=] 
+        <li>[=Orchestrator=] of [=Cultural Heritage Institution=]
+        <li>[=Digital Heritage Pod=] of [=Cultural Heritage Institution=]
+        <li>[=Inbox=] of [=Cultural Heritage Institution=]
+        <li>[=Inbox=] of [=Registry=]
+        <li>[=Orchestrator=] of [=Registry=]
         </ul>
       </td>
     </tr>
     <tr>
       <th>Goal</th>
-      <td>The network is aware of the organization: it can be discovered by exploring or querying the Registry.</td>
+      <td>The network is aware of the organization: it can be discovered by exploring or querying the [=Registry=].</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
       <td>
         <ul>
-        <li>Browser / Service Portals
-        <li>Users of the Knowledge graph
+        <li>Browser / Service Portals</li>
+        <li>Users of the [=Knowledge graph=]</li>
         </ul>
       </td>
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td><ul><li>There exists a Metadata Organization with basic details (eg. identifier, name) with the [=Cultural Heritage Institution=].<li>The [=Cultural Heritage Institution=] is not known to the Registry. <li>The [=Cultural Heritage Institution=] can be identified and located using a persistent identifier (URI). <li>The [=Cultural Heritage Institution=] has a curated list of preferred Registry instances with a link to their inboxes.<li>The list of preferred Registry instances is added to the ACL of the [=Cultural Heritage Institution=] Data Pod with read permissions.</ul></td>
+      <td>
+        <ul>
+          <li>There exists a [=Metadata Organization=] with basic details (eg. identifier, name) with the [=Cultural Heritage Institution=].
+          <li>The [=Cultural Heritage Institution=] is not known to the [=Registry=].
+          <li>The [=Cultural Heritage Institution=] can be identified and located using a persistent identifier (URI).
+          <li>The [=Cultural Heritage Institution=] has a curated list of preferred [=Registry=] instances with a link to their inboxes.
+          <li>The list of preferred [=Registry=] instances is added to the ACL of the [=Cultural Heritage Institution=] Data Pod with read permissions.
+        </ul>
+      </td>
     </tr>
     <tr>
       <th>Triggers</th>
@@ -646,7 +654,7 @@ The latter includes the possible outcome of the performed service.
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>Metadata Organization is added to the search query index of the Registry.  <br>The [=Cultural Heritage Institution=] is aware that it is registered with the Registry</td>
+      <td>[=Metadata Organization=] is added to the search query index of the Registry.  <br>The [=Cultural Heritage Institution=] is aware that it is registered with the [=Registry=]</td>
     </tr>
     <tr>
       <th>System</th>
@@ -732,7 +740,7 @@ The latter includes the possible outcome of the performed service.
       <th>Postconditions</th>
       <td>
         <ul>
-            <li>The Metadata Dataset is added to the search query index of the Registry.
+            <li>The [=Metadata Dataset=] is added to the search query index of the Registry.
         <li>The [=Cultural Heritage Institution=] is aware that the Dataset is registered with the Registry, because it has confirmation that the Metadata Dataset was accepted and processed.
         </ul>
       </td>
@@ -741,9 +749,9 @@ The latter includes the possible outcome of the performed service.
       <th>Procedure</th>
       <td>
           <ol>
-            <li>A Maintainer of the [=Cultural Heritage Institution=] exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.
-            <li>Using the [=Dashboard=], the Maintainer creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the creation of the profile happens transparently. 
-            <li>The Maintainer uses the [=Dashboard=] to start the registration of the Dataset.
+            <li>A [=Maintainer=] of the [=Cultural Heritage Institution=] exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.
+            <li>Using the [=Dashboard=], the [=Maintainer=] creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the creation of the profile happens transparently. 
+            <li>The [=Maintainer=] uses the [=Dashboard=] to start the registration of the Dataset.
             <li>The Orchestrator of the [=Cultural Heritage Institution=] detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it. 
             <li>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused.
             <li>After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset’s location to the Query Index for search. 
@@ -766,7 +774,7 @@ The latter includes the possible outcome of the performed service.
       <th>Actor</th>
       <td>
           <ul>
-            <li>Maintainer
+            <li>[=Maintainer=]
             <li>Registry
           </ul>
       </td>
@@ -825,8 +833,8 @@ The latter includes the possible outcome of the performed service.
       <th>Procedure</th>
       <td>
         <ol>
-          <li>A Maintainer of the [=Cultural Heritage Institution=] exports a new version of an existing Dataset from its Collection Management System. 
-          <li>The Maintainer updates the Dataset in the Data Pod using the [=Dashboard=]. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the update happens transparently. 
+          <li>A [=Maintainer=] of the [=Cultural Heritage Institution=] exports a new version of an existing Dataset from its Collection Management System. 
+          <li>The [=Maintainer=] updates the Dataset in the Data Pod using the [=Dashboard=]. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the update happens transparently. 
           <li>The Orchestrator of the [=Cultural Heritage Institution=] picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.
           <li>The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.
           <li>After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the update was successful.
@@ -848,7 +856,7 @@ The latter includes the possible outcome of the performed service.
       <th>Actor</th>
       <td>
       <ul>
-          <li>Maintainer
+          <li>[=Maintainer=]
           <li>Registry
           </ul>
       </td>
@@ -890,8 +898,8 @@ The latter includes the possible outcome of the performed service.
       <th>Procedure</th>
       <td>
       <ol>
-        <li>The Maintainer opens the [=Dashboard=] and adds the instance to the list of relevant Registry’s.
-        <li>The Maintainer grants the Registry (partial) access to the Organization and Metadata Dataset. 
+        <li>The [=Maintainer=] opens the [=Dashboard=] and adds the instance to the list of relevant Registry’s.
+        <li>The [=Maintainer=] grants the Registry (partial) access to the Organization and Metadata Dataset. 
         <li>The Orchestrator of the [=Cultural Heritage Institution=] picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
       </ol>
       </td>
