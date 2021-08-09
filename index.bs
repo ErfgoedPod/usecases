@@ -764,7 +764,7 @@ The latter includes the possible outcome of the performed service.
 
 **HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-dataset.puml" width="800"  />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-dataset.puml" width="800"  />
 
 ### (BP5) Updating a Dataset in the Registry
 
