@@ -1,0 +1,30 @@
+@startuml dataset-discovery
+
+title
+ Discovering and retrieving a dataset via the Registry.
+end title
+
+autonumber "<b>(R0)"
+participant registry.nde.nl as R
+participant kg.oorlogsbronnen.nl as S
+participant pod.kb.nl as Pod
+
+autonumber stop
+R <-[#0000FF]> R: Indexed 'pod.kb.nl/dataset.ttl'\nwith description 'pod.kb.nl/dataset-desc.ttl'
+R <-[#0000FF]> R: Check subscription list for matches with the topics in 'pod.kb.nl/dataset-desc.ttl'
+
+autonumber resume
+R -> S: POST /inbox\n{ LDN Dataset 'pod.kb.nl/dataset.ttl' mentions topic 'http://example.org/WOII' }
+R <-- S: 201 Created\nLocation: kg.oorlogsbronnen.nl/inbox/1
+
+autonumber stop
+S <-[#0000FF]> S: Extract link to 'pod.kb.nl/dataset.ttl' from notification 'kg.oorlogsbronnen.nl/inbox/1'
+
+autonumber resume
+S -> Pod: GET /pod.kb.nl/dataset.ttl
+S <-- Pod: 200 OK
+
+autonumber stop
+S <-[#0000FF]> S: Process 'pod.kb.nl/dataset.ttl'
+
+@enduml

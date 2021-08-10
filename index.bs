@@ -518,7 +518,7 @@ This includes business processes that only affect actors inside a single institu
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="800"  />
 
@@ -587,7 +587,7 @@ This includes business processes that only affect actors inside a single institu
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/register-with-orchestrator.puml" width="800"  />
 
@@ -674,11 +674,11 @@ The latter includes the possible outcome of the performed service.
 </table>
 
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="800"  />
 
-### (BP4) Adding a new Dataset to the Registry
+### (BP4) Adding a new Dataset to the Registry ### {#BP4}
 
 <table>
   <tbody>
@@ -687,8 +687,8 @@ The latter includes the possible outcome of the performed service.
       <td>
       <ul>
         <li>[=Cultural Heritage Institution=]
-        <li>Maintainer
-        <li>Registry
+        <li>[=Maintainer=]
+        <li>[=Registry=]
       </ul>
       </td>
     </tr>
@@ -698,13 +698,13 @@ The latter includes the possible outcome of the performed service.
       </th>  
       <td>
       <ul>
-        <li>Collection Management System
-        <li>Dashboard [=Cultural Heritage Institution=]
-        <li>Orchestrator [=Cultural Heritage Institution=]
-        <li>Data Pod [=Cultural Heritage Institution=]
-        <li>Inbox [=Cultural Heritage Institution=]
-        <li>Inbox [=Registry=]
-        <li>Orchestrator [=Registry=]
+        <li>[=Collection Management System=]
+        <li>[=Dashboard=] of [=Cultural Heritage Institution=]
+        <li>[=Orchestrator=] [=Cultural Heritage Institution=]
+        <li>[=Digital Heritage Pod=] of [=Cultural Heritage Institution=]
+        <li>[=Inbox=] of [=Cultural Heritage Institution=]
+        <li>[=Inbox=] of [=Registry=]
+        <li>[=Orchestrator=] [=Registry=]
         </ul>
       </td>
     </tr>
@@ -752,21 +752,21 @@ The latter includes the possible outcome of the performed service.
             <li>A [=Maintainer=] of the [=Cultural Heritage Institution=] exports a new Dataset from its Collection Management System and stores it in the Data Pod. The Dataset is given a persistent URI through which it is remotely accessible.
             <li>Using the [=Dashboard=], the [=Maintainer=] creates a ‘Metadata Dataset’ profile with a brief description of the Dataset (object descriptions, annotations), which is also stored in the Data Pod.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the creation of the profile happens transparently. 
             <li>The [=Maintainer=] uses the [=Dashboard=] to start the registration of the Dataset.
-            <li>The Orchestrator of the [=Cultural Heritage Institution=] detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the Registry follows the link to the Metadata Dataset and attempts to download it. 
-            <li>Optional step in case the Metadata is not open licensed: When the Registry has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused.
-            <li>After the Metadata Dataset has been downloaded, the Orchestrator of the Registry adds the metadata with the Dataset’s location to the Query Index for search. 
-            <li>After the indexing has completed, the Orchestrator of the Registry sends a notification to the institution’s inbox that the Dataset was registered.
+            <li>The Orchestrator of the [=Cultural Heritage Institution=] detects the dataset registration event and sends a notification on the existence of the published Dataset to the preferred Registry’s Inbox. It contains the identifier of the Dataset and the link to the Metadata Dataset. <br>When notified, the Orchestrator of the [=Registry=] follows the link to the Metadata Dataset and attempts to download it. 
+            <li>Optional step in case the Metadata is not open licensed: When the [=Registry=] has reading access to the Metadata Dataset in the Data Pod’s ACL, it is granted access. Else, the download is refused.
+            <li>After the Metadata Dataset has been downloaded, the Orchestrator of the [=Registry=] adds the metadata with the Dataset’s location to the Query Index for search. 
+            <li>After the indexing has completed, the Orchestrator of the [=Registry=] sends a notification to the institution’s inbox that the Dataset was registered.
           </ol>
       </td>
     </tr>
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-dataset.puml" width="800"  />
 
-### (BP5) Updating a Dataset in the Registry
+### (BP5) Updating a Dataset in the Registry ### {#BP5}
 
 <table>
   <tbody>
@@ -785,11 +785,11 @@ The latter includes the possible outcome of the performed service.
           <ul>
             <li>Collection Management System
             <li>Dashboard [=Cultural Heritage Institution=]
-            <li>Orchestrator [=Cultural Heritage Institution=]
+            <li>Orchestrator of [=Cultural Heritage Institution=]
             <li>Data Pod [=Cultural Heritage Institution=]
-            <li>Inbox [=Cultural Heritage Institution=]
-            <li>Inbox [=Registry=]
-            <li>Orchestrator [=Registry=]
+            <li>Inbox of [=Cultural Heritage Institution=]
+            <li>Inbox of [=Registry=]
+            <li>Orchestrator of [=Registry=]
           </ul>
       </td>
     </tr>
@@ -824,7 +824,7 @@ The latter includes the possible outcome of the performed service.
       <th>Postconditions</th>
       <td>
         <ul>
-          <li>The Registry reflects the latest state of its registered [=Datasets=].
+          <li>The [=Registry=] reflects the latest state of its registered [=Datasets=].
           <li>The [=Cultural Heritage Institution=] is aware of the last version in the registry
         </ul>
       </td>
@@ -833,18 +833,18 @@ The latter includes the possible outcome of the performed service.
       <th>Procedure</th>
       <td>
         <ol>
-          <li>A [=Maintainer=] of the [=Cultural Heritage Institution=] exports a new version of an existing Dataset from its Collection Management System. 
-          <li>The [=Maintainer=] updates the Dataset in the Data Pod using the [=Dashboard=]. An updated Metadata Dataset is created.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the update happens transparently. 
-          <li>The Orchestrator of the [=Cultural Heritage Institution=] picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.
-          <li>The Orchestrator of the Registry downloads the updated Metadata Dataset and adjusts its index entries if the profile introduces changes.
-          <li>After completion, the Orchestrator of the Registry sends a notification to the institution's inbox that the update was successful.
+          <li>A [=Maintainer=] of the [=Cultural Heritage Institution=] exports a new version of an existing Dataset from its [=Collection Management System=]. 
+          <li>The [=Maintainer=] updates the Dataset in the Data Pod using the [=Dashboard=]. An updated [=Metadata Dataset=] is created.In practice, the Collection Management System will adopt the role of [=Dashboard=] and the update happens transparently. 
+          <li>The [=Orchestrator=] of the [=Cultural Heritage Institution=] picks up this update event and sends a notification to the Registry’s inbox that the Dataset has been updated.
+          <li>The [=Orchestrator=] of the [=Registry=] downloads the updated [=Metadata Dataset=] and adjusts its index entries if the profile introduces changes.
+          <li>After completion, the [=Orchestrator=] of the [=Registry=] sends a notification to the institution's inbox that the update was successful.
         </ol>
       </td>
     </tr>
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
 
@@ -855,10 +855,10 @@ The latter includes the possible outcome of the performed service.
     <tr>
       <th>Actor</th>
       <td>
-      <ul>
+        <ul>
           <li>[=Maintainer=]
-          <li>Registry
-          </ul>
+          <li>[=Registry=]
+        </ul>
       </td>
     </tr>
     <tr>
@@ -867,16 +867,16 @@ The latter includes the possible outcome of the performed service.
       </th>  
       <td>
                 <ul>
-        <li>Dashboard [=Cultural Heritage Institution=]
-        <li>Orchestrator [=Cultural Heritage Institution=]
-        <li>Data Pod [=Cultural Heritage Institution=]
-        <li>Inbox [=Cultural Heritage Institution=]
-        <li>Inbox Registry
+        <li>[=Dashboard=] of [=Cultural Heritage Institution=]
+        <li>[=Orchestrator=] of [=Cultural Heritage Institution=]
+        <li>[=Digital Heritage Pod=] of [=Cultural Heritage Institution=]
+        <li>[=Inbox=] of [=Cultural Heritage Institution=]
+        <li>[=Inbox=] of [=Registry=]
           </ul>
       </td>
     <tr>
       <th>Goal</th>
-      <td>The Registry can access the necessary data in the Data Pod</td>
+      <td>The [=Registry=] can access the necessary data in the Data Pod</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
@@ -884,22 +884,22 @@ The latter includes the possible outcome of the performed service.
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td>The Registry does not have access to the Data Pod of the [=Cultural Heritage Institution=]</td>
+      <td>The [=Registry=] does not have access to the Data Pod of the [=Cultural Heritage Institution=]</td>
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>The Registry instance is unknown to the Data Pod</td>
+      <td>The [=Registry=] instance is unknown to the Data Pod</td>
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>The Registry is added to the ACL list of the Data Pod</td>
+      <td>The [=Registry=] is added to the ACL list of the Data Pod</td>
     </tr>
     <tr>
       <th>Procedure</th>
       <td>
       <ol>
         <li>The [=Maintainer=] opens the [=Dashboard=] and adds the instance to the list of relevant Registry’s.
-        <li>The [=Maintainer=] grants the Registry (partial) access to the Organization and Metadata Dataset. 
+        <li>The [=Maintainer=] grants the [=Registry=] (partial) access to the Organization and Metadata Dataset. 
         <li>The Orchestrator of the [=Cultural Heritage Institution=] picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
       </ol>
       </td>
@@ -907,7 +907,7 @@ The latter includes the possible outcome of the performed service.
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/acl.puml" width="800" />
 
@@ -940,11 +940,11 @@ The latter includes the possible outcome of the performed service.
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td>A Dataset of [=Cultural Heritage Institution=] A known to the Registry contains links to objects of [=Cultural Heritage Institution=] B<br>The links have not been processed by the Registry yet.</td>
+      <td>A Dataset of [=Cultural Heritage Institution=] A known to the [=Registry=] contains links to objects of [=Cultural Heritage Institution=] B<br>The links have not been processed by the [=Registry=] yet.</td>
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>The Registry has added or updated a Metadata Dataset in its Query Index</td>
+      <td>The [=Registry=] has added or updated a Metadata Dataset in its Query Index</td>
     </tr>
     <tr>
       <th>Postconditions</th>
@@ -954,7 +954,7 @@ The latter includes the possible outcome of the performed service.
       <th>Procedure</th>
       <td>
         <ol>
-          <li>The Orchestrator of the Registry picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
+          <li>The Orchestrator of the [=Registry=] picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
           <li>Based on the Dataset’s origin, it sends a notification to the Inbox of [=Cultural Heritage Institution=] B about the found links.
           <li>The Orchestrator of the [=Cultural Heritage Institution=] B picks up this change and generates new backlinks to [=Cultural Heritage Institution=] A, which it stores as a linkset in its Data Pod.
         </ol>
@@ -963,7 +963,7 @@ The latter includes the possible outcome of the performed service.
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
 
@@ -981,9 +981,9 @@ Hence, these processes are often initiated by the completion of another business
       <th>Actor</th>
       <td>
       <ul>
-        <li>Service Portal Provider
-        <li>Network of Terms
-        <li>Registry
+        <li>[=Service Portal Provider=]
+        <li>[=Network of Terms=]
+        <li>[=Registry=]
       </ul>
       </td>
     </tr>
@@ -991,15 +991,15 @@ Hence, these processes are often initiated by the completion of another business
       <th>Components</th>
       <td>
       <ul>
-        <li>Service Portal
-        <li>Inbox [=Service Portal=] / [=Network Of Terms=]
-        <li>Inbox [=Registry=]
+        <li>[=Service Portal=]
+        <li>[=Inbox=] of [=Service Portal=] / [=Network Of Terms=]
+        <li>[=Inbox=] of [=Registry=]
       </ul>
       </td>
     </tr>
     <tr>
       <th>Goal</th>
-      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic at a [=Registry=], 
+      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic - defined by a query - at a [=Registry=], 
       of which it wants to receive notifications about related artefacts.</td>
     </tr>
     <tr>
@@ -1012,7 +1012,13 @@ Hence, these processes are often initiated by the completion of another business
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td></td>
+      <td>
+      <ol>
+      <li>A [=Registry=] is known to the [=Service Portal=].
+      <li>The [=Service Portal=] has a query that defines the subscription topic.
+      <li>
+      </ol>
+      </td>
     </tr>
     <tr>
       <th>Triggers</th>
@@ -1026,8 +1032,9 @@ Hence, these processes are often initiated by the completion of another business
       <th>Procedure</th>
       <td>
         <ol>
-          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
-          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the Registry creates it.
+          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. 
+          This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the [=Service Portal=]. 
+          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]. If an index does not exist, the [=Registry=] creates it.
           <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
         </ol>  
       </td>
@@ -1035,10 +1042,9 @@ Hence, these processes are often initiated by the completion of another business
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
-
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/topic-subscription.puml" width="800" />
 
 ### (BP9) Discovering a dataset related to a subscribed topic
 
@@ -1048,9 +1054,10 @@ Hence, these processes are often initiated by the completion of another business
       <th>Actor</th>
       <td>
       <ul>
-        <li>Service Portal Provider
-        <li>Network of Terms
-        <li>Registry
+        <li>[=Service Portal Provider=]
+        <li>[=Network of Terms=]
+        <li>[=Registry=]
+        <li>[=Cultural Heritage Institution=]
       </ul>
       </td>
     </tr>
@@ -1058,16 +1065,16 @@ Hence, these processes are often initiated by the completion of another business
       <th>Components</th>
       <td>
       <ul>
-        <li>Service Portal
-        <li>Inbox [=Service Portal=]
-        <li>Inbox [=Registry=]
+        <li>[=Service Portal=]
+        <li>[=Inbox=] of [=Service Portal=] / [=Network Of Terms=]
+        <li>[=Inbox=] of [=Registry=]
+        <li>[=Digital Heritage Pod=] of [=Cultural Heritage Institution=]
       </ul>
       </td>
     </tr>
     <tr>
       <th>Goal</th>
-      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic at a [=Registry=], 
-      of which it wants to receive notifications about related artefacts.</td>
+      <td>A [=Service Portal Provider=] or [=Network of Terms=] retrieved a discovered [=Dataset=] for further processing.</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
@@ -1079,34 +1086,44 @@ Hence, these processes are often initiated by the completion of another business
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td></td>
+      <td>
+        <ol>
+          <li>The [=Registry=] is known to the [=Service Portal=].
+          <li>The [=Service Portal=] or [=Network of Terms=] is registered to a certain [=term=] at the [=Registry=] .
+          <li>The [=Registry=] has new or updated [=Metadata Dataset=] related to the desired topic.
+          <li>
+        </ol>
+      </td>
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>The Registry has added or updated a Metadata Dataset in its Query Index.</td>
+      <td>The [=Registry=] has added or updated a [=Metadata Dataset=] in its Query Index.</td>
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>The [=Service Portal=] is subscribed to a dataset topic in the Registry.</td>
+      <td>The [=Service Portal=] has retrieved the [=Dataset=].</td>
     </tr>
     <tr>
       <th>Procedure</th>
       <td>
         <ol>
-          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
-          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the Registry creates it.
-          <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
+          <li>On the reception of a new or updated [=Metadata Dataset=] (via [[#BP4]] or [[#BP5]]),
+          the [=Registry=] cross-checks the list of subscriptions. 
+          <li>If a [=Metadata Dataset=] matches a subscription [=term=]],
+          the [=Registry=] sends a notification to the inbox of the [=Service Portal=]'s or [=Network of Terms=] that are subscribed.
+          The notification contains a link to the [=Dataset=], which was extracted from the [=Dataset Description=].
+          <li>When receiving this notification,
+          the [=Service Portal=] or [=Network of Terms=] extracts the [=Dataset=] link and downloads the [=Dataset=] from the [=Cultural Heritage Institution=]'s [=Digital Heritage Pod=].
+          <li>After the download is complete, the [=Service Portal=] or [=Network of Terms=] processes the [=Dataset=].
         </ol>  
       </td>
     </tr>
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
-
-
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/dataset-discovery.puml" width="800" />
 
 ### (BP10) Discovering a Term source
 
@@ -1162,7 +1179,7 @@ Hence, these processes are often initiated by the completion of another business
       <td>
         <ol>
           <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
-          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the Registry creates it.
+          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the [=Registry=] creates it.
           <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
         </ol>  
       </td>
@@ -1170,7 +1187,7 @@ Hence, these processes are often initiated by the completion of another business
   </tbody>
 </table>
 
-**HTTP Sequence**
+**Example HTTP Sequence**
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
 
