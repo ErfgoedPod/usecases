@@ -1,0 +1,22 @@
+@startuml topic-subscription
+
+title
+ Subscribing to a topic in the Registry.
+end title
+
+
+autonumber "<b>(R0)"
+participant registry.nde.nl as R
+participant kg.oorlogsbronnen.nl as S
+
+S -> R: POST /inbox\n{ LDN Subscribe to term "http://example.org/WOII" }
+S <-- R: 201 Created\nLocation: registry.nde.nl/inbox/1
+
+autonumber stop
+R <-[#0000FF]> R: Add 'kg.oorlogsbronnen.nl' to index at topic 'http://example.org/WOII'
+
+autonumber resume
+R -> S: POST /inbox\n{ LDN 'kg.oorlogsbronnen.nl' was subscribed to topic 'http://example.org/WOII' }
+R <-- S: 201 Created\nLocation: kg.oorlogsbronnen.nl/inbox/1
+
+@enduml
