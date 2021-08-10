@@ -1,0 +1,30 @@
+@startuml dataset-discovery
+
+title
+ Discovering and retrieving a term source via the Registry.
+end title
+
+autonumber "<b>(R0)"
+participant registry.nde.nl as R
+participant termennetwerk.nde.nl as S
+participant pod.kb.nl as Pod
+
+autonumber stop
+R <-[#0000FF]> R: Indexed 'pod.kb.nl/terms.ttl'\nwith description 'pod.kb.nl/terms-desc.ttl'
+R <-[#0000FF]> R: Check subscription list for matches with the terms in 'pod.kb.nl/terms-desc.ttl'
+
+autonumber resume
+R -> S: POST /inbox\n{ LDN Term Source 'pod.kb.nl/terms.ttl' mentions term 'http://example.org/WOII' }
+R <-- S: 201 Created\nLocation: termennetwerk.nde.nl/inbox/1
+
+autonumber stop
+S <-[#0000FF]> S: Extract link to 'pod.kb.nl/terms.ttl' from notification 'termennetwerk.nde.nl/inbox/1'
+
+autonumber resume
+S -> Pod: GET /pod.kb.nl/terms.ttl
+S <-- Pod: 200 OK
+
+autonumber stop
+S <-[#0000FF]> S: Index 'pod.kb.nl/terms.ttl'
+
+@enduml
