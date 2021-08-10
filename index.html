@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="2ed33ff547d70efc4759e30ab36c23485da4b6a3" name="document-revision">
+  <meta content="52532575422d679ed2c78dcf99498205b3fe1d82" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1940,7 +1940,7 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>/
      <tr>
       <td>MT
-      <td><dfn data-dfn-type="dfn" data-export id="metadata-term-source">Metadata Term Source<a class="self-link" href="#metadata-term-source"></a></dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="metadata-term-source">Metadata Term Source</dfn>
       <td>Descriptive document about a Term Source.
       <td>Metadata Terminologiebron
       <td>/
@@ -3252,7 +3252,6 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ul>
         <li><a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider③">Service Portal Provider</a> 
-        <li><a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑤">Network of Terms</a> 
         <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑨">Registry</a> 
         <li><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥③">Cultural Heritage Institution</a> 
        </ul>
@@ -3261,13 +3260,13 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ul>
         <li><a data-link-type="dfn">Service Portal</a> 
-        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn">Service Portal</a> / <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑥">Network Of Terms</a> 
+        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn">Service Portal</a> 
         <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⓪">Registry</a> 
         <li><a data-link-type="dfn">Digital Heritage Pod</a> of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥④">Cultural Heritage Institution</a> 
        </ul>
      <tr>
       <th>Goal
-      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider④">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑦">Network of Terms</a> retrieved a discovered <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑦">Dataset</a> for further processing.
+      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider④">Service Portal Provider</a> retrieved a discovered <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑦">Dataset</a> for further processing.
      <tr>
       <th>Stakeholders
       <td>
@@ -3279,9 +3278,8 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ol>
         <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥①">Registry</a> is known to the <a data-link-type="dfn">Service Portal</a>. 
-        <li>The <a data-link-type="dfn">Service Portal</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑧">Network of Terms</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term②">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥②">Registry</a> . 
+        <li>The <a data-link-type="dfn">Service Portal</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term②">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥②">Registry</a> . 
         <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥③">Registry</a> has new or updated <a data-link-type="dfn">Metadata Dataset</a> related to the desired topic. 
-        <li>
        </ol>
      <tr>
       <th>Triggers
@@ -3296,11 +3294,11 @@ Hence, these processes are often initiated by the completion of another business
         <li>On the reception of a new or updated <a data-link-type="dfn">Metadata Dataset</a> (via <a href="#BP4">§ 5.2.2 (BP4) Adding a new Dataset to the Registry</a> or <a href="#BP5">§ 5.2.3 (BP5) Updating a Dataset in the Registry</a>),
           the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑤">Registry</a> cross-checks the list of subscriptions. 
         <li>If a <a data-link-type="dfn">Metadata Dataset</a> matches a subscription <a data-link-type="dfn" href="#term" id="ref-for-term③">term</a>],
-          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑥">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑨">Network of Terms</a> that are subscribed.
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑥">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s that are subscribed.
           The notification contains a link to the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑨">Dataset</a>, which was extracted from the <a data-link-type="dfn">Dataset Description</a>. 
         <li>When receiving this notification,
-          the <a data-link-type="dfn">Service Portal</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms①⓪">Network of Terms</a> extracts the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①⓪">Dataset</a> link and downloads the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①①">Dataset</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑤">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>. 
-        <li>After the download is complete, the <a data-link-type="dfn">Service Portal</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms①①">Network of Terms</a> processes the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①②">Dataset</a>. 
+          the <a data-link-type="dfn">Service Portal</a> extracts the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①⓪">Dataset</a> link and downloads the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①①">Dataset</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑤">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>. 
+        <li>After the download is complete, the <a data-link-type="dfn">Service Portal</a> processes the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①②">Dataset</a>. 
        </ol>
    </table>
    <p><strong>Example HTTP Sequence</strong></p>
@@ -3312,22 +3310,22 @@ Hence, these processes are often initiated by the completion of another business
       <th>Actor
       <td>
        <ul>
-        <li>Service Portal Provider 
-        <li>Network of Terms 
-        <li>Registry 
+        <li><a data-link-type="dfn">Network of Terms Provider</a> 
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑦">Registry</a> 
+        <li><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑥">Cultural Heritage Institution</a> 
        </ul>
      <tr>
       <th>Components
       <td>
        <ul>
-        <li>Service Portal 
-        <li>Inbox <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms①②">Network Of Terms</a> 
-        <li>Inbox <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑦">Registry</a> 
+        <li><a data-link-type="dfn">Service Portal</a> 
+        <li><a data-link-type="dfn">Inbox</a> of [=<a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑤">Network of Terms</a> 
+        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑧">Registry</a> 
+        <li><a data-link-type="dfn">Digital Heritage Pod</a> of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑦">Cultural Heritage Institution</a> 
        </ul>
      <tr>
       <th>Goal
-      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider⑤">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms①③">Network of Terms</a> subscribes to a topic at a <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑧">Registry</a>, 
-      of which it wants to receive notifications about related artefacts.
+      <td>A <a data-link-type="dfn">Network of Terms Provider</a> adds a new <a data-link-type="dfn" href="#term-source" id="ref-for-term-source②">Term Source</a> to its index.
      <tr>
       <th>Stakeholders
       <td>
@@ -3337,23 +3335,33 @@ Hence, these processes are often initiated by the completion of another business
      <tr>
       <th>Preconditions
       <td>
+       <ol>
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑨">Registry</a> is known to the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑥">Network of Terms</a>. 
+        <li>The <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑦">Network of Terms</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term④">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⓪">Registry</a> . 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦①">Registry</a> has new or updated <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source">Metadata Term Source</a> related to the desired <a data-link-type="dfn" href="#term" id="ref-for-term⑤">term</a>. 
+       </ol>
      <tr>
       <th>Triggers
-      <td>A <a data-link-type="dfn">Service Portal</a> wants to subscribe to artefacts or a certain topic.
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦②">Registry</a> has added or updated a <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source①">Metadata Term Source</a> in its Query Index.
      <tr>
       <th>Postconditions
-      <td>The <a data-link-type="dfn">Service Portal</a> is subscribed to a dataset topic in the Registry.
+      <td>The <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑧">Network of Terms</a> has retrieved the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source③">Term Source</a>.
      <tr>
       <th>Procedure
       <td>
        <ol>
-        <li>A <a data-link-type="dfn">Service Portal</a> sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑨">Registry</a> requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of <a data-link-type="dfn" href="#term" id="ref-for-term④">Terms</a> and the inbox of the Service Portal. 
-        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⓪">Registry</a> adds the <a data-link-type="dfn">Service Portal</a>'s inbox URL to an index per <a data-link-type="dfn" href="#term" id="ref-for-term⑤">term</a>]. If an index does not exist, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦①">Registry</a> creates it. 
-        <li>When the indexing is completed, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦②">Registry</a> sends a notification to the <a data-link-type="dfn">Service Portal</a>'s inbox to confirm the subscription. 
+        <li>On the reception of a new or updated <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source②">Metadata Term Source</a> (via <a href="#BP4">§ 5.2.2 (BP4) Adding a new Dataset to the Registry</a> or <a href="#BP5">§ 5.2.3 (BP5) Updating a Dataset in the Registry</a>),
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦③">Registry</a> cross-checks the list of subscriptions. 
+        <li>If a <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source③">Metadata Term Source</a> matches a subscription <a data-link-type="dfn" href="#term" id="ref-for-term⑥">term</a>],
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦④">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s that are subscribed.
+          The notification contains a link to the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source④">Term Source</a>, which was extracted from the <a data-link-type="dfn">Dataset Description</a>. 
+        <li>When receiving this notification,
+          the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑨">Network of Terms</a> extracts the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑤">Term Source</a> link and downloads the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑥">Term Source</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⑧">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>. 
+        <li>After the download is complete, the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms①⓪">Network of Terms</a> processes the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑦">Term Source</a>. 
        </ol>
    </table>
    <p><strong>Example HTTP Sequence</strong></p>
-   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800"></p>
+   <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/sot-discovery.puml" width="800"></p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -3559,6 +3567,7 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-cultural-heritage-institution④⑤">5.2.4. (BP6) Adding a Registry to the ACL of a Data Pod</a> <a href="#ref-for-cultural-heritage-institution④⑥">(2)</a> <a href="#ref-for-cultural-heritage-institution④⑦">(3)</a> <a href="#ref-for-cultural-heritage-institution④⑧">(4)</a> <a href="#ref-for-cultural-heritage-institution④⑨">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤⓪">(6)</a>
     <li><a href="#ref-for-cultural-heritage-institution⑤①">5.2.5. (BP7) Constructing backlinks between two institutions</a> <a href="#ref-for-cultural-heritage-institution⑤②">(2)</a> <a href="#ref-for-cultural-heritage-institution⑤③">(3)</a> <a href="#ref-for-cultural-heritage-institution⑤④">(4)</a> <a href="#ref-for-cultural-heritage-institution⑤⑤">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤⑥">(6)</a> <a href="#ref-for-cultural-heritage-institution⑤⑦">(7)</a> <a href="#ref-for-cultural-heritage-institution⑤⑧">(8)</a> <a href="#ref-for-cultural-heritage-institution⑤⑨">(9)</a> <a href="#ref-for-cultural-heritage-institution⑥⓪">(10)</a> <a href="#ref-for-cultural-heritage-institution⑥①">(11)</a> <a href="#ref-for-cultural-heritage-institution⑥②">(12)</a>
     <li><a href="#ref-for-cultural-heritage-institution⑥③">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-cultural-heritage-institution⑥④">(2)</a> <a href="#ref-for-cultural-heritage-institution⑥⑤">(3)</a>
+    <li><a href="#ref-for-cultural-heritage-institution⑥⑥">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-cultural-heritage-institution⑥⑦">(2)</a> <a href="#ref-for-cultural-heritage-institution⑥⑧">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dataset">
@@ -3575,13 +3584,20 @@ Hence, these processes are often initiated by the completion of another business
    <ul>
     <li><a href="#ref-for-term">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-term①">(2)</a>
     <li><a href="#ref-for-term②">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-term③">(2)</a>
-    <li><a href="#ref-for-term④">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-term⑤">(2)</a>
+    <li><a href="#ref-for-term④">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-term⑤">(2)</a> <a href="#ref-for-term⑥">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-source">
    <b><a href="#term-source">#term-source</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-term-source">3.3. Roles in the network</a> <a href="#ref-for-term-source①">(2)</a>
+    <li><a href="#ref-for-term-source②">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-term-source③">(2)</a> <a href="#ref-for-term-source④">(3)</a> <a href="#ref-for-term-source⑤">(4)</a> <a href="#ref-for-term-source⑥">(5)</a> <a href="#ref-for-term-source⑦">(6)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="metadata-term-source">
+   <b><a href="#metadata-term-source">#metadata-term-source</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-metadata-term-source">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-metadata-term-source①">(2)</a> <a href="#ref-for-metadata-term-source②">(3)</a> <a href="#ref-for-metadata-term-source③">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="maintainer">
@@ -3607,7 +3623,6 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-service-portal-provider">4. Pilod Use Cases</a>
     <li><a href="#ref-for-service-portal-provider①">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-service-portal-provider②">(2)</a>
     <li><a href="#ref-for-service-portal-provider③">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-service-portal-provider④">(2)</a>
-    <li><a href="#ref-for-service-portal-provider⑤">5.3.3. (BP10) Discovering a Term source</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="registry">
@@ -3626,7 +3641,7 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-registry⑤⓪">5.3. Perspective Service Portal / Network Of Terms - Registry</a>
     <li><a href="#ref-for-registry⑤①">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-registry⑤②">(2)</a> <a href="#ref-for-registry⑤③">(3)</a> <a href="#ref-for-registry⑤④">(4)</a> <a href="#ref-for-registry⑤⑤">(5)</a> <a href="#ref-for-registry⑤⑥">(6)</a> <a href="#ref-for-registry⑤⑦">(7)</a> <a href="#ref-for-registry⑤⑧">(8)</a>
     <li><a href="#ref-for-registry⑤⑨">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-registry⑥⓪">(2)</a> <a href="#ref-for-registry⑥①">(3)</a> <a href="#ref-for-registry⑥②">(4)</a> <a href="#ref-for-registry⑥③">(5)</a> <a href="#ref-for-registry⑥④">(6)</a> <a href="#ref-for-registry⑥⑤">(7)</a> <a href="#ref-for-registry⑥⑥">(8)</a>
-    <li><a href="#ref-for-registry⑥⑦">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-registry⑥⑧">(2)</a> <a href="#ref-for-registry⑥⑨">(3)</a> <a href="#ref-for-registry⑦⓪">(4)</a> <a href="#ref-for-registry⑦①">(5)</a> <a href="#ref-for-registry⑦②">(6)</a>
+    <li><a href="#ref-for-registry⑥⑦">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-registry⑥⑧">(2)</a> <a href="#ref-for-registry⑥⑨">(3)</a> <a href="#ref-for-registry⑦⓪">(4)</a> <a href="#ref-for-registry⑦①">(5)</a> <a href="#ref-for-registry⑦②">(6)</a> <a href="#ref-for-registry⑦③">(7)</a> <a href="#ref-for-registry⑦④">(8)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="network-of-terms">
@@ -3635,8 +3650,7 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-network-of-terms">3.4. Basic setup for Decentralized Digital Heritage Network</a>
     <li><a href="#ref-for-network-of-terms①">4. Pilod Use Cases</a>
     <li><a href="#ref-for-network-of-terms②">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-network-of-terms③">(2)</a> <a href="#ref-for-network-of-terms④">(3)</a>
-    <li><a href="#ref-for-network-of-terms⑤">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-network-of-terms⑥">(2)</a> <a href="#ref-for-network-of-terms⑦">(3)</a> <a href="#ref-for-network-of-terms⑧">(4)</a> <a href="#ref-for-network-of-terms⑨">(5)</a> <a href="#ref-for-network-of-terms①⓪">(6)</a> <a href="#ref-for-network-of-terms①①">(7)</a>
-    <li><a href="#ref-for-network-of-terms①②">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-network-of-terms①③">(2)</a>
+    <li><a href="#ref-for-network-of-terms⑤">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-network-of-terms⑥">(2)</a> <a href="#ref-for-network-of-terms⑦">(3)</a> <a href="#ref-for-network-of-terms⑧">(4)</a> <a href="#ref-for-network-of-terms⑨">(5)</a> <a href="#ref-for-network-of-terms①⓪">(6)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="knowledge-graph">

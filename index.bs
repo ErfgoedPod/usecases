@@ -1055,7 +1055,6 @@ Hence, these processes are often initiated by the completion of another business
       <td>
       <ul>
         <li>[=Service Portal Provider=]
-        <li>[=Network of Terms=]
         <li>[=Registry=]
         <li>[=Cultural Heritage Institution=]
       </ul>
@@ -1066,7 +1065,7 @@ Hence, these processes are often initiated by the completion of another business
       <td>
       <ul>
         <li>[=Service Portal=]
-        <li>[=Inbox=] of [=Service Portal=] / [=Network Of Terms=]
+        <li>[=Inbox=] of [=Service Portal=]
         <li>[=Inbox=] of [=Registry=]
         <li>[=Digital Heritage Pod=] of [=Cultural Heritage Institution=]
       </ul>
@@ -1074,7 +1073,7 @@ Hence, these processes are often initiated by the completion of another business
     </tr>
     <tr>
       <th>Goal</th>
-      <td>A [=Service Portal Provider=] or [=Network of Terms=] retrieved a discovered [=Dataset=] for further processing.</td>
+      <td>A [=Service Portal Provider=] retrieved a discovered [=Dataset=] for further processing.</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
@@ -1089,9 +1088,8 @@ Hence, these processes are often initiated by the completion of another business
       <td>
         <ol>
           <li>The [=Registry=] is known to the [=Service Portal=].
-          <li>The [=Service Portal=] or [=Network of Terms=] is registered to a certain [=term=] at the [=Registry=] .
+          <li>The [=Service Portal=] is registered to a certain [=term=] at the [=Registry=] .
           <li>The [=Registry=] has new or updated [=Metadata Dataset=] related to the desired topic.
-          <li>
         </ol>
       </td>
     </tr>
@@ -1110,11 +1108,11 @@ Hence, these processes are often initiated by the completion of another business
           <li>On the reception of a new or updated [=Metadata Dataset=] (via [[#BP4]] or [[#BP5]]),
           the [=Registry=] cross-checks the list of subscriptions. 
           <li>If a [=Metadata Dataset=] matches a subscription [=term=]],
-          the [=Registry=] sends a notification to the inbox of the [=Service Portal=]'s or [=Network of Terms=] that are subscribed.
+          the [=Registry=] sends a notification to the inbox of the [=Service Portal=]'s that are subscribed.
           The notification contains a link to the [=Dataset=], which was extracted from the [=Dataset Description=].
           <li>When receiving this notification,
-          the [=Service Portal=] or [=Network of Terms=] extracts the [=Dataset=] link and downloads the [=Dataset=] from the [=Cultural Heritage Institution=]'s [=Digital Heritage Pod=].
-          <li>After the download is complete, the [=Service Portal=] or [=Network of Terms=] processes the [=Dataset=].
+          the [=Service Portal=] extracts the [=Dataset=] link and downloads the [=Dataset=] from the [=Cultural Heritage Institution=]'s [=Digital Heritage Pod=].
+          <li>After the download is complete, the [=Service Portal=] processes the [=Dataset=].
         </ol>  
       </td>
     </tr>
@@ -1133,9 +1131,9 @@ Hence, these processes are often initiated by the completion of another business
       <th>Actor</th>
       <td>
       <ul>
-        <li>Service Portal Provider
-        <li>Network of Terms
-        <li>Registry
+        <li>[=Network of Terms Provider=]
+        <li>[=Registry=]
+        <li>[=Cultural Heritage Institution=]
       </ul>
       </td>
     </tr>
@@ -1143,16 +1141,16 @@ Hence, these processes are often initiated by the completion of another business
       <th>Components</th>
       <td>
       <ul>
-        <li>Service Portal
-        <li>Inbox [=Network Of Terms=]
-        <li>Inbox [=Registry=]
+        <li>[=Service Portal=]
+        <li>[=Inbox=] of [=[=Network of Terms=]
+        <li>[=Inbox=] of [=Registry=]
+        <li>[=Digital Heritage Pod=] of [=Cultural Heritage Institution=]
       </ul>
       </td>
     </tr>
     <tr>
       <th>Goal</th>
-      <td>A [=Service Portal Provider=] or [=Network of Terms=] subscribes to a topic at a [=Registry=], 
-      of which it wants to receive notifications about related artefacts.</td>
+      <td>A [=Network of Terms Provider=] adds a new [=Term Source=] to its index.</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
@@ -1164,23 +1162,34 @@ Hence, these processes are often initiated by the completion of another business
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td></td>
+      <td>
+        <ol>
+          <li>The [=Registry=] is known to the [=Network of Terms=].
+          <li>The [=Network of Terms=] is registered to a certain [=term=] at the [=Registry=] .
+          <li>The [=Registry=] has new or updated [=Metadata Term Source=] related to the desired [=term=].
+        </ol>
+      </td>
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>A [=Service Portal=] wants to subscribe to artefacts or a certain topic.</td>
+      <td>The [=Registry=] has added or updated a [=Metadata Term Source=] in its Query Index.</td>
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>The [=Service Portal=] is subscribed to a dataset topic in the Registry.</td>
+      <td>The [=Network of Terms=] has retrieved the [=Term Source=].</td>
     </tr>
     <tr>
       <th>Procedure</th>
       <td>
         <ol>
-          <li>A [=Service Portal=] sends a notification to the [=Registry=] requesting subscription to a dataset topic. This request includes metadata about the topic, ie. a list of [=Terms=] and the inbox of the Service Portal. 
-          <li>The [=Registry=] adds the [=Service Portal=]'s inbox URL to an index per [=term=]]. If an index does not exist, the [=Registry=] creates it.
-          <li>When the indexing is completed, the [=Registry=] sends a notification to the [=Service Portal=]'s inbox to confirm the subscription.
+          <li>On the reception of a new or updated [=Metadata Term Source=] (via [[#BP4]] or [[#BP5]]),
+          the [=Registry=] cross-checks the list of subscriptions. 
+          <li>If a [=Metadata Term Source=] matches a subscription [=term=]],
+          the [=Registry=] sends a notification to the inbox of the [=Service Portal=]'s that are subscribed.
+          The notification contains a link to the [=Term Source=], which was extracted from the [=Dataset Description=].
+          <li>When receiving this notification,
+          the [=Network of Terms=] extracts the [=Term Source=] link and downloads the [=Term Source=] from the [=Cultural Heritage Institution=]'s [=Digital Heritage Pod=].
+          <li>After the download is complete, the [=Network of Terms=] processes the [=Term Source=].
         </ol>  
       </td>
     </tr>
@@ -1189,7 +1198,7 @@ Hence, these processes are often initiated by the completion of another business
 
 **Example HTTP Sequence**
 
-<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/.puml" width="800" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/sot-discovery.puml" width="800" />
 
 
 
