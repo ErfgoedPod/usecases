@@ -62,14 +62,16 @@ The [NDE-Usable](https://netwerkdigitaalerfgoed.nl/bruikbaar/) programme of the 
 This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
 Due to the inflexibility, there are high maintenance costs on the side of the data providing institution and the side of the aggregator. 
 Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
-NDE-Usable envisions a discovery infrastructure that navigates applications to the relevant original data sources, rather than aggregate and republish their data.
-The design integrates applications with institutions's collection data in a more loose-couple manner, enabling institutions to reorientate their data more easiliy to other services. 
-To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).
+NDE-Usable envisions a discovery infrastructure that guides applications to the relevant original data sources, rather than aggregate and republish their data.
+The design integrates applications with institutions's collection data in a more loosely-coupled manner, 
+enabling institutions to reorientate their developed service integrations more easiliy to other vendors. 
+To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, 
+ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).
 
-The network design of NDE-Usable resonate heavily with the principles of Decentralized Web and Solid.
+The network design of NDE-Usable resonates strongly with the principles of Decentralized Web and Solid.
 Hence, this ErfgoedPod project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
-In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following their own information - are a good basis for implementing a sustainable digital heritage network.
-The main project outcomes are protocols and components for creating generic decentralized artefact exchange networks, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
+In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following information - are a good basis for implementing a sustainable digital heritage network.
+The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
 Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
 
 This document captures the use cases that originate from the NDE-Usable programme.
@@ -118,20 +120,22 @@ The list of possible actor types is given below.
     <tr>
       <td>O</td>
       <td><dfn export>Provider</dfn></td>
-      <td>Actor which selects, enriches or transforms cultural heritage information to provide certain services.</td>
+      <td>Actor that selects, enriches or transforms cultural heritage information to provide certain services.</td>
       <td>Leverancier</td>
       <td rowspan="2">Agent</td>
     </tr>
     <tr>
       <td>U</td>
       <td><dfn export>User</dfn></td>
-      <td>Anyone that wants to use cultural heritage information.</td>
+      <td>Anyone who wants to use cultural heritage information.</td>
       <td>Gebruiker</td>
     </tr>
   </tbody>
 </table>
 
 ## Artefacts in the network ## {#artefacts}
+
+Issue: make the distinction between artefacts and information about artefacts
 
 Actors can exchange a couple of data objects on the Digital Heritage Network, which are denoted by the [[architecture-nde|Decentralized Digital Heritage Network architecture]] as artefacts.
 An [[architecture-nde#artefact|Artefact]] is the smallest unit that is being exchanged; it is the object of an interaction between actors
@@ -148,13 +152,6 @@ The list of relevant digital heritage artefacts is given below.
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>MI</td>
-      <td><dfn export>Metadata Cultural Heritage Institution</dfn></td>
-      <td>A description on the organisation.</td>
-      <td>(Organisatie profiel)</td>
-      <td>/</td>
-    </tr>
     <tr>
       <td>O</td>
       <td><dfn export>Object</dfn></td>
@@ -176,24 +173,10 @@ The list of relevant digital heritage artefacts is given below.
       <td>Informatieobject</td>
     </tr>
     <tr>
-      <td>MC</td>
-      <td><dfn export>Metadata<br>Cultural Heritage Object</dfn></td>
-      <td>Descriptive document about a Cultural Heritage Object.</td>
-      <td>Metadata Cultuurhistorisch object</td>
-      <td>/</td>
-    </tr>
-    <tr>
       <td>E</td>
       <td><dfn export>Enrichment</dfn></td>
       <td>Information that is not explicitly present in the original Cultural Heritage Object.</td>
       <td>Verrijking</td>
-      <td>/</td>
-    </tr>
-    <tr>
-      <td>ME</td>
-      <td><dfn export>Metadata<br>Enrichment</dfn></td>
-      <td>Descriptive document about an enrichment.</td>
-      <td>Metadata Verrijkingen</td>
       <td>/</td>
     </tr>
     <tr>
@@ -202,13 +185,6 @@ The list of relevant digital heritage artefacts is given below.
       <td>Collection of Cultural Heritage Objects.</td>
       <td>Dataset</td>
       <td>Collectie</td>
-    </tr>
-    <tr>
-      <td>MD</td>
-      <td><dfn export>Metadata<br>Dataset</dfn></td>
-      <td>Descriptive document about a Dataset.</td>
-      <td>Metadata Dataset</td>
-      <td>/</td>
     </tr>
     <tr>
       <td>T</td>
@@ -224,6 +200,50 @@ The list of relevant digital heritage artefacts is given below.
       <td>Terminologiebron</td>
       <td>/</td>
     </tr>
+  </tbody>
+</table>
+
+Issue: exchange artefacts
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Term</th>
+      <th>Description</th>
+      <th>DERA (NL) [Bedrijfsobjecten](https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten)</th>
+      <th>OSLO (VL) [Cultureel Erfgoed Object](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object)</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MI</td>
+      <td><dfn export>Metadata Cultural Heritage Institution</dfn></td>
+      <td>A description on the organisation.</td>
+      <td>(Organisatie profiel)</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>MC</td>
+      <td><dfn export>Metadata<br>Cultural Heritage Object</dfn></td>
+      <td>Descriptive document about a Cultural Heritage Object.</td>
+      <td>Metadata Cultuurhistorisch object</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>ME</td>
+      <td><dfn export>Metadata<br>Enrichment</dfn></td>
+      <td>Descriptive document about an enrichment.</td>
+      <td>Metadata Verrijkingen</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>MD</td>
+      <td><dfn export>Metadata<br>Dataset</dfn></td>
+      <td>Descriptive document about a Dataset.</td>
+      <td>Metadata Dataset</td>
+      <td>/</td>
+    </tr>
     <tr>
       <td>MT</td>
       <td><dfn export>Metadata Term Source</dfn></td>
@@ -236,7 +256,7 @@ The list of relevant digital heritage artefacts is given below.
 
 ## Roles in the network ## {#roles}
 
-Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that in some way affect the artefact's lifecycle.
+Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume data about artefacts or provide additional services that in some way affect the artefact's lifecycle.
 The list of possible roles is given below.
 
 <table>
@@ -505,7 +525,7 @@ This includes business processes that only affect actors inside a single institu
     <tr>
       <th>Preconditions</th>
       <td>
-      There are a [=Cultural Heritage Object Maintainer=] and a reachable running Solid Data Pod within the [=Cultural Heritage Institution=].
+      A [=Cultural Heritage Object Maintainer=] and a reachable running Solid Data Pod are provided by the [=Cultural Heritage Institution=].
     </tr>
     <tr>
       <th>Triggers</th>
@@ -591,7 +611,7 @@ Issue: use a more generic organization domain than kb.nl
       <li>The [=Dashboard=] starts an [=Orchestrator=] process locally or uses an [=Orchestrator=] Web service. Once complete, the orchestrator process returns the location of the [=Orchestrator=]'s [=Inbox=] resource.
       <li>The [=Dashboard=] supplies a location of an [=Inbox=] resource - most likely that of a [=Digital Heritage Pod=] - to the [=Orchestrator=] by sending a notification to its inbox. The [=orchestrator=] now watches the supplied [=Inbox=] resources for incoming notifications.
       <li>The [=Dashboard=] informs the [=Maintainer=] that the [=Orchestrator=] service is up and running.
-      <li>Next, the [=Maintainer=] configures a list of [=rulebook=] file locations, which is used by the [=Dashboard=] to initialize the [=Orchestrator=].
+      <li>Next, the [=Maintainer=] configures a list of [=rulebook=] file locations, which are used by the [=Dashboard=] to initialize the [=Orchestrator=].
       <li>The [=Orchestrator=] acknowledges that the [=rulebooks=] are now active. The [=Dashboard=] informs the [=Maintainer=] that this completes the initialization. 
       </ol>
       </tr>
@@ -651,7 +671,7 @@ The latter includes the possible outcome of the performed service.
       <th>Preconditions</th>
       <td>
         <ul>
-          <li>There exists a [=Metadata Organization=] with basic details (eg. identifier, name) with the [=Cultural Heritage Institution=].
+          <li>The [=Cultural Heritage Institution=] hosts a [=Metadata Organization=]: a machine actionable profile of the organization with basic details (eg. identifier, name).
           <li>The [=Cultural Heritage Institution=] is not known to the [=Registry=].
           <li>The [=Cultural Heritage Institution=] can be identified and located using a persistent identifier (URI).
           <li>The [=Cultural Heritage Institution=] has a curated list of preferred [=Registry=] instances with a link to their inboxes.
@@ -675,7 +695,7 @@ The latter includes the possible outcome of the performed service.
         <li>A [=Maintainer=] of the [=Cultural Heritage Institution=] then uses the [=Dashboard=] to start registration. 
         <li>The [=Orchestrator=] of the  [=Cultural Heritage Institution=] detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred [=Registry=](s). It contains the organization’s identifier and a link to the profile.
         <li>When notified, the [=Orchestrator=] of the [=Registry=] follows the link to the [=Metadata Organization=] and attempts to download it. 
-        <li>*Optional step in case the [=Metadata Organization=] is not open licensed:* when the [=Registry=] has reading access to the [=Metadata Organization=] in the [=Digital Heritage Pod’s=] ACL, it is granted access. Else, the download is refused.
+        <li>*Optional step in case the [=Metadata Organization=] is not openly licensed:* when the [=Registry=] has read access to the [=Metadata Organization=] in the [=Digital Heritage Pod’s=] ACL, it is granted access. Else, the download is refused.
         <li>When downloaded, the [=Orchestrator=] of the [=Registry=] stores the profile in its [=Digital Heritage Pod=] and adds it to the Query Index. 
         <li>After completion, the [=Orchestrator=] of the [=Registry=] sends a notification to the institution’s inbox that the registration was successful.
       </ol>
@@ -687,9 +707,13 @@ The latter includes the possible outcome of the performed service.
 
 **Example HTTP Sequence**
 
+Issue: split sequence with and without orchestrator?
+
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="800"  />
 
 ### (BP4) Adding a new Dataset to the Registry ### {#BP4}
+
+Issue: is there a new version of the dataset or of the dataset description?
 
 <table>
   <tbody>
@@ -858,7 +882,7 @@ The latter includes the possible outcome of the performed service.
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800" />
 
-### (BP6) Adding a Registry to the ACL of a Data Pod
+### (BP6) Adding a Registry to the ACL of a Digital Heritage Pod
 
 <table>
   <tbody>
@@ -886,7 +910,7 @@ The latter includes the possible outcome of the performed service.
       </td>
     <tr>
       <th>Goal</th>
-      <td>The [=Registry=] can access the necessary data in the Data Pod</td>
+      <td>The [=Registry=] can access the necessary data in the [=Digital Heritage Pod=]</td>
     </tr>
     <tr>
       <th>Stakeholders</th>
@@ -894,23 +918,23 @@ The latter includes the possible outcome of the performed service.
     </tr>
     <tr>
       <th>Preconditions</th>
-      <td>The [=Registry=] does not have access to the Data Pod of the [=Cultural Heritage Institution=]</td>
+      <td>The [=Registry=] does not have access to the [=Digital Heritage Pod=] of the [=Cultural Heritage Institution=]</td>
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>The [=Registry=] instance is unknown to the Data Pod</td>
+      <td>The [=Registry=] instance is unknown to the [=Digital Heritage Pod=]</td>
     </tr>
     <tr>
       <th>Postconditions</th>
-      <td>The [=Registry=] is added to the ACL list of the Data Pod</td>
+      <td>The [=Registry=] is added to the ACL list of the [=Digital Heritage Pod=]</td>
     </tr>
     <tr>
       <th>Procedure</th>
       <td>
       <ol>
         <li>The [=Maintainer=] opens the [=Dashboard=] and adds the instance to the list of relevant Registry’s.
-        <li>The [=Maintainer=] grants the [=Registry=] (partial) access to the Organization and Metadata Dataset. 
-        <li>The Orchestrator of the [=Cultural Heritage Institution=] picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights.
+        <li>The [=Maintainer=] grants the [=Registry=] (partial) access to the Organization and [=Metadata Dataset=]. 
+        <li>The Orchestrator of the [=Cultural Heritage Institution=] picks up this change and sends a notification to the [=Registry=]’s Inbox to inform it on its access control rights.
       </ol>
       </td>
     </tr>
@@ -921,7 +945,9 @@ The latter includes the possible outcome of the performed service.
 
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/acl.puml" width="800" />
 
-### (BP7) Constructing backlinks between two institutions
+### (BP7) Constructing backlinks between objects of two institutions
+
+Issue: is the orchestrator picking up new links or does it get a notification?
 
 <table>
   <tbody>
