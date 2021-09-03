@@ -4,7 +4,7 @@ Shortname: erfgoedpod-usecases
 Level: 1
 Status: LD
 URL: https://erfgoedpod.github.io/usecases
-Editor: Miel Vander Sande, [meemoo - Flemish Institute for Archives](https://meemoo.be), miel.vandersande@meemoo.be
+Editor: Miel Vander Sande, [meemoo](https://meemoo.be), miel.vandersande@meemoo.be
 Abstract: This specification describes the different use cases for exchanging digital heritage data in the Netherlands and Flanders using principles from Solid and the Researcher Pod project.
 Markup Shorthands: markdown yes
 </pre>
@@ -42,7 +42,7 @@ table th a[href] {
 
 # Set of documents
 
-This document is one of the *Decentralized Digital Heritage Network* specifications produced by the ErfgoedPod project by the [Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be):
+This document is one of the *Decentralized Digital Heritage Network* specifications produced by the ErfgoedPod project by the [Dutch Digital Heritage Network (NDE)](https://netwerkdigitaalerfgoed.nl/en/), [meemoo - Flemish Institute for Archives](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be):
 
 1. [Decentralized Digital Heritage Network architecture](/architecture/) 
 2. [Use cases & Business processes](/usecases/) (this document)
