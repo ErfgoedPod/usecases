@@ -442,14 +442,14 @@ The following scenarios aim at capturing what an architecture based on Decentral
 
 Scenarios are noted in the following template:
 
-: Actors/Roles     
-:: Actors can be people (roles), other systems, or time directly interacting with the process.
+: Roles     
+:: The different [[#roles]] that interact with the process.
 : Components
 :: The [[architecture-nde#components|architectural components]] that are involved.
 : Goal             
 :: The final successful outcome that completes the process.
 : Stakeholders     
-:: Anybody with an interest or investment in how the system performs.
+:: Anybody or anything with an interest or investment in how the system performs.
 : Preconditions    
 :: The elements that must be true before a use case can occur.
 : Triggers         
@@ -461,6 +461,8 @@ Scenarios are noted in the following template:
 
 ## Perspective [=Cultural Heritage Institution=]
 
+Issue: TODO: split of conceptual BP and implementation
+
 This section takes an internal perspective on the [=Cultural Heritage Institution=].
 This includes business processes that only affect actors inside a single institution and are often of preparational or operational nature such as setting up a software component. 
 
@@ -469,11 +471,10 @@ This includes business processes that only affect actors inside a single institu
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
+      <th>Roles</th>
       <td>
       <ul>
-      <li>[=Cultural Heritage Institution=]</li>
-      <li>[=Maintainer=]</li>
+      <li>[=Cultural Heritage Object Maintainer=]</li>
       </ul>
       </td>
     </tr>  
@@ -504,11 +505,11 @@ This includes business processes that only affect actors inside a single institu
     <tr>
       <th>Preconditions</th>
       <td>
-      There are a [=Maintainer=] and a reachable running Solid Data Pod within the [=Cultural Heritage Institution=].
+      There are a [=Cultural Heritage Object Maintainer=] and a reachable running Solid Data Pod within the [=Cultural Heritage Institution=].
     </tr>
     <tr>
       <th>Triggers</th>
-      <td>A [=Cultural Heritage Institution=] wants to share metadata with Solid networks.</td>
+      <td>A [=Cultural Heritage Object Maintainer=] wants to share metadata with Solid networks.</td>
     </tr>
     <tr>
       <th>Postconditions</th>
@@ -536,11 +537,10 @@ This includes business processes that only affect actors inside a single institu
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
+      <th>Roles</th>
       <td>      
         <ul>
-          <li>[=Cultural Heritage Institution=]</li>
-          <li>[=Maintainer=]</li>
+          <li>[=Cultural Heritage Object Maintainer=]</li>
         </ul>
       </td>
     </tr>
@@ -611,10 +611,10 @@ The latter includes the possible outcome of the performed service.
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
+      <th>Roles</th>
       <td>
         <ul>
-        <li>[=Maintainer=]
+        <li>[=Cultural Heritage Object Maintainer=]
         <li>[=Registry=]
         </ul>
       </td>
@@ -692,11 +692,10 @@ The latter includes the possible outcome of the performed service.
 <table>
   <tbody>
     <tr>
-      <th>Actors/Roles</th>
+      <th>Roles</th>
       <td>
       <ul>
-        <li>[=Cultural Heritage Institution=]
-        <li>[=Maintainer=]
+        <li>[=Cultural Heritage Object Maintainer=]
         <li>[=Registry=]
       </ul>
       </td>
@@ -780,11 +779,11 @@ The latter includes the possible outcome of the performed service.
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
+      <th>Roles</th>
       <td>
           <ul>
-            <li>[=Maintainer=]
-            <li>Registry
+            <li>[=Cultural Heritage Object Maintainer=]
+            <li>[=Registry=]
           </ul>
       </td>
     </tr>
@@ -862,10 +861,10 @@ The latter includes the possible outcome of the performed service.
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
+      <th>Roles</th>
       <td>
         <ul>
-          <li>[=Maintainer=]
+          <li>[=Cultural Heritage Object Maintainer=]
           <li>[=Registry=]
         </ul>
       </td>
@@ -925,12 +924,12 @@ The latter includes the possible outcome of the performed service.
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
+      <th>Roles</th>
       <td>
       <ul>
-      <li>Cultural Heritage Institution A
-      <li>Cultural Heritage Institution B
-      <li>Registry
+      <li>[=Cultural Heritage Object Maintainer=] A
+      <li>[=Cultural Heritage Object Maintainer=] B
+      <li>[=Registry=]
       </ul>
     </tr>
     <tr>
@@ -987,7 +986,7 @@ Hence, these processes are often initiated by the completion of another business
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
+      <th>Roles</th>
       <td>
       <ul>
         <li>[=Service Portal Provider=]
@@ -1060,7 +1059,7 @@ Hence, these processes are often initiated by the completion of another business
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
+      <th>Roles</th>
       <td>
       <ul>
         <li>[=Service Portal Provider=]
@@ -1137,7 +1136,7 @@ Hence, these processes are often initiated by the completion of another business
 <table>
   <tbody>
     <tr>
-      <th>Actor</th>
+      <th>Roles</th>
       <td>
       <ul>
         <li>[=Network of Terms Provider=]
