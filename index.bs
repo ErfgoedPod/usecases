@@ -530,6 +530,8 @@ This includes business processes that only affect actors inside a single institu
 
 **Example HTTP Sequence**
 
+Issue: use a more generic organization domain than kb.nl
+
 <img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/init-erfgoedpod.puml" width="800"  />
 
 ### (BP2) Register an Orchestrator for a Digital Heritage Pod
@@ -602,7 +604,7 @@ This includes business processes that only affect actors inside a single institu
 
 ## Perspective Cultural Heritage Institution - Registry
 
-This section takes the perspective of an [=Cultural Heritage Institution=] interacting with a [=Registry=] Service, which implements the design of the [Register-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
+This section takes the perspective of an [=Cultural Heritage Institution=] interacting with a [=Registry=] Service, which implements the design of the [Registry-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
 This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the [=Registry=] responding to that request.
 The latter includes the possible outcome of the performed service.
 
