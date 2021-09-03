@@ -64,7 +64,7 @@ Due to the inflexibility, there are high maintenance costs on the side of the da
 Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
 NDE-Usable envisions a discovery infrastructure that navigates applications to the relevant original data sources, rather than aggregate and republish their data.
 The design integrates applications with institutions's collection data in a more loose-couple manner, enabling institutions to reorientate their data more easiliy to other services. 
-To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared thesauri (Network of Terms).
+To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).
 
 The network design of NDE-Usable resonate heavily with the principles of Decentralized Web and Solid.
 Hence, this ErfgoedPod project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
@@ -79,18 +79,23 @@ These business processes serve as a basis for a proof-of-concept implementation 
 # Context Dutch Digital Heritage Network
 
 The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
-It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg).
+It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg) to resemble a decentralized implementation according to the ResearcherPod design.
 
 <pre class='include'>
 path: images/NDE-overzicht.svg
 </pre>
+
+The remainder of this section provides more detail on how the current cultural heritage landscape would populate such high-level design.
+In the tables below, we aim to establish a shared understanding the different [[#actors]] (who is participating?), [[#roles]] (what is their function?), and [[#artefacts]] (what are they exchanging?) throughout this project and related initiatives.
+The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) 
+and is aligned with the dutch architecture standard [\DERA](https://netwerkdigitaalerfgoed.nl/activiteiten/dera/) and the flemish vocabulary standard [\OSLO](https://data.vlaanderen.be/ns#Vocabularia), .
 
 ## Actors in the network ## {#actors}
 
 The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
 In [[architecture-nde|Decentralized Digital Heritage Network architecture]], these parties are defined as [[architecture-nde#actor|Actors]].
 An [[architecture-nde#actor|actor]] represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
-The list of possible actor types is given below. The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets).
+The list of possible actor types is given below. 
 
 <table>
   <thead>
@@ -261,7 +266,7 @@ The list of possible roles is given below.
     </tr>
     <tr>
       <td>OM</td>
-      <td><dfn export>Object Maintainer</dfn></td>
+      <td><dfn export>Cultural Heritage Object Maintainer</dfn></td>
       <td>Person that manages the collections and datasets.</td>
       <td>Bronhouder metadata cultuurhistorisch object</td>
       <td rowspan="2">/</td>
@@ -318,7 +323,7 @@ The list of possible roles is given below.
       <td>B</td>
       <td><dfn export>Collector (Browser)</dfn></td>
       <td>Entity that crawls the network in a targeted fashion in order to collect data that matches a query. It it used to construct [=Knowledge Graphs=].</td>
-      <td>Browser</td>
+      <td>Makelaar</td>
       <td>/</td>
     </tr>
   </tbody>
@@ -326,13 +331,13 @@ The list of possible roles is given below.
 
 ## Basic setup for Decentralized Digital Heritage Network
 
-The ErfgoedPod project provides a number of components in [[architecture-nde#components]].
+The ErfgoedPod project provides a number of components described in the [[architecture-nde#components]].
 These components can be applied to the NDE context, 
-positioning the [[#actors]], [[#artefacts]] and [[#roles]] in a decentralized Digital Heritage Network setup.
+positioning the [[#artefacts]] and [[#roles]] (taken on by [[#actors]]) in a decentralized Digital Heritage Network setup.
 All metadata providers, which includes the [=Cultural Heritage Institutions=] and [=Term Source maintainers=]),
 deploy a [[architecture-nde#digital-heritage-pod]] their exchange hub for artefact data.
 
-The three main roles [=Registry=], [=Network of Terms=], and [=Knowledge Graph=] each serve as a [[architecture-nde#service-hub]].
+The three main roles [=Registry=], [=Network of Terms=], and [=Knowledge Graph=] each serve as a [[architecture-nde#service-hub|Service Hub]].
 Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
 Unlike the metadata providers, it is up to the instance how the service is implemented.
 However, if a service hub would provide data to other actors, it has to adopt a [[architecture-nde#digital-heritage-pod|Digital Heritage Pod]].
@@ -349,7 +354,7 @@ An overview is illustrated in the figure below.
 path: images/nde-basic-setup.svg
 </pre>
 
-Pilod Use Cases {#usecases}
+Pilot Use Cases {#usecases}
 =======================================================
 
 This section documents a selection of use cases from three Dutch Digital Heritage Network members: [Van Gogh Worldwide](https://vangoghworldwide.org), [Brabants Erfgoed](https://www.brabantserfgoed.nl) and [Oorlogsbronnen](https://www.brabantserfgoed.nl).
@@ -362,6 +367,8 @@ Therefore, the [=Service Portal Providers=] were consulted with the following th
 1. How do they discover datasets?
 2. How do they decide which of these datasets are relevant for their portal?
 3. How can the Dutch Digital Heritage Network design, in particular the [=Registry=], [=Knowledge Graph=], and [=Network of Terms=] actor roles, help this process?
+
+Issue: check discovery method in table below by Sjors
 
 <table>
 <thead>
@@ -416,7 +423,9 @@ Therefore, the [=Service Portal Providers=] were consulted with the following th
         <li>Data quality: datasets must reach a certain quality standard.
       </ul>
     <td>
-    Performing a full-text analysis of datasets to identify terms from the WWII thesaurus.
+    A more dynamic identification of sources that make (substantial) references to WWII (or similar) terms.<br><br>
+    In a later stage:
+    performing a full-text analysis of datasets to identify terms from the WWII thesaurus.
     Stimulate the detailed description of datasets.
     Alert the portals when discovering metadata in a certain timeperiod. 
 </table>
