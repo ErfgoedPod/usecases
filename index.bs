@@ -135,8 +135,6 @@ The list of possible actor types is given below.
 
 ## Artefacts in the network ## {#artefacts}
 
-Issue: make the distinction between artefacts and information about artefacts
-
 On the Digital Heritage Network, actors can exchange information pertaining to certain data objects related to digital heritage. 
 These data objects are denoted by the [[architecture-nde|Decentralized Digital Heritage Network architecture]] as artefacts.
 An [[architecture-nde#artefact|artefact]] as the object of an interaction between actors. Hence, within the scope of this project, actors exchange messages about an artefact, not the artefact itself.
