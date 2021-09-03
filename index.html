@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="df191744246c0a06687cb9841317c554a8761c88" name="document-revision">
+  <meta content="8400632ed5d2937ffba18294dc2b2d4ccb926f07" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1868,10 +1868,11 @@ The list of possible actor types is given below.</p>
       <td>Gebruiker
    </table>
    <h3 class="heading settled" data-level="3.2" id="artefacts"><span class="secno">3.2. </span><span class="content">Artefacts in the network</span><a class="self-link" href="#artefacts"></a></h3>
-   <p class="issue" id="issue-6b7bef05"><a class="self-link" href="#issue-6b7bef05"></a> make the distinction between artefacts and information about artefacts</p>
-   <p>Actors can exchange a couple of data objects on the Digital Heritage Network, which are denoted by the <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a> as artefacts.
-An <a href="https://erfgoedpod.github.io/architecture#artefact">Artefact</a> is the smallest unit that is being exchanged; it is the object of an interaction between actors
-The list of relevant digital heritage artefacts is given below.</p>
+   <p>On the Digital Heritage Network, actors can exchange information pertaining to certain data objects related to digital heritage.
+These data objects are denoted by the <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a> as artefacts.
+An <a href="https://erfgoedpod.github.io/architecture#artefact">artefact</a> as the object of an interaction between actors. Hence, within the scope of this project, actors exchange messages about an artefact, not the artefact itself.</p>
+   <p>The list of relevant digital heritage artefacts is given below.
+We distinguish between digital heritage artefacts: artefacts with direct cultural heritage value and "metadata" artefacts: artefacts that are about other artefacts.</p>
    <table>
     <thead>
      <tr>
@@ -1881,6 +1882,8 @@ The list of relevant digital heritage artefacts is given below.</p>
       <th>DERA (NL) <a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten">Bedrijfsobjecten</a>
       <th>OSLO (VL) <a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object">Cultureel Erfgoed Object</a>
     <tbody>
+     <tr>
+      <th colspan="4">Digital heritage artefacts
      <tr>
       <td>O
       <td><dfn data-dfn-type="dfn" data-export id="object">Object<a class="self-link" href="#object"></a></dfn>
@@ -1922,17 +1925,9 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>Source of controlled sets of terms.
       <td>Terminologiebron
       <td>/
-   </table>
-   <p class="issue" id="issue-17d0fdd5"><a class="self-link" href="#issue-17d0fdd5"></a> exchange artefacts</p>
-   <table>
-    <thead>
-     <tr>
-      <th>
-      <th>Term
-      <th>Description
-      <th>DERA (NL) <a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten">Bedrijfsobjecten</a>
-      <th>OSLO (VL) <a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object">Cultureel Erfgoed Object</a>
     <tbody>
+     <tr>
+      <th colspan="4">Metadata artefacts
      <tr>
       <td>MI
       <td><dfn data-dfn-type="dfn" data-export id="metadata-cultural-heritage-institution">Metadata Cultural Heritage Institution<a class="self-link" href="#metadata-cultural-heritage-institution"></a></dfn>
@@ -3577,8 +3572,6 @@ Hence, these processes are often initiated by the completion of another business
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> make the distinction between artefacts and information about artefacts<a href="#issue-6b7bef05"> ↵ </a></div>
-   <div class="issue"> exchange artefacts<a href="#issue-17d0fdd5"> ↵ </a></div>
    <div class="issue"> check discovery method in table below by Sjors<a href="#issue-90fefc2d"> ↵ </a></div>
    <div class="issue"> TODO: split of conceptual BP and implementation<a href="#issue-8ac59647"> ↵ </a></div>
    <div class="issue"> use a more generic organization domain than kb.nl<a href="#issue-c4355036"> ↵ </a></div>

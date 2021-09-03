@@ -135,11 +135,12 @@ The list of possible actor types is given below.
 
 ## Artefacts in the network ## {#artefacts}
 
-Issue: make the distinction between artefacts and information about artefacts
+On the Digital Heritage Network, actors can exchange information pertaining to certain data objects related to digital heritage. 
+These data objects are denoted by the [[architecture-nde|Decentralized Digital Heritage Network architecture]] as artefacts.
+An [[architecture-nde#artefact|artefact]] as the object of an interaction between actors. Hence, within the scope of this project, actors exchange messages about an artefact, not the artefact itself.
 
-Actors can exchange a couple of data objects on the Digital Heritage Network, which are denoted by the [[architecture-nde|Decentralized Digital Heritage Network architecture]] as artefacts.
-An [[architecture-nde#artefact|Artefact]] is the smallest unit that is being exchanged; it is the object of an interaction between actors
 The list of relevant digital heritage artefacts is given below.
+We distinguish between digital heritage artefacts: artefacts with direct cultural heritage value and "metadata" artefacts: artefacts that are about other artefacts.
 
 <table>
   <thead>
@@ -152,6 +153,9 @@ The list of relevant digital heritage artefacts is given below.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th colspan="4">Digital heritage artefacts</th>
+    </tr>
     <tr>
       <td>O</td>
       <td><dfn export>Object</dfn></td>
@@ -201,21 +205,10 @@ The list of relevant digital heritage artefacts is given below.
       <td>/</td>
     </tr>
   </tbody>
-</table>
-
-Issue: exchange artefacts
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Term</th>
-      <th>Description</th>
-      <th>DERA (NL) [Bedrijfsobjecten](https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten)</th>
-      <th>OSLO (VL) [Cultureel Erfgoed Object](https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object)</a></th>
-    </tr>
-  </thead>
   <tbody>
+    <tr>
+      <th colspan="4">Metadata artefacts</th>
+    </tr>
     <tr>
       <td>MI</td>
       <td><dfn export>Metadata Cultural Heritage Institution</dfn></td>
