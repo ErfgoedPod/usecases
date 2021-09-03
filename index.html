@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="6b92e5edbb5213ad3cd09824d347d832b34bfd1b" name="document-revision">
+  <meta content="df191744246c0a06687cb9841317c554a8761c88" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1497,8 +1497,8 @@ Parts of this work may be from another specification document.  If so, those par
         <li><a href="#-bp3-adding-a-cultural-heritage-institution-to-the-registry"><span class="secno">5.2.1</span> <span class="content">(BP3) Adding a Cultural Heritage Institution to the Registry</span></a>
         <li><a href="#BP4"><span class="secno">5.2.2</span> <span class="content">(BP4) Adding a new Dataset to the Registry</span></a>
         <li><a href="#BP5"><span class="secno">5.2.3</span> <span class="content">(BP5) Updating a Dataset in the Registry</span></a>
-        <li><a href="#-bp6-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4</span> <span class="content">(BP6) Adding a Registry to the ACL of a Data Pod</span></a>
-        <li><a href="#-bp7-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5</span> <span class="content">(BP7) Constructing backlinks between two institutions</span></a>
+        <li><a href="#-bp6-adding-a-registry-to-the-acl-of-a-digital-heritage-pod"><span class="secno">5.2.4</span> <span class="content">(BP6) Adding a Registry to the ACL of a Digital Heritage Pod</span></a>
+        <li><a href="#-bp7-constructing-backlinks-between-objects-of-two-institutions"><span class="secno">5.2.5</span> <span class="content">(BP7) Constructing backlinks between objects of two institutions</span></a>
        </ol>
       <li>
        <a href="#perspective-service-portal-network-of-terms---registry"><span class="secno">5.3</span> <span class="content">Perspective Service Portal / Network Of Terms - Registry</span></a>
@@ -1550,13 +1550,15 @@ Parts of this work may be from another specification document.  If so, those par
 This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
 Due to the inflexibility, there are high maintenance costs on the side of the data providing institution and the side of the aggregator. 
 Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
-NDE-Usable envisions a discovery infrastructure that navigates applications to the relevant original data sources, rather than aggregate and republish their data.
-The design integrates applications with institutions’s collection data in a more loose-couple manner, enabling institutions to reorientate their data more easiliy to other services. 
-To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).</p>
-   <p>The network design of NDE-Usable resonate heavily with the principles of Decentralized Web and Solid.
+NDE-Usable envisions a discovery infrastructure that guides applications to the relevant original data sources, rather than aggregate and republish their data.
+The design integrates applications with institutions’s collection data in a more loosely-coupled manner, 
+enabling institutions to reorientate their developed service integrations more easiliy to other vendors. 
+To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, 
+ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).</p>
+   <p>The network design of NDE-Usable resonates strongly with the principles of Decentralized Web and Solid.
 Hence, this ErfgoedPod project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
-In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following their own information - are a good basis for implementing a sustainable digital heritage network.
-The main project outcomes are protocols and components for creating generic decentralized artefact exchange networks, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
+In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a good basis for implementing a sustainable digital heritage network.
+The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
 Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.</p>
    <p>This document captures the use cases that originate from the NDE-Usable programme.
 To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
@@ -1564,81 +1566,81 @@ These business processes serve as a basis for a proof-of-concept implementation 
    <h2 class="heading settled" data-level="3" id="context-dutch-digital-heritage-network"><span class="secno">3. </span><span class="content">Context Dutch Digital Heritage Network</span><a class="self-link" href="#context-dutch-digital-heritage-network"></a></h2>
    <p>The diagram below updates the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
 It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg">original building blocks diagram</a> to resemble a decentralized implementation according to the ResearcherPod design.</p>
-   <svg content="<mxfile><diagram id=&quot;zhB2w1Cr3E7jYUj-LeK4&quot; name=&quot;Page-1&quot;>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</diagram></mxfile>" height="464px" version="1.1" viewBox="-0.5 -0.5 739 464" width="739px" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <svg content="<mxfile><diagram id=&quot;zhB2w1Cr3E7jYUj-LeK4&quot; name=&quot;Page-1&quot;>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</diagram></mxfile>" height="464px" version="1.1" viewBox="-0.5 -0.5 739 464" width="739px" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <defs></defs>
     <g>
-     <path d="M 390 40 L 390 93.63" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
-     <path d="M 390 98.88 L 386.5 91.88 L 390 93.63 L 393.5 91.88 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
-     <rect fill="#f8cecc" height="40" pointer-events="all" stroke="#b85450" width="160" x="310" y="0"></rect>
+     <path d="M 400 50 L 400 93.63" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 400 98.88 L 396.5 91.88 L 400 93.63 L 403.5 91.88 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
+     <rect fill="#f8cecc" height="40" pointer-events="all" stroke="#b85450" width="160" x="320" y="10"></rect>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 20px; margin-left: 311px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 30px; margin-left: 321px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Service Portal **</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="390" y="24">Service Portal **</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="400" y="34">Service Portal **</text>
       </switch>
      </g>
-     <path d="M 390 140 L 390 180" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 400 200 L 400 150" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 161px; margin-left: 394px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 176px; margin-left: 400px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
           <div style="display: inline-block; font-size: 11px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; font-style: italic; background-color: #ffffff; white-space: nowrap; ">Subscribe to relevant terms and objects </div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" x="394" y="164">Subscribe to relevant terms and objects </text>
+       <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" x="400" y="179">Subscribe to relevant terms and objects </text>
       </switch>
      </g>
-     <path d="M 470 120 L 730 120 L 730 430 L 716.37 430" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 480 125 L 730 125 L 730 430 L 716.37 430" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
      <path d="M 711.12 430 L 718.12 426.5 L 716.37 430 L 718.12 433.5 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 1px; height: 1px; padding-top: 152px; margin-left: 726px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 1px; height: 1px; padding-top: 126px; margin-left: 698px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
           <div style="display: inline-block; font-size: 11px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; font-style: italic; background-color: #ffffff; white-space: nowrap; ">Search for Terms</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" text-anchor="end" x="726" y="155">Search for Terms</text>
+       <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" text-anchor="end" x="698" y="129">Search for Terms</text>
       </switch>
      </g>
-     <path d="M 310 120 L 50 120 L 50 430 L 63.63 430" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 320 120 L 50 120 L 50 430 L 63.63 430" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
      <path d="M 68.88 430 L 61.88 433.5 L 63.63 430 L 61.88 426.5 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 153px; margin-left: 54px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 121px; margin-left: 202px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
           <div style="display: inline-block; font-size: 11px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; font-style: italic; background-color: #ffffff; white-space: nowrap; ">Search for Objects</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" x="54" y="156">Search for Objects</text>
+       <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" x="202" y="124">Search for Objects</text>
       </switch>
      </g>
-     <rect fill="#f8cecc" height="40" pointer-events="all" stroke="#b85450" width="160" x="310" y="100"></rect>
+     <rect fill="#f8cecc" height="40" pointer-events="all" stroke="#b85450" width="160" x="320" y="200"></rect>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 120px; margin-left: 311px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 220px; margin-left: 321px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Collector *</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="390" y="124">Collector *</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="400" y="224">Collector *</text>
       </switch>
      </g>
      <path d="M 570 326.37 L 570 410" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
      <path d="M 570 321.12 L 573.5 328.12 L 570 326.37 L 566.5 328.12 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
-     <path d="M 570 263.63 L 570 205 L 470 205" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 570 263.63 L 570 220 L 480 220" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
      <path d="M 570 268.88 L 566.5 261.88 L 570 263.63 L 573.5 261.88 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
      <path d="M 510 270 L 650 270 L 650 320 L 490 320 L 490 290 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
@@ -1707,17 +1709,17 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
        <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="570" y="434">Terminology management system...</text>
       </switch>
      </g>
-     <path d="M 330 180 L 470 180 L 470 230 L 310 230 L 310 200 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
+     <path d="M 340 100 L 480 100 L 480 150 L 320 150 L 320 120 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 205px; margin-left: 311px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 125px; margin-left: 321px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Knowledge Graph</div>
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="390" y="209">Knowledge Graph</text>
+       <text fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" x="400" y="129">Knowledge Graph</text>
       </switch>
      </g>
      <path d="M 210 326.37 L 210 410" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
@@ -1734,12 +1736,12 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
        <text fill="#000000" font-family="Helvetica" font-size="11px" font-style="italic" x="132" y="368">Metadata...</text>
       </switch>
      </g>
-     <path d="M 210 263.63 L 210 215 L 310 215" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
+     <path d="M 210 263.63 L 210 220 L 320 220" fill="none" pointer-events="stroke" stroke="#000000" stroke-miterlimit="10"></path>
      <path d="M 210 268.88 L 206.5 261.88 L 210 263.63 L 213.5 261.88 Z" fill="#000000" pointer-events="all" stroke="#000000" stroke-miterlimit="10"></path>
      <g transform="translate(-0.5 -0.5)">
       <switch>
        <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;" width="100%">
-        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 1px; height: 1px; padding-top: 231px; margin-left: 199px;" xmlns="http://www.w3.org/1999/xhtml">
+        <div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 1px; height: 1px; padding-top: 233px; margin-left: 204px;" xmlns="http://www.w3.org/1999/xhtml">
          <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
           <div style="display: inline-block; font-size: 11px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: #ffffff; white-space: nowrap; ">
            <div><i>Subscribe to a selection <br></i></div>
@@ -1748,7 +1750,7 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
          </div>
         </div>
        </foreignObject>
-       <text fill="#000000" font-family="Helvetica" font-size="11px" text-anchor="end" x="199" y="234">Subscribe to a selection...</text>
+       <text fill="#000000" font-family="Helvetica" font-size="11px" text-anchor="end" x="204" y="236">Subscribe to a selection...</text>
       </switch>
      </g>
      <path d="M 150 270 L 290 270 L 290 320 L 130 320 L 130 290 Z" fill="#d5e8d4" pointer-events="all" stroke="#82b366" stroke-miterlimit="10"></path>
@@ -1813,7 +1815,7 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
          <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
           <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
            <div align="left">*  equivalent to the <a class="property" data-link-type="propdesc">Browser</a> in NDE</div>
-           <div align="left">** similar to the concept 'Scolarly browser' <br></div>
+           <div align="left">** similar to the concept 'Scholarly browser' <br></div>
            <div align="left">    in the ResearcherPod project<br></div>
           </div>
          </div>
@@ -1856,16 +1858,17 @@ The list of possible actor types is given below.</p>
      <tr>
       <td>O
       <td><dfn data-dfn-type="dfn" data-export id="provider">Provider<a class="self-link" href="#provider"></a></dfn>
-      <td>Actor which selects, enriches or transforms cultural heritage information to provide certain services.
+      <td>Actor that selects, enriches or transforms cultural heritage information to provide certain services.
       <td>Leverancier
       <td rowspan="2">Agent
      <tr>
       <td>U
       <td><dfn data-dfn-type="dfn" data-export id="user">User<a class="self-link" href="#user"></a></dfn>
-      <td>Anyone that wants to use cultural heritage information.
+      <td>Anyone who wants to use cultural heritage information.
       <td>Gebruiker
    </table>
    <h3 class="heading settled" data-level="3.2" id="artefacts"><span class="secno">3.2. </span><span class="content">Artefacts in the network</span><a class="self-link" href="#artefacts"></a></h3>
+   <p class="issue" id="issue-6b7bef05"><a class="self-link" href="#issue-6b7bef05"></a> make the distinction between artefacts and information about artefacts</p>
    <p>Actors can exchange a couple of data objects on the Digital Heritage Network, which are denoted by the <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a> as artefacts.
 An <a href="https://erfgoedpod.github.io/architecture#artefact">Artefact</a> is the smallest unit that is being exchanged; it is the object of an interaction between actors
 The list of relevant digital heritage artefacts is given below.</p>
@@ -1878,12 +1881,6 @@ The list of relevant digital heritage artefacts is given below.</p>
       <th>DERA (NL) <a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten">Bedrijfsobjecten</a>
       <th>OSLO (VL) <a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object">Cultureel Erfgoed Object</a>
     <tbody>
-     <tr>
-      <td>MI
-      <td><dfn data-dfn-type="dfn" data-export id="metadata-cultural-heritage-institution">Metadata Cultural Heritage Institution<a class="self-link" href="#metadata-cultural-heritage-institution"></a></dfn>
-      <td>A description on the organisation.
-      <td>(Organisatie profiel)
-      <td>/
      <tr>
       <td>O
       <td><dfn data-dfn-type="dfn" data-export id="object">Object<a class="self-link" href="#object"></a></dfn>
@@ -1902,22 +1899,10 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>Self-contained information related to a Cultural Heritage Object.
       <td>Informatieobject
      <tr>
-      <td>MC
-      <td><dfn data-dfn-type="dfn" data-export id="metadatacultural-heritage-object">Metadata<br>Cultural Heritage Object<a class="self-link" href="#metadatacultural-heritage-object"></a></dfn>
-      <td>Descriptive document about a Cultural Heritage Object.
-      <td>Metadata Cultuurhistorisch object
-      <td>/
-     <tr>
       <td>E
       <td><dfn data-dfn-type="dfn" data-export id="enrichment">Enrichment<a class="self-link" href="#enrichment"></a></dfn>
       <td>Information that is not explicitly present in the original Cultural Heritage Object.
       <td>Verrijking
-      <td>/
-     <tr>
-      <td>ME
-      <td><dfn data-dfn-type="dfn" data-export id="metadataenrichment">Metadata<br>Enrichment<a class="self-link" href="#metadataenrichment"></a></dfn>
-      <td>Descriptive document about an enrichment.
-      <td>Metadata Verrijkingen
       <td>/
      <tr>
       <td>D
@@ -1925,12 +1910,6 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>Collection of Cultural Heritage Objects.
       <td>Dataset
       <td>Collectie
-     <tr>
-      <td>MD
-      <td><dfn data-dfn-type="dfn" data-export id="metadatadataset">Metadata<br>Dataset<a class="self-link" href="#metadatadataset"></a></dfn>
-      <td>Descriptive document about a Dataset.
-      <td>Metadata Dataset
-      <td>/
      <tr>
       <td>T
       <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="term">Term</dfn>
@@ -1943,6 +1922,41 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>Source of controlled sets of terms.
       <td>Terminologiebron
       <td>/
+   </table>
+   <p class="issue" id="issue-17d0fdd5"><a class="self-link" href="#issue-17d0fdd5"></a> exchange artefacts</p>
+   <table>
+    <thead>
+     <tr>
+      <th>
+      <th>Term
+      <th>Description
+      <th>DERA (NL) <a href="https://dera.netwerkdigitaalerfgoed.nl/index.php/Bedrijfsobjecten">Bedrijfsobjecten</a>
+      <th>OSLO (VL) <a href="https://data.vlaanderen.be/doc/applicatieprofiel/cultureel-erfgoed-object">Cultureel Erfgoed Object</a>
+    <tbody>
+     <tr>
+      <td>MI
+      <td><dfn data-dfn-type="dfn" data-export id="metadata-cultural-heritage-institution">Metadata Cultural Heritage Institution<a class="self-link" href="#metadata-cultural-heritage-institution"></a></dfn>
+      <td>A description on the organisation.
+      <td>(Organisatie profiel)
+      <td>/
+     <tr>
+      <td>MC
+      <td><dfn data-dfn-type="dfn" data-export id="metadatacultural-heritage-object">Metadata<br>Cultural Heritage Object<a class="self-link" href="#metadatacultural-heritage-object"></a></dfn>
+      <td>Descriptive document about a Cultural Heritage Object.
+      <td>Metadata Cultuurhistorisch object
+      <td>/
+     <tr>
+      <td>ME
+      <td><dfn data-dfn-type="dfn" data-export id="metadataenrichment">Metadata<br>Enrichment<a class="self-link" href="#metadataenrichment"></a></dfn>
+      <td>Descriptive document about an enrichment.
+      <td>Metadata Verrijkingen
+      <td>/
+     <tr>
+      <td>MD
+      <td><dfn data-dfn-type="dfn" data-export id="metadatadataset">Metadata<br>Dataset<a class="self-link" href="#metadatadataset"></a></dfn>
+      <td>Descriptive document about a Dataset.
+      <td>Metadata Dataset
+      <td>/
      <tr>
       <td>MT
       <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="metadata-term-source">Metadata Term Source</dfn>
@@ -1951,7 +1965,7 @@ The list of relevant digital heritage artefacts is given below.</p>
       <td>/
    </table>
    <h3 class="heading settled" data-level="3.3" id="roles"><span class="secno">3.3. </span><span class="content">Roles in the network</span><a class="self-link" href="#roles"></a></h3>
-   <p>Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume about artefacts or provide additional services that in some way affect the artefact’s lifecycle.
+   <p>Actors can take up different roles in the Digital Heritage Network depending om whether they provide data about artefacts, consume data about artefacts or provide additional services that in some way affect the artefact’s lifecycle.
 The list of possible roles is given below.</p>
    <table>
     <thead>
@@ -2832,7 +2846,7 @@ This includes business processes that only affect actors inside a single institu
        </ul>
      <tr>
       <th>Preconditions
-      <td> There are a <a data-link-type="dfn" href="#cultural-heritage-object-maintainer" id="ref-for-cultural-heritage-object-maintainer①">Cultural Heritage Object Maintainer</a> and a reachable running Solid Data Pod within the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤">Cultural Heritage Institution</a>. 
+      <td> A <a data-link-type="dfn" href="#cultural-heritage-object-maintainer" id="ref-for-cultural-heritage-object-maintainer①">Cultural Heritage Object Maintainer</a> and a reachable running Solid Data Pod are provided by the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤">Cultural Heritage Institution</a>. 
      <tr>
       <th>Triggers
       <td>A <a data-link-type="dfn" href="#cultural-heritage-object-maintainer" id="ref-for-cultural-heritage-object-maintainer②">Cultural Heritage Object Maintainer</a> wants to share metadata with Solid networks.
@@ -2896,7 +2910,7 @@ This includes business processes that only affect actors inside a single institu
         <li>The <a data-link-type="dfn">Dashboard</a> starts an <a data-link-type="dfn">Orchestrator</a> process locally or uses an <a data-link-type="dfn">Orchestrator</a> Web service. Once complete, the orchestrator process returns the location of the <a data-link-type="dfn">Orchestrator</a>'s <a data-link-type="dfn">Inbox</a> resource. 
         <li>The <a data-link-type="dfn">Dashboard</a> supplies a location of an <a data-link-type="dfn">Inbox</a> resource - most likely that of a <a data-link-type="dfn">Digital Heritage Pod</a> - to the <a data-link-type="dfn">Orchestrator</a> by sending a notification to its inbox. The <a data-link-type="dfn">orchestrator</a> now watches the supplied <a data-link-type="dfn">Inbox</a> resources for incoming notifications. 
         <li>The <a data-link-type="dfn">Dashboard</a> informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer③">Maintainer</a> that the <a data-link-type="dfn">Orchestrator</a> service is up and running. 
-        <li>Next, the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer④">Maintainer</a> configures a list of <a data-link-type="dfn">rulebook</a> file locations, which is used by the <a data-link-type="dfn">Dashboard</a> to initialize the <a data-link-type="dfn">Orchestrator</a>. 
+        <li>Next, the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer④">Maintainer</a> configures a list of <a data-link-type="dfn">rulebook</a> file locations, which are used by the <a data-link-type="dfn">Dashboard</a> to initialize the <a data-link-type="dfn">Orchestrator</a>. 
         <li>The <a data-link-type="dfn">Orchestrator</a> acknowledges that the <a data-link-type="dfn">rulebooks</a> are now active. The <a data-link-type="dfn">Dashboard</a> informs the <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑤">Maintainer</a> that this completes the initialization. 
        </ol>
    </table>
@@ -2941,7 +2955,7 @@ The latter includes the possible outcome of the performed service.</p>
       <th>Preconditions
       <td>
        <ul>
-        <li>There exists a <a data-link-type="dfn">Metadata Organization</a> with basic details (eg. identifier, name) with the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①③">Cultural Heritage Institution</a>. 
+        <li>The <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①③">Cultural Heritage Institution</a> hosts a <a data-link-type="dfn">Metadata Organization</a>: a machine actionable profile of the organization with basic details (eg. identifier, name). 
         <li>The <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①④">Cultural Heritage Institution</a> is not known to the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⓪">Registry</a>. 
         <li>The <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑤">Cultural Heritage Institution</a> can be identified and located using a persistent identifier (URI). 
         <li>The <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑥">Cultural Heritage Institution</a> has a curated list of preferred <a data-link-type="dfn" href="#registry" id="ref-for-registry①①">Registry</a> instances with a link to their inboxes. 
@@ -2961,14 +2975,16 @@ The latter includes the possible outcome of the performed service.</p>
         <li>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑦">Maintainer</a> of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②⓪">Cultural Heritage Institution</a> then uses the <a data-link-type="dfn">Dashboard</a> to start registration. 
         <li>The <a data-link-type="dfn">Orchestrator</a> of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②①">Cultural Heritage Institution</a> detects the registration event and sends a notification on the institution’s existence to the Inbox of its preferred <a data-link-type="dfn" href="#registry" id="ref-for-registry①④">Registry</a>(s). It contains the organization’s identifier and a link to the profile. 
         <li>When notified, the <a data-link-type="dfn">Orchestrator</a> of the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑤">Registry</a> follows the link to the <a data-link-type="dfn">Metadata Organization</a> and attempts to download it. 
-        <li>*Optional step in case the <a data-link-type="dfn">Metadata Organization</a> is not open licensed:* when the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑥">Registry</a> has reading access to the <a data-link-type="dfn">Metadata Organization</a> in the <a data-link-type="dfn">Digital Heritage Pod’s</a> ACL, it is granted access. Else, the download is refused. 
+        <li>*Optional step in case the <a data-link-type="dfn">Metadata Organization</a> is not openly licensed:* when the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑥">Registry</a> has read access to the <a data-link-type="dfn">Metadata Organization</a> in the <a data-link-type="dfn">Digital Heritage Pod’s</a> ACL, it is granted access. Else, the download is refused. 
         <li>When downloaded, the <a data-link-type="dfn">Orchestrator</a> of the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑦">Registry</a> stores the profile in its <a data-link-type="dfn">Digital Heritage Pod</a> and adds it to the Query Index. 
         <li>After completion, the <a data-link-type="dfn">Orchestrator</a> of the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑧">Registry</a> sends a notification to the institution’s inbox that the registration was successful. 
        </ol>
    </table>
    <p><strong>Example HTTP Sequence</strong></p>
+   <p class="issue" id="issue-38536f40"><a class="self-link" href="#issue-38536f40"></a> split sequence with and without orchestrator?</p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/new-organisation-registry.puml" width="800"></p>
    <h4 class="heading settled" data-level="5.2.2" id="BP4"><span class="secno">5.2.2. </span><span class="content">(BP4) Adding a new Dataset to the Registry</span><a class="self-link" href="#BP4"></a></h4>
+   <p class="issue" id="issue-9d934760"><a class="self-link" href="#issue-9d934760"></a> is there a new version of the dataset or of the dataset description?</p>
    <table>
     <tbody>
      <tr>
@@ -3098,7 +3114,7 @@ The latter includes the possible outcome of the performed service.</p>
    </table>
    <p><strong>Example HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800"></p>
-   <h4 class="heading settled" data-level="5.2.4" id="-bp6-adding-a-registry-to-the-acl-of-a-data-pod"><span class="secno">5.2.4. </span><span class="content">(BP6) Adding a Registry to the ACL of a Data Pod</span><a class="self-link" href="#-bp6-adding-a-registry-to-the-acl-of-a-data-pod"></a></h4>
+   <h4 class="heading settled" data-level="5.2.4" id="-bp6-adding-a-registry-to-the-acl-of-a-digital-heritage-pod"><span class="secno">5.2.4. </span><span class="content">(BP6) Adding a Registry to the ACL of a Digital Heritage Pod</span><a class="self-link" href="#-bp6-adding-a-registry-to-the-acl-of-a-digital-heritage-pod"></a></h4>
    <table>
     <tbody>
      <tr>
@@ -3120,31 +3136,32 @@ The latter includes the possible outcome of the performed service.</p>
        </ul>
      <tr>
       <th>Goal
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④②">Registry</a> can access the necessary data in the Data Pod
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④②">Registry</a> can access the necessary data in the <a data-link-type="dfn">Digital Heritage Pod</a>
      <tr>
       <th>Stakeholders
       <td>/
      <tr>
       <th>Preconditions
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④③">Registry</a> does not have access to the Data Pod of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution④⑤">Cultural Heritage Institution</a>
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④③">Registry</a> does not have access to the <a data-link-type="dfn">Digital Heritage Pod</a> of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution④⑤">Cultural Heritage Institution</a>
      <tr>
       <th>Triggers
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④④">Registry</a> instance is unknown to the Data Pod
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④④">Registry</a> instance is unknown to the <a data-link-type="dfn">Digital Heritage Pod</a>
      <tr>
       <th>Postconditions
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑤">Registry</a> is added to the ACL list of the Data Pod
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑤">Registry</a> is added to the ACL list of the <a data-link-type="dfn">Digital Heritage Pod</a>
      <tr>
       <th>Procedure
       <td>
        <ol>
         <li>The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①③">Maintainer</a> opens the <a data-link-type="dfn">Dashboard</a> and adds the instance to the list of relevant Registry’s. 
-        <li>The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①④">Maintainer</a> grants the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑥">Registry</a> (partial) access to the Organization and Metadata Dataset. 
-        <li>The Orchestrator of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution④⑥">Cultural Heritage Institution</a> picks up this change and sends a notification to the Registry’s Inbox to inform it on its access control rights. 
+        <li>The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①④">Maintainer</a> grants the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑥">Registry</a> (partial) access to the Organization and <a data-link-type="dfn">Metadata Dataset</a>. 
+        <li>The Orchestrator of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution④⑥">Cultural Heritage Institution</a> picks up this change and sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑦">Registry</a>’s Inbox to inform it on its access control rights. 
        </ol>
    </table>
    <p><strong>Example HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/acl.puml" width="800"></p>
-   <h4 class="heading settled" data-level="5.2.5" id="-bp7-constructing-backlinks-between-two-institutions"><span class="secno">5.2.5. </span><span class="content">(BP7) Constructing backlinks between two institutions</span><a class="self-link" href="#-bp7-constructing-backlinks-between-two-institutions"></a></h4>
+   <h4 class="heading settled" data-level="5.2.5" id="-bp7-constructing-backlinks-between-objects-of-two-institutions"><span class="secno">5.2.5. </span><span class="content">(BP7) Constructing backlinks between objects of two institutions</span><a class="self-link" href="#-bp7-constructing-backlinks-between-objects-of-two-institutions"></a></h4>
+   <p class="issue" id="issue-0080730c"><a class="self-link" href="#issue-0080730c"></a> is the orchestrator picking up new links or does it get a notification?</p>
    <table>
     <tbody>
      <tr>
@@ -3153,7 +3170,7 @@ The latter includes the possible outcome of the performed service.</p>
        <ul>
         <li><a data-link-type="dfn" href="#cultural-heritage-object-maintainer" id="ref-for-cultural-heritage-object-maintainer⑧">Cultural Heritage Object Maintainer</a> A 
         <li><a data-link-type="dfn" href="#cultural-heritage-object-maintainer" id="ref-for-cultural-heritage-object-maintainer⑨">Cultural Heritage Object Maintainer</a> B 
-        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry④⑦">Registry</a> 
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry④⑧">Registry</a> 
        </ul>
      <tr>
       <th>Components
@@ -3173,10 +3190,10 @@ The latter includes the possible outcome of the performed service.</p>
       <td>Knowledge Graphs<br>Browser/ Service Portals<br>Users
      <tr>
       <th>Preconditions
-      <td>A Dataset of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤③">Cultural Heritage Institution</a> A known to the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑧">Registry</a> contains links to objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤④">Cultural Heritage Institution</a> B<br>The links have not been processed by the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑨">Registry</a> yet.
+      <td>A Dataset of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤③">Cultural Heritage Institution</a> A known to the <a data-link-type="dfn" href="#registry" id="ref-for-registry④⑨">Registry</a> contains links to objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤④">Cultural Heritage Institution</a> B<br>The links have not been processed by the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⓪">Registry</a> yet.
      <tr>
       <th>Triggers
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⓪">Registry</a> has added or updated a Metadata Dataset in its Query Index
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤①">Registry</a> has added or updated a Metadata Dataset in its Query Index
      <tr>
       <th>Postconditions
       <td>Cultural Heritage Institution B has enriched its Datasets with links to Objects of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤⑤">Cultural Heritage Institution</a> A
@@ -3184,7 +3201,7 @@ The latter includes the possible outcome of the performed service.</p>
       <th>Procedure
       <td>
        <ol>
-        <li>The Orchestrator of the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤①">Registry</a> picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
+        <li>The Orchestrator of the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤②">Registry</a> picks up new links in the Query index and selects the known Datasets that contain the Objects targeted by the links. 
         <li>Based on the Dataset’s origin, it sends a notification to the Inbox of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤⑥">Cultural Heritage Institution</a> B about the found links. 
         <li>The Orchestrator of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤⑦">Cultural Heritage Institution</a> B picks up this change and generates new backlinks to <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤⑧">Cultural Heritage Institution</a> A, which it stores as a linkset in its Data Pod. 
        </ol>
@@ -3192,7 +3209,7 @@ The latter includes the possible outcome of the performed service.</p>
    <p><strong>Example HTTP Sequence</strong></p>
    <p><img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ErfgoedPod/usecases/master/diagrams/update-dataset.puml" width="800"></p>
    <h3 class="heading settled" data-level="5.3" id="perspective-service-portal-network-of-terms---registry"><span class="secno">5.3. </span><span class="content">Perspective Service Portal / Network Of Terms - Registry</span><a class="self-link" href="#perspective-service-portal-network-of-terms---registry"></a></h3>
-   <p>This section takes the perspective of the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤②">Registry</a> Service and the <a data-link-type="dfn">Service Portal</a> application interacting.
+   <p>This section takes the perspective of the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤③">Registry</a> Service and the <a data-link-type="dfn">Service Portal</a> application interacting.
 This entails business processes where both services notify eachother about important events. 
 Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry).</p>
    <h4 class="heading settled" data-level="5.3.1" id="-bp8-subscribing-to-a-topic"><span class="secno">5.3.1. </span><span class="content">(BP8) Subscribing to a topic</span><a class="self-link" href="#-bp8-subscribing-to-a-topic"></a></h4>
@@ -3204,7 +3221,7 @@ Hence, these processes are often initiated by the completion of another business
        <ul>
         <li><a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider①">Service Portal Provider</a> 
         <li><a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms②">Network of Terms</a> 
-        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑤③">Registry</a> 
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑤④">Registry</a> 
        </ul>
      <tr>
       <th>Components
@@ -3212,11 +3229,11 @@ Hence, these processes are often initiated by the completion of another business
        <ul>
         <li><a data-link-type="dfn">Service Portal</a> 
         <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn">Service Portal</a> / <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms③">Network Of Terms</a> 
-        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤④">Registry</a> 
+        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑤">Registry</a> 
        </ul>
      <tr>
       <th>Goal
-      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider②">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms④">Network of Terms</a> subscribes to a topic - defined by a query - at a <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑤">Registry</a>, 
+      <td>A <a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider②">Service Portal Provider</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms④">Network of Terms</a> subscribes to a topic - defined by a query - at a <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑥">Registry</a>, 
       of which it wants to receive notifications about related artefacts.
      <tr>
       <th>Stakeholders
@@ -3228,7 +3245,7 @@ Hence, these processes are often initiated by the completion of another business
       <th>Preconditions
       <td>
        <ol>
-        <li>A <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑥">Registry</a> is known to the <a data-link-type="dfn">Service Portal</a>. 
+        <li>A <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑦">Registry</a> is known to the <a data-link-type="dfn">Service Portal</a>. 
         <li>The <a data-link-type="dfn">Service Portal</a> has a query that defines the subscription topic. 
         <li>
        </ol>
@@ -3242,10 +3259,10 @@ Hence, these processes are often initiated by the completion of another business
       <th>Procedure
       <td>
        <ol>
-        <li>A <a data-link-type="dfn">Service Portal</a> sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑦">Registry</a> requesting subscription to a dataset topic. 
+        <li>A <a data-link-type="dfn">Service Portal</a> sends a notification to the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑧">Registry</a> requesting subscription to a dataset topic. 
           This request includes metadata about the topic, ie. a list of <a data-link-type="dfn" href="#term" id="ref-for-term">Terms</a> and the inbox of the <a data-link-type="dfn">Service Portal</a>. 
-        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑧">Registry</a> adds the <a data-link-type="dfn">Service Portal</a>'s inbox URL to an index per <a data-link-type="dfn" href="#term" id="ref-for-term①">term</a>. If an index does not exist, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑨">Registry</a> creates it. 
-        <li>When the indexing is completed, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⓪">Registry</a> sends a notification to the <a data-link-type="dfn">Service Portal</a>'s inbox to confirm the subscription. 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤⑨">Registry</a> adds the <a data-link-type="dfn">Service Portal</a>'s inbox URL to an index per <a data-link-type="dfn" href="#term" id="ref-for-term①">term</a>. If an index does not exist, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⓪">Registry</a> creates it. 
+        <li>When the indexing is completed, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥①">Registry</a> sends a notification to the <a data-link-type="dfn">Service Portal</a>'s inbox to confirm the subscription. 
        </ol>
    </table>
    <p><strong>Example HTTP Sequence</strong></p>
@@ -3258,7 +3275,7 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ul>
         <li><a data-link-type="dfn" href="#service-portal-provider" id="ref-for-service-portal-provider③">Service Portal Provider</a> 
-        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑥①">Registry</a> 
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑥②">Registry</a> 
         <li><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑤⑨">Cultural Heritage Institution</a> 
        </ul>
      <tr>
@@ -3267,7 +3284,7 @@ Hence, these processes are often initiated by the completion of another business
        <ul>
         <li><a data-link-type="dfn">Service Portal</a> 
         <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn">Service Portal</a> 
-        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥②">Registry</a> 
+        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥③">Registry</a> 
         <li><a data-link-type="dfn">Digital Heritage Pod</a> of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥⓪">Cultural Heritage Institution</a> 
        </ul>
      <tr>
@@ -3283,13 +3300,13 @@ Hence, these processes are often initiated by the completion of another business
       <th>Preconditions
       <td>
        <ol>
-        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥③">Registry</a> is known to the <a data-link-type="dfn">Service Portal</a>. 
-        <li>The <a data-link-type="dfn">Service Portal</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term②">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥④">Registry</a> . 
-        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑤">Registry</a> has new or updated <a data-link-type="dfn">Metadata Dataset</a> related to the desired topic. 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥④">Registry</a> is known to the <a data-link-type="dfn">Service Portal</a>. 
+        <li>The <a data-link-type="dfn">Service Portal</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term②">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑤">Registry</a> . 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑥">Registry</a> has new or updated <a data-link-type="dfn">Metadata Dataset</a> related to the desired topic. 
        </ol>
      <tr>
       <th>Triggers
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑥">Registry</a> has added or updated a <a data-link-type="dfn">Metadata Dataset</a> in its Query Index.
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑦">Registry</a> has added or updated a <a data-link-type="dfn">Metadata Dataset</a> in its Query Index.
      <tr>
       <th>Postconditions
       <td>The <a data-link-type="dfn">Service Portal</a> has retrieved the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑧">Dataset</a>.
@@ -3298,9 +3315,9 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ol>
         <li>On the reception of a new or updated <a data-link-type="dfn">Metadata Dataset</a> (via <a href="#BP4">§ 5.2.2 (BP4) Adding a new Dataset to the Registry</a> or <a href="#BP5">§ 5.2.3 (BP5) Updating a Dataset in the Registry</a>),
-          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑦">Registry</a> cross-checks the list of subscriptions. 
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑧">Registry</a> cross-checks the list of subscriptions. 
         <li>If a <a data-link-type="dfn">Metadata Dataset</a> matches a subscription <a data-link-type="dfn" href="#term" id="ref-for-term③">term</a>],
-          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑧">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s that are subscribed.
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑨">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s that are subscribed.
           The notification contains a link to the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑨">Dataset</a>, which was extracted from the <a data-link-type="dfn">Dataset Description</a>. 
         <li>When receiving this notification,
           the <a data-link-type="dfn">Service Portal</a> extracts the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①⓪">Dataset</a> link and downloads the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①①">Dataset</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥①">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>. 
@@ -3317,7 +3334,7 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ul>
         <li><a data-link-type="dfn">Network of Terms Provider</a> 
-        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑥⑨">Registry</a> 
+        <li><a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⓪">Registry</a> 
         <li><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥②">Cultural Heritage Institution</a> 
        </ul>
      <tr>
@@ -3326,7 +3343,7 @@ Hence, these processes are often initiated by the completion of another business
        <ul>
         <li><a data-link-type="dfn">Service Portal</a> 
         <li><a data-link-type="dfn">Inbox</a> of [=<a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑤">Network of Terms</a> 
-        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⓪">Registry</a> 
+        <li><a data-link-type="dfn">Inbox</a> of <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦①">Registry</a> 
         <li><a data-link-type="dfn">Digital Heritage Pod</a> of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥③">Cultural Heritage Institution</a> 
        </ul>
      <tr>
@@ -3342,13 +3359,13 @@ Hence, these processes are often initiated by the completion of another business
       <th>Preconditions
       <td>
        <ol>
-        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦①">Registry</a> is known to the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑥">Network of Terms</a>. 
-        <li>The <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑦">Network of Terms</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term④">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦②">Registry</a> . 
-        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦③">Registry</a> has new or updated <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source">Metadata Term Source</a> related to the desired <a data-link-type="dfn" href="#term" id="ref-for-term⑤">term</a>. 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦②">Registry</a> is known to the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑥">Network of Terms</a>. 
+        <li>The <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑦">Network of Terms</a> is registered to a certain <a data-link-type="dfn" href="#term" id="ref-for-term④">term</a> at the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦③">Registry</a> . 
+        <li>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦④">Registry</a> has new or updated <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source">Metadata Term Source</a> related to the desired <a data-link-type="dfn" href="#term" id="ref-for-term⑤">term</a>. 
        </ol>
      <tr>
       <th>Triggers
-      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦④">Registry</a> has added or updated a <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source①">Metadata Term Source</a> in its Query Index.
+      <td>The <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⑤">Registry</a> has added or updated a <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source①">Metadata Term Source</a> in its Query Index.
      <tr>
       <th>Postconditions
       <td>The <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑧">Network of Terms</a> has retrieved the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source③">Term Source</a>.
@@ -3357,9 +3374,9 @@ Hence, these processes are often initiated by the completion of another business
       <td>
        <ol>
         <li>On the reception of a new or updated <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source②">Metadata Term Source</a> (via <a href="#BP4">§ 5.2.2 (BP4) Adding a new Dataset to the Registry</a> or <a href="#BP5">§ 5.2.3 (BP5) Updating a Dataset in the Registry</a>),
-          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⑤">Registry</a> cross-checks the list of subscriptions. 
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⑥">Registry</a> cross-checks the list of subscriptions. 
         <li>If a <a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source③">Metadata Term Source</a> matches a subscription <a data-link-type="dfn" href="#term" id="ref-for-term⑥">term</a>],
-          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⑥">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s that are subscribed.
+          the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦⑦">Registry</a> sends a notification to the inbox of the <a data-link-type="dfn">Service Portal</a>'s that are subscribed.
           The notification contains a link to the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source④">Term Source</a>, which was extracted from the <a data-link-type="dfn">Dataset Description</a>. 
         <li>When receiving this notification,
           the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑨">Network of Terms</a> extracts the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑤">Term Source</a> link and downloads the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑥">Term Source</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑥④">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>. 
@@ -3560,9 +3577,14 @@ Hence, these processes are often initiated by the completion of another business
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
+   <div class="issue"> make the distinction between artefacts and information about artefacts<a href="#issue-6b7bef05"> ↵ </a></div>
+   <div class="issue"> exchange artefacts<a href="#issue-17d0fdd5"> ↵ </a></div>
    <div class="issue"> check discovery method in table below by Sjors<a href="#issue-90fefc2d"> ↵ </a></div>
    <div class="issue"> TODO: split of conceptual BP and implementation<a href="#issue-8ac59647"> ↵ </a></div>
    <div class="issue"> use a more generic organization domain than kb.nl<a href="#issue-c4355036"> ↵ </a></div>
+   <div class="issue"> split sequence with and without orchestrator?<a href="#issue-38536f40"> ↵ </a></div>
+   <div class="issue"> is there a new version of the dataset or of the dataset description?<a href="#issue-9d934760"> ↵ </a></div>
+   <div class="issue"> is the orchestrator picking up new links or does it get a notification?<a href="#issue-0080730c"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="cultural-heritage-institution">
    <b><a href="#cultural-heritage-institution">#cultural-heritage-institution</a></b><b>Referenced in:</b>
@@ -3576,8 +3598,8 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-cultural-heritage-institution①⓪">5.2.1. (BP3) Adding a Cultural Heritage Institution to the Registry</a> <a href="#ref-for-cultural-heritage-institution①①">(2)</a> <a href="#ref-for-cultural-heritage-institution①②">(3)</a> <a href="#ref-for-cultural-heritage-institution①③">(4)</a> <a href="#ref-for-cultural-heritage-institution①④">(5)</a> <a href="#ref-for-cultural-heritage-institution①⑤">(6)</a> <a href="#ref-for-cultural-heritage-institution①⑥">(7)</a> <a href="#ref-for-cultural-heritage-institution①⑦">(8)</a> <a href="#ref-for-cultural-heritage-institution①⑧">(9)</a> <a href="#ref-for-cultural-heritage-institution①⑨">(10)</a> <a href="#ref-for-cultural-heritage-institution②⓪">(11)</a> <a href="#ref-for-cultural-heritage-institution②①">(12)</a>
     <li><a href="#ref-for-cultural-heritage-institution②②">5.2.2. (BP4) Adding a new Dataset to the Registry</a> <a href="#ref-for-cultural-heritage-institution②③">(2)</a> <a href="#ref-for-cultural-heritage-institution②④">(3)</a> <a href="#ref-for-cultural-heritage-institution②⑤">(4)</a> <a href="#ref-for-cultural-heritage-institution②⑥">(5)</a> <a href="#ref-for-cultural-heritage-institution②⑦">(6)</a> <a href="#ref-for-cultural-heritage-institution②⑧">(7)</a> <a href="#ref-for-cultural-heritage-institution②⑨">(8)</a> <a href="#ref-for-cultural-heritage-institution③⓪">(9)</a> <a href="#ref-for-cultural-heritage-institution③①">(10)</a>
     <li><a href="#ref-for-cultural-heritage-institution③②">5.2.3. (BP5) Updating a Dataset in the Registry</a> <a href="#ref-for-cultural-heritage-institution③③">(2)</a> <a href="#ref-for-cultural-heritage-institution③④">(3)</a> <a href="#ref-for-cultural-heritage-institution③⑤">(4)</a> <a href="#ref-for-cultural-heritage-institution③⑥">(5)</a> <a href="#ref-for-cultural-heritage-institution③⑦">(6)</a> <a href="#ref-for-cultural-heritage-institution③⑧">(7)</a> <a href="#ref-for-cultural-heritage-institution③⑨">(8)</a> <a href="#ref-for-cultural-heritage-institution④⓪">(9)</a>
-    <li><a href="#ref-for-cultural-heritage-institution④①">5.2.4. (BP6) Adding a Registry to the ACL of a Data Pod</a> <a href="#ref-for-cultural-heritage-institution④②">(2)</a> <a href="#ref-for-cultural-heritage-institution④③">(3)</a> <a href="#ref-for-cultural-heritage-institution④④">(4)</a> <a href="#ref-for-cultural-heritage-institution④⑤">(5)</a> <a href="#ref-for-cultural-heritage-institution④⑥">(6)</a>
-    <li><a href="#ref-for-cultural-heritage-institution④⑦">5.2.5. (BP7) Constructing backlinks between two institutions</a> <a href="#ref-for-cultural-heritage-institution④⑧">(2)</a> <a href="#ref-for-cultural-heritage-institution④⑨">(3)</a> <a href="#ref-for-cultural-heritage-institution⑤⓪">(4)</a> <a href="#ref-for-cultural-heritage-institution⑤①">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤②">(6)</a> <a href="#ref-for-cultural-heritage-institution⑤③">(7)</a> <a href="#ref-for-cultural-heritage-institution⑤④">(8)</a> <a href="#ref-for-cultural-heritage-institution⑤⑤">(9)</a> <a href="#ref-for-cultural-heritage-institution⑤⑥">(10)</a> <a href="#ref-for-cultural-heritage-institution⑤⑦">(11)</a> <a href="#ref-for-cultural-heritage-institution⑤⑧">(12)</a>
+    <li><a href="#ref-for-cultural-heritage-institution④①">5.2.4. (BP6) Adding a Registry to the ACL of a Digital Heritage Pod</a> <a href="#ref-for-cultural-heritage-institution④②">(2)</a> <a href="#ref-for-cultural-heritage-institution④③">(3)</a> <a href="#ref-for-cultural-heritage-institution④④">(4)</a> <a href="#ref-for-cultural-heritage-institution④⑤">(5)</a> <a href="#ref-for-cultural-heritage-institution④⑥">(6)</a>
+    <li><a href="#ref-for-cultural-heritage-institution④⑦">5.2.5. (BP7) Constructing backlinks between objects of two institutions</a> <a href="#ref-for-cultural-heritage-institution④⑧">(2)</a> <a href="#ref-for-cultural-heritage-institution④⑨">(3)</a> <a href="#ref-for-cultural-heritage-institution⑤⓪">(4)</a> <a href="#ref-for-cultural-heritage-institution⑤①">(5)</a> <a href="#ref-for-cultural-heritage-institution⑤②">(6)</a> <a href="#ref-for-cultural-heritage-institution⑤③">(7)</a> <a href="#ref-for-cultural-heritage-institution⑤④">(8)</a> <a href="#ref-for-cultural-heritage-institution⑤⑤">(9)</a> <a href="#ref-for-cultural-heritage-institution⑤⑥">(10)</a> <a href="#ref-for-cultural-heritage-institution⑤⑦">(11)</a> <a href="#ref-for-cultural-heritage-institution⑤⑧">(12)</a>
     <li><a href="#ref-for-cultural-heritage-institution⑤⑨">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-cultural-heritage-institution⑥⓪">(2)</a> <a href="#ref-for-cultural-heritage-institution⑥①">(3)</a>
     <li><a href="#ref-for-cultural-heritage-institution⑥②">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-cultural-heritage-institution⑥③">(2)</a> <a href="#ref-for-cultural-heritage-institution⑥④">(3)</a>
    </ul>
@@ -3620,7 +3642,7 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-maintainer⑥">5.2.1. (BP3) Adding a Cultural Heritage Institution to the Registry</a> <a href="#ref-for-maintainer⑦">(2)</a>
     <li><a href="#ref-for-maintainer⑧">5.2.2. (BP4) Adding a new Dataset to the Registry</a> <a href="#ref-for-maintainer⑨">(2)</a> <a href="#ref-for-maintainer①⓪">(3)</a>
     <li><a href="#ref-for-maintainer①①">5.2.3. (BP5) Updating a Dataset in the Registry</a> <a href="#ref-for-maintainer①②">(2)</a>
-    <li><a href="#ref-for-maintainer①③">5.2.4. (BP6) Adding a Registry to the ACL of a Data Pod</a> <a href="#ref-for-maintainer①④">(2)</a>
+    <li><a href="#ref-for-maintainer①③">5.2.4. (BP6) Adding a Registry to the ACL of a Digital Heritage Pod</a> <a href="#ref-for-maintainer①④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-source-maintainer">
@@ -3637,8 +3659,8 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-cultural-heritage-object-maintainer④">5.2.1. (BP3) Adding a Cultural Heritage Institution to the Registry</a>
     <li><a href="#ref-for-cultural-heritage-object-maintainer⑤">5.2.2. (BP4) Adding a new Dataset to the Registry</a>
     <li><a href="#ref-for-cultural-heritage-object-maintainer⑥">5.2.3. (BP5) Updating a Dataset in the Registry</a>
-    <li><a href="#ref-for-cultural-heritage-object-maintainer⑦">5.2.4. (BP6) Adding a Registry to the ACL of a Data Pod</a>
-    <li><a href="#ref-for-cultural-heritage-object-maintainer⑧">5.2.5. (BP7) Constructing backlinks between two institutions</a> <a href="#ref-for-cultural-heritage-object-maintainer⑨">(2)</a>
+    <li><a href="#ref-for-cultural-heritage-object-maintainer⑦">5.2.4. (BP6) Adding a Registry to the ACL of a Digital Heritage Pod</a>
+    <li><a href="#ref-for-cultural-heritage-object-maintainer⑧">5.2.5. (BP7) Constructing backlinks between objects of two institutions</a> <a href="#ref-for-cultural-heritage-object-maintainer⑨">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-portal-provider">
@@ -3660,12 +3682,12 @@ Hence, these processes are often initiated by the completion of another business
     <li><a href="#ref-for-registry⑥">5.2.1. (BP3) Adding a Cultural Heritage Institution to the Registry</a> <a href="#ref-for-registry⑦">(2)</a> <a href="#ref-for-registry⑧">(3)</a> <a href="#ref-for-registry⑨">(4)</a> <a href="#ref-for-registry①⓪">(5)</a> <a href="#ref-for-registry①①">(6)</a> <a href="#ref-for-registry①②">(7)</a> <a href="#ref-for-registry①③">(8)</a> <a href="#ref-for-registry①④">(9)</a> <a href="#ref-for-registry①⑤">(10)</a> <a href="#ref-for-registry①⑥">(11)</a> <a href="#ref-for-registry①⑦">(12)</a> <a href="#ref-for-registry①⑧">(13)</a>
     <li><a href="#ref-for-registry①⑨">5.2.2. (BP4) Adding a new Dataset to the Registry</a> <a href="#ref-for-registry②⓪">(2)</a> <a href="#ref-for-registry②①">(3)</a> <a href="#ref-for-registry②②">(4)</a> <a href="#ref-for-registry②③">(5)</a> <a href="#ref-for-registry②④">(6)</a> <a href="#ref-for-registry②⑤">(7)</a> <a href="#ref-for-registry②⑥">(8)</a> <a href="#ref-for-registry②⑦">(9)</a> <a href="#ref-for-registry②⑧">(10)</a> <a href="#ref-for-registry②⑨">(11)</a> <a href="#ref-for-registry③⓪">(12)</a>
     <li><a href="#ref-for-registry③①">5.2.3. (BP5) Updating a Dataset in the Registry</a> <a href="#ref-for-registry③②">(2)</a> <a href="#ref-for-registry③③">(3)</a> <a href="#ref-for-registry③④">(4)</a> <a href="#ref-for-registry③⑤">(5)</a> <a href="#ref-for-registry③⑥">(6)</a> <a href="#ref-for-registry③⑦">(7)</a> <a href="#ref-for-registry③⑧">(8)</a> <a href="#ref-for-registry③⑨">(9)</a>
-    <li><a href="#ref-for-registry④⓪">5.2.4. (BP6) Adding a Registry to the ACL of a Data Pod</a> <a href="#ref-for-registry④①">(2)</a> <a href="#ref-for-registry④②">(3)</a> <a href="#ref-for-registry④③">(4)</a> <a href="#ref-for-registry④④">(5)</a> <a href="#ref-for-registry④⑤">(6)</a> <a href="#ref-for-registry④⑥">(7)</a>
-    <li><a href="#ref-for-registry④⑦">5.2.5. (BP7) Constructing backlinks between two institutions</a> <a href="#ref-for-registry④⑧">(2)</a> <a href="#ref-for-registry④⑨">(3)</a> <a href="#ref-for-registry⑤⓪">(4)</a> <a href="#ref-for-registry⑤①">(5)</a>
-    <li><a href="#ref-for-registry⑤②">5.3. Perspective Service Portal / Network Of Terms - Registry</a>
-    <li><a href="#ref-for-registry⑤③">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-registry⑤④">(2)</a> <a href="#ref-for-registry⑤⑤">(3)</a> <a href="#ref-for-registry⑤⑥">(4)</a> <a href="#ref-for-registry⑤⑦">(5)</a> <a href="#ref-for-registry⑤⑧">(6)</a> <a href="#ref-for-registry⑤⑨">(7)</a> <a href="#ref-for-registry⑥⓪">(8)</a>
-    <li><a href="#ref-for-registry⑥①">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-registry⑥②">(2)</a> <a href="#ref-for-registry⑥③">(3)</a> <a href="#ref-for-registry⑥④">(4)</a> <a href="#ref-for-registry⑥⑤">(5)</a> <a href="#ref-for-registry⑥⑥">(6)</a> <a href="#ref-for-registry⑥⑦">(7)</a> <a href="#ref-for-registry⑥⑧">(8)</a>
-    <li><a href="#ref-for-registry⑥⑨">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-registry⑦⓪">(2)</a> <a href="#ref-for-registry⑦①">(3)</a> <a href="#ref-for-registry⑦②">(4)</a> <a href="#ref-for-registry⑦③">(5)</a> <a href="#ref-for-registry⑦④">(6)</a> <a href="#ref-for-registry⑦⑤">(7)</a> <a href="#ref-for-registry⑦⑥">(8)</a>
+    <li><a href="#ref-for-registry④⓪">5.2.4. (BP6) Adding a Registry to the ACL of a Digital Heritage Pod</a> <a href="#ref-for-registry④①">(2)</a> <a href="#ref-for-registry④②">(3)</a> <a href="#ref-for-registry④③">(4)</a> <a href="#ref-for-registry④④">(5)</a> <a href="#ref-for-registry④⑤">(6)</a> <a href="#ref-for-registry④⑥">(7)</a> <a href="#ref-for-registry④⑦">(8)</a>
+    <li><a href="#ref-for-registry④⑧">5.2.5. (BP7) Constructing backlinks between objects of two institutions</a> <a href="#ref-for-registry④⑨">(2)</a> <a href="#ref-for-registry⑤⓪">(3)</a> <a href="#ref-for-registry⑤①">(4)</a> <a href="#ref-for-registry⑤②">(5)</a>
+    <li><a href="#ref-for-registry⑤③">5.3. Perspective Service Portal / Network Of Terms - Registry</a>
+    <li><a href="#ref-for-registry⑤④">5.3.1. (BP8) Subscribing to a topic</a> <a href="#ref-for-registry⑤⑤">(2)</a> <a href="#ref-for-registry⑤⑥">(3)</a> <a href="#ref-for-registry⑤⑦">(4)</a> <a href="#ref-for-registry⑤⑧">(5)</a> <a href="#ref-for-registry⑤⑨">(6)</a> <a href="#ref-for-registry⑥⓪">(7)</a> <a href="#ref-for-registry⑥①">(8)</a>
+    <li><a href="#ref-for-registry⑥②">5.3.2. (BP9) Discovering a dataset related to a subscribed topic</a> <a href="#ref-for-registry⑥③">(2)</a> <a href="#ref-for-registry⑥④">(3)</a> <a href="#ref-for-registry⑥⑤">(4)</a> <a href="#ref-for-registry⑥⑥">(5)</a> <a href="#ref-for-registry⑥⑦">(6)</a> <a href="#ref-for-registry⑥⑧">(7)</a> <a href="#ref-for-registry⑥⑨">(8)</a>
+    <li><a href="#ref-for-registry⑦⓪">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-registry⑦①">(2)</a> <a href="#ref-for-registry⑦②">(3)</a> <a href="#ref-for-registry⑦③">(4)</a> <a href="#ref-for-registry⑦④">(5)</a> <a href="#ref-for-registry⑦⑤">(6)</a> <a href="#ref-for-registry⑦⑥">(7)</a> <a href="#ref-for-registry⑦⑦">(8)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="network-of-terms">
