@@ -69,16 +69,21 @@ To this end, NDE-Usable provides implementation guidelines, interoperability req
 ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).
 
 The network design of NDE-Usable resonates strongly with the principles of Decentralized Web and Solid.
-Hence, this ErfgoedPod project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
+Therefore, the ErfgoedPod project explores what a possible implementation of the NDE-Usable vision could look like when using the Solid ecosystem,
+with the aim of designing a decentralized exchange network for digital heritage data.
+ErfgoedPod shares the goals of the current NDE-Usable infrastructure, 
+but is developed independently and assumes a lower technology readiness level.
+
 In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following information - are a good basis for implementing a sustainable digital heritage network.
 The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
 Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
-
-This document captures the use cases that originate from the NDE-Usable programme.
+This document captures the use cases that align with the NDE-Usable programme.
 To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
 These business processes serve as a basis for a proof-of-concept implementation of  decentralized artefact exchange network in the digital heritage domain.  
 
 # Context Dutch Digital Heritage Network
+
+Issue: make more generic; decouple from high level design
 
 The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
 It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg) to resemble a decentralized implementation according to the ResearcherPod design.
@@ -91,6 +96,8 @@ The remainder of this section provides more detail on how the current cultural h
 In the tables below, we aim to establish a shared understanding the different [[#actors]] (who is participating?), [[#roles]] (what is their function?), and [[#artefacts]] (what are they exchanging?) throughout this project and related initiatives.
 The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) 
 and is aligned with the dutch architecture standard [\DERA](https://netwerkdigitaalerfgoed.nl/activiteiten/dera/) and the flemish vocabulary standard [\OSLO](https://data.vlaanderen.be/ns#Vocabularia), .
+
+Issue: design a couple of Service Hubs instead of the NDE components
 
 ## Actors in the network ## {#actors}
 
@@ -456,6 +463,7 @@ To that end, they cover processes from the perspective of the following actor-ro
 
 Each business process (BP1 - 10 ) is described as a high-level description, followed by a more detailed description of the implementation details. 
 
+Issue: introduce the overall communication pattern
 
 ## Perspective of the Cultural Heritage Institution
 
@@ -488,6 +496,8 @@ an institution’s [=maintainer=] can setup an [=Orchestrator=] component to aut
 
 ## Perspective from the Cultural Heritage Institution interacting with the Registry
 
+Issue: does the registry take up an active role and are there BPs necessary to reflect this?
+
 This section takes the perspective of an [=Cultural Heritage Institution=] interacting with a [=Registry=] Service, which implements the design of the [Registry-function](https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#) using the Solid and ResearcherPod architecture.
 This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the [=Registry=] responding to that request.
 The latter includes the possible outcome of the performed service.
@@ -497,6 +507,8 @@ The latter includes the possible outcome of the performed service.
 A [=registry=] service collects descriptions of datasets ([=metadata dataset=]) from [=cultural heritage institutions=].
 Based on this information, the registry service can navigate a [=consumer=] to the [=digital heritage pods=] that store relevant datasets.
 However, in order to achieve this, an [=cultural heritage institution=] needs to be known and trusted by the [=registry=] service.
+
+Issue: the word alongside makes it look like two things are not the same
 
 1. A [=Cultural Heritage Institution=] maintains a machine-readable [=organisation profile=] that contains a basic description of the institution.
 2. A [=maintainer=], who is employed at the institution, submits a link to the profile alongside a registration request to the [=registry=] service. 
@@ -523,6 +535,8 @@ In that case, it needs to reflect the update in the [=registry=] service.
 
 
 ### (BP6) Constructing backlinks between objects of two institutions
+
+Issue: this comes out of the blue. Or remove, or rewrite as notifiying institutions about ernichments
 
 The [=registry=] service can also improve the interconnectedness between [=cultural heritage institutions=] by mediating in a reciprocal discovery process.
 Thereby, it facilitates the creation of links and backlinks between institutions' [=cultural heritage objects=]. 

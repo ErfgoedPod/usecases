@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="a68ced80ea9f12d73bf6699d94e0b3574c26e521" name="document-revision">
+  <meta content="484957fe83a84dc44c15091c58a3c1bb675ce078" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1442,7 +1442,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-09-13">13 September 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-09-17">17 September 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1457,7 +1457,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 13 September 2021,
+In addition, as of 17 September 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1556,14 +1556,18 @@ enabling institutions to reorientate their developed service integrations more e
 To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, 
 ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).</p>
    <p>The network design of NDE-Usable resonates strongly with the principles of Decentralized Web and Solid.
-Hence, this ErfgoedPod project constructs the necessary building blocks for implementing the NDE-Usable design using the Solid protocol, thus establishing a Decentralized Digital heritage network.
-In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a good basis for implementing a sustainable digital heritage network.
+Therefore, the ErfgoedPod project explores what a possible implementation of the NDE-Usable vision could look like when using the Solid ecosystem,
+with the aim of designing a decentralized exchange network for digital heritage data.
+ErfgoedPod shares the goals of the current NDE-Usable infrastructure, 
+but is developed independently and assumes a lower technology readiness level.</p>
+   <p>In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a good basis for implementing a sustainable digital heritage network.
 The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
-Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.</p>
-   <p>This document captures the use cases that originate from the NDE-Usable programme.
+Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
+This document captures the use cases that align with the NDE-Usable programme.
 To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
 These business processes serve as a basis for a proof-of-concept implementation of  decentralized artefact exchange network in the digital heritage domain.</p>
    <h2 class="heading settled" data-level="3" id="context-dutch-digital-heritage-network"><span class="secno">3. </span><span class="content">Context Dutch Digital Heritage Network</span><a class="self-link" href="#context-dutch-digital-heritage-network"></a></h2>
+   <p class="issue" id="issue-499393d7"><a class="self-link" href="#issue-499393d7"></a> make more generic; decouple from high level design</p>
    <p>The diagram below updates the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
 It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg">original building blocks diagram</a> to resemble a decentralized implementation according to the ResearcherPod design.</p>
    <svg content="<mxfile><diagram id=&quot;zhB2w1Cr3E7jYUj-LeK4&quot; name=&quot;Page-1&quot;>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</diagram></mxfile>" height="464px" version="1.1" viewBox="-0.5 -0.5 739 464" width="739px" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
@@ -1835,6 +1839,7 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
    <p>The remainder of this section provides more detail on how the current cultural heritage landscape would populate such high-level design.
 In the tables below, we aim to establish a shared understanding the different <a href="#actors">§ 3.1 Actors in the network</a> (who is participating?), <a href="#roles">§ 3.3 Roles in the network</a> (what is their function?), and <a href="#artefacts">§ 3.2 Artefacts in the network</a> (what are they exchanging?) throughout this project and related initiatives.
 The terminology originates from the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> and the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">datasets requirements</a> and is aligned with the dutch architecture standard <a href="https://netwerkdigitaalerfgoed.nl/activiteiten/dera/">\DERA</a> and the flemish vocabulary standard <a href="https://data.vlaanderen.be/ns#Vocabularia">\OSLO</a>, .</p>
+   <p class="issue" id="issue-a548dda0"><a class="self-link" href="#issue-a548dda0"></a> design a couple of Service Hubs instead of the NDE components</p>
    <h3 class="heading settled" data-level="3.1" id="actors"><span class="secno">3.1. </span><span class="content">Actors in the network</span><a class="self-link" href="#actors"></a></h3>
    <p>The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
 In <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a>, these parties are defined as <a href="https://erfgoedpod.github.io/architecture#actor">Actors</a>.
@@ -2784,6 +2789,7 @@ To that end, they cover processes from the perspective of the following actor-ro
      <p>organizations that act as a <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph③">Knowledge Graph</a>.</p>
    </ol>
    <p>Each business process (BP1 - 10 ) is described as a high-level description, followed by a more detailed description of the implementation details.</p>
+   <p class="issue" id="issue-4f9e40cd"><a class="self-link" href="#issue-4f9e40cd"></a> introduce the overall communication pattern</p>
    <h3 class="heading settled" data-level="5.1" id="perspective-of-the-cultural-heritage-institution"><span class="secno">5.1. </span><span class="content">Perspective of the Cultural Heritage Institution</span><a class="self-link" href="#perspective-of-the-cultural-heritage-institution"></a></h3>
    <p class="issue" id="issue-8ac59647"><a class="self-link" href="#issue-8ac59647"></a> TODO: split of conceptual BP and implementation</p>
    <p>This section takes an internal perspective on the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②">Cultural Heritage Institution</a>.
@@ -2820,6 +2826,7 @@ an institution’s <a data-link-type="dfn" href="#maintainer" id="ref-for-mainta
      <p>Once the orchestrator has acknowledged a successful reception of the inbox and the business processes, the initialization is complete.</p>
    </ol>
    <h3 class="heading settled" data-level="5.2" id="perspective-from-the-cultural-heritage-institution-interacting-with-the-registry"><span class="secno">5.2. </span><span class="content">Perspective from the Cultural Heritage Institution interacting with the Registry</span><a class="self-link" href="#perspective-from-the-cultural-heritage-institution-interacting-with-the-registry"></a></h3>
+   <p class="issue" id="issue-4ae1d73d"><a class="self-link" href="#issue-4ae1d73d"></a> does the registry take up an active role and are there BPs necessary to reflect this?</p>
    <p>This section takes the perspective of an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦">Cultural Heritage Institution</a> interacting with a <a data-link-type="dfn" href="#registry" id="ref-for-registry③">Registry</a> Service, which implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Registry-function</a> using the Solid and ResearcherPod architecture.
 This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the <a data-link-type="dfn" href="#registry" id="ref-for-registry④">Registry</a> responding to that request.
 The latter includes the possible outcome of the performed service.</p>
@@ -2827,6 +2834,7 @@ The latter includes the possible outcome of the performed service.</p>
    <p>A <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤">registry</a> service collects descriptions of datasets (<a data-link-type="dfn">metadata dataset</a>) from <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑧">cultural heritage institutions</a>.
 Based on this information, the registry service can navigate a <a data-link-type="dfn" href="#consumer" id="ref-for-consumer">consumer</a> to the <a data-link-type="dfn">digital heritage pods</a> that store relevant datasets.
 However, in order to achieve this, an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑨">cultural heritage institution</a> needs to be known and trusted by the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥">registry</a> service.</p>
+   <p class="issue" id="issue-c5eb9b6e"><a class="self-link" href="#issue-c5eb9b6e"></a> the word alongside makes it look like two things are not the same</p>
    <ol>
     <li data-md>
      <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⓪">Cultural Heritage Institution</a> maintains a machine-readable <a data-link-type="dfn" href="#organisation-profile" id="ref-for-organisation-profile">organisation profile</a> that contains a basic description of the institution.</p>
@@ -2860,6 +2868,7 @@ In that case, it needs to reflect the update in the <a data-link-type="dfn" href
      <p>When the indexing is done, the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑧">registry</a> service informs the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑦">cultural heritage institution</a> that the dataset has been updated in the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑨">registry</a> service.</p>
    </ol>
    <h4 class="heading settled" data-level="5.2.4" id="-bp6-constructing-backlinks-between-objects-of-two-institutions"><span class="secno">5.2.4. </span><span class="content">(BP6) Constructing backlinks between objects of two institutions</span><a class="self-link" href="#-bp6-constructing-backlinks-between-objects-of-two-institutions"></a></h4>
+   <p class="issue" id="issue-40b5eb86"><a class="self-link" href="#issue-40b5eb86"></a> this comes out of the blue. Or remove, or rewrite as notifiying institutions about ernichments</p>
    <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry②⓪">registry</a> service can also improve the interconnectedness between <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑧">cultural heritage institutions</a> by mediating in a reciprocal discovery process.
 Thereby, it facilitates the creation of links and backlinks between institutions' <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object②">cultural heritage objects</a>.</p>
    <ol>
@@ -3107,8 +3116,14 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
+   <div class="issue"> make more generic; decouple from high level design<a href="#issue-499393d7"> ↵ </a></div>
+   <div class="issue"> design a couple of Service Hubs instead of the NDE components<a href="#issue-a548dda0"> ↵ </a></div>
    <div class="issue"> check discovery method in table below by Sjors<a href="#issue-90fefc2d"> ↵ </a></div>
+   <div class="issue"> introduce the overall communication pattern<a href="#issue-4f9e40cd"> ↵ </a></div>
    <div class="issue"> TODO: split of conceptual BP and implementation<a href="#issue-8ac59647"> ↵ </a></div>
+   <div class="issue"> does the registry take up an active role and are there BPs necessary to reflect this?<a href="#issue-4ae1d73d"> ↵ </a></div>
+   <div class="issue"> the word alongside makes it look like two things are not the same<a href="#issue-c5eb9b6e"> ↵ </a></div>
+   <div class="issue"> this comes out of the blue. Or remove, or rewrite as notifiying institutions about ernichments<a href="#issue-40b5eb86"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="cultural-heritage-institution">
    <b><a href="#cultural-heritage-institution">#cultural-heritage-institution</a></b><b>Referenced in:</b>
