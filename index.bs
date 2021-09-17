@@ -71,8 +71,8 @@ ie. a register for dataset descriptions and a search index for shared terminolog
 The network design of NDE-Usable resonates strongly with the principles of Decentralized Web and Solid.
 Therefore, the ErfgoedPod project explores what a possible implementation of the NDE-Usable vision could look like when using the Solid ecosystem,
 with the aim of designing a decentralized exchange network for digital heritage data.
-ErfgoedPod shares the goals of the current NDE-Usable infrastructure, 
-but is developed independently and assumes a lower technology readiness level.
+ErfgoedPod shares the goals of the current NDE-Usable infrastructure, but is considered a research effort, 
+and is therefore developed independently with a lower technology readiness level.
 
 In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following information - are a good basis for implementing a sustainable digital heritage network.
 The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
