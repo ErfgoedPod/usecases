@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="f22a2230e6be3ff06f4577d83dbe9b456b42d672" name="document-revision">
+  <meta content="49a0ef6c0fdaeb977d5ac1637dc693920d5fd4f0" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1442,7 +1442,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-09-17">17 September 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-09-20">20 September 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1457,7 +1457,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 17 September 2021,
+In addition, as of 20 September 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1559,16 +1559,24 @@ ie. a register for dataset descriptions and a search index for shared terminolog
 Therefore, the ErfgoedPod project explores what a possible implementation of the NDE-Usable vision could look like when using the Solid ecosystem,
 with the aim of designing a decentralized exchange network for digital heritage data.
 ErfgoedPod shares the goals of the current NDE-Usable infrastructure, but is considered a research effort, 
-and is therefore developed independently with a lower technology readiness level.</p>
-   <p>In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a good basis for implementing a sustainable digital heritage network.
-The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
+and is therefore developed independently with a lower technology readiness level.
+In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a good basis for implementing a sustainable digital heritage network.</p>
+   <p>The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
 Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
-This document captures the use cases that align with the NDE-Usable programme.
-To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
-These business processes serve as a basis for a proof-of-concept implementation of  decentralized artefact exchange network in the digital heritage domain.</p>
+This document captures the use cases that originate from the NDE-Usable programme and the high-level design of a decentralized artefact exchange network for digital heritage.
+To that end, it identifies a list of representative roles and services in the Dutch Digital Heritage Network and the business processes that they should be able to execute.
+These business processes then serve as a basis for a proof-of-concept implementation of such network, as further outlined in the <a data-link-type="biblio" href="#biblio-architecture-nde">architecture specification</a>.</p>
    <h2 class="heading settled" data-level="3" id="context-dutch-digital-heritage-network"><span class="secno">3. </span><span class="content">Context Dutch Digital Heritage Network</span><a class="self-link" href="#context-dutch-digital-heritage-network"></a></h2>
+   <p class="issue" id="issue-dae56f4d"><a class="self-link" href="#issue-dae56f4d"></a> goal of architecture in one sentence</p>
+   <p class="issue" id="issue-d8ba389f"><a class="self-link" href="#issue-d8ba389f"></a> what service hubs do exist (high-level)</p>
+   <ul>
+    <li data-md>
+     <p>registration service hub</p>
+    <li data-md>
+     <p>awareness service hub</p>
+   </ul>
    <p class="issue" id="issue-499393d7"><a class="self-link" href="#issue-499393d7"></a> make more generic; decouple from high level design</p>
-   <p>The diagram below updates the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
+   <p>The diagram below reimagines the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
 It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg">original building blocks diagram</a> to resemble a decentralized implementation according to the ResearcherPod design.</p>
    <svg content="<mxfile><diagram id=&quot;zhB2w1Cr3E7jYUj-LeK4&quot; name=&quot;Page-1&quot;>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</diagram></mxfile>" height="464px" version="1.1" viewBox="-0.5 -0.5 739 464" width="739px" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <defs></defs>
@@ -1838,7 +1846,7 @@ It extends the <a href="https://raw.githubusercontent.com/netwerk-digitaal-erfgo
    </svg>
    <p>The remainder of this section provides more detail on how the current cultural heritage landscape would populate such high-level design.
 In the tables below, we aim to establish a shared understanding the different <a href="#actors">§ 3.1 Actors in the network</a> (who is participating?), <a href="#roles">§ 3.3 Roles in the network</a> (what is their function?), and <a href="#artefacts">§ 3.2 Artefacts in the network</a> (what are they exchanging?) throughout this project and related initiatives.
-The terminology originates from the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> and the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">datasets requirements</a> and is aligned with the dutch architecture standard <a href="https://netwerkdigitaalerfgoed.nl/activiteiten/dera/">\DERA</a> and the flemish vocabulary standard <a href="https://data.vlaanderen.be/ns#Vocabularia">\OSLO</a>, .</p>
+The terminology originates from the <a href="https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md">high level design</a> and the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets">datasets requirements</a> and is aligned with the dutch architecture standard <a href="https://netwerkdigitaalerfgoed.nl/activiteiten/dera/">DERA</a> and the flemish vocabulary standard <a href="https://data.vlaanderen.be/ns#Vocabularia">OSLO</a>, .</p>
    <p class="issue" id="issue-a548dda0"><a class="self-link" href="#issue-a548dda0"></a> design a couple of Service Hubs instead of the NDE components</p>
    <h3 class="heading settled" data-level="3.1" id="actors"><span class="secno">3.1. </span><span class="content">Actors in the network</span><a class="self-link" href="#actors"></a></h3>
    <p>The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
@@ -2043,7 +2051,7 @@ The list of possible roles is given below.</p>
       <td>/
    </table>
    <h3 class="heading settled" data-level="3.4" id="basic-setup-for-decentralized-digital-heritage-network"><span class="secno">3.4. </span><span class="content">Basic setup for Decentralized Digital Heritage Network</span><a class="self-link" href="#basic-setup-for-decentralized-digital-heritage-network"></a></h3>
-   <p>The ErfgoedPod project provides a number of components described in the <a href="https://erfgoedpod.github.io/architecture#components">Architecture Decentralized Digital Heritage Network §components</a>.
+   <p>The ErfgoedPod project provides a number of components described in the <a href="https://erfgoedpod.github.io/architecture#components">architecture specification</a>.
 These components can be applied to the NDE context, 
 positioning the <a href="#artefacts">§ 3.2 Artefacts in the network</a> and <a href="#roles">§ 3.3 Roles in the network</a> (taken on by <a href="#actors">§ 3.1 Actors in the network</a>) in a decentralized Digital Heritage Network setup.
 All metadata providers, which includes the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution">Cultural Heritage Institutions</a> and <a data-link-type="dfn" href="#term-source-maintainer" id="ref-for-term-source-maintainer">Term Source maintainers</a>),
@@ -3116,6 +3124,8 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
+   <div class="issue"> goal of architecture in one sentence<a href="#issue-dae56f4d"> ↵ </a></div>
+   <div class="issue"> what service hubs do exist (high-level)<a href="#issue-d8ba389f"> ↵ </a></div>
    <div class="issue"> make more generic; decouple from high level design<a href="#issue-499393d7"> ↵ </a></div>
    <div class="issue"> design a couple of Service Hubs instead of the NDE components<a href="#issue-a548dda0"> ↵ </a></div>
    <div class="issue"> check discovery method in table below by Sjors<a href="#issue-90fefc2d"> ↵ </a></div>
