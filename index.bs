@@ -84,18 +84,17 @@ These business processes then serve as a basis for a proof-of-concept implementa
 # Context Dutch Digital Heritage Network
 
 The NDE-Usable programme attempts to design a intermediary network infrastructure that facilitates 
+
 - Web portals to discover and consume data about cultural heritage objects; and
 - [=Cultural heritage institutions=] to advertise and provide data about cultural heritage objects.
-The envisioned infrastructure avoids the unsustainable practice of duplicating or aggregating data.
-Instead, intermediary services help navigate Web portals to relevant datasets that institutions publish themselves.
 
-By applying Solid to these requirements,
+NDE-Usable deliberately attempts to avoid the unsustainable practice of duplicating or aggregating data.
+Instead, the focus is on designing a network of intermediary services that help Web portals navigate to relevant datasets that institutions host and publish themselves.
+By basing such design on Solid,
 the ErfgoedPod project organises communication between the institutions, the Web portals and the mediating services using standardized protocols and in a very loose-coupled fashion.
-This highly increases data mobility. 
+This highly increases data mobility: an integration with a service intance can be replaced with another at lower cost. 
 
-Issue: make clear what Solid adds to this
-
-For the overall design of the network infrastructure, ErfgoedPod relies on the building blocks developed by the the ResearcherPod project.
+For the overall network design, ErfgoedPod relies on the building blocks developed by the the ResearcherPod project.
 This project provides a generic design and set of components for building decentralized artefact exchange networks.
 An illustration of the results is given in the diagram below
 
