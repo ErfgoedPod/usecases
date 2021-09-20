@@ -73,19 +73,32 @@ Therefore, the ErfgoedPod project explores what a possible implementation of the
 with the aim of designing a decentralized exchange network for digital heritage data.
 ErfgoedPod shares the goals of the current NDE-Usable infrastructure, but is considered a research effort, 
 and is therefore developed independently with a lower technology readiness level.
-
 In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing & following information - are a good basis for implementing a sustainable digital heritage network.
+
 The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the [ResearcherPod](https://mellonscholarlycommunication.github.io/spec-overview) project.
 Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
-This document captures the use cases that align with the NDE-Usable programme.
-To that end, it identifies a list of representative business processes that the different roles and services in the Dutch Digital Heritage Network should be able to execute.
-These business processes serve as a basis for a proof-of-concept implementation of  decentralized artefact exchange network in the digital heritage domain.  
+This document captures the use cases that originate from the NDE-Usable programme and the high-level design of a decentralized artefact exchange network for digital heritage.
+To that end, it identifies a list of representative roles and services in the Dutch Digital Heritage Network and the business processes that they should be able to execute.
+These business processes then serve as a basis for a proof-of-concept implementation of such network, as further outlined in the [[architecture-nde|architecture specification]].  
 
 # Context Dutch Digital Heritage Network
 
+Issue: goal of architecture in one sentence
+
+
+Issue: what service hubs do exist (high-level)
+
+- registration service hub
+- awareness service hub
+
+
+
+
+
+
 Issue: make more generic; decouple from high level design
 
-The diagram below updates the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
+The diagram below reimagines the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) of NDE with the proposed components in the ResearcherPod project in order to provide a consolidated view.
 It extends the [original building blocks diagram](https://raw.githubusercontent.com/netwerk-digitaal-erfgoed/high-level-design/maste/high-level-design/master/assets/img/building-blocks.svgr/assets/img/building-blocks.svg) to resemble a decentralized implementation according to the ResearcherPod design.
 
 <pre class='include'>
@@ -95,7 +108,7 @@ path: images/NDE-overzicht.svg
 The remainder of this section provides more detail on how the current cultural heritage landscape would populate such high-level design.
 In the tables below, we aim to establish a shared understanding the different [[#actors]] (who is participating?), [[#roles]] (what is their function?), and [[#artefacts]] (what are they exchanging?) throughout this project and related initiatives.
 The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) 
-and is aligned with the dutch architecture standard [\DERA](https://netwerkdigitaalerfgoed.nl/activiteiten/dera/) and the flemish vocabulary standard [\OSLO](https://data.vlaanderen.be/ns#Vocabularia), .
+and is aligned with the dutch architecture standard \[DERA](https://netwerkdigitaalerfgoed.nl/activiteiten/dera/) and the flemish vocabulary standard \[OSLO](https://data.vlaanderen.be/ns#Vocabularia), .
 
 Issue: design a couple of Service Hubs instead of the NDE components
 
@@ -351,7 +364,7 @@ The list of possible roles is given below.
 
 ## Basic setup for Decentralized Digital Heritage Network
 
-The ErfgoedPod project provides a number of components described in the [[architecture-nde#components]].
+The ErfgoedPod project provides a number of components described in the [[architecture-nde#components|architecture specification]].
 These components can be applied to the NDE context, 
 positioning the [[#artefacts]] and [[#roles]] (taken on by [[#actors]]) in a decentralized Digital Heritage Network setup.
 All metadata providers, which includes the [=Cultural Heritage Institutions=] and [=Term Source maintainers=]),
