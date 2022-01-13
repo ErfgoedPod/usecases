@@ -64,7 +64,7 @@ Due to the inflexibility, there are high maintenance costs on the side of the da
 Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
 NDE-Usable envisions a discovery infrastructure that guides applications to the relevant original data sources, rather than aggregate and republish their data.
 The design integrates applications with institutions's collection data in a more loosely-coupled manner, 
-enabling institutions to reorientate their developed service integrations more easiliy to other vendors. 
+enabling institutions to reorientate their developed service integrations more easily to other vendors. 
 To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, 
 ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).
 
@@ -85,31 +85,46 @@ These business processes then serve as a basis for a proof-of-concept implementa
 
 The NDE-Usable programme attempts to design a intermediary network infrastructure that facilitates 
 
-- Web portals to discover and consume data about cultural heritage objects; and
+- End-user portals to discover and consume data about cultural heritage objects; and
 - [=Cultural heritage institutions=] to advertise and provide data about cultural heritage objects.
 
 NDE-Usable deliberately attempts to avoid the unsustainable practice of duplicating or aggregating data.
 Instead, the focus is on designing a network of intermediary services that help Web portals navigate to relevant datasets that institutions host and publish themselves.
 By basing such design on Solid,
-the ErfgoedPod project organises communication between the institutions, the Web portals and the mediating services using standardized protocols and in a very loose-coupled fashion.
-This highly increases data mobility: an integration with a service intance can be replaced with another at lower cost. 
+the ErfgoedPod project organizes communication between the institutions, the Web portals and the mediating services using standardized protocols and in a very loose-coupled fashion.
+This highly increases data mobility: an integration with a service instance can be replaced with another at lower cost. 
 
 For the overall network design, ErfgoedPod relies on the building blocks developed by the the ResearcherPod project.
-This project provides a generic design and set of components for building decentralized artefact exchange networks.
-An illustration of the results is given in the diagram below
+This project provides an architecture, consisting of a generic design and set of components, for building decentralized artefact exchange networks.
+An illustration of the results is given in the diagram below.
 
-Issue: create new diagram
-
-<pre class='include'>
-path: images/NDE-overzicht.svg
+<figure>
+	<img src="images/NDE-overzicht.svg" width="100%" />
+	<figcaption>
+  The ErfgoedPod project presents an architecture that enable interactions between digital heritage institutions, service providers and end-user portals.
+  </figcaption>
 </pre>
+
+This architecture can be used to enable different types of actors to interact _about_ an artefact.
+These actors include the Web portals, the Cultural heritage institutions, but also value-adding services that populate the intermediary network space, such as repositories for long-term preservation or data registries,
+and can take up the following roles:
+
+- a Data Pod maintainer who holds and provides data in the network, typically the Cultural heritage institutions;
+- a Service Hub who consumes data and performs services on top of that data, typically the value-adding service providers;
+- a Collector who discovers and collects data from the network to present it to end-users, typically the Web portals.
+
+These roles can interact in the following compositions:
+
+1. **Data Pod - Data Pod**: one institution stores an artefact (ie. digital heritage object or collection) and draws the attention of another institution to that artefact. Examples are two institutions sharing metadata because of a loan, or they do mutual enriching their collections with the metadata of the other party.
+2. **Data Pod - Service Hub**: one institution requests a service from a service provider. Examples include institutions wanting to register their dataset in a dataset registry or institutions starting an ingest process in a digital archive.
+3. **Service Hub - Service Hub**: one service provider involves another service provider in order to complete a service. Examples include a dataset summarization service depending on a dataset registry service.
+4. **Collector - Data Pod**: an end-user portal collects collection data from different institutions. Examples include a thematic website about a certain topic that collects cross-institutional data about that topic.
+5. **Collector - Data Pod**: an end-user portal depends on a service provider to collect data. Examples include the discovery of institutional data pods or for enrichments on that data.
 
 The remainder of this section provides more detail on how the current cultural heritage landscape would populate such high-level design.
 In the tables below, we aim to establish a shared understanding the different [[#actors]] (who is participating?), [[#roles]] (what is their function?), and [[#artefacts]] (what are they exchanging?) throughout this project and related initiatives.
 The terminology originates from the [high level design](https://github.com/netwerk-digitaal-erfgoed/high-level-design/blob/master/glossary.md) and the [datasets requirements](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) 
 and is aligned with the dutch architecture standard \[DERA](https://netwerkdigitaalerfgoed.nl/activiteiten/dera/) and the flemish vocabulary standard \[OSLO](https://data.vlaanderen.be/ns#Vocabularia), .
-
-Issue: design a couple of Service Hubs instead of the NDE components
 
 ## Actors in the network ## {#actors}
 
@@ -399,8 +414,6 @@ Therefore, the [=Service Portal Providers=] were consulted with the following th
 1. How do they discover datasets?
 2. How do they decide which of these datasets are relevant for their portal?
 3. How can the Dutch Digital Heritage Network design, in particular the [=Registry=], [=Knowledge Graph=], and [=Network of Terms=] actor roles, help this process?
-
-Issue: check discovery method in table below by Sjors
 
 <table>
 <thead>
