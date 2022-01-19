@@ -94,8 +94,27 @@ By basing such design on Solid,
 the ErfgoedPod project organizes communication between the institutions, the Web portals and the mediating services using standardized protocols and in a very loose-coupled fashion.
 This highly increases data mobility: an integration with a service instance can be replaced with another at lower cost. 
 
-For the overall network design, ErfgoedPod relies on the building blocks developed by the the ResearcherPod project.
-This project provides an architecture, consisting of a generic design and set of components, for building decentralized artefact exchange networks.
+## Design of a Decentralized Digital Heritage Network
+
+The ErfgoedPod project provides an architecture, consisting of a generic design and set of components, for building decentralized artefact networks.
+The components are described in the [[architecture-nde#components|architecture specification]].
+This architecture can be used to enable different types of actors to interact *about* an artefact.
+These actors include the Web portals, the Cultural heritage institutions, but also value-adding services that populate the intermediary network space, such as repositories for long-term preservation or data registries.
+All three actors can take up the following roles:
+
+- a [=Data Pod=] maintainer who holds and provides data in the network, typically the Cultural heritage institutions;
+- a [=Service Hub=] who consumes data and performs services on top of that data, typically the value-adding service providers;
+- a [=Collector=] who discovers and collects data from the network to present it to end-users, typically the Web portals.
+
+Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
+Unlike the metadata providers, it is up to the instance how the service is implemented.
+However, if a service hub would provide data to other actors, it has to adopt a [[architecture-nde#digital-heritage-pod|Digital Heritage Pod]].
+It is not uncommon for an actor to combine these roles, 
+especially when the service includes re-sharing data in some other shape or form. 
+For instance, a summarization service provider (Service Hub) can discover and collect data (Collector) 
+and store the summaries for redistribution (Data Pod). 
+
+Between the different roles, there are several possible interactions. 
 An illustration of the results is given in the diagram below.
 
 <figure>
@@ -103,23 +122,25 @@ An illustration of the results is given in the diagram below.
 	<figcaption>
   The ErfgoedPod project presents an architecture that enable interactions between digital heritage institutions, service providers and end-user portals.
   </figcaption>
-</pre>
-
-This architecture can be used to enable different types of actors to interact _about_ an artefact.
-These actors include the Web portals, the Cultural heritage institutions, but also value-adding services that populate the intermediary network space, such as repositories for long-term preservation or data registries,
-and can take up the following roles:
-
-- a Data Pod maintainer who holds and provides data in the network, typically the Cultural heritage institutions;
-- a Service Hub who consumes data and performs services on top of that data, typically the value-adding service providers;
-- a Collector who discovers and collects data from the network to present it to end-users, typically the Web portals.
-
-These roles can interact in the following compositions:
+</figure>
 
 1. **Data Pod - Data Pod**: one institution stores an artefact (ie. digital heritage object or collection) and draws the attention of another institution to that artefact. Examples are two institutions sharing metadata because of a loan, or they do mutual enriching their collections with the metadata of the other party.
 2. **Data Pod - Service Hub**: one institution requests a service from a service provider. Examples include institutions wanting to register their dataset in a dataset registry or institutions starting an ingest process in a digital archive.
 3. **Service Hub - Service Hub**: one service provider involves another service provider in order to complete a service. Examples include a dataset summarization service depending on a dataset registry service.
 4. **Collector - Data Pod**: an end-user portal collects collection data from different institutions. Examples include a thematic website about a certain topic that collects cross-institutional data about that topic.
 5. **Collector - Data Pod**: an end-user portal depends on a service provider to collect data. Examples include the discovery of institutional data pods or for enrichments on that data.
+
+All Data Pods and Service Hubs are enhanced with the remaining components: 
+- an [=Inbox=] resource to receive [[ldn|Linked Data Notifications]] ([[architecture-nde#pod]]);
+- a `Dashboard` and an `Orchestrator` with `Rulebook` to participate in the network ([[architecture-nde#participate]])
+- a `Query index` and a [[architecture-nde#artefact-lifecycle-event-log|Artefact Lifecycle Event Log]] to allow their infomation to be collected by others ([[architecture-nde#collection-information-from-a-decentralized-digital-heritage-network]])
+
+The complete setup can be summarized in a component blueprint, which can be used to implement any component in the Decentralized Digital Heritage Network.
+An overview is illustrated in the figure below.
+
+<pre class=include>
+path: images/nde-basic-setup.svg
+</pre>
 
 The remainder of this section provides more detail on how the current cultural heritage landscape would populate such high-level design.
 In the tables below, we aim to establish a shared understanding the different [[#actors]] (who is participating?), [[#roles]] (what is their function?), and [[#artefacts]] (what are they exchanging?) throughout this project and related initiatives.
@@ -375,31 +396,6 @@ The list of possible roles is given below.
     </tr>
   </tbody>
 </table>
-
-## Basic setup for Decentralized Digital Heritage Network
-
-The ErfgoedPod project provides a number of components described in the [[architecture-nde#components|architecture specification]].
-These components can be applied to the NDE context, 
-positioning the [[#artefacts]] and [[#roles]] (taken on by [[#actors]]) in a decentralized Digital Heritage Network setup.
-All metadata providers, which includes the [=Cultural Heritage Institutions=] and [=Term Source maintainers=]),
-deploy a [[architecture-nde#digital-heritage-pod|Digital Heritage Pod]], which is a specialized instance of a Solid Pod, as their exchange hub for artefact data.
-
-The three main roles [=Registry=], [=Network of Terms=], and [=Knowledge Graph=] each serve as a [[architecture-nde#service-hub|Service Hub]].
-Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
-Unlike the metadata providers, it is up to the instance how the service is implemented.
-However, if a service hub would provide data to other actors, it has to adopt a [[architecture-nde#digital-heritage-pod|Digital Heritage Pod]].
-
-All Digital Heritage Pod and Digital Heritage Service Hub are enhanced with the remaining components: 
-- an [=Inbox=] resource to receive [[ldn|Linked Data Notifications]] ([[architecture-nde#pod]]);
-- a `Dashboard` and an `Orchestrator` with `Rulebook` to participate in the network ([[architecture-nde#participate]])
-- a `Query index` and a [[architecture-nde#artefact-lifecycle-event-log|Artefact Lifecycle Event Log]] to allow their infomation to be collected by others ([[architecture-nde#collection-information-from-a-decentralized-digital-heritage-network]])
-
-The complete setup can be summarized in a component blueprint, which can be used to implement any component in the Decentralized Digital Heritage Network.
-An overview is illustrated in the figure below.
-
-<pre class=include>
-path: images/nde-basic-setup.svg
-</pre>
 
 Pilot Use Cases {#usecases}
 =======================================================
