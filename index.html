@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://erfgoedpod.github.io/usecases" rel="canonical">
-  <meta content="f743879cf9ed6f1dd46d126c94e609707c97cd95" name="document-revision">
+  <meta content="78fc86edb0502b162ced69b0c5576934c8f7a006" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1442,14 +1442,13 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Use Cases &amp; Business Processes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2022-01-19">19 January 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2022-05-16">16 May 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://erfgoedpod.github.io/usecases">https://erfgoedpod.github.io/usecases</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/ErfgoedPod/usecases/issues/">GitHub</a>
-     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:miel.vandersande@meemoo.be">Miel Vander Sande</a> (<span class="p-org org"><a href="https://meemoo.be">meemoo</a></span>)
     </dl>
@@ -1457,7 +1456,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 19 January 2022,
+In addition, as of 16 May 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1490,22 +1489,21 @@ Parts of this work may be from another specification document.  If so, those par
        <ol class="toc">
         <li><a href="#-bp1-initialize-a-digital-heritage-pod-from-a-solid-data-pod"><span class="secno">5.1.1</span> <span class="content">(BP1) Initialize a Digital Heritage Pod from a Solid data pod</span></a>
         <li><a href="#-bp2-enabling-automation-of-business-processes-by-initializing-an-orchestration-service"><span class="secno">5.1.2</span> <span class="content">(BP2) Enabling automation of business processes by initializing an orchestration service</span></a>
+        <li><a href="#-bp3-notifiying-institutions-about-enrichments"><span class="secno">5.1.3</span> <span class="content">(BP3) Notifiying institutions about enrichments</span></a>
        </ol>
       <li>
-       <a href="#perspective-from-the-cultural-heritage-institution-interacting-with-the-registry"><span class="secno">5.2</span> <span class="content">Perspective from the Cultural Heritage Institution interacting with the Registry</span></a>
+       <a href="#perspective-from-the-cultural-heritage-institution-interacting-with-the-dataset-registry"><span class="secno">5.2</span> <span class="content">Perspective from the Cultural Heritage Institution interacting with the Dataset Registry</span></a>
        <ol class="toc">
-        <li><a href="#BP3"><span class="secno">5.2.1</span> <span class="content">(BP3) A Cultural Heritage Institution registers itself to a Registry</span></a>
-        <li><a href="#BP4"><span class="secno">5.2.2</span> <span class="content">(BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</span></a>
-        <li><a href="#BP5"><span class="secno">5.2.3</span> <span class="content">(BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</span></a>
-        <li><a href="#-bp6-constructing-backlinks-between-objects-of-two-institutions"><span class="secno">5.2.4</span> <span class="content">(BP6) Constructing backlinks between objects of two institutions</span></a>
+        <li><a href="#BP3"><span class="secno">5.2.1</span> <span class="content">(BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</span></a>
+        <li><a href="#BP4"><span class="secno">5.2.2</span> <span class="content">(BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</span></a>
+        <li><a href="#BP5"><span class="secno">5.2.3</span> <span class="content">(BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</span></a>
        </ol>
       <li>
-       <a href="#perspective-knowledge-graph-network-of-terms---registry"><span class="secno">5.3</span> <span class="content">Perspective Knowledge Graph / Network Of Terms - Registry</span></a>
+       <a href="#perspective-knowledge-graph-network-of-terms---dataset-registry"><span class="secno">5.3</span> <span class="content">Perspective Knowledge Graph / Network Of Terms - Dataset Registry</span></a>
        <ol class="toc">
-        <li><a href="#-bp8-a-knowledge-graph-or-network-of-terms-subscribes-to-a-topic"><span class="secno">5.3.1</span> <span class="content">(BP8) A Knowledge Graph or Network of Terms subscribes to a topic</span></a>
-        <li><a href="#-bp9-a-knowledge-graph-discovers-a-dataset-related-to-a-subscribed-topic"><span class="secno">5.3.2</span> <span class="content">(BP9) A Knowledge Graph discovers a dataset related to a subscribed topic</span></a>
-        <li><a href="#-bp10-discovering-a-term-source"><span class="secno">5.3.3</span> <span class="content">(BP10) Discovering a Term source</span></a>
-        <li><a href="#-bp11-searching-for-objects"><span class="secno">5.3.4</span> <span class="content">(BP11) Searching for objects</span></a>
+        <li><a href="#-bp7-a-knowledge-graph-or-network-of-terms-subscribes-to-a-topic"><span class="secno">5.3.1</span> <span class="content">(BP7) A Knowledge Graph or Network of Terms subscribes to a topic</span></a>
+        <li><a href="#-bp8-a-knowledge-graph-discovers-a-dataset-related-to-a-subscribed-topic"><span class="secno">5.3.2</span> <span class="content">(BP8) A Knowledge Graph discovers a dataset related to a subscribed topic</span></a>
+        <li><a href="#-bp9-discovering-a-term-source"><span class="secno">5.3.3</span> <span class="content">(BP9) Discovering a Term source</span></a>
        </ol>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
@@ -1520,7 +1518,6 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
-    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
@@ -1544,81 +1541,100 @@ Parts of this work may be from another specification document.  If so, those par
      <p><a href="https://mellonscholarlycommunication.github.io/spec-rulelanguage/">Rule language</a></p>
     <li data-md>
      <p><a href="https://mellonscholarlycommunication.github.io/spec-eventlog/">Artefact Lifecycle Event Log</a></p>
+    <li data-md>
+     <p><a href="https://mellonscholarlycommunication.github.io/spec-notifications/">Notifications</a></p>
+    <li data-md>
+     <p><a href="https://mellonscholarlycommunication.github.io/spec-collector/">Collector</a></p>
    </ol>
    <h2 class="heading settled" data-level="2" id="introduction"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
-   <p>The <a href="https://netwerkdigitaalerfgoed.nl/bruikbaar/">NDE-Usable</a> programme of the <a href="https://netwerkdigitaalerfgoed.nl/en/">Dutch Digital Heritage Network (NDE)</a> aims at redesigning the infrastructure with which cultural institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
-This is to replace the current cascade of tightly coupled data aggregators where integrations are brittle. 
-Due to the inflexibility, there are high maintenance costs on the side of the data providing institution and the side of the aggregator. 
-Moreover, it leads to data duplication and a loss of control for the cultural heritage institutions.
-NDE-Usable envisions a discovery infrastructure that guides applications to the relevant original data sources, rather than aggregate and republish their data.
+   <p>The <a href="https://netwerkdigitaalerfgoed.nl/bruikbaar/">NDE-Usable</a> programme of the <a href="https://netwerkdigitaalerfgoed.nl/en/">Dutch Digital Heritage Network (NDE)</a> aim to redesign the way cultural heritage institutions and applications (eg. service portals that allow users to search for specific heritage data) exchange data.
+The current landscape shows a cascade of tightly coupled data aggregators,
+which has shown to be inflexible and lead to brittle integrations. 
+As a result, both the data providing institutions and the aggregators have high maintenance costs, 
+which are funds better spend elsewhere. 
+Moreover, 
+it leads to data duplication, with a subsequent loss of control for the cultural heritage institutions.</p>
+   <p>NDE-Usable envisions a discovery infrastructure that guides applications to the relevant original data sources,
+rather than aggregate and republish their data.
 The design integrates applications with institutions’s collection data in a more loosely-coupled manner, 
 enabling institutions to reorientate their developed service integrations more easily to other vendors. 
-To this end, NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, 
+To this end, 
+NDE-Usable provides implementation guidelines, interoperability requirements and essential discovery services, 
 ie. a register for dataset descriptions and a search index for shared terminology sources (Network of Terms).</p>
-   <p>The network design of NDE-Usable resonates strongly with the principles of Decentralized Web and Solid.
+   <p>The principles of Decentralized Web and Solid resonate strongly with NDE-Usable’s network design.
 Therefore, the ErfgoedPod project explores what a possible implementation of the NDE-Usable vision could look like when applying the Solid ecosystem.
 The project outputs a possible design of a decentralized exchange network for digital heritage data.
 ErfgoedPod shares the goals of the current NDE-Usable infrastructure, but is considered a research effort, 
 and is therefore developed independently with a lower technology readiness level.
-In essence, the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a sustainable basis for exchanging digital heritage data.</p>
-   <p>The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts, which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
-Additionally, ErfgoedPod provides a small background study, an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
-This document captures the use cases that originate from the NDE-Usable programme and the high-level design of a decentralized artefact exchange network for digital heritage.
-To that end, it identifies a list of representative roles and services in the Dutch Digital Heritage Network and the business processes that they should be able to execute.
+In essence, 
+the project tests whether the principles of a decentralized social network - actors announcing, sharing &amp; following information - are a sustainable basis for exchanging digital heritage data.</p>
+   <p>The main project outcomes are protocols and components for creating generic decentralized exchange networks for various types of metadata pertaining artefacts,
+which is joint work with the <a href="https://mellonscholarlycommunication.github.io/spec-overview">ResearcherPod</a> project.
+Additionally, 
+ErfgoedPod provides a small background study, 
+an architectural design and a descriptions of relevant use cases to apply these generic protocols and components in the digital heritage domain.
+This document captures the use cases that originate from the NDE-Usable programme and the high-level design of a decentralized network for digital heritage artefacts.
+To that end, 
+it identifies a list of representative roles and services in the Dutch Digital Heritage Network and the business processes that they should be able to execute.
 These business processes then serve as a basis for a proof-of-concept implementation of such network, as further outlined in the <a data-link-type="biblio" href="#biblio-architecture-nde">architecture specification</a>.</p>
    <h2 class="heading settled" data-level="3" id="context-dutch-digital-heritage-network"><span class="secno">3. </span><span class="content">Context Dutch Digital Heritage Network</span><a class="self-link" href="#context-dutch-digital-heritage-network"></a></h2>
    <p>The NDE-Usable programme attempts to design a intermediary network infrastructure that facilitates</p>
    <ul>
     <li data-md>
-     <p>End-user portals to discover and consume data about cultural heritage objects; and</p>
+     <p>End-user Web portals to discover and consume data about cultural heritage objects; and</p>
     <li data-md>
-     <p><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution">Cultural heritage institutions</a> to advertise and provide data about cultural heritage objects.</p>
+     <p><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution">Cultural heritage institutions</a> to advertise and provide data about cultural heritage collections and objects.</p>
    </ul>
-   <p>NDE-Usable deliberately attempts to avoid the unsustainable practice of duplicating or aggregating data.
-Instead, the focus is on designing a network of intermediary services that help Web portals navigate to relevant datasets that institutions host and publish themselves.
+   <p>NDE-Usable deliberately avoids the unsustainable practice of aggregating data by
+designing a network of intermediary services that help Web portals navigate to relevant datasets that institutions host and publish themselves.
 By basing such design on Solid,
-the ErfgoedPod project organizes communication between the institutions, the Web portals and the mediating services using standardized protocols and in a very loose-coupled fashion.
+the ErfgoedPod project organizes communication between the institutions, 
+the Web portals and the mediating services using standardized protocols and in a very loose-coupled fashion.
 This highly increases data mobility: an integration with a service instance can be replaced with another at lower cost.</p>
    <h3 class="heading settled" data-level="3.1" id="design-of-a-decentralized-digital-heritage-network"><span class="secno">3.1. </span><span class="content">Design of a Decentralized Digital Heritage Network</span><a class="self-link" href="#design-of-a-decentralized-digital-heritage-network"></a></h3>
-   <p>The ErfgoedPod project provides an architecture, consisting of a generic design and set of components, for building decentralized artefact networks.
-The components are described in the <a href="https://erfgoedpod.github.io/architecture#components">architecture specification</a>.
-This architecture can be used to enable different types of actors to interact <em>about</em> an artefact.
-These actors include the Web portals, the Cultural heritage institutions, but also value-adding services that populate the intermediary network space, such as repositories for long-term preservation or data registries.
-All three actors can take up the following roles:</p>
+   <p>ErfgoedPod provides generic designs of a network architecture and software components,
+described in the <a href="https://erfgoedpod.github.io/architecture#components">architecture specification</a>.
+This design can be used to enable different types of actors to interact <em>about</em> an artefact.
+Actors types include the Web portals, the Cultural heritage institutions, but also value-adding services that populate the intermediary network space, such as repositories for long-term preservation or data registries.
+They can take up one or more of the following roles:</p>
    <ul>
     <li data-md>
-     <p>a <a data-link-type="dfn">Data Pod</a> maintainer who holds and provides data in the network, typically the Cultural heritage institutions;</p>
+     <p><a href="https://erfgoedpod.github.io/architecture#pod">Digital Heritage Pod</a>: storing and providing data in the network, typically the Cultural heritage institutions;</p>
     <li data-md>
-     <p>a <a data-link-type="dfn">Service Hub</a> who consumes data and performs services on top of that data, typically the value-adding service providers;</p>
+     <p><a href="https://erfgoedpod.github.io/architecture#hubs">Digital Heritage Service Hub</a>: consuming data from Data Pods to perform a service on top of that data, typically the value-adding service providers;</p>
     <li data-md>
-     <p>a <a data-link-type="dfn">Collector</a> who discovers and collects data from the network to present it to end-users, typically the Web portals.</p>
+     <p><a href="https://erfgoedpod.github.io/architecture#collector">Collector</a>: discovering and collecting data from the network for further processing or to present it to end-users, typically the Web portals, but in some cases the service providers.</p>
    </ul>
-   <p>Each role can have multiple instances, possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
-Unlike the metadata providers, it is up to the instance how the service is implemented.
-However, if a service hub would provide data to other actors, it has to adopt a <a href="https://erfgoedpod.github.io/architecture#digital-heritage-pod">Digital Heritage Pod</a>.
-It is not uncommon for an actor to combine these roles, 
+   <p>Each role can have multiple instances,
+possibly partitioned based on region or domain, creating a selection of Service Hubs to interact with.
+Unlike the metadata providers, 
+it is up to the instance how the service is implemented.
+However, if a service hub would provide data to other actors, 
+it has to adopt a Pod.
+Hence, is not uncommon for an actor to combine several roles, 
 especially when the service includes re-sharing data in some other shape or form. 
-For instance, a summarization service provider (Service Hub) can discover and collect data (Collector) 
-and store the summaries for redistribution (Data Pod).</p>
-   <p>Between the different roles, there are several possible interactions.
-An illustration of the results is given in the diagram below.</p>
-   <figure>
-     <img src="images/NDE-overzicht.svg" width="100%"> 
-    <figcaption> The ErfgoedPod project presents an architecture that enable interactions between digital heritage institutions, service providers and end-user portals. </figcaption>
-   </figure>
+For instance, a summarization service provider (Digital Heritage Service Hub) can discover and collect data (Collector) 
+and store the summaries for redistribution (Digital Heritage Pod).</p>
+   <p>On the network, the different actors interact with each other by sending notifications,
+which can be grouped according to the roles that are involved.</p>
    <ol>
     <li data-md>
-     <p><strong>Data Pod - Data Pod</strong>: one institution stores an artefact (ie. digital heritage object or collection) and draws the attention of another institution to that artefact. Examples are two institutions sharing metadata because of a loan, or they do mutual enriching their collections with the metadata of the other party.</p>
+     <p><strong>Pod - Pod</strong>: one institution stores an artefact (ie. digital heritage object or collection) and draws the attention of another institution to that artefact. Examples are two institutions sharing metadata because of a loan, or they do mutual enriching their collections with the metadata of the other party.</p>
     <li data-md>
      <p><strong>Data Pod - Service Hub</strong>: one institution requests a service from a service provider. Examples include institutions wanting to register their dataset in a dataset registry or institutions starting an ingest process in a digital archive.</p>
     <li data-md>
      <p><strong>Service Hub - Service Hub</strong>: one service provider involves another service provider in order to complete a service. Examples include a dataset summarization service depending on a dataset registry service.</p>
     <li data-md>
-     <p><strong>Collector - Data Pod</strong>: an end-user portal collects collection data from different institutions. Examples include a thematic website about a certain topic that collects cross-institutional data about that topic.</p>
+     <p><strong>Collector - Pod</strong>: an end-user portal collects collection data from different institutions. Examples include a thematic website about a certain topic that collects cross-institutional data about that topic.</p>
     <li data-md>
-     <p><strong>Collector - Data Pod</strong>: an end-user portal depends on a service provider to collect data. Examples include the discovery of institutional data pods or for enrichments on that data.</p>
+     <p><strong>Collector - Pod</strong>: an end-user portal depends on a service provider to collect data. Examples include the discovery of institutional data pods or for enrichments on that data.</p>
    </ol>
-   <p>All Data Pods and Service Hubs are enhanced with the remaining components:</p>
+   <p>An illustration of the results is given in the diagram below.</p>
+   <figure>
+     <img src="images/NDE-overzicht.svg" width="100%"> 
+    <figcaption> The ErfgoedPod project presents an architecture that enable interactions between digital heritage institutions, service providers and end-user portals. </figcaption>
+   </figure>
+   <p>The Pods and Service Hubs contain the same minimal set of components:</p>
    <ul>
     <li data-md>
      <p>an <a data-link-type="dfn">Inbox</a> resource to receive <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications</a> (<a href="https://erfgoedpod.github.io/architecture#pod">Architecture Decentralized Digital Heritage Network §pod</a>);</p>
@@ -2281,7 +2297,7 @@ The terminology originates from the <a href="https://github.com/netwerk-digitaal
    <h3 class="heading settled" data-level="3.2" id="actors"><span class="secno">3.2. </span><span class="content">Actors in the network</span><a class="self-link" href="#actors"></a></h3>
    <p>The Digital Heritage Network (NDE) brings together a large number of active parties in one interoperable network.
 In <a data-link-type="biblio" href="#biblio-architecture-nde">Decentralized Digital Heritage Network architecture</a>, these parties are defined as <a href="https://erfgoedpod.github.io/architecture#actor">Actors</a>.
-An <a href="https://erfgoedpod.github.io/architecture#actor">actor</a> represents a human or organisational stakeholder that needs to interact with the digital heritage data in the network.
+An <a href="https://erfgoedpod.github.io/architecture#actor">actor</a> represents a human or organizational stakeholder that needs to interact with the digital heritage data in the network.
 The list of possible actor types is given below.</p>
    <table>
     <thead>
@@ -2457,7 +2473,7 @@ The list of possible roles is given below.</p>
       <td>/
      <tr>
       <td>R
-      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="registry">Registry</dfn>
+      <td><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dataset-registry">Dataset Registry</dfn>
       <td>Catalog for metadata about <a data-link-type="dfn" href="#dataset" id="ref-for-dataset">Datasets</a> with cultural heritage information. Can make topic-based selections of <a data-link-type="dfn" href="#dataset" id="ref-for-dataset①">datasets</a> and runs enrichments services to improve these selections.
       <td>Makelaar
       <td>/
@@ -2492,7 +2508,7 @@ Therefore, the <a data-link-type="dfn" href="#service-portal-provider" id="ref-f
     <li data-md>
      <p>How do they decide which of these datasets are relevant for their portal?</p>
     <li data-md>
-     <p>How can the Dutch Digital Heritage Network design, in particular the <a data-link-type="dfn" href="#registry" id="ref-for-registry">Registry</a>, <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph①">Knowledge Graph</a>, and <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms">Network of Terms</a> actor roles, help this process?</p>
+     <p>How can the Dutch Digital Heritage Network design, in particular the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry">Dataset Registry</a>, <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph①">Knowledge Graph</a>, and <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms">Network of Terms</a> actor roles, help this process?</p>
    </ol>
    <table>
     <thead>
@@ -2552,16 +2568,14 @@ To that end, they cover processes from the perspective of the following actor-ro
     <li data-md>
      <p>the Cultural Heritage Institutions and Term Source Providers that act as <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer">maintainers</a>. A single organization can be both actors, but this is not always the case;</p>
     <li data-md>
-     <p>organizations that take up the <a data-link-type="dfn" href="#registry" id="ref-for-registry①">Registry</a> Function;</p>
+     <p>organizations that take up the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①">Dataset Registry</a> Function;</p>
     <li data-md>
      <p>organizations that act as a <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms①">Network of Terms</a>.</p>
     <li data-md>
      <p>organizations that act as a <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph②">Knowledge Graph</a>.</p>
    </ol>
-   <p>Each business process (BP1 - 10 ) is described as a high-level description, followed by a more detailed description of the implementation details.</p>
-   <p class="issue" id="issue-4f9e40cd"><a class="self-link" href="#issue-4f9e40cd"></a> introduce the overall communication pattern</p>
+   <p>Each business process (BP1 - 10) is described as a high-level description, followed by a more detailed description of the implementation details.</p>
    <h3 class="heading settled" data-level="5.1" id="perspective-of-the-cultural-heritage-institution"><span class="secno">5.1. </span><span class="content">Perspective of the Cultural Heritage Institution</span><a class="self-link" href="#perspective-of-the-cultural-heritage-institution"></a></h3>
-   <p class="issue" id="issue-8ac59647"><a class="self-link" href="#issue-8ac59647"></a> TODO: split of conceptual BP and implementation</p>
    <p>This section takes an internal perspective on the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②">Cultural Heritage Institution</a>.
 This includes business processes that only affect actors inside a single institution and are often of preparational or operational nature such as setting up a software component.</p>
    <h4 class="heading settled" data-level="5.1.1" id="-bp1-initialize-a-digital-heritage-pod-from-a-solid-data-pod"><span class="secno">5.1.1. </span><span class="content">(BP1) Initialize a Digital Heritage Pod from a Solid data pod</span><a class="self-link" href="#-bp1-initialize-a-digital-heritage-pod-from-a-solid-data-pod"></a></h4>
@@ -2595,105 +2609,99 @@ an institution’s <a data-link-type="dfn" href="#maintainer" id="ref-for-mainta
     <li data-md>
      <p>Once the orchestrator has acknowledged a successful reception of the inbox and the business processes, the initialization is complete.</p>
    </ol>
-   <h3 class="heading settled" data-level="5.2" id="perspective-from-the-cultural-heritage-institution-interacting-with-the-registry"><span class="secno">5.2. </span><span class="content">Perspective from the Cultural Heritage Institution interacting with the Registry</span><a class="self-link" href="#perspective-from-the-cultural-heritage-institution-interacting-with-the-registry"></a></h3>
-   <p class="issue" id="issue-4ae1d73d"><a class="self-link" href="#issue-4ae1d73d"></a> does the registry take up an active role and are there BPs necessary to reflect this?</p>
-   <p>This section takes the perspective of an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦">Cultural Heritage Institution</a> interacting with a <a data-link-type="dfn" href="#registry" id="ref-for-registry②">Registry</a> Service, which implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Registry-function</a> using the Solid and ResearcherPod architecture.
-This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the registry) and the <a data-link-type="dfn" href="#registry" id="ref-for-registry③">Registry</a> responding to that request.
-The latter includes the possible outcome of the performed service.</p>
-   <h4 class="heading settled" data-level="5.2.1" id="BP3"><span class="secno">5.2.1. </span><span class="content">(BP3) A Cultural Heritage Institution registers itself to a Registry</span><a class="self-link" href="#BP3"></a></h4>
-   <p>A <a data-link-type="dfn" href="#registry" id="ref-for-registry④">registry</a> service collects descriptions of datasets (<a data-link-type="dfn">metadata dataset</a>) from <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑧">cultural heritage institutions</a>.
-Based on this information, the registry service can navigate a <a data-link-type="dfn" href="#consumer" id="ref-for-consumer">consumer</a> to the <a data-link-type="dfn">digital heritage pods</a> that store relevant datasets.
-However, in order to achieve this, an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑨">cultural heritage institution</a> needs to be known and trusted by the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑤">registry</a> service.</p>
-   <p class="issue" id="issue-c5eb9b6e"><a class="self-link" href="#issue-c5eb9b6e"></a> the word alongside makes it look like two things are not the same</p>
+   <h4 class="heading settled" data-level="5.1.3" id="-bp3-notifiying-institutions-about-enrichments"><span class="secno">5.1.3. </span><span class="content">(BP3) Notifiying institutions about enrichments</span><a class="self-link" href="#-bp3-notifiying-institutions-about-enrichments"></a></h4>
+   <p>Two <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑦">cultural heritage institutions</a> can also improve the interconnectedness of their collections in a reciprocal discovery process.
+Thereby, it facilitates the creation of links, backlinks or augmented metadata between <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object②">cultural heritage objects</a>.</p>
    <ol>
     <li data-md>
-     <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⓪">Cultural Heritage Institution</a> maintains a machine-readable <a data-link-type="dfn" href="#organisation-profile" id="ref-for-organisation-profile">organisation profile</a> that contains a basic description of the institution.</p>
+     <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑧">cultural heritage institution</a> (A) adds information (eg. a link) about a <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object③">cultural heritage object</a> to an existing dataset.</p>
     <li data-md>
-     <p>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑥">maintainer</a>, who is employed at the institution, submits a link to the profile alongside a registration request to the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑥">registry</a> service.</p>
+     <p>The A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution⑨">cultural heritage institution</a> (A) notifies a target <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⓪">cultural heritage institution</a> (B) that it has intomation about possible <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object④">cultural heritage objects</a> in their collection.</p>
     <li data-md>
-     <p>When processing the request, the registry downloads the <a data-link-type="dfn" href="#organisation-profile" id="ref-for-organisation-profile①">organisation profile</a> and verifies its eligibility to the service.</p>
-    <li data-md>
-     <p>If the registration of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①①">cultural heritage institution</a> is accepted, the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑦">registry</a> service adds the institution to the list of registered dataset <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑦">maintainers</a> and informs the institution of a successful registration.</p>
+     <p><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①①">Cultural heritage institution</a> (B) then adds this information or backlinks to the <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object⑤">cultural heritage objects</a> of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①②">cultural heritage institution</a> (A).</p>
    </ol>
-   <h4 class="heading settled" data-level="5.2.2" id="BP4"><span class="secno">5.2.2. </span><span class="content">(BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</span><a class="self-link" href="#BP4"></a></h4>
-   <p>Once a <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①②">cultural heritage institution</a> is registered with a <a data-link-type="dfn" href="#registry" id="ref-for-registry⑧">registry</a> service,
+   <h3 class="heading settled" data-level="5.2" id="perspective-from-the-cultural-heritage-institution-interacting-with-the-dataset-registry"><span class="secno">5.2. </span><span class="content">Perspective from the Cultural Heritage Institution interacting with the Dataset Registry</span><a class="self-link" href="#perspective-from-the-cultural-heritage-institution-interacting-with-the-dataset-registry"></a></h3>
+   <p>This section takes the perspective of an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①③">Cultural Heritage Institution</a> interacting with a <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②">Dataset Registry</a> Service, which implements the design of the <a href="https://docs.google.com/document/d/1-E4DIwlzbL8Esv5YtHbVUXkT_U3pCprFDSI-hjiKf90/edit?ts=5fbd2dcd#">Dataset Registry-function</a> using the Solid and ResearcherPod architecture.
+This entails business processes that are shared between both parties where the institution is requesting a service (ie. adding, updating or removing dataset summaries from the dataset registry) and the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry③">Dataset Registry</a> responding to that request.
+The latter includes the possible outcome of the performed service.</p>
+   <h4 class="heading settled" data-level="5.2.1" id="BP3"><span class="secno">5.2.1. </span><span class="content">(BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</span><a class="self-link" href="#BP3"></a></h4>
+   <p>A <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry④">dataset registry</a> service collects descriptions of datasets (<a data-link-type="dfn">metadata dataset</a>) from <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①④">cultural heritage institutions</a>.
+Based on this information, the dataset registry service can navigate a <a data-link-type="dfn" href="#consumer" id="ref-for-consumer">consumer</a> to the <a data-link-type="dfn">digital heritage pods</a> that store relevant datasets.
+However, in order to achieve this, an <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑤">cultural heritage institution</a> needs to be known and trusted by the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry⑤">dataset registry</a> service.</p>
+   <ol>
+    <li data-md>
+     <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑥">Cultural Heritage Institution</a> maintains a machine-readable <a data-link-type="dfn" href="#organisation-profile" id="ref-for-organisation-profile">organisation profile</a> that contains a basic description of the institution.</p>
+    <li data-md>
+     <p>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑥">maintainer</a>, who is employed at the institution, submits a registration request to the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry⑥">dataset registry</a> service containing a link to the profile.</p>
+    <li data-md>
+     <p>When processing the request, the dataset registry downloads the <a data-link-type="dfn" href="#organisation-profile" id="ref-for-organisation-profile①">organisation profile</a> and verifies its eligibility to the service.</p>
+    <li data-md>
+     <p>If the registration of the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑦">cultural heritage institution</a> is accepted, the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry⑦">dataset registry</a> service adds the institution to the list of registered dataset <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑦">maintainers</a> and informs the institution of a successful registration.</p>
+   </ol>
+   <h4 class="heading settled" data-level="5.2.2" id="BP4"><span class="secno">5.2.2. </span><span class="content">(BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</span><a class="self-link" href="#BP4"></a></h4>
+   <p>Once a <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑧">cultural heritage institution</a> is registered with a <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry⑧">dataset registry</a> service,
 it can add dataset descriptions or <a data-link-type="dfn">metadata dataset</a> to this service.</p>
    <ol>
     <li data-md>
-     <p>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑧">maintainer</a>, who is employed at the institution, notifies the <a data-link-type="dfn" href="#registry" id="ref-for-registry⑨">registry</a> service that a new dataset distribution is available. The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑨">maintainer</a> supplies a link to the <a data-link-type="dfn">metadata dataset</a>.</p>
+     <p>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑧">maintainer</a>, who is employed at the institution, notifies the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry⑨">dataset registry</a> service that a new dataset distribution is available. The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer⑨">maintainer</a> supplies a link to the <a data-link-type="dfn">metadata dataset</a>.</p>
     <li data-md>
-     <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry①⓪">registry</a> service checks whether the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①③">cultural heritage institution</a> is registered. If so, it downloads the <a data-link-type="dfn">metadata dataset</a> adds it to its index to enable search.</p>
+     <p>The <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①⓪">dataset registry</a> service checks whether the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑨">cultural heritage institution</a> is registered. If so, it downloads the <a data-link-type="dfn">metadata dataset</a> adds it to its index to enable search.</p>
     <li data-md>
-     <p>When the indexing is done, the <a data-link-type="dfn" href="#registry" id="ref-for-registry①①">registry</a> service informs the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①④">cultural heritage institution</a> that the dataset is part of the <a data-link-type="dfn" href="#registry" id="ref-for-registry①②">registry</a> service.</p>
+     <p>When the indexing is done, the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①①">dataset registry</a> service informs the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②⓪">cultural heritage institution</a> that the dataset is part of the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①②">dataset registry</a> service.</p>
    </ol>
-   <h4 class="heading settled" data-level="5.2.3" id="BP5"><span class="secno">5.2.3. </span><span class="content">(BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</span><a class="self-link" href="#BP5"></a></h4>
-   <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑤">cultural heritage institution</a> can release a new version of an former dataset that is already registered with a <a data-link-type="dfn" href="#registry" id="ref-for-registry①③">registry</a> service.
-In that case, it needs to reflect the update in the <a data-link-type="dfn" href="#registry" id="ref-for-registry①④">registry</a> service.</p>
+   <h4 class="heading settled" data-level="5.2.3" id="BP5"><span class="secno">5.2.3. </span><span class="content">(BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</span><a class="self-link" href="#BP5"></a></h4>
+   <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②①">cultural heritage institution</a> can release a new version of an former dataset that is already registered with a <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①③">dataset registry</a> service.
+In that case, it needs to reflect the update in the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①④">dataset registry</a> service.</p>
    <ol>
     <li data-md>
-     <p>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①⓪">maintainer</a>, who is employed at the institution, notifies the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑤">registry</a> service that a new dataset distribution of a registered dataset is available. The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①①">maintainer</a> supplies a link to the updated <a data-link-type="dfn">metadata dataset</a>.</p>
+     <p>A <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①⓪">maintainer</a>, who is employed at the institution, notifies the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①⑤">dataset registry</a> service that a new dataset distribution of a registered dataset is available. The <a data-link-type="dfn" href="#maintainer" id="ref-for-maintainer①①">maintainer</a> supplies a link to the updated <a data-link-type="dfn">metadata dataset</a>.</p>
     <li data-md>
-     <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑥">registry</a> service checks whether the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑥">cultural heritage institution</a> is registered. If so, it downloads the <a data-link-type="dfn">metadata dataset</a> and replaces the old version in the search index.</p>
+     <p>The <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①⑥">dataset registry</a> service checks whether the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②②">cultural heritage institution</a> is registered. If so, it downloads the <a data-link-type="dfn">metadata dataset</a> and replaces the old version in the search index.</p>
     <li data-md>
-     <p>When the indexing is done, the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑦">registry</a> service informs the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑦">cultural heritage institution</a> that the dataset has been updated in the <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑧">registry</a> service.</p>
+     <p>When the indexing is done, the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①⑦">dataset registry</a> service informs the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②③">cultural heritage institution</a> that the dataset has been updated in the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①⑧">dataset registry</a> service.</p>
    </ol>
-   <h4 class="heading settled" data-level="5.2.4" id="-bp6-constructing-backlinks-between-objects-of-two-institutions"><span class="secno">5.2.4. </span><span class="content">(BP6) Constructing backlinks between objects of two institutions</span><a class="self-link" href="#-bp6-constructing-backlinks-between-objects-of-two-institutions"></a></h4>
-   <p class="issue" id="issue-40b5eb86"><a class="self-link" href="#issue-40b5eb86"></a> this comes out of the blue. Or remove, or rewrite as notifiying institutions about ernichments</p>
-   <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry①⑨">registry</a> service can also improve the interconnectedness between <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑧">cultural heritage institutions</a> by mediating in a reciprocal discovery process.
-Thereby, it facilitates the creation of links and backlinks between institutions' <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object②">cultural heritage objects</a>.</p>
-   <ol>
-    <li data-md>
-     <p>A <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution①⑨">cultural heritage institution</a> (A) registers a new dataset with the registry service via <a href="#BP4">§ 5.2.2 (BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</a>.</p>
-    <li data-md>
-     <p>During the indexing process, the <a data-link-type="dfn" href="#registry" id="ref-for-registry②⓪">registry</a> service scans the <a data-link-type="dfn">metadata dataset</a> for links to other registered institutions.</p>
-    <li data-md>
-     <p>If any links are present, the <a data-link-type="dfn" href="#registry" id="ref-for-registry②①">registry</a> service notifies the target <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②⓪">cultural heritage institution</a> (B) that another institution (A) has links to <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object③">cultural heritage objects</a> in their collection.</p>
-    <li data-md>
-     <p><a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②①">Cultural heritage institution</a> (B) then adds backlinks to the <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object④">cultural heritage objects</a> of <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②②">cultural heritage institution</a> (A).</p>
-   </ol>
-   <h3 class="heading settled" data-level="5.3" id="perspective-knowledge-graph-network-of-terms---registry"><span class="secno">5.3. </span><span class="content">Perspective Knowledge Graph / Network Of Terms - Registry</span><a class="self-link" href="#perspective-knowledge-graph-network-of-terms---registry"></a></h3>
-   <p>This section takes the perspective of the interaction between the <a data-link-type="dfn" href="#registry" id="ref-for-registry②②">Registry</a> Service and the applications <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph③">Knowledge Graph</a> and <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms②">Network of Terms</a>.
+   <h3 class="heading settled" data-level="5.3" id="perspective-knowledge-graph-network-of-terms---dataset-registry"><span class="secno">5.3. </span><span class="content">Perspective Knowledge Graph / Network Of Terms - Dataset Registry</span><a class="self-link" href="#perspective-knowledge-graph-network-of-terms---dataset-registry"></a></h3>
+   <p>This section takes the perspective of the interaction between the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry①⑨">Dataset Registry</a> Service and the applications <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph③">Knowledge Graph</a> and <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms②">Network of Terms</a>.
 This entails business processes where both services notify eachother about important events. 
-Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the registry).</p>
-   <h4 class="heading settled" data-level="5.3.1" id="-bp8-a-knowledge-graph-or-network-of-terms-subscribes-to-a-topic"><span class="secno">5.3.1. </span><span class="content">(BP8) A Knowledge Graph or Network of Terms subscribes to a topic</span><a class="self-link" href="#-bp8-a-knowledge-graph-or-network-of-terms-subscribes-to-a-topic"></a></h4>
+Hence, these processes are often initiated by the completion of another business process (eg. one between the institution and the dataset registry).</p>
+   <h4 class="heading settled" data-level="5.3.1" id="-bp7-a-knowledge-graph-or-network-of-terms-subscribes-to-a-topic"><span class="secno">5.3.1. </span><span class="content">(BP7) A Knowledge Graph or Network of Terms subscribes to a topic</span><a class="self-link" href="#-bp7-a-knowledge-graph-or-network-of-terms-subscribes-to-a-topic"></a></h4>
    <p>The <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph④">Knowledge Graph</a> and <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms③">Network of Terms</a> construct topic-oriented sets of metadata by collecting relevant metadata from the network.
-In case of the <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑤">Knowledge Graph</a>, these sets are about <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object⑤">cultural heritage objects</a>, and in case of the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms④">Network of Terms</a>, these sets are about <a data-link-type="dfn" href="#term-source" id="ref-for-term-source②">term sources</a>.</p>
-   <p>Both applications need to discover <a data-link-type="dfn" href="#dataset" id="ref-for-dataset②">datasets</a> from <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②③">cultural heritage institutions</a> that have data relevant to their topic.
-Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for-registry②③">registry</a> service to help them narrow the search space based on the <a data-link-type="dfn">metadata dataset</a> and point them to the dataset locations.</p>
+In case of the <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑤">Knowledge Graph</a>, these sets are about <a data-link-type="dfn" href="#cultural-heritage-object" id="ref-for-cultural-heritage-object⑥">cultural heritage objects</a>, and in case of the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms④">Network of Terms</a>, these sets are about <a data-link-type="dfn" href="#term-source" id="ref-for-term-source②">term sources</a>.</p>
+   <p>Both applications need to discover <a data-link-type="dfn" href="#dataset" id="ref-for-dataset②">datasets</a> from <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②④">cultural heritage institutions</a> that have data relevant to their topic.
+Therefore, they rely on the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②⓪">dataset registry</a> service to help them narrow the search space based on the <a data-link-type="dfn">metadata dataset</a> and point them to the dataset locations.</p>
    <ol>
     <li data-md>
-     <p>A <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑥">Knowledge Graph</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑤">Network of Terms</a> sends a subscription request on a certain topic to the <a data-link-type="dfn" href="#registry" id="ref-for-registry②④">registry</a> service.</p>
+     <p>A <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑥">Knowledge Graph</a> or <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑤">Network of Terms</a> sends a subscription request on a certain topic to the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②①">dataset registry</a> service.</p>
     <li data-md>
-     <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑤">registry</a> service adds the sender to the index entry of that topic and informs them of the subscription.</p>
+     <p>The <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②②">dataset registry</a> service adds the sender to the index entry of that topic and informs them of the subscription.</p>
    </ol>
-   <h4 class="heading settled" data-level="5.3.2" id="-bp9-a-knowledge-graph-discovers-a-dataset-related-to-a-subscribed-topic"><span class="secno">5.3.2. </span><span class="content">(BP9) A Knowledge Graph discovers a dataset related to a subscribed topic</span><a class="self-link" href="#-bp9-a-knowledge-graph-discovers-a-dataset-related-to-a-subscribed-topic"></a></h4>
+   <h4 class="heading settled" data-level="5.3.2" id="-bp8-a-knowledge-graph-discovers-a-dataset-related-to-a-subscribed-topic"><span class="secno">5.3.2. </span><span class="content">(BP8) A Knowledge Graph discovers a dataset related to a subscribed topic</span><a class="self-link" href="#-bp8-a-knowledge-graph-discovers-a-dataset-related-to-a-subscribed-topic"></a></h4>
    <ol>
     <li data-md>
-     <p>When the <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑥">registry</a> service receives a new or updated dataset description (<a data-link-type="dfn">Metadata Dataset</a>) via <a href="#BP4">§ 5.2.2 (BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</a> or <a href="#BP5">§ 5.2.3 (BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</a>, it identifies the topics that are related to the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset③">dataset</a>.</p>
+     <p>When the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②③">dataset registry</a> service receives a new or updated dataset description (<a data-link-type="dfn">Metadata Dataset</a>) via <a href="#BP4">§ 5.2.2 (BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</a> or <a href="#BP5">§ 5.2.3 (BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</a>, it identifies the topics that are related to the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset③">dataset</a>.</p>
     <li data-md>
-     <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑦">registry</a> service cross-checks each topic to the subscription index.</p>
+     <p>The <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②④">dataset registry</a> service cross-checks each topic to the subscription index.</p>
     <li data-md>
      <p>If <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑦">Knowledge Graph</a> applications are subscribed to any of the topics, they are notified that a dataset is relevant to their search. A link to the dataset is included in the notification.</p>
     <li data-md>
-     <p>When receiving this notification, the <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑧">Knowledge Graph</a> extracts the link and downloads the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset④">Dataset</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②④">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>.</p>
+     <p>When receiving this notification, the <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑧">Knowledge Graph</a> extracts the link and downloads the <a data-link-type="dfn" href="#dataset" id="ref-for-dataset④">Dataset</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②⑤">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>.</p>
     <li data-md>
      <p>The <a data-link-type="dfn" href="#knowledge-graph" id="ref-for-knowledge-graph⑨">Knowledge Graph</a> processes the dataset and incorporates it in the topic-oriented set of metadata.</p>
    </ol>
-   <h4 class="heading settled" data-level="5.3.3" id="-bp10-discovering-a-term-source"><span class="secno">5.3.3. </span><span class="content">(BP10) Discovering a Term source</span><a class="self-link" href="#-bp10-discovering-a-term-source"></a></h4>
+   <h4 class="heading settled" data-level="5.3.3" id="-bp9-discovering-a-term-source"><span class="secno">5.3.3. </span><span class="content">(BP9) Discovering a Term source</span><a class="self-link" href="#-bp9-discovering-a-term-source"></a></h4>
    <ol>
     <li data-md>
-     <p>When the <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑧">registry</a> service receives a new or updated term source description (<a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source">Metadata Term Source</a>) via <a href="#BP4">§ 5.2.2 (BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</a> or <a href="#BP5">§ 5.2.3 (BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</a>,
+     <p>When the <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②⑤">dataset registry</a> service receives a new or updated term source description (<a data-link-type="dfn" href="#metadata-term-source" id="ref-for-metadata-term-source">Metadata Term Source</a>) via <a href="#BP4">§ 5.2.2 (BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</a> or <a href="#BP5">§ 5.2.3 (BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</a>,
       it identifies the topics that are related to the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source③">term source</a>.</p>
     <li data-md>
-     <p>The <a data-link-type="dfn" href="#registry" id="ref-for-registry②⑨">registry</a> service cross-checks each topic to the subscription index.</p>
+     <p>The <a data-link-type="dfn" href="#dataset-registry" id="ref-for-dataset-registry②⑥">dataset registry</a> service cross-checks each topic to the subscription index.</p>
     <li data-md>
      <p>If <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑥">Network of Terms</a> applications are subscribed to any of the topics, they are notified that a <a data-link-type="dfn" href="#term-source" id="ref-for-term-source④">term source</a> is relevant to their search. A link to the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑤">term source</a> is included in the notification.</p>
     <li data-md>
-     <p>When receiving this notification, the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑦">Network of Terms</a> extracts the link and downloads the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑥">term source</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②⑤">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>.</p>
+     <p>When receiving this notification, the <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑦">Network of Terms</a> extracts the link and downloads the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑥">term source</a> from the <a data-link-type="dfn" href="#cultural-heritage-institution" id="ref-for-cultural-heritage-institution②⑥">Cultural Heritage Institution</a>'s <a data-link-type="dfn">Digital Heritage Pod</a>.</p>
     <li data-md>
      <p>The <a data-link-type="dfn" href="#network-of-terms" id="ref-for-network-of-terms⑧">Network of Terms</a> processes the <a data-link-type="dfn" href="#term-source" id="ref-for-term-source⑦">term source</a> and incorporates it in its search index.</p>
    </ol>
-   <h4 class="heading settled" data-level="5.3.4" id="-bp11-searching-for-objects"><span class="secno">5.3.4. </span><span class="content">(BP11) Searching for objects</span><a class="self-link" href="#-bp11-searching-for-objects"></a></h4>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2850,6 +2858,7 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
    <li><a href="#cultural-heritage-object">Cultural Heritage Object</a><span>, in §3.3</span>
    <li><a href="#cultural-heritage-object-maintainer">Cultural Heritage Object Maintainer</a><span>, in §3.4</span>
    <li><a href="#dataset">Dataset</a><span>, in §3.3</span>
+   <li><a href="#dataset-registry">Dataset Registry</a><span>, in §3.4</span>
    <li><a href="#enrichment">Enrichment</a><span>, in §3.3</span>
    <li><a href="#enrichments-maintainer">Enrichments Maintainer</a><span>, in §3.4</span>
    <li><a href="#information-object">Information Object</a><span>, in §3.3</span>
@@ -2863,7 +2872,6 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
    <li><a href="#object">Object</a><span>, in §3.3</span>
    <li><a href="#organisation-profile">Organisation Profile</a><span>, in §3.3</span>
    <li><a href="#provider">Provider</a><span>, in §3.2</span>
-   <li><a href="#registry">Registry</a><span>, in §3.4</span>
    <li><a href="#service-portal-provider">Service Portal Provider</a><span>, in §3.4</span>
    <li><a href="#service-provider">Service Provider</a><span>, in §3.4</span>
    <li><a href="#term">Term</a><span>, in §3.3</span>
@@ -2884,14 +2892,6 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
    <dt id="biblio-ldn">[LDN]
    <dd>Sarven Capadisli; Amy Guy. <a href="https://www.w3.org/TR/ldn/">Linked Data Notifications</a>. 2 May 2017. REC. URL: <a href="https://www.w3.org/TR/ldn/">https://www.w3.org/TR/ldn/</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
-  <div style="counter-reset:issue">
-   <div class="issue"> introduce the overall communication pattern<a href="#issue-4f9e40cd"> ↵ </a></div>
-   <div class="issue"> TODO: split of conceptual BP and implementation<a href="#issue-8ac59647"> ↵ </a></div>
-   <div class="issue"> does the registry take up an active role and are there BPs necessary to reflect this?<a href="#issue-4ae1d73d"> ↵ </a></div>
-   <div class="issue"> the word alongside makes it look like two things are not the same<a href="#issue-c5eb9b6e"> ↵ </a></div>
-   <div class="issue"> this comes out of the blue. Or remove, or rewrite as notifiying institutions about ernichments<a href="#issue-40b5eb86"> ↵ </a></div>
-  </div>
   <aside class="dfn-panel" data-for="cultural-heritage-institution">
    <b><a href="#cultural-heritage-institution">#cultural-heritage-institution</a></b><b>Referenced in:</b>
    <ul>
@@ -2900,50 +2900,50 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
     <li><a href="#ref-for-cultural-heritage-institution②">5.1. Perspective of the Cultural Heritage Institution</a>
     <li><a href="#ref-for-cultural-heritage-institution③">5.1.1. (BP1) Initialize a Digital Heritage Pod from a Solid data pod</a> <a href="#ref-for-cultural-heritage-institution④">(2)</a>
     <li><a href="#ref-for-cultural-heritage-institution⑤">5.1.2. (BP2) Enabling automation of business processes by initializing an orchestration service</a> <a href="#ref-for-cultural-heritage-institution⑥">(2)</a>
-    <li><a href="#ref-for-cultural-heritage-institution⑦">5.2. Perspective from the Cultural Heritage Institution interacting with the Registry</a>
-    <li><a href="#ref-for-cultural-heritage-institution⑧">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Registry</a> <a href="#ref-for-cultural-heritage-institution⑨">(2)</a> <a href="#ref-for-cultural-heritage-institution①⓪">(3)</a> <a href="#ref-for-cultural-heritage-institution①①">(4)</a>
-    <li><a href="#ref-for-cultural-heritage-institution①②">5.2.2. (BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</a> <a href="#ref-for-cultural-heritage-institution①③">(2)</a> <a href="#ref-for-cultural-heritage-institution①④">(3)</a>
-    <li><a href="#ref-for-cultural-heritage-institution①⑤">5.2.3. (BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</a> <a href="#ref-for-cultural-heritage-institution①⑥">(2)</a> <a href="#ref-for-cultural-heritage-institution①⑦">(3)</a>
-    <li><a href="#ref-for-cultural-heritage-institution①⑧">5.2.4. (BP6) Constructing backlinks between objects of two institutions</a> <a href="#ref-for-cultural-heritage-institution①⑨">(2)</a> <a href="#ref-for-cultural-heritage-institution②⓪">(3)</a> <a href="#ref-for-cultural-heritage-institution②①">(4)</a> <a href="#ref-for-cultural-heritage-institution②②">(5)</a>
-    <li><a href="#ref-for-cultural-heritage-institution②③">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a>
-    <li><a href="#ref-for-cultural-heritage-institution②④">5.3.2. (BP9) A Knowledge Graph discovers a dataset related to a subscribed topic</a>
-    <li><a href="#ref-for-cultural-heritage-institution②⑤">5.3.3. (BP10) Discovering a Term source</a>
+    <li><a href="#ref-for-cultural-heritage-institution⑦">5.1.3. (BP3) Notifiying institutions about enrichments</a> <a href="#ref-for-cultural-heritage-institution⑧">(2)</a> <a href="#ref-for-cultural-heritage-institution⑨">(3)</a> <a href="#ref-for-cultural-heritage-institution①⓪">(4)</a> <a href="#ref-for-cultural-heritage-institution①①">(5)</a> <a href="#ref-for-cultural-heritage-institution①②">(6)</a>
+    <li><a href="#ref-for-cultural-heritage-institution①③">5.2. Perspective from the Cultural Heritage Institution interacting with the Dataset Registry</a>
+    <li><a href="#ref-for-cultural-heritage-institution①④">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</a> <a href="#ref-for-cultural-heritage-institution①⑤">(2)</a> <a href="#ref-for-cultural-heritage-institution①⑥">(3)</a> <a href="#ref-for-cultural-heritage-institution①⑦">(4)</a>
+    <li><a href="#ref-for-cultural-heritage-institution①⑧">5.2.2. (BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</a> <a href="#ref-for-cultural-heritage-institution①⑨">(2)</a> <a href="#ref-for-cultural-heritage-institution②⓪">(3)</a>
+    <li><a href="#ref-for-cultural-heritage-institution②①">5.2.3. (BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</a> <a href="#ref-for-cultural-heritage-institution②②">(2)</a> <a href="#ref-for-cultural-heritage-institution②③">(3)</a>
+    <li><a href="#ref-for-cultural-heritage-institution②④">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a>
+    <li><a href="#ref-for-cultural-heritage-institution②⑤">5.3.2. (BP8) A Knowledge Graph discovers a dataset related to a subscribed topic</a>
+    <li><a href="#ref-for-cultural-heritage-institution②⑥">5.3.3. (BP9) Discovering a Term source</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="cultural-heritage-object">
    <b><a href="#cultural-heritage-object">#cultural-heritage-object</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cultural-heritage-object">5.1.1. (BP1) Initialize a Digital Heritage Pod from a Solid data pod</a> <a href="#ref-for-cultural-heritage-object①">(2)</a>
-    <li><a href="#ref-for-cultural-heritage-object②">5.2.4. (BP6) Constructing backlinks between objects of two institutions</a> <a href="#ref-for-cultural-heritage-object③">(2)</a> <a href="#ref-for-cultural-heritage-object④">(3)</a>
-    <li><a href="#ref-for-cultural-heritage-object⑤">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a>
+    <li><a href="#ref-for-cultural-heritage-object②">5.1.3. (BP3) Notifiying institutions about enrichments</a> <a href="#ref-for-cultural-heritage-object③">(2)</a> <a href="#ref-for-cultural-heritage-object④">(3)</a> <a href="#ref-for-cultural-heritage-object⑤">(4)</a>
+    <li><a href="#ref-for-cultural-heritage-object⑥">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dataset">
    <b><a href="#dataset">#dataset</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dataset">3.4. Roles in the network</a> <a href="#ref-for-dataset①">(2)</a>
-    <li><a href="#ref-for-dataset②">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a>
-    <li><a href="#ref-for-dataset③">5.3.2. (BP9) A Knowledge Graph discovers a dataset related to a subscribed topic</a> <a href="#ref-for-dataset④">(2)</a>
+    <li><a href="#ref-for-dataset②">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a>
+    <li><a href="#ref-for-dataset③">5.3.2. (BP8) A Knowledge Graph discovers a dataset related to a subscribed topic</a> <a href="#ref-for-dataset④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-source">
    <b><a href="#term-source">#term-source</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-term-source">3.4. Roles in the network</a> <a href="#ref-for-term-source①">(2)</a>
-    <li><a href="#ref-for-term-source②">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a>
-    <li><a href="#ref-for-term-source③">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-term-source④">(2)</a> <a href="#ref-for-term-source⑤">(3)</a> <a href="#ref-for-term-source⑥">(4)</a> <a href="#ref-for-term-source⑦">(5)</a>
+    <li><a href="#ref-for-term-source②">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a>
+    <li><a href="#ref-for-term-source③">5.3.3. (BP9) Discovering a Term source</a> <a href="#ref-for-term-source④">(2)</a> <a href="#ref-for-term-source⑤">(3)</a> <a href="#ref-for-term-source⑥">(4)</a> <a href="#ref-for-term-source⑦">(5)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="organisation-profile">
    <b><a href="#organisation-profile">#organisation-profile</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-organisation-profile">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Registry</a> <a href="#ref-for-organisation-profile①">(2)</a>
+    <li><a href="#ref-for-organisation-profile">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</a> <a href="#ref-for-organisation-profile①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="metadata-term-source">
    <b><a href="#metadata-term-source">#metadata-term-source</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-metadata-term-source">5.3.3. (BP10) Discovering a Term source</a>
+    <li><a href="#ref-for-metadata-term-source">5.3.3. (BP9) Discovering a Term source</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="maintainer">
@@ -2952,15 +2952,15 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
     <li><a href="#ref-for-maintainer">5. Business processes</a>
     <li><a href="#ref-for-maintainer①">5.1.1. (BP1) Initialize a Digital Heritage Pod from a Solid data pod</a> <a href="#ref-for-maintainer②">(2)</a>
     <li><a href="#ref-for-maintainer③">5.1.2. (BP2) Enabling automation of business processes by initializing an orchestration service</a> <a href="#ref-for-maintainer④">(2)</a> <a href="#ref-for-maintainer⑤">(3)</a>
-    <li><a href="#ref-for-maintainer⑥">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Registry</a> <a href="#ref-for-maintainer⑦">(2)</a>
-    <li><a href="#ref-for-maintainer⑧">5.2.2. (BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</a> <a href="#ref-for-maintainer⑨">(2)</a>
-    <li><a href="#ref-for-maintainer①⓪">5.2.3. (BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</a> <a href="#ref-for-maintainer①①">(2)</a>
+    <li><a href="#ref-for-maintainer⑥">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</a> <a href="#ref-for-maintainer⑦">(2)</a>
+    <li><a href="#ref-for-maintainer⑧">5.2.2. (BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</a> <a href="#ref-for-maintainer⑨">(2)</a>
+    <li><a href="#ref-for-maintainer①⓪">5.2.3. (BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</a> <a href="#ref-for-maintainer①①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="consumer">
    <b><a href="#consumer">#consumer</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-consumer">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Registry</a>
+    <li><a href="#ref-for-consumer">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-portal-provider">
@@ -2969,20 +2969,19 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
     <li><a href="#ref-for-service-portal-provider">4. Pilot Use Cases</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="registry">
-   <b><a href="#registry">#registry</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dataset-registry">
+   <b><a href="#dataset-registry">#dataset-registry</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-registry">4. Pilot Use Cases</a>
-    <li><a href="#ref-for-registry①">5. Business processes</a>
-    <li><a href="#ref-for-registry②">5.2. Perspective from the Cultural Heritage Institution interacting with the Registry</a> <a href="#ref-for-registry③">(2)</a>
-    <li><a href="#ref-for-registry④">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Registry</a> <a href="#ref-for-registry⑤">(2)</a> <a href="#ref-for-registry⑥">(3)</a> <a href="#ref-for-registry⑦">(4)</a>
-    <li><a href="#ref-for-registry⑧">5.2.2. (BP4) A Cultural Heritage Institution registers a new Dataset with the Registry</a> <a href="#ref-for-registry⑨">(2)</a> <a href="#ref-for-registry①⓪">(3)</a> <a href="#ref-for-registry①①">(4)</a> <a href="#ref-for-registry①②">(5)</a>
-    <li><a href="#ref-for-registry①③">5.2.3. (BP5) A Cultural Heritage Institution updates a registered Dataset in the Registry</a> <a href="#ref-for-registry①④">(2)</a> <a href="#ref-for-registry①⑤">(3)</a> <a href="#ref-for-registry①⑥">(4)</a> <a href="#ref-for-registry①⑦">(5)</a> <a href="#ref-for-registry①⑧">(6)</a>
-    <li><a href="#ref-for-registry①⑨">5.2.4. (BP6) Constructing backlinks between objects of two institutions</a> <a href="#ref-for-registry②⓪">(2)</a> <a href="#ref-for-registry②①">(3)</a>
-    <li><a href="#ref-for-registry②②">5.3. Perspective Knowledge Graph / Network Of Terms - Registry</a>
-    <li><a href="#ref-for-registry②③">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a> <a href="#ref-for-registry②④">(2)</a> <a href="#ref-for-registry②⑤">(3)</a>
-    <li><a href="#ref-for-registry②⑥">5.3.2. (BP9) A Knowledge Graph discovers a dataset related to a subscribed topic</a> <a href="#ref-for-registry②⑦">(2)</a>
-    <li><a href="#ref-for-registry②⑧">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-registry②⑨">(2)</a>
+    <li><a href="#ref-for-dataset-registry">4. Pilot Use Cases</a>
+    <li><a href="#ref-for-dataset-registry①">5. Business processes</a>
+    <li><a href="#ref-for-dataset-registry②">5.2. Perspective from the Cultural Heritage Institution interacting with the Dataset Registry</a> <a href="#ref-for-dataset-registry③">(2)</a>
+    <li><a href="#ref-for-dataset-registry④">5.2.1. (BP3) A Cultural Heritage Institution registers itself to a Dataset Registry</a> <a href="#ref-for-dataset-registry⑤">(2)</a> <a href="#ref-for-dataset-registry⑥">(3)</a> <a href="#ref-for-dataset-registry⑦">(4)</a>
+    <li><a href="#ref-for-dataset-registry⑧">5.2.2. (BP4) A Cultural Heritage Institution registers a new Dataset with the Dataset Registry</a> <a href="#ref-for-dataset-registry⑨">(2)</a> <a href="#ref-for-dataset-registry①⓪">(3)</a> <a href="#ref-for-dataset-registry①①">(4)</a> <a href="#ref-for-dataset-registry①②">(5)</a>
+    <li><a href="#ref-for-dataset-registry①③">5.2.3. (BP6) A Cultural Heritage Institution updates a registered Dataset in the Dataset Registry</a> <a href="#ref-for-dataset-registry①④">(2)</a> <a href="#ref-for-dataset-registry①⑤">(3)</a> <a href="#ref-for-dataset-registry①⑥">(4)</a> <a href="#ref-for-dataset-registry①⑦">(5)</a> <a href="#ref-for-dataset-registry①⑧">(6)</a>
+    <li><a href="#ref-for-dataset-registry①⑨">5.3. Perspective Knowledge Graph / Network Of Terms - Dataset Registry</a>
+    <li><a href="#ref-for-dataset-registry②⓪">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a> <a href="#ref-for-dataset-registry②①">(2)</a> <a href="#ref-for-dataset-registry②②">(3)</a>
+    <li><a href="#ref-for-dataset-registry②③">5.3.2. (BP8) A Knowledge Graph discovers a dataset related to a subscribed topic</a> <a href="#ref-for-dataset-registry②④">(2)</a>
+    <li><a href="#ref-for-dataset-registry②⑤">5.3.3. (BP9) Discovering a Term source</a> <a href="#ref-for-dataset-registry②⑥">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="network-of-terms">
@@ -2990,9 +2989,9 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
    <ul>
     <li><a href="#ref-for-network-of-terms">4. Pilot Use Cases</a>
     <li><a href="#ref-for-network-of-terms①">5. Business processes</a>
-    <li><a href="#ref-for-network-of-terms②">5.3. Perspective Knowledge Graph / Network Of Terms - Registry</a>
-    <li><a href="#ref-for-network-of-terms③">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a> <a href="#ref-for-network-of-terms④">(2)</a> <a href="#ref-for-network-of-terms⑤">(3)</a>
-    <li><a href="#ref-for-network-of-terms⑥">5.3.3. (BP10) Discovering a Term source</a> <a href="#ref-for-network-of-terms⑦">(2)</a> <a href="#ref-for-network-of-terms⑧">(3)</a>
+    <li><a href="#ref-for-network-of-terms②">5.3. Perspective Knowledge Graph / Network Of Terms - Dataset Registry</a>
+    <li><a href="#ref-for-network-of-terms③">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a> <a href="#ref-for-network-of-terms④">(2)</a> <a href="#ref-for-network-of-terms⑤">(3)</a>
+    <li><a href="#ref-for-network-of-terms⑥">5.3.3. (BP9) Discovering a Term source</a> <a href="#ref-for-network-of-terms⑦">(2)</a> <a href="#ref-for-network-of-terms⑧">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="knowledge-graph">
@@ -3001,9 +3000,9 @@ Therefore, they rely on the <a data-link-type="dfn" href="#registry" id="ref-for
     <li><a href="#ref-for-knowledge-graph">3.4. Roles in the network</a>
     <li><a href="#ref-for-knowledge-graph①">4. Pilot Use Cases</a>
     <li><a href="#ref-for-knowledge-graph②">5. Business processes</a>
-    <li><a href="#ref-for-knowledge-graph③">5.3. Perspective Knowledge Graph / Network Of Terms - Registry</a>
-    <li><a href="#ref-for-knowledge-graph④">5.3.1. (BP8) A Knowledge Graph or Network of Terms subscribes to a topic</a> <a href="#ref-for-knowledge-graph⑤">(2)</a> <a href="#ref-for-knowledge-graph⑥">(3)</a>
-    <li><a href="#ref-for-knowledge-graph⑦">5.3.2. (BP9) A Knowledge Graph discovers a dataset related to a subscribed topic</a> <a href="#ref-for-knowledge-graph⑧">(2)</a> <a href="#ref-for-knowledge-graph⑨">(3)</a>
+    <li><a href="#ref-for-knowledge-graph③">5.3. Perspective Knowledge Graph / Network Of Terms - Dataset Registry</a>
+    <li><a href="#ref-for-knowledge-graph④">5.3.1. (BP7) A Knowledge Graph or Network of Terms subscribes to a topic</a> <a href="#ref-for-knowledge-graph⑤">(2)</a> <a href="#ref-for-knowledge-graph⑥">(3)</a>
+    <li><a href="#ref-for-knowledge-graph⑦">5.3.2. (BP8) A Knowledge Graph discovers a dataset related to a subscribed topic</a> <a href="#ref-for-knowledge-graph⑧">(2)</a> <a href="#ref-for-knowledge-graph⑨">(3)</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
